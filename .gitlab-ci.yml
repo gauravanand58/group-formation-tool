@@ -1,8 +1,5 @@
 image: gradle:alpine
 
-stages:
-    - prod
-
 variables:
   GRADLE_OPTS: "-Dorg.gradle.daemon=false"
   GIT_STRATEGY: clone
@@ -55,9 +52,8 @@ deploy:
     - develop
 
 
-prod:
-    type: deploy
-    stage: prod
+deploy:
+    stage: deploy
     image: ruby:latest
     tags: 
      - dalfcs_gitlab_docker_ci
