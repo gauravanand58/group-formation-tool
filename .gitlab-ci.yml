@@ -1,5 +1,8 @@
 image: gradle:alpine
 
+stages:
+    - prod
+
 variables:
   GRADLE_OPTS: "-Dorg.gradle.daemon=false"
   GIT_STRATEGY: clone
@@ -50,3 +53,15 @@ deploy:
     - dpl --provider=heroku --app=$HEROKU_APP_TEST --api-key=$HEROKU_API_KEY
     only:
     - develop
+
+
+prod:
+    type: deploy
+    stage: prod
+    image: ruby:latest
+    tags: 
+     - dalfcs_gitlab_docker_ci
+    script:
+        - dpl --provider=heroku --app=$HEROKU_APP_PROD --api-key=$HEROKU_API_KEY_PROD
+    only:
+        - master
