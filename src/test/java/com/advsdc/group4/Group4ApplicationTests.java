@@ -1,10 +1,10 @@
-package com.example.milestone1_test;
+package com.advsdc.group4;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Milestone1TestApplicationTests {
+class Group4ApplicationTests {
 
 	@Test
 	void contextLoads() {
