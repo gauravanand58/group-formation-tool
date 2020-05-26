@@ -34,11 +34,15 @@ test:
   tags:
       - dalfcs_gitlab_docker_ci
 deploy:
-  stage: deploy
-  script:
-    - git remote add heroku https://heroku:$HEROKU_API_KEY@git.heroku.com/group4asdctest.git || true
-    - git push -f heroku HEAD:master
-  only:
-    - develop
-  tags:
+    stage: deploy
+    tags:
     - dalfcs_gitlab_docker_ci
+    image: ruby:2.3
+    script:
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
+    - dpl --provider=heroku --app=$HEROKU_APP_TEST --api-key=$HEROKU_API_KEY
+    only:
+    - develop
+
