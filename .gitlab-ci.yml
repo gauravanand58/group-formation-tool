@@ -50,3 +50,14 @@ deploy:
     - dpl --provider=heroku --app=$HEROKU_APP_TEST --api-key=$HEROKU_API_KEY
     only:
     - develop
+
+
+deploy:
+    stage: deploy
+    image: ruby:latest
+    tags: 
+     - dalfcs_gitlab_docker_ci
+    script:
+        - dpl --provider=heroku --app=$HEROKU_APP_PROD --api-key=$HEROKU_API_KEY_PROD
+    only:
+        - master
