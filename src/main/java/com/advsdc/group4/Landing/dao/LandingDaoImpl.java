@@ -1,4 +1,4 @@
-package com.advsdc.group4.dao;
+package com.advsdc.group4.Landing.dao;
 
 import org.springframework.stereotype.Service;
 

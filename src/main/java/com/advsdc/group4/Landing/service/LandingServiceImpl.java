@@ -1,10 +1,11 @@
-package com.advsdc.group4.service;
+package com.advsdc.group4.Landing.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import com.advsdc.group4.dao.LandingDao;
+import com.advsdc.group4.Landing.dao.LandingDao;
+
 @Service
 public class LandingServiceImpl implements LandingService {
 	

@@ -1,4 +1,4 @@
-package com.advsdc.group4.service;
+package com.advsdc.group4.Landing.service;
 
 import org.springframework.ui.Model;
 
