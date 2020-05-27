@@ -1,11 +1,12 @@
-package com.advsdc.group4.controller;
+package com.advsdc.group4.Landing.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.advsdc.group4.service.LandingService;
+import com.advsdc.group4.Landing.service.LandingService;
+
 
 @Controller 
 public class LandingPage {
