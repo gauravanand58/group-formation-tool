@@ -19,7 +19,7 @@ public class LandingServiceImpl implements LandingService {
 		
 		model.addAttribute("title", "Student Plus!");
 		model.addAttribute("subtitle", subTitle);
-		
+		model.addAttribute("roles", subTitle);
 		return "home";
 	}
 
