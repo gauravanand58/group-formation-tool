@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SpringBasics</title>
+</head>
+<body>
+	
+	<form action="#" th:action="@{/addUser}" th:object="${user}" style="border:1px solid #ccc" method="post">
+	  <div class="container">
+	    <h1>Sign Up</h1>
+	    <p>Please fill in this form to create an account.</p>
+	    <hr>
+	
+		<label for="fname"><b>First Name</b></label>
+	    <input type="text" th:field="*{firstName}" placeholder="Enter First Name" name="fname" required>
+	    
+	    <label for="lname"><b>Last Name</b></label>
+	    <input type="text" th:field="*{lastName}" placeholder="Enter Last Name" name="lname" required>
+	    
+	    <label for="email"><b>Email</b></label>
+	    <input type="text" th:field="*{email}" placeholder="Enter Email" name="email" required>
+	    
+	    <label for="bannerid"><b>Banner ID (B00)</b></label>
+	    <input type="text" th:field="*{bannerID}" placeholder="Enter Banner ID" name="bannerid" required>
+	
+	    <label for="psw"><b>Password</b></label>
+	    <input type="password" th:field="*{password}" placeholder="Enter Password" name="psw" required>
+	
+	    <label for="psw-repeat"><b>Repeat Password</b></label>
+	    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+	
+	
+	    <div class="clearfix">
+	      <button type="submit" class="signupbtn">Sign Up</button>
+	    </div>
+	    <p th:text="'content: ' + ${msg}" />
+	  </div>
+	</form>
+	
+</body>
+</html>

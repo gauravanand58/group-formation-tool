@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
   
 @Component
 public class DatabaseConnection {
-	 private static Connection con = null; 
+	 private static Connection con = null;
 	  
  	@Autowired
 	DBConfiguration configuration;

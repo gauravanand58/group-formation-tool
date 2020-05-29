@@ -10,7 +10,7 @@ import com.advsdc.group4.Landing.util.DatabaseConnection;
 
 @Service
 public class LandingDaoImpl implements LandingDao{
-	@Autowired  
+	@Autowired
 	DatabaseConnection data;
 	@Override
 	public String testDb() {
