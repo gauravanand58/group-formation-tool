@@ -9,5 +9,10 @@ class Group4ApplicationTests {
 	@Test
 	void contextLoads() {
 	}
+	
+	@Test
+	void mainTest() {
+		Group4Application.main(new String[] {});
+	}
 
 }

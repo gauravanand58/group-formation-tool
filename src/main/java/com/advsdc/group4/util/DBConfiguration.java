@@ -1,4 +1,4 @@
-package com.advsdc.group4.Landing.util;
+package com.advsdc.group4.util;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,11 +8,16 @@ import org.springframework.stereotype.Service;
 @ConfigurationProperties(prefix = "application")
 @Service
 public class DBConfiguration {
-	private String driver;
-	private String url;
-	private String username;
-	private String password;
-	
+	public String driver;
+	public String url;
+	public String username;
+	public String password;
+	public String getDriver() {
+		return driver;
+	}
+	public void setDriver(String driver) {
+		this.driver = driver;
+	}
 	public String getUrl() {
 		return url;
 	}
@@ -32,21 +37,7 @@ public class DBConfiguration {
 		this.password = password;
 	}
 	
-
-	
-	public String getDriver() {
-		return driver;
-	}
-	public void setDriver(String driver) {
-		this.driver = driver;
-	}
-	
 	@Autowired
 	public DBConfiguration() {
-	
 	}
-	
-	
-	
-
 }
