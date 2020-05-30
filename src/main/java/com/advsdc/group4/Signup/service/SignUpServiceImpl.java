@@ -1,6 +1,5 @@
 package com.advsdc.group4.Signup.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.advsdc.group4.Model.User;
@@ -9,16 +8,21 @@ import com.advsdc.group4.Signup.dao.SignUpDao;
 @Service
 public class SignUpServiceImpl implements SignUpService {
 
-	@Autowired
 	SignUpDao signupDao;
+	User user;
+	
+	public SignUpServiceImpl(User user, SignUpDao dao) {
+		signupDao = dao;
+		this.user = user;
+	}
 	
 	@Override
-	public boolean addUserToDB(User user) {
+	public boolean addUserToDB() {
 		return signupDao.addUser(user);
 	}
 
 	@Override
-	public boolean userExists(User user) {
+	public boolean userExists() {
 		return signupDao.userExists(user);
 	}
 

@@ -12,16 +12,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.advsdc.group4.Model.User;
+import com.advsdc.group4.Signup.dao.SignUpDao;
+import com.advsdc.group4.Signup.dao.SignUpDaoImpl;
 import com.advsdc.group4.Signup.service.SignUpService;
+import com.advsdc.group4.Signup.service.SignUpServiceImpl;
 
 @Controller
 public class SignUpController {
 	
 	@Autowired
-	SignUpService signupService;
-	
-	@Autowired
-	User user;
+	SignUpDao signUpDao;
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
@@ -29,7 +29,7 @@ public class SignUpController {
 	@GetMapping("/signup")
 	public String signup(Model model) {
 		System.out.println("SignUp page");
-		model.addAttribute("user", user);
+		model.addAttribute("user", new User());
 		return "signup";
 	}
 	
@@ -39,7 +39,8 @@ public class SignUpController {
 		System.out.println(user.toString());
 		
 		// check if user already exists
-		boolean isUserNew = signupService.userExists(user);
+		SignUpService signupService = new SignUpServiceImpl(user, signUpDao);
+		boolean isUserNew = signupService.userExists();
 		if(isUserNew) {
 			msg = "User already exists. Try to login or create account with different B00";
 			model.addAttribute("msg", msg);
@@ -53,7 +54,7 @@ public class SignUpController {
 		user.setRole(5);
 		
 		// add user to Users table
-		boolean isUserAdded = signupService.addUserToDB(user);
+		boolean isUserAdded = signupService.addUserToDB();
 		if(!isUserAdded) {
 			msg = "Error while adding user. Please try again.";
 			model.addAttribute("msg", msg);
