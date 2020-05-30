@@ -13,24 +13,7 @@ public class PasswordEncoderTest {
 	
 	@Test
 	public void encode() {
-		passwordEncoder.setPassword("testPassword");
-		assertNotNull(passwordEncoder.encode());
+		assertNotNull(passwordEncoder.encode("testPassword"));
 	}
 	
-	@Test
-	public void getPassword() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
-		Field field = passwordEncoder.getClass().getDeclaredField("password");
-		field.setAccessible(true);
-		field.set(passwordEncoder, "testPassword");		
-		assertEquals("testPassword", passwordEncoder.getPassword());
-	}
-	
-	@Test
-	public void setPassword() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
-		passwordEncoder.setPassword("testPassword");
-		Field field = passwordEncoder.getClass().getDeclaredField("password");
-		field.setAccessible(true);
-		assertEquals("testPassword", field.get(passwordEncoder));
-	}
-
 }
