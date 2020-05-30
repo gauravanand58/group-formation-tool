@@ -18,12 +18,6 @@ public class Group4Application {
 	 
 	public static void main(String[] args) {
 		SpringApplication.run(Group4Application.class, args);
-//		final ApplicationContext ctx = SpringApplication.run(Group4Application.class, args);
-//	final DBConfiguration dbConfig = ctx.getBean(DBConfiguration.class);
-//		System.out.println(dbConfig.getUrl());
-//		System.out.println(dbConfig.getDriver());
 	}
 	
-
-
 }
