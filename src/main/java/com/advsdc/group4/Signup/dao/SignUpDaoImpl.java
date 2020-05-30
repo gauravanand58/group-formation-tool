@@ -17,13 +17,12 @@ public class SignUpDaoImpl implements SignUpDao{
 	DatabaseConnection databaseConnection;
 	
 	@Override
-	public boolean addEntry(User user) {
-		//add db entry logic
+	public boolean addUser(User user) {
 		PreparedStatement preparedStatement;
-		String sql = "INSERT INTO Users (BannerID ,FName ,LName ,Email) "+
+		String usersQuery = "INSERT INTO Users (BannerID, FName, LName, Email) "+
 				" VALUES (?,?,?,?)";
 		try {
-			preparedStatement = databaseConnection.getConnection().prepareStatement(sql);
+			preparedStatement = databaseConnection.getConnection().prepareStatement(usersQuery);
 			preparedStatement.setString(1, user.getBannerID());
 			preparedStatement.setString(2, user.getFirstName());
 			preparedStatement.setString(3, user.getLastName());
@@ -31,8 +30,67 @@ public class SignUpDaoImpl implements SignUpDao{
 			preparedStatement.execute();
 			preparedStatement.close();
 		} catch (SQLException e) {
+			System.out.println("Error while adding user in Users table");
 			e.printStackTrace();
-		} 
+			return false;
+		}
+		return (addUserPassword(user) && addUserCourseAssociation(user));
+	}
+	
+	private boolean addUserCourseAssociation(User user) {
+		PreparedStatement preparedStatement;
+		String userCourseQuery = "INSERT INTO User_Course_Assoc (UCBannerID, UCRoleID, UCCourseID) "+
+				" VALUES (?,?,?)";
+		try {
+			preparedStatement = databaseConnection.getConnection().prepareStatement(userCourseQuery);
+			preparedStatement.setString(1, user.getBannerID());
+			preparedStatement.setInt(2, user.getRole());
+			preparedStatement.setInt(3, 0);
+			preparedStatement.execute();
+			preparedStatement.close();
+		} catch (SQLException e) {
+			System.out.println("Error while adding user into UserCourse Assoc table");
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+	
+	private boolean addUserPassword(User user) {
+		PreparedStatement preparedStatement;
+		String usersAuthQuery = "INSERT INTO UserAuth (UBannerID, UPassword) "+
+				" VALUES (?,?)";
+		try {
+			preparedStatement = databaseConnection.getConnection().prepareStatement(usersAuthQuery);
+			preparedStatement.setString(1, user.getBannerID());
+			preparedStatement.setString(2, user.getPassword());
+			preparedStatement.execute();
+			preparedStatement.close();
+		} catch (SQLException e) {
+			System.out.println("Error while adding user into UsersAuth table");
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+
+	@Override
+	public boolean userExists(User user) {
+		PreparedStatement preparedStatement;
+		String sql = "SELECT * from Users where BannerID = ?";
+		try {
+			preparedStatement = databaseConnection.getConnection().prepareStatement(sql);
+			preparedStatement.setString(1, user.getBannerID());
+			ResultSet resultSet = preparedStatement.executeQuery();
+			if(!resultSet.next()) {
+				return false;
+			}
+			preparedStatement.close();
+		} catch (SQLException e) {
+			System.out.println("Error while checking user in Users table");
+			e.printStackTrace();
+			return true;
+		}
 		return true;
 	}
 }

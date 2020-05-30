@@ -23,6 +23,7 @@ public class LandingDaoImpl implements LandingDao{
 				 subTitle += rs.getString("RoleName")+" ";
 			 }
 			 System.out.println("inside try");
+			 ps.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} 

@@ -14,7 +14,12 @@ public class SignUpServiceImpl implements SignUpService {
 	
 	@Override
 	public boolean addUserToDB(User user) {
-		return signupDao.addEntry(user);
+		return signupDao.addUser(user);
+	}
+
+	@Override
+	public boolean userExists(User user) {
+		return signupDao.userExists(user);
 	}
 
 }

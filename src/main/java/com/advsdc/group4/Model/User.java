@@ -6,6 +6,8 @@ import org.springframework.stereotype.Component;
 @Component
 @Scope("prototype")
 public class User {
+	
+	private int role;
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -45,6 +47,14 @@ public class User {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public int getRole() {
+		return role;
+	}
+
+	public void setRole(int role) {
+		this.role = role;
 	}
 	
 	
