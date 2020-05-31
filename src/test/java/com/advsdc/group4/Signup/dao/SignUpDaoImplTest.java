@@ -1,16 +1,17 @@
-package com.advsdc.group4.Signup.dao.test;
+package com.advsdc.group4.Signup.dao;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
+import com.advsdc.group4.Model.IUser;
 import com.advsdc.group4.Model.User;
 
 public class SignUpDaoImplTest {
 
 	@Test
 	public void addUserTest() {
-		User user = new User();
+		IUser user = new User();
 		SignUpDaoMock signUpDaoMock = new SignUpDaoMock();
 		signUpDaoMock.addUser(user);
 		assertEquals("INSERT INTO Users (BannerID, FName, LName, Email) "+
@@ -20,7 +21,7 @@ public class SignUpDaoImplTest {
 	
 	@Test
 	public void userExists() {
-		User user = new User();
+		IUser user = new User();
 		SignUpDaoMock signUpDaoMock = new SignUpDaoMock();
 		signUpDaoMock.userExists(user);
 		assertEquals("fName", user.getFirstName());

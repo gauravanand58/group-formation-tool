@@ -1,5 +1,6 @@
-package com.advsdc.group4.Signup.dao.test;
+package com.advsdc.group4.Signup.dao;
 
+import com.advsdc.group4.Model.IUser;
 import com.advsdc.group4.Model.User;
 import com.advsdc.group4.Signup.dao.SignUpDao;
 
@@ -9,7 +10,7 @@ public class SignUpDaoMock implements SignUpDao{
 	private String query;
 	
 	@Override
-	public boolean addUser(User user) {
+	public boolean addUser(IUser user) {
 		setInsertCount(getInsertCount() + 1);
 		setQuery("INSERT INTO Users (BannerID, FName, LName, Email) "+
 				" VALUES (?,?,?,?)");
@@ -17,7 +18,7 @@ public class SignUpDaoMock implements SignUpDao{
 	}
 
 	@Override
-	public boolean userExists(User user) {
+	public boolean userExists(IUser user) {
 		setQuery("SELECT * from Users where BannerID = ?");
 		user.setFirstName("fName");
 		return false;

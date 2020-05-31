@@ -1,11 +1,11 @@
-package com.advsdc.group4.Signup.service.test;
+package com.advsdc.group4.Signup.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
 import com.advsdc.group4.Model.User;
-import com.advsdc.group4.Signup.dao.test.SignUpDaoMock;
+import com.advsdc.group4.Signup.dao.SignUpDaoMock;
 
 public class SignUpServiceImplTest {
 

@@ -6,12 +6,13 @@ import java.sql.SQLException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.advsdc.group4.Landing.util.DatabaseConnection;
+
+import com.advsdc.group4.util.DatabaseConnection;
 
 @Service
 public class LandingDaoImpl implements LandingDao{
-	@Autowired
-	DatabaseConnection data;
+	
+	DatabaseConnection data = new DatabaseConnection();
 	@Override
 	public String testDb() {
 		 PreparedStatement ps;

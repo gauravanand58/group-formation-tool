@@ -1,11 +1,6 @@
 package com.advsdc.group4.Model;
 
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-
-@Component
-@Scope("prototype")
-public class User {
+public class User implements IUser{
 	
 	private int role;
 	private String firstName;

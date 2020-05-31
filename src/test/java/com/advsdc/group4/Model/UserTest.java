@@ -1,12 +1,10 @@
-package com.advsdc.group4.Model.test;
+package com.advsdc.group4.Model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.lang.reflect.Field;
 
 import org.junit.jupiter.api.Test;
-
-import com.advsdc.group4.Model.User;
 
 public class UserTest {
 	
