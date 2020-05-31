@@ -2,15 +2,46 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <title>SpringBasics</title>
 </head>
 <body>
 	
-	<h1 th:text="${title}"></h1>
-	
-	<h5 th:text="${subtitle}"></h5>
-	
-	Roles: <h5 th:text="${roles}"></h5>
-	
+<div class="container-fluid">
+<div class="row justify-content-center" style="padding-top: 10%;">
+ <div class="col-5 d-flex justify-content-center mx-auto" >
+<div class="card w-75" >
+<h4 class="card-header">Login</h4>
+<div class="card-body">
+<form>
+  <div class="form-group">
+    <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="BannerID">
+    </div>
+  <div class="form-group">
+    <input type="password" class="form-control" id="password" placeholder="Password">
+  </div>
+  <div class="row">
+  	<div class="col"><a href="generatePassotp">Forgot password</a></div>
+  	<div class="col">
+  	  <button type="submit" class="btn btn-primary" style="float:right;">Login</button>
+  	  </div>
+  </div>
+</form>
+
+  </div>
+</div>
+</div> 
+</div> 
+<div class="row justify-content-center" style="padding-top: 10%">
+
+ <div class="col-5 d-flex justify-content-center mx-auto">
+<div class="card w-75 justify-content-center">
+<h6 class="card-header justify-content-center"><a href="#">New to Group formation Tool? Sign up Here</a></h6>
+</div>
+</div> 
+</div>
+</div>
 </body>
 </html>
