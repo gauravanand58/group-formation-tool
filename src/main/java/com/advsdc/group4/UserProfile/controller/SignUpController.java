@@ -1,4 +1,4 @@
-package com.advsdc.group4.Signup.controller;
+package com.advsdc.group4.UserProfile.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -6,16 +6,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.advsdc.group4.Model.IUser;
 import com.advsdc.group4.Model.User;
-import com.advsdc.group4.Signup.service.SignUpService;
-import com.advsdc.group4.Signup.service.SignUpServiceImpl;
-import com.advsdc.group4.util.PasswordEncoder;
+import com.advsdc.group4.UserProfile.service.ISignUpService;
+import com.advsdc.group4.UserProfile.service.SignUpServiceImpl;
 
 @Controller
 public class SignUpController {
 	
-	private SignUpService signUpService;
+	private ISignUpService signUpService;
 	
 	public SignUpController() {
 		signUpService = new SignUpServiceImpl();

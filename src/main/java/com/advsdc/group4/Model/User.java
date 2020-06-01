@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.advsdc.group4.Signup.dao.SignUpDao;
+import com.advsdc.group4.UserProfile.dao.ISignUpDao;
 
 public class User implements IUser{
 	
@@ -19,7 +19,7 @@ public class User implements IUser{
 		setRoleMap(new HashMap<>());
 	}
 	
-	public User(String bannerID, SignUpDao signUpDao) {
+	public User(String bannerID, ISignUpDao signUpDao) {
 		signUpDao.loadUserWithID(bannerID, this);
 	}
 

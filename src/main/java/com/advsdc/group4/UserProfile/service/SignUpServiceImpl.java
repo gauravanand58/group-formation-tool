@@ -1,4 +1,4 @@
-package com.advsdc.group4.Signup.service;
+package com.advsdc.group4.UserProfile.service;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -8,14 +8,14 @@ import java.util.Map;
 import org.springframework.stereotype.Service;
 
 import com.advsdc.group4.Model.IUser;
-import com.advsdc.group4.Signup.dao.SignUpDao;
-import com.advsdc.group4.Signup.dao.SignUpDaoImpl;
+import com.advsdc.group4.UserProfile.dao.ISignUpDao;
+import com.advsdc.group4.UserProfile.dao.SignUpDaoImpl;
 import com.advsdc.group4.util.PasswordEncoder;
 
 @Service
-public class SignUpServiceImpl implements SignUpService {
+public class SignUpServiceImpl implements ISignUpService {
 
-	SignUpDao signupDao;
+	ISignUpDao signupDao;
 	
 	public SignUpServiceImpl() {
 		signupDao = new SignUpDaoImpl();

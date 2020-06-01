@@ -1,4 +1,4 @@
-package com.advsdc.group4.Signup.dao;
+package com.advsdc.group4.UserProfile.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,10 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.advsdc.group4.Model.IUser;
-import com.advsdc.group4.Model.User;
 import com.advsdc.group4.util.DatabaseConnection;
 
-public class SignUpDaoImpl implements SignUpDao{
+public class SignUpDaoImpl implements ISignUpDao{
 	
 	DatabaseConnection databaseConnection;
 	

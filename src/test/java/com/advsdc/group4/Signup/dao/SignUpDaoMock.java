@@ -7,9 +7,9 @@ import java.util.Map;
 
 import com.advsdc.group4.Model.IUser;
 import com.advsdc.group4.Model.User;
-import com.advsdc.group4.Signup.dao.SignUpDao;
+import com.advsdc.group4.UserProfile.dao.ISignUpDao;
 
-public class SignUpDaoMock implements SignUpDao{
+public class SignUpDaoMock implements ISignUpDao{
 
 	private int insertCount;
 	private String bannerID;
