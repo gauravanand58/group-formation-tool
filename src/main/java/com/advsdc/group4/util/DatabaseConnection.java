@@ -25,7 +25,6 @@ public class DatabaseConnection {
 	        	
 	        } 
 	        catch (Exception e) { 
-	        	System.out.println("Exception:"+e);
 	            con = null;
 	        	
        } 
