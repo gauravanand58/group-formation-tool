@@ -32,15 +32,6 @@ public class DatabaseConnection {
 	        return con; 
     } 
 	    
-	    public static void closeConnection() {
-	    	try { 
-	    		con.close();
-	    	}
-	    	catch (Exception e) { 
-	            con = null;     	
-	    	}   	
-	   }
-	    
 	    private DatabaseConnection(DBConfiguration dbConfiguration) {
 	    	DatabaseConnection.dbConfiguration = dbConfiguration;
 		}

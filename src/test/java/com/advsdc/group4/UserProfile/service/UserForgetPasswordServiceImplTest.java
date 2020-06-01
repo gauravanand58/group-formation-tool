@@ -21,6 +21,7 @@ public class UserForgetPasswordServiceImplTest {
 		UserForgetPasswordServiceImpl impl = new UserForgetPasswordServiceImpl();
 		User user = impl.getUserInfo(bannerID, userDao);
 		assertEquals("srikrishna.sasidharan@dal.ca", user.getEmail());
+		
 	}
 
 	@Test

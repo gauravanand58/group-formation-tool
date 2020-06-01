@@ -23,17 +23,7 @@ public class DatabaseConnectionTest {
 		} catch (SQLException e) {
 			assertEquals(null, conn);
 		}
-		
-		
-		conn = null;
-		
-		DatabaseConnection connection = mock(DatabaseConnection.class);
-		connection.dbConfiguration = null;
-		conn = connection.getConnection();
-		assertNull(conn);
-		
-		
-		
+				
 	}
 
 }

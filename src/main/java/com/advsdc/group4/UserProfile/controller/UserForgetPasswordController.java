@@ -23,6 +23,11 @@ public class UserForgetPasswordController {
 	@Autowired
 	IUserForgetPasswordService forgetPasswordService;
 	
+	@GetMapping("/")
+	public String userLogin(Model model) {
+		return "home";
+	}
+	
 	@GetMapping("/forgotpassword")
 	public String generatePassotp(Model model) {
 		model.addAttribute("generateotp", new GenerateOTP());
@@ -91,4 +96,6 @@ public class UserForgetPasswordController {
 		model.addAttribute("passwordreset", generateotp.isPasswordReset());
 		 return "home";
 	  }
+	
+	
 }
