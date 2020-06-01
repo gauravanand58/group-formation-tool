@@ -1,17 +1,22 @@
 package com.advsdc.group4.Model;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import com.advsdc.group4.Signup.dao.SignUpDao;
 
 public class User implements IUser{
 	
-	private int role;
 	private String firstName;
 	private String lastName;
 	private String email;
 	private String bannerID;
 	private String password;
+	private Map<Integer, List<Integer>> roleMap;
 	
 	public User() {
+		setRoleMap(new HashMap<>());
 	}
 	
 	public User(String bannerID, SignUpDao signUpDao) {
@@ -58,11 +63,11 @@ public class User implements IUser{
 		this.password = password;
 	}
 
-	public int getRole() {
-		return role;
+	public Map<Integer, List<Integer>> getRoleMap() {
+		return roleMap;
 	}
 
-	public void setRole(int role) {
-		this.role = role;
+	public void setRoleMap(Map<Integer, List<Integer>> roleMap) {
+		this.roleMap = roleMap;
 	}
 }

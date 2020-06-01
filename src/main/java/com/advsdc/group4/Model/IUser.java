@@ -1,5 +1,8 @@
 package com.advsdc.group4.Model;
 
+import java.util.List;
+import java.util.Map;
+
 public interface IUser {
 	public String getFirstName();
 	
@@ -20,8 +23,8 @@ public interface IUser {
 	public String getPassword();
 	
 	public void setPassword(String password);
+	
+	public Map<Integer, List<Integer>> getRoleMap();
 
-	public int getRole();
-
-	public void setRole(int role);
+	public void setRoleMap(Map<Integer, List<Integer>> roleMap);
 }

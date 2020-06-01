@@ -2,6 +2,11 @@ package com.advsdc.group4.Model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
 import org.junit.jupiter.api.Test;
 
 import com.advsdc.group4.Signup.dao.SignUpDaoMock;
@@ -79,17 +84,25 @@ public class UserTest {
 	}
 	
 	@Test
-	public void getRoleTest() {
+	public void getRoleMapTest() {
 		SignUpDaoMock signUpDaoMock = new SignUpDaoMock();
 		User user = new User("B000000", signUpDaoMock);
-		assertEquals(-1, user.getRole());
+		assertEquals(createRoleMap(), user.getRoleMap());
 	}
 	
 	@Test
-	public void setRoleTest() {
+	public void setRoleMapTest() {
 		User user = new User();
-		user.setRole(-1);
-		assertEquals(-1, user.getRole());
+		user.setRoleMap(createRoleMap());
+		assertEquals(createRoleMap(), user.getRoleMap());
+	}
+	
+	private Map<Integer, List<Integer>> createRoleMap(){
+		Map<Integer, List<Integer>> map = new HashMap<>();
+		List<Integer> courseList = new LinkedList<>();
+		courseList.add(-1);
+		map.put(-1, courseList);
+		return map;
 	}
 	
 }

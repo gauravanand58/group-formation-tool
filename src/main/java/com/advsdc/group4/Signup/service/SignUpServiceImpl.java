@@ -1,5 +1,10 @@
 package com.advsdc.group4.Signup.service;
 
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.stereotype.Service;
 
 import com.advsdc.group4.Model.IUser;
@@ -30,7 +35,11 @@ public class SignUpServiceImpl implements SignUpService {
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 				
 		// set role as Guest
-		user.setRole(5);
+		Map<Integer, List<Integer>> map = new HashMap<>();
+		List<Integer> courseList = new LinkedList<>();
+		courseList.add(0);
+		map.put(5, courseList);
+		user.setRoleMap(map);
 		
 		boolean userAdded = signupDao.addUser(user);
 		if(!userAdded) {

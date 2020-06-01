@@ -43,34 +43,7 @@ public class SignUpDaoImpl implements SignUpDao{
 				e.printStackTrace();
 			}
 		}
-		return (addUserPassword(user) && addUserCourseAssociation(user));
-	}
-	
-	private boolean addUserCourseAssociation(IUser user) {
-		PreparedStatement preparedStatement;
-		String userCourseQuery = "INSERT INTO User_Course_Assoc (UCBannerID, UCRoleID, UCCourseID) "+
-				" VALUES (?,?,?)";
-		Connection connection = databaseConnection.getConnection();
-		try {
-			preparedStatement = connection.prepareStatement(userCourseQuery);
-			preparedStatement.setString(1, user.getBannerID());
-			preparedStatement.setInt(2, user.getRole());
-			preparedStatement.setInt(3, 0);
-			preparedStatement.execute();
-			preparedStatement.close();
-			connection.close();
-		} catch (SQLException e) {
-			System.out.println("Error while adding user into UserCourse Assoc table");
-			e.printStackTrace();
-			return false;
-		} finally {
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		return true;
+		return addUserPassword(user) && addRoleCourseMap(user);
 	}
 	
 	private boolean addUserPassword(IUser user) {
@@ -117,6 +90,38 @@ public class SignUpDaoImpl implements SignUpDao{
 			connection.close();
 		} catch (SQLException e) {
 			System.out.println("Error while checking user in Users table");
+			e.printStackTrace();
+			return true;
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return true;
+	}
+	
+	private boolean addRoleCourseMap(IUser user) {
+		String bannerID = user.getBannerID();
+		int role = 5;
+		int course = user.getRoleMap().get(5).get(0);
+		PreparedStatement preparedStatement;
+		String sql = "INSERT INTO User_Course_Assoc (UCBannerID, UCRoleID, UCCourseID) "+
+				" VALUES (?,?,?)";
+		Connection connection = databaseConnection.getConnection();
+		try {
+			System.out.println("DB " + databaseConnection);
+			System.out.println(" : " + databaseConnection.getConnection());
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, bannerID);
+			preparedStatement.setInt(2, role);
+			preparedStatement.setInt(3, course);
+			preparedStatement.execute();
+			preparedStatement.close();
+			connection.close();
+		} catch (SQLException e) {
+			System.out.println("Error while adding mapping in User_Course_Assoc table");
 			e.printStackTrace();
 			return true;
 		} finally {
