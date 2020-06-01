@@ -20,6 +20,8 @@ build:
   script:
     - chmod +x ./gradlew
     - ./gradlew assemble
+  only:
+    - feature-admin
   artifacts:
     paths:
       - build/libs/*.jar
@@ -31,6 +33,8 @@ test:
   script:
     - chmod +x ./gradlew 
     - ./gradlew check
+  only:
+    - feature-admin
   tags:
       - dalfcs_gitlab_docker_ci
 deploy:

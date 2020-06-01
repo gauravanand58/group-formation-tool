@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Add Course</title>
+</head>
+<body>
+	
+	<div id="container">  
+    <form th:action="@{/add_course}" th:object = "${course}" method ="post">
+    <input type = "text" placeholder = "course id" th:field = "*{courseId}">
+    <input type = "text" placeholder = "course name" th:field = "*{courseName}">
+    <button type = "submit">submit</button>
+    </form>
+    <div>
+
+    
+</div>  
+	
+	
+	
+</body>
+</html>
