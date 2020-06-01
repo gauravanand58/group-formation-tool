@@ -4,10 +4,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.springframework.stereotype.Service;
+
 import com.advsdc.group4.Model.IUser;
-import com.advsdc.group4.Model.IUserAuth;
 import com.advsdc.group4.util.DatabaseConnection;
 
+@Service
 public class UserProfileDaoImpl implements IUserProfileDao{
 
 	@Override
@@ -16,14 +18,16 @@ public class UserProfileDaoImpl implements IUserProfileDao{
 		 
 		try {
 			ps = DatabaseConnection.getConnection()
-					.prepareStatement("select * from Users where BannerID=?;");
+					.prepareStatement("select * from Users where BannerID = ?;");
 			ps.setString(1, bannerID);
 			 ResultSet rs = ps.executeQuery(); 
 			 if(rs.next()) {
+				 user.setBannerID(bannerID);
 				 user.setEmail(rs.getString("Email"));
 				 user.setFirstName(rs.getString("FName"));
 				 user.setLastName(rs.getString("LName"));
 			 }
+
 		} catch (SQLException e) {
 			System.out.println("Error while validating user:"+ e);
 		} 		

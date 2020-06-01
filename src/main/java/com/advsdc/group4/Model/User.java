@@ -18,7 +18,6 @@ public class User implements IUser {
 		iUserDao.loadUserWithID(bannerID, this);
 	}
 	
-	
 	public String getFirstName() {
 		return firstName;
 	}

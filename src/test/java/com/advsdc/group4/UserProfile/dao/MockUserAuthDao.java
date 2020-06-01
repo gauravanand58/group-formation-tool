@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 import java.time.Instant;
 
 import com.advsdc.group4.Model.IUserAuth;
+import com.advsdc.group4.Model.UserAuth;
 
 
 public class MockUserAuthDao implements IUserAuthDao{
@@ -30,6 +31,16 @@ public class MockUserAuthDao implements IUserAuthDao{
 		otp = "A12d";
 		timestamp = Timestamp.from(Instant.now());
 		bannerID = "B00835818";
+	}
+
+	@Override
+	public int saveOtp(UserAuth userAuth) {
+		return 1;
+	}
+
+	@Override
+	public int userResetPassword(UserAuth userAuth) {
+		return 1;
 	}
 
 }

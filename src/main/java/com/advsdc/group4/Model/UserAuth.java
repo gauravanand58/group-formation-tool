@@ -2,6 +2,7 @@ package com.advsdc.group4.Model;
 
 import java.sql.Timestamp;
 
+
 import com.advsdc.group4.UserProfile.dao.IUserAuthDao;
 
 public class UserAuth implements IUserAuth{

@@ -12,22 +12,34 @@ public class DatabaseConnection {
 	@Autowired
 	 static DBConfiguration dbConfiguration ;
  
+	
 	    public static Connection getConnection() 
 	    { 
 	    	
-	    	
-	        try { 
-	        	System.out.println("check:"+dbConfiguration.getPassword());
-	        	Class.forName(dbConfiguration.getDriver()).getClass(); 
-	            con = DriverManager.getConnection(dbConfiguration.getUrl(), dbConfiguration.getUsername(), dbConfiguration.getPassword()); 
+	    	try { 
+	    		if(con==null || !con.isValid(0)) {
+	    			System.out.println("check:"+dbConfiguration.getPassword());
+		        	Class.forName(dbConfiguration.getDriver()).getClass(); 
+		            con = DriverManager.getConnection(dbConfiguration.getUrl(), dbConfiguration.getUsername(), dbConfiguration.getPassword()); 
+		    	}
+	        	
 	        } 
 	        catch (Exception e) { 
-
+	        	System.out.println("Exception:"+e);
 	            con = null;
 	        	
        } 
 	        return con; 
     } 
+	    
+	    public static void closeConnection() {
+	    	try { 
+	    		con.close();
+	    	}
+	    	catch (Exception e) { 
+	            con = null;     	
+	    	}   	
+	   }
 	    
 	    private DatabaseConnection(DBConfiguration dbConfiguration) {
 	    	DatabaseConnection.dbConfiguration = dbConfiguration;
