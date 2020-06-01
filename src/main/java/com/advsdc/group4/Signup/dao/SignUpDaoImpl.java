@@ -123,7 +123,7 @@ public class SignUpDaoImpl implements SignUpDao{
 		} catch (SQLException e) {
 			System.out.println("Error while adding mapping in User_Course_Assoc table");
 			e.printStackTrace();
-			return true;
+			return false;
 		} finally {
 			try {
 				connection.close();
