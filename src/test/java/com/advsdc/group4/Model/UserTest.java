@@ -2,118 +2,94 @@ package com.advsdc.group4.Model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.lang.reflect.Field;
-
 import org.junit.jupiter.api.Test;
+
+import com.advsdc.group4.Signup.dao.SignUpDaoMock;
 
 public class UserTest {
 	
 	@Test
-	public void getFirstName() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
-		User user = new User();
-		Field field = user.getClass().getDeclaredField("firstName");
-		field.setAccessible(true);
-		field.set(user, "fName");		
+	public void getFirstNameTest() {
+		SignUpDaoMock signUpDaoMock = new SignUpDaoMock();
+		User user = new User("B000000", signUpDaoMock);
 		assertEquals("fName", user.getFirstName());
 	}
 	
 	@Test
-	public void setFirstName() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
+	public void setFirstNameTest() {
 		User user = new User();
 		user.setFirstName("fName");
-		Field field = user.getClass().getDeclaredField("firstName");
-		field.setAccessible(true);
-		assertEquals("fName", field.get(user));
+		assertEquals("fName", user.getFirstName());
 	}
 	
 	@Test
-	public void getLastName() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
-		User user = new User();
-		Field field = user.getClass().getDeclaredField("lastName");
-		field.setAccessible(true);
-		field.set(user, "lName");		
+	public void getLastNameTest() {
+		SignUpDaoMock signUpDaoMock = new SignUpDaoMock();
+		User user = new User("B000000", signUpDaoMock);
 		assertEquals("lName", user.getLastName());
 	}
 	
 	@Test
-	public void setLastName() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
+	public void setLastNameTest() {
 		User user = new User();
 		user.setLastName("lName");
-		Field field = user.getClass().getDeclaredField("lastName");
-		field.setAccessible(true);
-		assertEquals("lName", field.get(user));
+		assertEquals("lName", user.getLastName());
 	}
 	
 	@Test
-	public void getEmail() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
-		User user = new User();
-		Field field = user.getClass().getDeclaredField("email");
-		field.setAccessible(true);
-		field.set(user, "test@test.com");		
-		assertEquals("test@test.com", user.getEmail());
+	public void getEmailTest() {
+		SignUpDaoMock signUpDaoMock = new SignUpDaoMock();
+		User user = new User("B000000", signUpDaoMock);
+		assertEquals("test@dal.ca", user.getEmail());
 	}
 	
 	@Test
-	public void setEmail() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
+	public void setEmailTest() {
 		User user = new User();
-		user.setEmail("test@test.com");
-		Field field = user.getClass().getDeclaredField("email");
-		field.setAccessible(true);
-		assertEquals("test@test.com", field.get(user));
+		user.setEmail("test@dal.ca");
+		assertEquals("test@dal.ca", user.getEmail());
 	}
 	
 	@Test
-	public void getBannerID() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
-		User user = new User();
-		Field field = user.getClass().getDeclaredField("bannerID");
-		field.setAccessible(true);
-		field.set(user, "B000000");		
+	public void getBannerIDTest() {
+		SignUpDaoMock signUpDaoMock = new SignUpDaoMock();
+		User user = new User("B000000", signUpDaoMock);
 		assertEquals("B000000", user.getBannerID());
 	}
 	
 	@Test
-	public void setBannerID() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
+	public void setBannerIDTest() {
 		User user = new User();
 		user.setBannerID("B000000");
-		Field field = user.getClass().getDeclaredField("bannerID");
-		field.setAccessible(true);
-		assertEquals("B000000", field.get(user));
+		assertEquals("B000000", user.getBannerID());
 	}
 	
 	@Test
-	public void getPassword() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
-		User user = new User();
-		Field field = user.getClass().getDeclaredField("password");
-		field.setAccessible(true);
-		field.set(user, "abc123");		
-		assertEquals("abc123", user.getPassword());
+	public void getPasswordTest() {
+		SignUpDaoMock signUpDaoMock = new SignUpDaoMock();
+		User user = new User("B000000", signUpDaoMock);
+		assertEquals("test_password", user.getPassword());
 	}
 	
 	@Test
-	public void setPassword() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
+	public void setPasswordTest() {
 		User user = new User();
-		user.setPassword("abc123");
-		Field field = user.getClass().getDeclaredField("password");
-		field.setAccessible(true);
-		assertEquals("abc123", field.get(user));
+		user.setPassword("test_password");
+		assertEquals("test_password", user.getPassword());
 	}
 	
 	@Test
-	public void getRole() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
-		User user = new User();
-		Field field = user.getClass().getDeclaredField("role");
-		field.setAccessible(true);
-		field.set(user, 10);		
-		assertEquals(10, user.getRole());
+	public void getRoleTest() {
+		SignUpDaoMock signUpDaoMock = new SignUpDaoMock();
+		User user = new User("B000000", signUpDaoMock);
+		assertEquals(-1, user.getRole());
 	}
 	
 	@Test
-	public void setRole() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
+	public void setRoleTest() {
 		User user = new User();
-		user.setRole(10);
-		Field field = user.getClass().getDeclaredField("role");
-		field.setAccessible(true);
-		assertEquals(10, field.get(user));
+		user.setRole(-1);
+		assertEquals(-1, user.getRole());
 	}
 	
 }

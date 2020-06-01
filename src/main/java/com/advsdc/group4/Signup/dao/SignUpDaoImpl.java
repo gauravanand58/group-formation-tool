@@ -128,4 +128,9 @@ public class SignUpDaoImpl implements SignUpDao{
 		}
 		return true;
 	}
+
+	@Override
+	public void loadUserWithID(String bannerID, IUser user) {
+		// write search user code 
+	}
 }

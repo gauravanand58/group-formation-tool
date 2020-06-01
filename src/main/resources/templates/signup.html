@@ -40,7 +40,9 @@
 	      <button type="submit" class="signupbtn">Sign Up</button>
 	    </div>
 	    <div th:switch="${msg}">
-	    	<p th:case="'null'" th:text="" />
+	    	<p th:case="'User Exists'" th:text="'User already exists. Try to login or create account with different B00'" />
+	    	<p th:case="'Error'" th:text="'Error while adding user. Please try again.'" />
+	    	<p th:case="'User Added'" th:text="'User added successfully. You may login now.'" />
 	    	<p th:case="*" th:text="${msg}"/>
 	    </div>
 	  </div>

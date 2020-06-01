@@ -7,20 +7,32 @@ import com.advsdc.group4.Signup.dao.SignUpDao;
 public class SignUpDaoMock implements SignUpDao{
 
 	private int insertCount;
-	private String query;
+	private String bannerID;
+	private String email;
+	private String firstName;
+	private String lastName;
+	private String password;
+	private int role;
+	
+	public SignUpDaoMock() {
+		bannerID = "B000000";
+		email = "test@dal.ca";
+		firstName = "fName";
+		lastName = "lName";
+		password = "test_password";
+		role = -1;
+	}
 	
 	@Override
 	public boolean addUser(IUser user) {
 		setInsertCount(getInsertCount() + 1);
-		setQuery("INSERT INTO Users (BannerID, FName, LName, Email) "+
-				" VALUES (?,?,?,?)");
 		return false;
 	}
 
 	@Override
 	public boolean userExists(IUser user) {
-		setQuery("SELECT * from Users where BannerID = ?");
-		user.setFirstName("fName");
+		if(user.getBannerID() == "B000000")
+			return true;
 		return false;
 	}
 
@@ -32,11 +44,13 @@ public class SignUpDaoMock implements SignUpDao{
 		this.insertCount = insertCount;
 	}
 
-	public String getQuery() {
-		return query;
-	}
-
-	public void setQuery(String insertQuery) {
-		this.query = insertQuery;
+	@Override
+	public void loadUserWithID(String bID, IUser user) {
+		user.setBannerID(bannerID);
+		user.setEmail(email);
+		user.setFirstName(firstName);
+		user.setLastName(lastName);
+		user.setPassword(password);
+		user.setRole(role);
 	}
 }

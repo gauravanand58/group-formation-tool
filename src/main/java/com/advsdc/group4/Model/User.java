@@ -1,5 +1,7 @@
 package com.advsdc.group4.Model;
 
+import com.advsdc.group4.Signup.dao.SignUpDao;
+
 public class User implements IUser{
 	
 	private int role;
@@ -12,6 +14,10 @@ public class User implements IUser{
 	public User() {
 	}
 	
+	public User(String bannerID, SignUpDao signUpDao) {
+		signUpDao.loadUserWithID(bannerID, this);
+	}
+
 	public String getFirstName() {
 		return firstName;
 	}

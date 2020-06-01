@@ -23,40 +23,14 @@ public class SignUpController {
 	
 	@GetMapping("/signup")
 	public String signup(Model model) {
-		System.out.println("SignUp page");
 		model.addAttribute("user", new User());
 		return "signup";
 	}
 	
 	@PostMapping("/addUser")
 	public String addUser(@ModelAttribute User user, Model model) {
-		String msg = "Hello Signup Check!";
-		System.out.println(user.toString());
-		
-		// check if user already exists
-		boolean isUserNew = signUpService.userExists(user);
-		if(isUserNew) {
-			msg = "User already exists. Try to login or create account with different B00";
-			model.addAttribute("msg", msg);
-			return "signup";
-		}
-		
-		// encrypt password
-		PasswordEncoder passwordEncoder = new PasswordEncoder();
-		user.setPassword(passwordEncoder.encode(user.getPassword()));
-		
-		// set role as Guest
-		user.setRole(5);
-		
-		// add user to Users table
-		boolean isUserAdded = signUpService.addUserToDB(user);
-		if(!isUserAdded) {
-			msg = "Error while adding user. Please try again.";
-			model.addAttribute("msg", msg);
-			return "signup";
-		}
-		msg = "User added successfully. You may login now";
-		model.addAttribute("msg", msg);
+		String response = signUpService.addUserToDB(user);		
+		model.addAttribute("msg", response);
 		return "signup";
 	}
 }
