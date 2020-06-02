@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.advsdc.group4.UserHome.dao.IUserHomeDao;
 import com.advsdc.group4.UserProfile.dao.ISignUpDao;
 
 public class User implements IUser{
@@ -21,6 +22,10 @@ public class User implements IUser{
 	
 	public User(String bannerID, ISignUpDao signUpDao) {
 		signUpDao.loadUserWithID(bannerID, this);
+	}
+	
+	public User(String bannerID, IUserHomeDao userHomeDao) {
+		userHomeDao.loadUserWithID(bannerID, this);
 	}
 
 	public String getFirstName() {

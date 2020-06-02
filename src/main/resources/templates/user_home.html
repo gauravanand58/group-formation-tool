@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>SpringBasics</title>
+</head>
+	<body>
+		<div class="row col-md-7 table-responsive">
+		    <div th:each="element: ${userCourseMap}">
+		    	<div th:if="${5 != element.key}" th:switch="${element.key}">
+		    		<div th:style="'font-weight: bold;'">
+			    		<div th:case="2" th:text="'Instructor'"></div>
+			    		<div th:case="3" th:text="'Teaching Assistant'"></div>
+			    		<div th:case="4" th:text="'Student'"></div>
+			    	</div>
+				    <table>
+				        <tr th:each="course : ${element.value}">
+				        	<td><p th:text="${course}"></p></td>
+				        	<td>
+				        		<form method="post" th:action="@{/CourseAdminPage}">
+				        			<input type="hidden" th:value="${course}" name="courseID">
+				        			<input type="hidden" th:value="${user.bannerID}" name="bannerID">
+            						<button type="submit" name="submit" value="value" class="link-button">Course Page</button>
+        						</form>
+				        	</td>
+				        </tr>
+				    </table>
+		        </div>
+		    </div>
+		</div>
+	</body>
+</html>

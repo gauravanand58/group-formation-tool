@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class DatabaseConnection {
 	 private static Connection con = null;
  	
-	    public Connection getConnection()
+	    public static Connection getConnection()
 	    {
 	    	String url = DBConfiguration.getUrl(); 
 	        String user = DBConfiguration.getUserName(); 

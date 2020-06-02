@@ -16,5 +16,4 @@ public class SignUpServiceImplTest {
 		daoMock.addUser(user);
 		assertEquals(1, daoMock.getInsertCount());
 	}
-
 }
