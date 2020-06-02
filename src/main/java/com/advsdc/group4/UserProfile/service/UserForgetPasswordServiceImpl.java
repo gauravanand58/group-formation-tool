@@ -9,17 +9,13 @@ import com.advsdc.group4.Model.User;
 import com.advsdc.group4.Model.UserAuth;
 import com.advsdc.group4.UserProfile.dao.IUserAuthDao;
 import com.advsdc.group4.UserProfile.dao.IUserProfileDao;
-import com.advsdc.group4.UserProfile.dao.UserAuthDaoImpl;
-import com.advsdc.group4.UserProfile.dao.UserProfileDaoImpl;
 import com.advsdc.group4.util.PasswordEncoder;
 
 import javax.mail.*;
 import javax.mail.internet.*;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-@Service
+
 public class UserForgetPasswordServiceImpl implements IUserForgetPasswordService {
 	
 	@Override
@@ -111,8 +107,8 @@ public class UserForgetPasswordServiceImpl implements IUserForgetPasswordService
 		prop.setProperty("mail.smtp.host", host);
 		prop.setProperty("mail.smtp.port", "587");
 		prop.setProperty("mail.smtp.auth", "true");
-		Session session = Session.getInstance(prop, new javax.mail.Authenticator(){
-			
+		Session session = Session
+				.getInstance(prop, new javax.mail.Authenticator(){
 			        protected PasswordAuthentication getPasswordAuthentication() {
 			            return new PasswordAuthentication( from, "euchunzbtywsqwgc");
 			        }

@@ -4,13 +4,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.springframework.stereotype.Service;
 
 import com.advsdc.group4.Model.IUserAuth;
 import com.advsdc.group4.Model.UserAuth;
 import com.advsdc.group4.util.DatabaseConnection;
 
-@Service
+
 public class UserAuthDaoImpl implements IUserAuthDao{
 
 	@Override
@@ -29,8 +28,10 @@ public class UserAuthDaoImpl implements IUserAuthDao{
 			 }
 
 		} catch (SQLException e) {
-			System.out.println("Error while validating user:"+ e);
-		} 		
+			System.out.println("Error while loading user details:"+ e);
+		} finally {
+			DatabaseConnection.closeConnection();
+		}	
 	}
 
 	@Override
@@ -46,11 +47,12 @@ public class UserAuthDaoImpl implements IUserAuthDao{
 			ps.setString(2, userAuth.getBannerID());
 			rs = ps.executeUpdate(); 
 
-			 System.out.println("inside try"+rs);
 
 		} catch (SQLException e) {
-			System.out.println("Error while validating user:"+ e);
-		} 
+			System.out.println("Error while updating user details:"+ e);
+		} finally {
+			DatabaseConnection.closeConnection();
+		}	
 		
 		return rs;		
 	}
@@ -69,10 +71,11 @@ public class UserAuthDaoImpl implements IUserAuthDao{
 				ps.setString(2, userAuth.getBannerID());
 				rs= ps.executeUpdate(); 
 
-				 System.out.println("inside try"+rs);
 			} catch (SQLException e) {
-				System.out.println("Error while validating user:"+ e);
-			}
+				System.out.println("Error while updating user details:"+ e);
+			} finally {
+				DatabaseConnection.closeConnection();
+			}	
 		return rs;	
 				
 	}

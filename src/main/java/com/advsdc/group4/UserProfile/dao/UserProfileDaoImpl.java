@@ -4,12 +4,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.springframework.stereotype.Service;
-
 import com.advsdc.group4.Model.IUser;
 import com.advsdc.group4.util.DatabaseConnection;
 
-@Service
+
 public class UserProfileDaoImpl implements IUserProfileDao{
 
 	@Override
@@ -29,8 +27,12 @@ public class UserProfileDaoImpl implements IUserProfileDao{
 			 }
 
 		} catch (SQLException e) {
-			System.out.println("Error while validating user:"+ e);
-		} 		
+			System.out.println("Error while loading user profile:"+ e);
+		} finally {
+			DatabaseConnection.closeConnection();
+		}			
 	}
+	
+	
 
 }

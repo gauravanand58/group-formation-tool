@@ -1,6 +1,5 @@
 package com.advsdc.group4.UserProfile.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,16 +10,17 @@ import com.advsdc.group4.Model.User;
 import com.advsdc.group4.Model.UserAuth;
 import com.advsdc.group4.UserProfile.dao.IUserAuthDao;
 import com.advsdc.group4.UserProfile.dao.IUserProfileDao;
+import com.advsdc.group4.UserProfile.dao.UserAuthDaoImpl;
+import com.advsdc.group4.UserProfile.dao.UserProfileDaoImpl;
 import com.advsdc.group4.UserProfile.forms.GenerateOTP;
 import com.advsdc.group4.UserProfile.service.IUserForgetPasswordService;
+import com.advsdc.group4.UserProfile.service.UserForgetPasswordServiceImpl;
 
 @Controller
 public class UserForgetPasswordController {
-	@Autowired
+	
 	IUserAuthDao userAuthDao;
-	@Autowired
-	IUserProfileDao userDao ;
-	@Autowired
+	IUserProfileDao userDao;
 	IUserForgetPasswordService forgetPasswordService;
 	
 	@GetMapping("/")
@@ -42,7 +42,6 @@ public class UserForgetPasswordController {
 			 generateotp.setUserEmail(user.getEmail());
 			 generateotp.setMailSent(true);
 			 UserAuth userAuth = forgetPasswordService.getUserAuthInfo(generateotp.getBannerId(),userAuthDao);
-			 System.out.println("auth:"+userAuth.getBannerID());
 			
 			 forgetPasswordService.generateOtp(user.getEmail(),userAuth,userAuthDao);
 
@@ -84,7 +83,6 @@ public class UserForgetPasswordController {
 			forgetPasswordService.userResetPassword(generateotp.getBannerId(), generateotp.getPassword(), userAuthDao);
 			generateotp = new GenerateOTP();
 			generateotp.setPasswordReset(true);
-			System.out.println("dd"+generateotp.isPasswordReset());
 		}
 		
 		model.addAttribute("generateotp", generateotp);
@@ -96,6 +94,12 @@ public class UserForgetPasswordController {
 		model.addAttribute("passwordreset", generateotp.isPasswordReset());
 		 return "home";
 	  }
+	
+	public UserForgetPasswordController() {
+		userAuthDao = new UserAuthDaoImpl();
+		userDao = new UserProfileDaoImpl();
+		forgetPasswordService = new UserForgetPasswordServiceImpl();
+	}
 	
 	
 }

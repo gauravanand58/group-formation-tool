@@ -20,8 +20,8 @@ public class DBConfigurationTest {
 	
 	@Test
 	public void getDriverTest() {
-		configuration.setDriver("com.mysql.jdbc.Driver");
-		assertEquals("com.mysql.jdbc.Driver", configuration.getDriver());
+		configuration.setDriverClassName("com.mysql.jdbc.Driver");
+		assertEquals("com.mysql.jdbc.Driver", configuration.getDriverClassName());
 	}
 	
 	@Test

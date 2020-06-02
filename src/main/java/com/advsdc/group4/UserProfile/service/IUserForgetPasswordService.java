@@ -4,7 +4,6 @@ import com.advsdc.group4.Model.User;
 import com.advsdc.group4.Model.UserAuth;
 import com.advsdc.group4.UserProfile.dao.IUserAuthDao;
 import com.advsdc.group4.UserProfile.dao.IUserProfileDao;
-import com.advsdc.group4.UserProfile.dao.UserAuthDaoImpl;
 
 public interface IUserForgetPasswordService {
 	public User getUserInfo(String bannerID, IUserProfileDao userDao);
