@@ -10,18 +10,13 @@ import com.advsdc.group4.util.DatabaseConnection;
 
 public class SignUpDaoImpl implements ISignUpDao{
 	
-	DatabaseConnection databaseConnection;
-	
-	public SignUpDaoImpl() {
-		databaseConnection = new DatabaseConnection();
-	}
 	
 	@Override
 	public boolean addUser(IUser user) {
 		PreparedStatement preparedStatement;
 		String usersQuery = "INSERT INTO Users (BannerID, FName, LName, Email) "+
 				" VALUES (?,?,?,?)";
-		Connection connection = databaseConnection.getConnection();
+		Connection connection = DatabaseConnection.getConnection();
 		try {
 			preparedStatement = connection.prepareStatement(usersQuery);
 			preparedStatement.setString(1, user.getBannerID());
@@ -49,7 +44,7 @@ public class SignUpDaoImpl implements ISignUpDao{
 		PreparedStatement preparedStatement;
 		String usersAuthQuery = "INSERT INTO UserAuth (UBannerID, UPassword) "+
 				" VALUES (?,?)";
-		Connection connection = databaseConnection.getConnection();
+		Connection connection = DatabaseConnection.getConnection();
 		try {
 			preparedStatement = connection.prepareStatement(usersAuthQuery);
 			preparedStatement.setString(1, user.getBannerID());
@@ -75,10 +70,8 @@ public class SignUpDaoImpl implements ISignUpDao{
 	public boolean userExists(IUser user) {
 		PreparedStatement preparedStatement;
 		String sql = "SELECT * from Users where BannerID = ?";
-		Connection connection = databaseConnection.getConnection();
+		Connection connection = DatabaseConnection.getConnection();
 		try {
-			System.out.println("DB " + databaseConnection);
-			System.out.println(" : " + databaseConnection.getConnection());
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, user.getBannerID());
 			ResultSet resultSet = preparedStatement.executeQuery();
@@ -108,10 +101,8 @@ public class SignUpDaoImpl implements ISignUpDao{
 		PreparedStatement preparedStatement;
 		String sql = "INSERT INTO User_Course_Assoc (UCBannerID, UCRoleID, UCCourseID) "+
 				" VALUES (?,?,?)";
-		Connection connection = databaseConnection.getConnection();
+		Connection connection = DatabaseConnection.getConnection();
 		try {
-			System.out.println("DB " + databaseConnection);
-			System.out.println(" : " + databaseConnection.getConnection());
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, bannerID);
 			preparedStatement.setInt(2, role);
