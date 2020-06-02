@@ -1,36 +1,29 @@
 package com.advsdc.group4.util;
 
-import java.sql.Connection; 
-import java.sql.DriverManager; 
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-@Service
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+  
 public class DatabaseConnection {
-	 private static Connection con ; 
-	@Autowired
-	 static DBConfiguration dbConfiguration ;
- 
-	    public static Connection getConnection() 
-	    { 
+	 private static Connection con = null;
+ 	
+	    public Connection getConnection()
+	    {
+	    	String url = DBConfiguration.getUrl(); 
+	        String user = DBConfiguration.getUserName(); 
+	        String pass = DBConfiguration.getPassword(); 
 	    	
-	    	
-	        try { 
-	        	System.out.println("check:"+dbConfiguration.getPassword());
-	        	Class.forName(dbConfiguration.getDriver()).getClass(); 
-	            con = DriverManager.getConnection(dbConfiguration.getUrl(), dbConfiguration.getUsername(), dbConfiguration.getPassword()); 
+	        try {
+	        	System.out.println("check:"+url);
+	            Class.forName(DBConfiguration.getDriver()).getClass(); 
+	            con = DriverManager.getConnection(url, user, pass); 
 	        } 
-	        catch (Exception e) { 
+	        catch (ClassNotFoundException | SQLException e) { 
 
-	            con = null;
-	        	
-       } 
+	            System.out.println("DbConnect:"+e);
+	        	e.printStackTrace();
+       }
 	        return con; 
-    } 
-	    
-	    private DatabaseConnection(DBConfiguration dbConfiguration) {
-	    	DatabaseConnection.dbConfiguration = dbConfiguration;
-		}
+    }
 
 }
