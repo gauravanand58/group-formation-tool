@@ -2,24 +2,20 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 <title>Add Course</title>
 </head>
 <body>
 	<table class="table">
-		<div id="container">
-			<div lang="en" th:replace="fragments/header :: header"></div>
+	<header lang="en" th:replace="fragments/header :: header"></header>
+		<div id="container" class="align-center">
+			
 			<form th:action="@{/add_course}" th:object="${course}" method="post">
 				<h3>Enter Course ID and Course Name</h3>
 				</br>
 				<input class="c-id-ip" type="text" placeholder="course id" th:field="*{courseId}">
 				</br>
-				<input type="text" placeholder="course name"
+				<input class="c-id-ip"  type="text" placeholder="course name"
 					th:field="*{courseName}">
 					</br>
 				<button type="submit">submit</button>

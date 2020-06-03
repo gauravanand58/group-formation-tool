@@ -8,7 +8,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import com.advsdc.group4.BusinessObjectModels.Course;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import com.advsdc.group4.Model.Course;
 import com.advsdc.group4.util.DatabaseConnection;
 
 public class DeleteCourseDaoImpl implements DeleteCourseDao {
@@ -20,6 +22,8 @@ public class DeleteCourseDaoImpl implements DeleteCourseDao {
 	String returnMessage;
 	ResultSet courseResult;
 
+	private static final Logger logger = LogManager.getLogger(DeleteCourseDaoImpl.class);
+
 	public ArrayList<Course> viewCourse() {
 		ArrayList<Course> courseList = new ArrayList<Course>();
 		connection = DatabaseConnection.getConnection();
@@ -27,22 +31,22 @@ public class DeleteCourseDaoImpl implements DeleteCourseDao {
 			selectStatement = connection.createStatement();
 			query = "Select CourseId, CourseName from Course";
 			courseResult = selectStatement.executeQuery(query);
-			Course cObj;
+			Course course;
 			while (courseResult.next()) {
-				cObj = new Course();
-				cObj.setCourseId(courseResult.getString("CourseId"));
-				cObj.setCourseName(courseResult.getString("CourseName"));
-				courseList.add(cObj);
+				course = new Course();
+				course.setCourseId(courseResult.getString("CourseId"));
+				course.setCourseName(courseResult.getString("CourseName"));
+				courseList.add(course);
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			logger.error(e);
+
 		} finally {
 			try {
 				selectStatement.close();
 				connection.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				logger.error(e);
 			}
 
 		}
@@ -57,23 +61,29 @@ public class DeleteCourseDaoImpl implements DeleteCourseDao {
 		connection = DatabaseConnection.getConnection();
 		String message = null;
 		while (iterator.hasNext()) {
-			query = "DELETE FROM Course WHERE CourseId ='" + iterator.next() + "';";
+			String courseCurrent = iterator.next();
+			query = "DELETE FROM user_course_assoc WHERE UCCourseID='" + courseCurrent + "';";
+
 			try {
 				statement = connection.prepareStatement(query);
-				rows = statement.executeUpdate();	
-				if(rows>0) {
+				statement.executeUpdate();
+				query = "DELETE FROM course WHERE CourseID='" + courseCurrent + "';";
+				statement = connection.prepareStatement(query);
+				rows = statement.executeUpdate();
+				if (rows > 0) {
 					message = "Course Deleted Successfully";
 				}
 			} catch (Exception e) {
+				logger.error(e);
 				message = "Unable to delete course, please select again";
 			}
+
 		}
 		try {
 			statement.close();
 			connection.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error(e);
 		}
 
 		return message;

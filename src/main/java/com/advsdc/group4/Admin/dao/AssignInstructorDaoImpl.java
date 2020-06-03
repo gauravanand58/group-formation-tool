@@ -7,8 +7,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import com.advsdc.group4.BusinessObjectModels.Course;
-import com.advsdc.group4.BusinessObjectModels.User;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import com.advsdc.group4.Model.Course;
+import com.advsdc.group4.Model.User;
 import com.advsdc.group4.util.DatabaseConnection;
 
 public class AssignInstructorDaoImpl implements AssignInstructorDao {
@@ -19,31 +22,33 @@ public class AssignInstructorDaoImpl implements AssignInstructorDao {
 	int rows;
 	String returnMessage;
 	ResultSet userResult;
+	
+	private static final Logger logger = LogManager.getLogger(DeleteCourseDaoImpl.class);
 
 	@Override
 	public ArrayList<User> viewUsers() {
+		User user;
 		ArrayList<User> userList = new ArrayList<User>();
 		connection = DatabaseConnection.getConnection();
 		try {
 			selectStatement = connection.createStatement();
 			query = "Select BannerID, FName, LName from users";
-			userResult = selectStatement.executeQuery(query);
-			User uObj;
+			userResult = selectStatement.executeQuery(query);		
 			while (userResult.next()) {
-				uObj = new User();
-				uObj.setbId(userResult.getString("BannerID"));
-				uObj.setfName(userResult.getString("FName"));
-				uObj.setlName(userResult.getString("LName"));
-				userList.add(uObj);
+				user = new User();
+				user.setbId(userResult.getString("BannerID"));
+				user.setfName(userResult.getString("FName"));
+				user.setlName(userResult.getString("LName"));
+				userList.add(user);
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			logger.error(e);
 		} finally {
 			try {
 				selectStatement.close();
 				connection.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
+				logger.error(e);
 			}
 
 		}
@@ -56,7 +61,6 @@ public class AssignInstructorDaoImpl implements AssignInstructorDao {
 		query = "insert into user_course_assoc (UCBannerID , UCRoleID, UCCourseId) values('" + bId + "', '2','"
 				+ courseId + "');";
 		connection = DatabaseConnection.getConnection();
-		System.out.println("query" + query);
 		try {
 			statement = connection.prepareStatement(query);
 
@@ -69,7 +73,7 @@ public class AssignInstructorDaoImpl implements AssignInstructorDao {
 			message = "Selected instructor already added for selected course";
 		} catch (Exception e) {
 
-			e.printStackTrace();
+			logger.error(e);
 		}
 		return message;
 	}

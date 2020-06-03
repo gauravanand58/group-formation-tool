@@ -1,4 +1,4 @@
-package com.advsdc.group4.BusinessObjectModels;
+package com.advsdc.group4.Model;
 
 public class User {
 	private String fName, lName, bId;

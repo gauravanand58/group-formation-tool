@@ -1,10 +1,10 @@
-package com.advsdc.group4.BusinessObjectModelsTest;
+package com.advsdc.group4.Model;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import com.advsdc.group4.BusinessObjectModels.User;
+import com.advsdc.group4.Model.User;
 
 public class UserTest {
 	@Test

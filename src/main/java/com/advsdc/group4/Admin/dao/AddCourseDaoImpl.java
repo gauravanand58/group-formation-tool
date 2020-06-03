@@ -3,7 +3,8 @@ package com.advsdc.group4.Admin.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import com.advsdc.group4.BusinessObjectModels.Course;
+
+import com.advsdc.group4.Model.Course;
 import com.advsdc.group4.util.DatabaseConnection;
 
 public class AddCourseDaoImpl implements AddCourseDao {

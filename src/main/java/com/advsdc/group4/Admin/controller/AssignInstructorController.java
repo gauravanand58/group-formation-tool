@@ -8,33 +8,35 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.advsdc.group4.Admin.service.AssignInstructorService;
 import com.advsdc.group4.Admin.service.AssignInstructorServiceImpl;
+import com.advsdc.group4.Admin.service.DeleteCourseService;
 import com.advsdc.group4.Admin.service.DeleteCourseServiceImpl;
-import com.advsdc.group4.BusinessObjectModels.Course;
-import com.advsdc.group4.BusinessObjectModels.User;
+import com.advsdc.group4.Model.Course;
+import com.advsdc.group4.Model.User;
 
 @Controller
 public class AssignInstructorController {
+	AssignInstructorService assignInstructorService = new AssignInstructorServiceImpl();
 	ArrayList<Course> courseList;
 	ArrayList<User> userList;
 
 	@GetMapping("/assign_instructor_page")
 	public String viewAddInstPage(Model model) {
-		DeleteCourseServiceImpl objViewCourse = new DeleteCourseServiceImpl();
-		courseList = objViewCourse.viewCourse();
+		DeleteCourseService deleteCourseService = new DeleteCourseServiceImpl();
+		courseList = deleteCourseService.viewCourse();
 		model.addAttribute("courseList", courseList);
-		AssignInstructorServiceImpl objAssignInst = new AssignInstructorServiceImpl();
-		userList = objAssignInst.viewUser();
+		userList = assignInstructorService.viewUser();
 		model.addAttribute("userList", userList);
 		return "adminAssignInstructor";
 	}
 
-	@PostMapping("/assign_role")
+	@PostMapping("/assign_instructor")
 	public String assignInstructor(@RequestParam("courseId") String courseId, User user, Model model) {
 		model.addAttribute("courseList", courseList);
 		model.addAttribute("userList", userList);
-		AssignInstructorServiceImpl objAddInst = new AssignInstructorServiceImpl();
-		String message = objAddInst.assignInstructor(courseId.split(" - ")[0], user.getbId());
+		
+		String message = assignInstructorService.assignInstructor(courseId.split(" - ")[0], user.getbId());
 		model.addAttribute("message", message);
 		return "adminAssignInstructor";
 	}
