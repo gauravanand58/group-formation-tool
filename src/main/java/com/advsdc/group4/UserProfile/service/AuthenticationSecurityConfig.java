@@ -52,7 +52,10 @@ public class AuthenticationSecurityConfig extends WebSecurityConfigurerAdapter{
 	                .and()
 	           
 	           .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/")
-	                .permitAll();
+	                .permitAll()
+	           .and().exceptionHandling().accessDeniedPage("invalidSession");
+	    
+	    		
 	}
 	
 
