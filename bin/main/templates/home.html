@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>SpringBasics</title>
+</head>
+<body>
+<div th:replace="navbar/navbar :: navbar"></div>
+
+<div class="container-fluid">
+<div class="row justify-content-center" style="padding-top: 5%;" th:if="${passwordreset}">
+<div class="col-5 d-flex justify-content-center mx-auto" >
+<div class="card w-75" >
+<h4 class="card-header" th:if="${passwordreset}" >Password has been updated. Please Login</h4>
+</div>
+</div>
+</div>
+<div class="row justify-content-center" style="padding-top: 5%;" th:if="${invalid}">
+<div class="col-5 d-flex justify-content-center mx-auto" >
+<div class="card w-75" >
+<h4 class="card-header" th:if="${invalid}" >Invalid Credentials</h4>
+</div>
+</div>
+</div>
+<div class="row justify-content-center" style="padding-top: 5%;">
+ <div class="col-5 d-flex justify-content-center mx-auto" >
+<div class="card w-75" >
+<h4 class="card-header " style="background-color: #f4efd3">Login</h4>
+<div class="card-body">
+<form th:action="@{/}"  method="post">
+  <div class="form-group" >
+    <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="BannerID" name="username">
+    </div>
+  <div class="form-group">
+    <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+  </div>
+  <div class="row">
+  	<div class="col"><a href="/forgotpassword" >Forgot password</a></div>
+  	<div class="col">
+  	  <button type="submit" class="btn btn-primary bg-dark" style="float:right;">Login</button>
+  	  </div>
+  </div>
+</form>
+
+  </div>
+</div>
+</div> 
+</div> 
+<div class="row justify-content-center" style="padding-top: 10%">
+
+ <div class="col-5 d-flex justify-content-center mx-auto">
+<div class="card w-75 justify-content-center">
+<h6 class="card-header justify-content-center" style="background-color: #f4efd3"><a href="/signup">New to Group formation Tool? Sign up Here</a></h6>
+</div>
+</div> 
+</div>
+</div>
+</body>
+</html>
