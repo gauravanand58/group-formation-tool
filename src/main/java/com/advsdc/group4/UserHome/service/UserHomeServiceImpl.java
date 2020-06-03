@@ -15,7 +15,6 @@ public class UserHomeServiceImpl implements IUserHomeService{
 	
 	public IUser loadUserCourseMap(String bannerID) {
 		IUser user = new User(bannerID, userHomeDao);
-		userHomeDao.loadUserCourseMap(user);
 		return user;
 	}
 	

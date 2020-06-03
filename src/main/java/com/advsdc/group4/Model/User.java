@@ -25,7 +25,7 @@ public class User implements IUser{
 	}
 	
 	public User(String bannerID, IUserHomeDao userHomeDao) {
-		userHomeDao.loadUserWithID(bannerID, this);
+		userHomeDao.loadUserCourseMap(bannerID, this);
 	}
 
 	public String getFirstName() {

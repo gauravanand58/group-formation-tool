@@ -24,17 +24,19 @@ public class UserHomeController {
 	
 	@GetMapping("/userHome")
 	public String userHome(@RequestParam(value="id") String bannerID, Model model) {
+		//TODO
 //		SecurityContext context = SecurityContextHolder.getContext();
 //		Authentication authentication = context.getAuthentication();
 //		String bannerID = authentication.getName();
 		IUser user = userHomeService.loadUserCourseMap(bannerID);
-		model.addAttribute("user", user);
+		model.addAttribute("userBannerID", bannerID);
 		model.addAttribute("userCourseMap", user.getRoleMap());
 		return "user_home";
 	}
 	
 	@PostMapping("/CourseAdminPage")
 	public String addUser(@RequestParam(value="courseID") String courseID, @RequestParam(value="bannerID") String bannerID, Model model) {
+		//TODO
 		System.out.println(courseID);
 		System.out.println(bannerID);
 		return "user_home";
