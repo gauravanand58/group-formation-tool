@@ -1,23 +1,25 @@
-package com.advsdc.group4.GetTA.service;
+package com.advsdc.group4.CourseAdminPage.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import com.advsdc.group4.GetTA.dao.GetTADao;
-@Service
+import com.advsdc.group4.CourseAdminPage.dao.GetTADao;
+import com.advsdc.group4.CourseAdminPage.dao.GetTADaoImpl;
+import com.advsdc.group4.Model.IUser;
+
 public class GetTAServiceImpl implements GetTAService{
 
-	@Autowired
 	GetTADao getTAdao;
+	public GetTAServiceImpl() {
+		getTAdao=new GetTADaoImpl();
+	}
 	
 	@Override
-	public String displayInfo(String bannerID, int courseID) {
-		String taInfo=getTAdao.getUser(bannerID, courseID);
+	public String displayInfo(IUser user, int courseID) {
+		String taInfo=getTAdao.getUser(user, courseID);
 		return taInfo;
 	}
 
 	@Override
-	public Boolean enrollTA(String bannerID, int courseID) {
-		Boolean enrolledTA=getTAdao.insertTA(bannerID, courseID);
+	public Boolean enrollTA(IUser user, int courseID) {
+		Boolean enrolledTA=getTAdao.insertTA(user, courseID);
 		return enrolledTA;
 	}
 
