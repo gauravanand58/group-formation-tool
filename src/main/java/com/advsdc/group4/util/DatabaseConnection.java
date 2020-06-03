@@ -2,41 +2,41 @@ package com.advsdc.group4.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-
+import java.sql.SQLException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-@Service
 public class DatabaseConnection {
-	private static Connection con ; 
+	private static Connection con = null;
 	
-	@Autowired
-	static DBConfiguration dbConfiguration ;
- 
-	    public  static Connection getConnection() 
-	    { try { 
-        	Class.forName(dbConfiguration.getDriverClassName()).getClass(); 
-            con = DriverManager.getConnection(dbConfiguration.getUrl(), dbConfiguration.getUsername(), dbConfiguration.getPassword()); 
-        } 
-        catch (Exception e) { 
-        	con = null;
-        	System.out.println("Exception:"+e);
-   } 
-        return con; 
-    } 
-	    private DatabaseConnection(DBConfiguration dbConfiguration) {
-	    	DatabaseConnection.dbConfiguration = dbConfiguration;
+	public static Connection getConnection()
+	{
+		String url = DBConfiguration.getUrl(); 
+		String user = DBConfiguration.getUserName(); 
+		String pass = DBConfiguration.getPassword(); 
+		
+		try {
+			System.out.println("check:"+url);
+		    Class.forName(DBConfiguration.getDriver()).getClass(); 
+		    con = DriverManager.getConnection(url, user, pass); 
+		} 
+		catch (ClassNotFoundException | SQLException e) { 
+		
+		    System.out.println("DbConnect:"+e);
+			e.printStackTrace();
 		}
-	    
-	    public static void closeConnection() 
-	    {
-	         try {
-				con.close();
-			} catch (Exception e) {
-				con = null;
-			} 
+		return con;
+	}
+	
+	public static void closeConnection() 
+	{
+		try {
+			con.close();
+		} catch (Exception e) {
+			con = null;
+		}
     } 
-	  
 }
+
