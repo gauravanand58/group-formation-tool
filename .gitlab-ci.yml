@@ -21,7 +21,6 @@ build:
     - chmod +x ./gradlew
     - ./gradlew assemble
   only:
-    - develop
     - feature-admin
   artifacts:
     paths:
@@ -35,7 +34,6 @@ test:
     - chmod +x ./gradlew 
     - ./gradlew check
   only:
-    - develop
     - feature-admin
   tags:
       - dalfcs_gitlab_docker_ci
