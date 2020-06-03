@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
 import com.advsdc.group4.Model.IUser;
 import com.advsdc.group4.util.DatabaseConnection;
 
@@ -147,4 +148,5 @@ public class SignUpDaoImpl implements ISignUpDao{
 	public void loadUserWithID(String bannerID, IUser user) {
 		
 	}
+	
 }
