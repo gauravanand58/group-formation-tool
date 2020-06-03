@@ -23,10 +23,6 @@ public class UserForgetPasswordController {
 	IUserProfileDao userDao;
 	IUserForgetPasswordService forgetPasswordService;
 	
-	@GetMapping("/")
-	public String userLogin(Model model) {
-		return "home";
-	}
 	
 	@GetMapping("/forgotpassword")
 	public String generatePassotp(Model model) {
@@ -36,7 +32,6 @@ public class UserForgetPasswordController {
 	
 	@PostMapping("/validateOTP")
 	  public String userOTPGenerate(@ModelAttribute GenerateOTP generateotp,Model model) {
-		  
 		 User user = forgetPasswordService.getUserInfo(generateotp.getBannerId(),userDao);
 		 if(user != null) {
 			 generateotp.setUserEmail(user.getEmail());

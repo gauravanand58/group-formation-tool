@@ -1,5 +1,6 @@
 package com.advsdc.group4.UserProfile.dao;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,9 +15,11 @@ public class UserAuthDaoImpl implements IUserAuthDao{
 
 	@Override
 	public void loadUserAuth(String bannerID, IUserAuth userAuth) {
-		PreparedStatement ps;
+		Connection connection = null;
+		
 		try {
-			ps = DatabaseConnection.getConnection()
+			connection =  DatabaseConnection.getConnection();
+			PreparedStatement ps =connection
 					.prepareStatement("select * from UserAuth where UBannerID = ? ;");
 			ps.setString(1, bannerID);
 			 ResultSet rs = ps.executeQuery(); 
@@ -30,18 +33,24 @@ public class UserAuthDaoImpl implements IUserAuthDao{
 		} catch (SQLException e) {
 			System.out.println("Error while loading user details:"+ e);
 		} finally {
-			DatabaseConnection.closeConnection();
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				System.out.println("Error in closing connection");
+			}
 		}	
 	}
 
 	@Override
 	public int saveOtp(UserAuth userAuth) {
+		Connection connection = null;
 		 PreparedStatement ps;
 		 int rs = 0;
 		try {
 			
 			String query = "UPDATE UserAuth SET OtpCode= ? , timeStamp =CURRENT_TIMESTAMP() WHERE UBannerID = ? ;";
-			ps = DatabaseConnection.getConnection()
+			connection =  DatabaseConnection.getConnection();
+			ps =connection
 					.prepareStatement(query);
 			ps.setString(1, userAuth.getOtp());
 			ps.setString(2, userAuth.getBannerID());
@@ -51,7 +60,11 @@ public class UserAuthDaoImpl implements IUserAuthDao{
 		} catch (SQLException e) {
 			System.out.println("Error while updating user details:"+ e);
 		} finally {
-			DatabaseConnection.closeConnection();
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				System.out.println("Error in closing connection");
+			}
 		}	
 		
 		return rs;		
@@ -59,13 +72,14 @@ public class UserAuthDaoImpl implements IUserAuthDao{
 
 	@Override
 	public int userResetPassword(UserAuth userAuth) {
-
+		Connection connection = null;
 		 PreparedStatement ps;
 		 int rs = 0;
 			try {
 				
 				String query = "UPDATE UserAuth SET UPassword = ?, OtpCode = '' WHERE UBannerID = ? ;";
-				ps = DatabaseConnection.getConnection()
+				connection =  DatabaseConnection.getConnection();
+				ps =connection
 						.prepareStatement(query);
 				ps.setString(1, userAuth.getPassword());
 				ps.setString(2, userAuth.getBannerID());
@@ -74,7 +88,11 @@ public class UserAuthDaoImpl implements IUserAuthDao{
 			} catch (SQLException e) {
 				System.out.println("Error while updating user details:"+ e);
 			} finally {
-				DatabaseConnection.closeConnection();
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					System.out.println("Error in closing connection");
+				}
 			}	
 		return rs;	
 				

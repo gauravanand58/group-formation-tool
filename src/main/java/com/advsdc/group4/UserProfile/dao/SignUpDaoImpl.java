@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
 import com.advsdc.group4.Model.IUser;
 import com.advsdc.group4.util.DatabaseConnection;
 
@@ -16,8 +17,9 @@ public class SignUpDaoImpl implements ISignUpDao{
 		PreparedStatement preparedStatement;
 		String usersQuery = "INSERT INTO Users (BannerID, FName, LName, Email) "+
 				" VALUES (?,?,?,?)";
-		Connection connection = DatabaseConnection.getConnection();
+		Connection connection = null;
 		try {
+			connection = DatabaseConnection.getConnection();
 			preparedStatement = connection.prepareStatement(usersQuery);
 			preparedStatement.setString(1, user.getBannerID());
 			preparedStatement.setString(2, user.getFirstName());
@@ -44,8 +46,9 @@ public class SignUpDaoImpl implements ISignUpDao{
 		PreparedStatement preparedStatement;
 		String usersAuthQuery = "INSERT INTO UserAuth (UBannerID, UPassword) "+
 				" VALUES (?,?)";
-		Connection connection = DatabaseConnection.getConnection();
+		Connection connection = null;
 		try {
+			connection = DatabaseConnection.getConnection();
 			preparedStatement = connection.prepareStatement(usersAuthQuery);
 			preparedStatement.setString(1, user.getBannerID());
 			preparedStatement.setString(2, user.getPassword());
@@ -70,8 +73,9 @@ public class SignUpDaoImpl implements ISignUpDao{
 	public boolean userExists(IUser user) {
 		PreparedStatement preparedStatement;
 		String sql = "SELECT * from Users where BannerID = ?";
-		Connection connection = DatabaseConnection.getConnection();
+		Connection connection = null;
 		try {
+			connection = DatabaseConnection.getConnection();
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, user.getBannerID());
 			ResultSet resultSet = preparedStatement.executeQuery();
@@ -101,8 +105,9 @@ public class SignUpDaoImpl implements ISignUpDao{
 		PreparedStatement preparedStatement;
 		String sql = "INSERT INTO User_Course_Assoc (UCBannerID, UCRoleID, UCCourseID) "+
 				" VALUES (?,?,?)";
-		Connection connection = DatabaseConnection.getConnection();
+		Connection connection = null;
 		try {
+			connection = DatabaseConnection.getConnection();
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, bannerID);
 			preparedStatement.setInt(2, role);
@@ -128,4 +133,5 @@ public class SignUpDaoImpl implements ISignUpDao{
 	public void loadUserWithID(String bannerID, IUser user) {
 		// write search user code 
 	}
+	
 }
