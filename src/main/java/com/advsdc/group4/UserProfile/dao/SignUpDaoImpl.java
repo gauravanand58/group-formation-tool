@@ -9,15 +9,15 @@ import com.advsdc.group4.Model.IUser;
 import com.advsdc.group4.util.DatabaseConnection;
 
 public class SignUpDaoImpl implements ISignUpDao{
-	
-	
+
 	@Override
 	public boolean addUser(IUser user) {
-		PreparedStatement preparedStatement;
+		PreparedStatement preparedStatement = null;
 		String usersQuery = "INSERT INTO Users (BannerID, FName, LName, Email) "+
 				" VALUES (?,?,?,?)";
-		Connection connection = DatabaseConnection.getConnection();
+		Connection connection = null;
 		try {
+			connection = DatabaseConnection.getConnection();
 			preparedStatement = connection.prepareStatement(usersQuery);
 			preparedStatement.setString(1, user.getBannerID());
 			preparedStatement.setString(2, user.getFirstName());
@@ -25,14 +25,18 @@ public class SignUpDaoImpl implements ISignUpDao{
 			preparedStatement.setString(4, user.getEmail());
 			preparedStatement.execute();
 			preparedStatement.close();
-			connection.close();
 		} catch (SQLException e) {
 			System.out.println("Error while adding user in Users table");
 			e.printStackTrace();
 			return false;
 		} finally {
 			try {
-				connection.close();
+				if(preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if(connection != null) {
+					connection.close();
+				}
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -41,24 +45,29 @@ public class SignUpDaoImpl implements ISignUpDao{
 	}
 	
 	private boolean addUserPassword(IUser user) {
-		PreparedStatement preparedStatement;
+		PreparedStatement preparedStatement = null;
 		String usersAuthQuery = "INSERT INTO UserAuth (UBannerID, UPassword) "+
 				" VALUES (?,?)";
-		Connection connection = DatabaseConnection.getConnection();
+		Connection connection = null;
 		try {
+			connection = DatabaseConnection.getConnection();
 			preparedStatement = connection.prepareStatement(usersAuthQuery);
 			preparedStatement.setString(1, user.getBannerID());
 			preparedStatement.setString(2, user.getPassword());
 			preparedStatement.execute();
 			preparedStatement.close();
-			connection.close();
 		} catch (SQLException e) {
 			System.out.println("Error while adding user into UsersAuth table");
 			e.printStackTrace();
 			return false;
 		} finally {
 			try {
-				connection.close();
+				if(preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if(connection != null) {
+					connection.close();
+				}
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -68,10 +77,11 @@ public class SignUpDaoImpl implements ISignUpDao{
 
 	@Override
 	public boolean userExists(IUser user) {
-		PreparedStatement preparedStatement;
+		PreparedStatement preparedStatement = null;
 		String sql = "SELECT * from Users where BannerID = ?";
-		Connection connection = DatabaseConnection.getConnection();
+		Connection connection = null;
 		try {
+			connection = DatabaseConnection.getConnection();
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, user.getBannerID());
 			ResultSet resultSet = preparedStatement.executeQuery();
@@ -79,14 +89,18 @@ public class SignUpDaoImpl implements ISignUpDao{
 				return false;
 			}
 			preparedStatement.close();
-			connection.close();
 		} catch (SQLException e) {
 			System.out.println("Error while checking user in Users table");
 			e.printStackTrace();
 			return true;
 		} finally {
 			try {
-				connection.close();
+				if(preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if(connection != null) {
+					connection.close();
+				}
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -98,25 +112,30 @@ public class SignUpDaoImpl implements ISignUpDao{
 		String bannerID = user.getBannerID();
 		int role = 5;
 		int course = user.getRoleMap().get(5).get(0);
-		PreparedStatement preparedStatement;
+		PreparedStatement preparedStatement = null;
 		String sql = "INSERT INTO User_Course_Assoc (UCBannerID, UCRoleID, UCCourseID) "+
 				" VALUES (?,?,?)";
-		Connection connection = DatabaseConnection.getConnection();
+		Connection connection = null;
 		try {
+			connection = DatabaseConnection.getConnection();
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, bannerID);
 			preparedStatement.setInt(2, role);
 			preparedStatement.setInt(3, course);
 			preparedStatement.execute();
 			preparedStatement.close();
-			connection.close();
 		} catch (SQLException e) {
 			System.out.println("Error while adding mapping in User_Course_Assoc table");
 			e.printStackTrace();
 			return false;
 		} finally {
 			try {
-				connection.close();
+				if(preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if(connection != null) {
+					connection.close();
+				}
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -126,6 +145,6 @@ public class SignUpDaoImpl implements ISignUpDao{
 
 	@Override
 	public void loadUserWithID(String bannerID, IUser user) {
-		// write search user code 
+		
 	}
 }

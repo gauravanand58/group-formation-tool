@@ -6,10 +6,9 @@ import java.util.List;
 import java.util.Map;
 
 import com.advsdc.group4.Model.IUser;
-import com.advsdc.group4.Model.User;
 import com.advsdc.group4.UserProfile.dao.ISignUpDao;
 
-public class SignUpDaoMock implements ISignUpDao{
+public class MockSignUpDao implements ISignUpDao{
 
 	private int insertCount;
 	private String bannerID;
@@ -19,7 +18,7 @@ public class SignUpDaoMock implements ISignUpDao{
 	private String password;
 	private Map<Integer, List<Integer>> roleMap;
 	
-	public SignUpDaoMock() {
+	public MockSignUpDao() {
 		bannerID = "B000000";
 		email = "test@dal.ca";
 		firstName = "fName";

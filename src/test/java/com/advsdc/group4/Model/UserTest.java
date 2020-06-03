@@ -9,13 +9,13 @@ import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
-import com.advsdc.group4.Signup.dao.SignUpDaoMock;
+import com.advsdc.group4.Signup.dao.MockSignUpDao;
 
 public class UserTest {
 	
 	@Test
 	public void getFirstNameTest() {
-		SignUpDaoMock signUpDaoMock = new SignUpDaoMock();
+		MockSignUpDao signUpDaoMock = new MockSignUpDao();
 		User user = new User("B000000", signUpDaoMock);
 		assertEquals("fName", user.getFirstName());
 	}
@@ -29,7 +29,7 @@ public class UserTest {
 	
 	@Test
 	public void getLastNameTest() {
-		SignUpDaoMock signUpDaoMock = new SignUpDaoMock();
+		MockSignUpDao signUpDaoMock = new MockSignUpDao();
 		User user = new User("B000000", signUpDaoMock);
 		assertEquals("lName", user.getLastName());
 	}
@@ -43,7 +43,7 @@ public class UserTest {
 	
 	@Test
 	public void getEmailTest() {
-		SignUpDaoMock signUpDaoMock = new SignUpDaoMock();
+		MockSignUpDao signUpDaoMock = new MockSignUpDao();
 		User user = new User("B000000", signUpDaoMock);
 		assertEquals("test@dal.ca", user.getEmail());
 	}
@@ -57,7 +57,7 @@ public class UserTest {
 	
 	@Test
 	public void getBannerIDTest() {
-		SignUpDaoMock signUpDaoMock = new SignUpDaoMock();
+		MockSignUpDao signUpDaoMock = new MockSignUpDao();
 		User user = new User("B000000", signUpDaoMock);
 		assertEquals("B000000", user.getBannerID());
 	}
@@ -71,7 +71,7 @@ public class UserTest {
 	
 	@Test
 	public void getPasswordTest() {
-		SignUpDaoMock signUpDaoMock = new SignUpDaoMock();
+		MockSignUpDao signUpDaoMock = new MockSignUpDao();
 		User user = new User("B000000", signUpDaoMock);
 		assertEquals("test_password", user.getPassword());
 	}
@@ -85,7 +85,7 @@ public class UserTest {
 	
 	@Test
 	public void getRoleMapTest() {
-		SignUpDaoMock signUpDaoMock = new SignUpDaoMock();
+		MockSignUpDao signUpDaoMock = new MockSignUpDao();
 		User user = new User("B000000", signUpDaoMock);
 		assertEquals(createRoleMap(), user.getRoleMap());
 	}
