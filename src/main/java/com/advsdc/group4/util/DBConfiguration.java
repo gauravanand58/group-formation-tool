@@ -1,47 +1,45 @@
 package com.advsdc.group4.util;
 
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Service;
-
-@Configuration
-@ConfigurationProperties("spring.datasource")
-@Service
 public class DBConfiguration {
-	public String driverClassName;
-	public String url;
-	public String username;
-	public String password;
 	
-	public String getDriverClassName() {
-		return driverClassName;
-	}
-	public void setDriverClassName(String driverClassName) {
-		this.driverClassName = driverClassName;
+	private static String driver = "com.mysql.cj.jdbc.Driver";
+	private static String url = "jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST";
+	private static String username = "CSCI5308_4_DEVINT_USER";
+	private static String password = "CSCI5308_4_DEVINT_4202";
+	
+	public DBConfiguration() {
 	}
 	
-	
-	
-	public String getUrl() {
+	public static String getUrl() {
 		return url;
 	}
-	public void setUrl(String url) {
-		this.url = url;
+	
+	public static String getDriver() {
+		return driver;
 	}
-	public String getUsername() {
+	
+	public static String getUserName() {
 		return username;
 	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	public String getPassword() {
+	
+	public static String getPassword() {
 		return password;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	
+	public static void setDriver(String driver) {
+		DBConfiguration.driver = driver;
 	}
-	@Autowired
-	public DBConfiguration() {}
+
+	public static void setUrl(String url) {
+		DBConfiguration.url = url;
+	}
+
+	public static void setUsername(String username) {
+		DBConfiguration.username = username;
+	}
+
+	public static void setPassword(String password) {
+		DBConfiguration.password = password;
+	}
 }
+
