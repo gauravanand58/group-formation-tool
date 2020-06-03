@@ -1,19 +1,16 @@
 package com.advsdc.group4.Admin.Dao;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import org.junit.jupiter.api.Test;
 
-import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
-
 import com.advsdc.group4.Admin.dao.AssignInstructorDao;
 import com.advsdc.group4.Admin.dao.AssignInstructorDaoImpl;
 import com.advsdc.group4.Model.Course;
 import com.advsdc.group4.Model.User;
 
-@RunWith(MockitoJUnitRunner.class)
 public class AssignInstructorDaoTest {
 
 	AssignInstructorDao assignInstructorDao = mock(AssignInstructorDaoImpl.class);
@@ -31,14 +28,12 @@ public class AssignInstructorDaoTest {
 		user.setlName("Johnson");
 	}
 
-
-
 	@Test
 	public void assignInstructorTest() {
-		when(assignInstructorDao.assignInstructor(course.getCourseId(), user.getbId())).thenReturn("Instructor added successfully");
-		assertEquals(assignInstructorDao.assignInstructor(course.getCourseId(), user.getbId()), "Instructor added successfully");
+		when(assignInstructorDao.assignInstructor(course.getCourseId(), user.getbId()))
+				.thenReturn("Instructor added successfully");
+		assertEquals(assignInstructorDao.assignInstructor(course.getCourseId(), user.getbId()),
+				"Instructor added successfully");
 		verify(assignInstructorDao).assignInstructor(course.getCourseId(), user.getbId());
 	}
 }
-
-
