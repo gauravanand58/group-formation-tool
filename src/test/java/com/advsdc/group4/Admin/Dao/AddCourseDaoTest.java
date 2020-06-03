@@ -9,10 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import com.advsdc.group4.Admin.dao.AddCourseDao;
 import com.advsdc.group4.Admin.dao.AddCourseDaoImpl;
-import com.advsdc.group4.Admin.dao.AssignInstructorDao;
-import com.advsdc.group4.Admin.dao.AssignInstructorDaoImpl;
 import com.advsdc.group4.Model.Course;
-import com.advsdc.group4.Model.User;
 
 public class AddCourseDaoTest{
 	

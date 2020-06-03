@@ -5,15 +5,14 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import org.junit.jupiter.api.Test;
 
-import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
+
 
 import com.advsdc.group4.Admin.service.AssignInstructorService;
 import com.advsdc.group4.Admin.service.AssignInstructorServiceImpl;
 import com.advsdc.group4.Model.Course;
 import com.advsdc.group4.Model.User;
 
-@RunWith(MockitoJUnitRunner.class)
+
 public class AssignInstructorServiceTest {
 
 	AssignInstructorService assignInstructorDao = mock(AssignInstructorServiceImpl.class);

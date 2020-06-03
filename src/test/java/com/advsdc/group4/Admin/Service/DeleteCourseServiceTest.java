@@ -9,8 +9,6 @@ import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
-import com.advsdc.group4.Admin.dao.DeleteCourseDao;
-import com.advsdc.group4.Admin.dao.DeleteCourseDaoImpl;
 import com.advsdc.group4.Admin.service.DeleteCourseService;
 import com.advsdc.group4.Admin.service.DeleteCourseServiceImpl;
 import com.advsdc.group4.Model.Course;
