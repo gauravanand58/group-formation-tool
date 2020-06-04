@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>SpringBasics</title>
+</head>
+	<body>
+		<div class="container">
+		    <h1 th:text="'Welcome ' + ${userBannerID}"></h1>
+		    <h4>Your Course Associations</h3>
+		    <hr>
+			<div th:each="element: ${userCourseMap}" th:if="${5 != element.key}">			
+				<table class="table table-striped">
+				  <thead>
+				    <tr>
+				      <th scope="col" th:style="'padding:0 50px;'"><h3>#</h3></th>
+				      <th th:switch="${element.key}" scope="col" colspan="3">
+				      	<h3 th:case="2" th:text="'Instructor'"></h3>
+						<h3 th:case="3" th:text="'Teaching Assistant'"></h3>
+						<h3 th:case="4" th:text="'Student'"></h3>
+				      </th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr th:each="course : ${element.value}">
+				      <th scope="row" th:style="'padding:0 50px;'" th:text="${courseStat.index} +1"></th>
+				      <td th:text="${course}" th:style="'padding:0 50px;'"></td>
+				      <td th:style="'padding:0 50px;'">
+				      	<form method="post" th:action="@{/CourseAdminPage}">
+							<input type="hidden" th:value="${course}" name="courseID">
+							<input type="hidden" th:value="${userBannerID}" name="bannerID">
+							<button type="submit" name="submit" value="value" class="link-button">Course Page</button>
+						</form>
+				      </td>
+				    </tr>
+				  </tbody>
+				  <hr>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>
+
+

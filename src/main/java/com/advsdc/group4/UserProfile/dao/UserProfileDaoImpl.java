@@ -28,15 +28,12 @@ public class UserProfileDaoImpl implements IUserProfileDao{
 				 user.setFirstName(rs.getString("FName"));
 				 user.setLastName(rs.getString("LName"));
 			 }
-
+			 ps.close();
+			 connection.close();
 		} catch (SQLException e) {
 			System.out.println("Error while loading user profile:"+ e);
 		} finally {
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				System.out.println("Error while closing connection");
-			}
+			DatabaseConnection.closeConnection();
 		}			
 	}
 
