@@ -17,7 +17,7 @@ public class AddCourseController {
 	@RequestMapping(value="/add_course_page", method = RequestMethod.GET)
 	public String addCourse(Model model) {	
 		model.addAttribute("course", new AdminCourse());
-		return "addCoursePage";
+		return "admin/addCoursePage";
 	}
 	
 	@RequestMapping("/add_course")
@@ -25,7 +25,7 @@ public class AddCourseController {
 		AddCourseService addCourseService = new AddCourseServiceImpl();
 		String message = addCourseService.addCourse(course);
 		model.addAttribute("message", message);
-		return "addCoursePage";
+		return "admin/addCoursePage";
 	}
 	
 	

@@ -28,7 +28,7 @@ public class AssignInstructorController {
 		model.addAttribute("courseList", courseList);
 		userList = assignInstructorService.viewUser();
 		model.addAttribute("userList", userList);
-		return "adminAssignInstructor";
+		return "admin/adminAssignInstructor";
 	}
 
 	@PostMapping("/assign_instructor")
@@ -38,6 +38,6 @@ public class AssignInstructorController {
 		
 		String message = assignInstructorService.assignInstructor(courseId.split(" - ")[0], user.getbId());
 		model.addAttribute("message", message);
-		return "adminAssignInstructor";
+		return "admin/adminAssignInstructor";
 	}
 }

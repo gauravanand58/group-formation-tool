@@ -22,7 +22,7 @@ public class DeleteCourseController {
 		
 		courseList = deleteCourseService.viewCourse();
 		model.addAttribute("courseList", courseList);
-		return "delCoursePage";
+		return "admin/delCoursePage";
 	}
 	
 	@RequestMapping(value="/display_after_checking" ,method=RequestMethod.POST)
@@ -35,6 +35,6 @@ public class DeleteCourseController {
 		}
 		model.addAttribute("message", message);
 		model.addAttribute("courseList", new ArrayList<>());
-		return "delCoursePage";
+		return "admin/delCoursePage";
 	}
 }
