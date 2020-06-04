@@ -26,6 +26,7 @@ public class SignUpDaoImpl implements ISignUpDao{
 			preparedStatement.setString(4, user.getEmail());
 			preparedStatement.execute();
 			preparedStatement.close();
+			connection.close();
 		} catch (SQLException e) {
 			System.out.println("Error while adding user in Users table");
 			e.printStackTrace();
@@ -57,6 +58,7 @@ public class SignUpDaoImpl implements ISignUpDao{
 			preparedStatement.setString(2, user.getPassword());
 			preparedStatement.execute();
 			preparedStatement.close();
+			connection.close();
 		} catch (SQLException e) {
 			System.out.println("Error while adding user into UsersAuth table");
 			e.printStackTrace();
@@ -90,6 +92,7 @@ public class SignUpDaoImpl implements ISignUpDao{
 				return false;
 			}
 			preparedStatement.close();
+			connection.close();
 		} catch (SQLException e) {
 			System.out.println("Error while checking user in Users table");
 			e.printStackTrace();
@@ -125,6 +128,7 @@ public class SignUpDaoImpl implements ISignUpDao{
 			preparedStatement.setInt(3, course);
 			preparedStatement.execute();
 			preparedStatement.close();
+			connection.close();
 		} catch (SQLException e) {
 			System.out.println("Error while adding mapping in User_Course_Assoc table");
 			e.printStackTrace();

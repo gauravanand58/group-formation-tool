@@ -3,6 +3,8 @@ package com.advsdc.group4.UserProfile.dao;
 
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.advsdc.group4.Model.IUserAuth;
 import com.advsdc.group4.Model.UserAuth;
@@ -41,6 +43,20 @@ public class MockUserAuthDao implements IUserAuthDao{
 	@Override
 	public int userResetPassword(UserAuth userAuth) {
 		return 1;
+	}
+
+	@Override
+	public boolean validateUserCredentials(String username, String password) {
+		
+		return true;
+	}
+
+	@Override
+	public List<String> fetchUserRoles(String username) {
+		// TODO Auto-generated method stub
+		List<String> roles = new ArrayList<String>();
+		roles.add("Guest");
+		return roles;
 	}
 
 }
