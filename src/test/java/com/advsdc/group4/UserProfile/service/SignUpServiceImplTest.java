@@ -13,7 +13,9 @@ public class SignUpServiceImplTest {
 	public void addUserToDBTest() {
 		MockSignUpDao daoMock = new MockSignUpDao();
 		User user = new User();
+		user.setBannerID("B000000");
 		daoMock.addUser(user);
 		assertEquals(1, daoMock.getInsertCount());
+		assertEquals(true, daoMock.userExists(user));
 	}
 }

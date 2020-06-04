@@ -139,10 +139,4 @@ public class SignUpDaoImpl implements ISignUpDao{
 		}
 		return true;
 	}
-
-	@Override
-	public void loadUserWithID(String bannerID, IUser user) {
-		
-	}
-	
 }

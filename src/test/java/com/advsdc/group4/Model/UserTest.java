@@ -9,84 +9,84 @@ import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
-import com.advsdc.group4.UserProfile.dao.MockSignUpDao;
+import com.advsdc.group4.UserProfile.dao.MockUserProfileDao;
 
 public class UserTest {
 	
 	@Test
 	public void getFirstNameTest() {
-		MockSignUpDao signUpDaoMock = new MockSignUpDao();
-		User user = new User("B000000", signUpDaoMock);
-		assertEquals("fName", user.getFirstName());
+		MockUserProfileDao mockUserProfileDao = new MockUserProfileDao();
+		User user = new User("B00835818", mockUserProfileDao);
+		assertEquals("Srikrishna", user.getFirstName());
 	}
 	
 	@Test
 	public void setFirstNameTest() {
 		User user = new User();
-		user.setFirstName("fName");
-		assertEquals("fName", user.getFirstName());
+		user.setFirstName("Srikrishna");
+		assertEquals("Srikrishna", user.getFirstName());
 	}
 	
 	@Test
 	public void getLastNameTest() {
-		MockSignUpDao signUpDaoMock = new MockSignUpDao();
-		User user = new User("B000000", signUpDaoMock);
-		assertEquals("lName", user.getLastName());
+		MockUserProfileDao mockUserProfileDao = new MockUserProfileDao();
+		User user = new User("B00835818", mockUserProfileDao);
+		assertEquals("Sasidharan", user.getLastName());
 	}
 	
 	@Test
 	public void setLastNameTest() {
 		User user = new User();
-		user.setLastName("lName");
-		assertEquals("lName", user.getLastName());
+		user.setLastName("Sasidharan");
+		assertEquals("Sasidharan", user.getLastName());
 	}
 	
 	@Test
 	public void getEmailTest() {
-		MockSignUpDao signUpDaoMock = new MockSignUpDao();
-		User user = new User("B000000", signUpDaoMock);
-		assertEquals("test@dal.ca", user.getEmail());
+		MockUserProfileDao mockUserProfileDao = new MockUserProfileDao();
+		User user = new User("B00835818", mockUserProfileDao);
+		assertEquals("srikrishna.sasidharan@dal.ca", user.getEmail());
 	}
 	
 	@Test
 	public void setEmailTest() {
 		User user = new User();
-		user.setEmail("test@dal.ca");
-		assertEquals("test@dal.ca", user.getEmail());
+		user.setEmail("srikrishna.sasidharan@dal.ca");
+		assertEquals("srikrishna.sasidharan@dal.ca", user.getEmail());
 	}
 	
 	@Test
 	public void getBannerIDTest() {
-		MockSignUpDao signUpDaoMock = new MockSignUpDao();
-		User user = new User("B000000", signUpDaoMock);
-		assertEquals("B000000", user.getBannerID());
+		MockUserProfileDao mockUserProfileDao = new MockUserProfileDao();
+		User user = new User("B00835818", mockUserProfileDao);
+		assertEquals("B00835818", user.getBannerID());
 	}
 	
 	@Test
 	public void setBannerIDTest() {
 		User user = new User();
-		user.setBannerID("B000000");
-		assertEquals("B000000", user.getBannerID());
+		user.setBannerID("B00835818");
+		assertEquals("B00835818", user.getBannerID());
 	}
 	
 	@Test
 	public void getPasswordTest() {
-		MockSignUpDao signUpDaoMock = new MockSignUpDao();
-		User user = new User("B000000", signUpDaoMock);
-		assertEquals("test_password", user.getPassword());
+		MockUserProfileDao mockUserProfileDao = new MockUserProfileDao();
+		User user = new User("B00835818", mockUserProfileDao);
+		assertEquals("password", user.getPassword());
 	}
 	
 	@Test
 	public void setPasswordTest() {
 		User user = new User();
-		user.setPassword("test_password");
-		assertEquals("test_password", user.getPassword());
+		user.setPassword("password");
+		assertEquals("password", user.getPassword());
 	}
 	
 	@Test
 	public void getRoleMapTest() {
-		MockSignUpDao signUpDaoMock = new MockSignUpDao();
-		User user = new User("B000000", signUpDaoMock);
+		MockUserProfileDao mockUserProfileDao = new MockUserProfileDao();
+		User user = new User("B00835818", mockUserProfileDao);
 		assertEquals(createRoleMap(), user.getRoleMap());
 	}
 	
