@@ -24,14 +24,14 @@ public class AddCourseDaoTest{
 	}
 	
 	@Test
-	public void testAddCourse() {
+	public void addCourseTest() {
 		when(addCourseDao.addCourse(course)).thenReturn("Course added successfully");
 		assertEquals(addCourseDao.addCourse(course),"Course added successfully");
 		verify(addCourseDao).addCourse(course);
 	}
 	
 	@Test
-	public void testCourseExists() {
+	public void courseExistsTest() {
 		when(addCourseDao.addCourse(course)).thenReturn("Course with same course ID already exists");
 		assertEquals(addCourseDao.addCourse(course),"Course with same course ID already exists");
 		verify(addCourseDao).addCourse(course);
