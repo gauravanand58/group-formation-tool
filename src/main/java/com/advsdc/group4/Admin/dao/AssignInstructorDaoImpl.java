@@ -45,12 +45,16 @@ public class AssignInstructorDaoImpl implements AssignInstructorDao {
 			logger.error(e);
 		} finally {
 			try {
-				selectStatement.close();
-				connection.close();
+				if(selectStatement != null) {
+					selectStatement.close();
+				}
+				if(connection != null) {
+					connection.close();
+				}
+				
 			} catch (SQLException e) {
 				logger.error(e);
 			}
-
 		}
 		return userList;
 	}
@@ -74,6 +78,19 @@ public class AssignInstructorDaoImpl implements AssignInstructorDao {
 		} catch (Exception e) {
 
 			logger.error(e);
+		}
+		finally {
+			try {
+				if(statement != null) {
+					statement.close();
+				}
+				if(connection != null) {
+					connection.close();
+				}
+				
+			} catch (SQLException e) {
+				logger.error(e);
+			}
 		}
 		return message;
 	}
