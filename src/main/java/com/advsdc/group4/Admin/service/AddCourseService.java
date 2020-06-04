@@ -2,10 +2,10 @@ package com.advsdc.group4.Admin.service;
 
 import java.util.ArrayList;
 
-import com.advsdc.group4.Model.Course;
+import com.advsdc.group4.Model.AdminCourse;
 
 public interface AddCourseService {
-	public String addCourse(Course course);
+	public String addCourse(AdminCourse course);
 	
 	
 }

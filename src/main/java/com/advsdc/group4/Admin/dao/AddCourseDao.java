@@ -1,9 +1,9 @@
 package com.advsdc.group4.Admin.dao;
 
-import com.advsdc.group4.Model.Course;
+import com.advsdc.group4.Model.AdminCourse;
 
 public interface AddCourseDao {
-	String addCourse(Course course);
+	String addCourse(AdminCourse course);
 	
 	
 }

@@ -4,47 +4,47 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import com.advsdc.group4.Model.User;
+import com.advsdc.group4.Model.AdminUser;
 
-public class UserTest {
+public class AdminUserTest {
 	@Test
 	void getfNameTest() {
-		User user = new User();
+		AdminUser user = new AdminUser();
 		user.setfName("Aaron");
 		assertTrue(user.getfName().equals("Aaron"));
 	}
 
 	@Test
 	void setfNameTest() {
-		User user = new User();
+		AdminUser user = new AdminUser();
 		user.setfName("Aaron");
 		assertTrue(user.getfName().equals("Aaron"));
 	}
 	
 	@Test
 	void getlNameTest() {
-		User user = new User();
+		AdminUser user = new AdminUser();
 		user.setlName("Kelly");
 		assertTrue(user.getlName().equals("Kelly"));
 	}
 
 	@Test
 	void setlNameTest() {
-		User user = new User();
+		AdminUser user = new AdminUser();
 		user.setlName("Kelly");
 		assertTrue(user.getlName().equals("Kelly"));
 	}
 	
 	@Test
 	void getbIdTest() {
-		User user = new User();
+		AdminUser user = new AdminUser();
 		user.setbId("B00818181");
 		assertTrue(user.getbId().equals("B00818181"));
 	}
 
 	@Test
 	void setbIdTest() {
-		User user = new User();
+		AdminUser user = new AdminUser();
 		user.setbId("B00818181");
 		assertTrue(user.getbId().equals("B00818181"));
 	}

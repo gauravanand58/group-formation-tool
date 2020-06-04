@@ -1,6 +1,6 @@
 package com.advsdc.group4.Model;
 
-public class User {
+public class AdminUser {
 	private String fName, lName, bId;
 
 	public String getfName() {

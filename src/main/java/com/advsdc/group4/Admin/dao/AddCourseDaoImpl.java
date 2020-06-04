@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import com.advsdc.group4.Model.Course;
+import com.advsdc.group4.Model.AdminCourse;
 import com.advsdc.group4.util.DatabaseConnection;
 
 public class AddCourseDaoImpl implements AddCourseDao {
@@ -16,7 +16,7 @@ public class AddCourseDaoImpl implements AddCourseDao {
 	ResultSet courseResult;
 
 	@Override
-	public String addCourse(Course course) {
+	public String addCourse(AdminCourse course) {
 		query = "Insert into Course (CourseId, CourseName) values(" + course.getCourseId() + ",'"
 				+ course.getCourseName() + "');";
 		connection = DatabaseConnection.getConnection();

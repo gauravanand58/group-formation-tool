@@ -11,17 +11,17 @@ import org.junit.jupiter.api.Test;
 
 import com.advsdc.group4.Admin.dao.DeleteCourseDao;
 import com.advsdc.group4.Admin.dao.DeleteCourseDaoImpl;
-import com.advsdc.group4.Model.Course;
+import com.advsdc.group4.Model.AdminCourse;
 
 public class DeleteCourseDaoTest{
 	
 	
 	DeleteCourseDao deleteCourseDao = mock(DeleteCourseDaoImpl.class);
-	Course course;
-	ArrayList<Course> arrayList = new ArrayList<Course>();
+	AdminCourse course;
+	ArrayList<AdminCourse> arrayList = new ArrayList<AdminCourse>();
 
 	public DeleteCourseDaoTest() {
-		course = new Course();
+		course = new AdminCourse();
 		course.setCourseId("5709");
 		course.setCourseName("Adv. topics in applied computing");
 

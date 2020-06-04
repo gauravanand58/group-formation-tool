@@ -9,22 +9,22 @@ import org.junit.jupiter.api.Test;
 
 import com.advsdc.group4.Admin.service.AssignInstructorService;
 import com.advsdc.group4.Admin.service.AssignInstructorServiceImpl;
-import com.advsdc.group4.Model.Course;
-import com.advsdc.group4.Model.User;
+import com.advsdc.group4.Model.AdminCourse;
+import com.advsdc.group4.Model.AdminUser;
 
 
 public class AssignInstructorServiceTest {
 
 	AssignInstructorService assignInstructorDao = mock(AssignInstructorServiceImpl.class);
-	Course course;
-	User user;
+	AdminCourse course;
+	AdminUser user;
 
 	public AssignInstructorServiceTest() {
-		course = new Course();
+		course = new AdminCourse();
 		course.setCourseId("5709");
 		course.setCourseName("Adv. topics in applied computing");
 
-		user = new User();
+		user = new AdminUser();
 		user.setbId("B00858585");
 		user.setfName("Raymond");
 		user.setlName("Johnson");

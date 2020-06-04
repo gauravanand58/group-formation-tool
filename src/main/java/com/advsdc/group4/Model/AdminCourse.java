@@ -1,6 +1,6 @@
 package com.advsdc.group4.Model;
 
-public class Course {
+public class AdminCourse {
 	private String courseName, courseId;
 
 	public String getCourseName() {
