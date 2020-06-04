@@ -15,7 +15,6 @@ import com.advsdc.group4.Model.Course;
 
 public class DeleteCourseDaoTest{
 	
-	
 	DeleteCourseDao deleteCourseDao = mock(DeleteCourseDaoImpl.class);
 	Course course;
 	ArrayList<Course> arrayList = new ArrayList<Course>();

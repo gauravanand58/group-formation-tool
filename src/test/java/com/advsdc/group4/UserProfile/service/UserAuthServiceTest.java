@@ -15,7 +15,6 @@ public class UserAuthServiceTest {
 		String username = "B00835818";
 		String password = "AA123";
 		IUserAuthDao authDao =  new MockUserAuthDao();
-		
 		UserAuthServiceImpl authServiceImpl =new UserAuthServiceImpl();
 		assertTrue(authServiceImpl.validateUserCredentials(username, password,authDao));		
 		
@@ -25,7 +24,6 @@ public class UserAuthServiceTest {
 	public void fetchUserRolesTest() {
 		String username = "B00835818";
 		IUserAuthDao authDao =  new MockUserAuthDao();
-		
 		UserAuthServiceImpl authServiceImpl =new UserAuthServiceImpl();
 		assertEquals("Guest", authServiceImpl.fetchUserRoles(username, authDao).get(0));		
 		

@@ -47,13 +47,11 @@ public class MockUserAuthDao implements IUserAuthDao{
 
 	@Override
 	public boolean validateUserCredentials(String username, String password) {
-		
 		return true;
 	}
 
 	@Override
 	public List<String> fetchUserRoles(String username) {
-		// TODO Auto-generated method stub
 		List<String> roles = new ArrayList<String>();
 		roles.add("Guest");
 		return roles;

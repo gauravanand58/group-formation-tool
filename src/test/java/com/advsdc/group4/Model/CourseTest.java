@@ -36,5 +36,18 @@ public class CourseTest {
 		course.setCourseName("advanced Topics in web");
 		assertTrue(course.getCourseName().equals("advanced Topics in web"));
 	}
+	
+	@Test
+	void getCourseDescriptionTest() {
+		Course course = new Course();
+		course.setCourseDescription("Course includes object oriented concepts.");
+		assertTrue(course.getCourseDescription().equals("Course includes object oriented concepts."));
+	}
 
+	@Test
+	void setCourseDescriptionTest() {
+		Course course = new Course();
+		course.setCourseDescription("Course includes object oriented concepts.");
+		assertTrue(course.getCourseDescription().equals("Course includes object oriented concepts."));
+	}
 }
