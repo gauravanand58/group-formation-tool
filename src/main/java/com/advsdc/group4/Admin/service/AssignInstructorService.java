@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import com.advsdc.group4.Model.Course;
 
 public interface AssignInstructorService {
-	String assignInstructor(String courseId, String bId);
+	String assignInstructor(int courseId, String bId);
 
 	ArrayList viewUser();
 }

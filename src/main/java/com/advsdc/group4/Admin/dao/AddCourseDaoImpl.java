@@ -17,7 +17,7 @@ public class AddCourseDaoImpl implements AddCourseDao {
 
 	@Override
 	public String addCourse(Course course) {
-		query = "Insert into Course (CourseId, CourseName) values(" + course.getCourseId() + ",'"
+		query = "Insert into Course (CourseDescription, CourseName) values('" + course.getCourseDescription() + "','"
 				+ course.getCourseName() + "');";
 		connection = DatabaseConnection.getConnection();
 		System.out.println("query" + query);

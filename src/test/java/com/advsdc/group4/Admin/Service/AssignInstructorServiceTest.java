@@ -21,7 +21,7 @@ public class AssignInstructorServiceTest {
 
 	public AssignInstructorServiceTest() {
 		course = new Course();
-		course.setCourseId("5709");
+		course.setCourseID(5709);
 		course.setCourseName("Adv. topics in applied computing");
 
 		user = new User();
@@ -34,9 +34,9 @@ public class AssignInstructorServiceTest {
 
 	@Test
 	public void assignInstructorTest() {
-		when(assignInstructorDao.assignInstructor(course.getCourseId(), user.getBannerID())).thenReturn("Instructor added successfully");
-		assertEquals(assignInstructorDao.assignInstructor(course.getCourseId(), user.getBannerID()), "Instructor added successfully");
-		verify(assignInstructorDao).assignInstructor(course.getCourseId(), user.getBannerID());
+		when(assignInstructorDao.assignInstructor(course.getCourseID(), user.getBannerID())).thenReturn("Instructor added successfully");
+		assertEquals(assignInstructorDao.assignInstructor(course.getCourseID(), user.getBannerID()), "Instructor added successfully");
+		verify(assignInstructorDao).assignInstructor(course.getCourseID(), user.getBannerID());
 	}
 }
 

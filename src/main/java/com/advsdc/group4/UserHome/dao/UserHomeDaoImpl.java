@@ -74,7 +74,7 @@ public class UserHomeDaoImpl implements IUserHomeDao{
 				courseID = mapResultSet.getInt("CourseID");
 				courseName = mapResultSet.getString("CourseName");
 				courseDescription = mapResultSet.getString("CourseDescription");
-				Course course = new Course(courseId, courseName, courseDescription);
+				Course course = new Course(courseID, courseName, courseDescription);
 				courseList.add(course);
 			}
 		} catch (SQLException e) {

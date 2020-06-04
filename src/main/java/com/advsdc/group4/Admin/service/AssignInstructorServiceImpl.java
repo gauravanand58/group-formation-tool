@@ -19,7 +19,7 @@ public class AssignInstructorServiceImpl implements AssignInstructorService{
 	}
 
 	@Override
-	public String assignInstructor(String courseId, String bId) {
+	public String assignInstructor(int courseId, String bId) {
 		String message = assignInstructorDao.assignInstructor(courseId, bId);
 		return message;
 	}

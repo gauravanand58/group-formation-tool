@@ -29,13 +29,14 @@ public class DeleteCourseDaoImpl implements DeleteCourseDao {
 		connection = DatabaseConnection.getConnection();
 		try {
 			selectStatement = connection.createStatement();
-			query = "Select CourseId, CourseName from Course";
+			query = "Select CourseID, CourseName, CourseDescription from Course";
 			courseResult = selectStatement.executeQuery(query);
 			Course course;
 			while (courseResult.next()) {
 				course = new Course();
-				course.setCourseId(courseResult.getString("CourseId"));
+				course.setCourseID(courseResult.getInt("CourseID"));
 				course.setCourseName(courseResult.getString("CourseName"));
+				course.setCourseDescription(courseResult.getString("CourseDescription"));
 				courseList.add(course);
 			}
 		} catch (SQLException e) {
@@ -62,7 +63,7 @@ public class DeleteCourseDaoImpl implements DeleteCourseDao {
 		String message = null;
 		while (iterator.hasNext()) {
 			String courseCurrent = iterator.next();
-			query = "DELETE FROM user_course_assoc WHERE UCCourseID='" + courseCurrent + "';";
+			query = "DELETE FROM User_Course_Assoc WHERE UCCourseID='" + courseCurrent + "';";
 
 			try {
 				statement = connection.prepareStatement(query);

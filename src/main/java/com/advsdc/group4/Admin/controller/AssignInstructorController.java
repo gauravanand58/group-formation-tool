@@ -32,11 +32,10 @@ public class AssignInstructorController {
 	}
 
 	@PostMapping("/assign_instructor")
-	public String assignInstructor(@RequestParam("courseId") String courseId, User user, Model model) {
+	public String assignInstructor(@RequestParam("courseID") String courseID, User user, Model model) {
 		model.addAttribute("courseList", courseList);
-		model.addAttribute("userList", userList);
-		
-		String message = assignInstructorService.assignInstructor(courseId.split(" - ")[0], user.getBannerID());
+		model.addAttribute("userList", userList);		
+		String message = assignInstructorService.assignInstructor(Integer.parseInt(courseID.split(" - ")[0]), user.getBannerID());
 		model.addAttribute("message", message);
 		return "admin/adminAssignInstructor";
 	}

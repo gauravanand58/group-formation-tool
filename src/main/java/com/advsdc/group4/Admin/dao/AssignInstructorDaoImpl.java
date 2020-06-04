@@ -32,7 +32,7 @@ public class AssignInstructorDaoImpl implements AssignInstructorDao {
 		connection = DatabaseConnection.getConnection();
 		try {
 			selectStatement = connection.createStatement();
-			query = "Select BannerID, FName, LName from users";
+			query = "Select BannerID, FName, LName from Users";
 			userResult = selectStatement.executeQuery(query);		
 			while (userResult.next()) {
 				user = new User();
@@ -56,9 +56,9 @@ public class AssignInstructorDaoImpl implements AssignInstructorDao {
 	}
 
 	@Override
-	public String assignInstructor(String courseId, String bId) {
+	public String assignInstructor(int courseId, String bId) {
 		String message = null;
-		query = "insert into user_course_assoc (UCBannerID , UCRoleID, UCCourseId) values('" + bId + "', '2','"
+		query = "insert into User_Course_Assoc (UCBannerID , UCRoleID, UCCourseId) values('" + bId + "', '2','"
 				+ courseId + "');";
 		connection = DatabaseConnection.getConnection();
 		try {

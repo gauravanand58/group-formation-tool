@@ -27,14 +27,17 @@
 								th:text="${userModel.getFirstName()}">Aaron</td>
 							<td th:value="${userModel.getLastName()}"
 								th:text="${userModel.getLastName()}">Kelly</td>
-							<td th:text="${userModel.getBannerID()}">B00888888</td> <input
+							<td th:text="${userModel.getBannerID()}">B00888888</td> 
+							<input
 								type="hidden" th:value="${userModel.getBannerID()}" name="bannerID">
-							<td><select name="courseId">
+							<td><select name="courseID">
 									<option>Select courses</option>
 									<div th:each="courseModel : ${courseList}">
 										<div>
 											<option
-												th:text="${courseModel.getCourseId()}+' - '+${courseModel.getCourseName()}"></option>
+												th:text="${courseModel.getCourseID()}+' - '+${courseModel.getCourseName()}+' - '+${courseModel.getCourseDescription()}"
+						
+												></option>
 										</div>
 									</div>
 							</select></td>

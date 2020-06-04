@@ -18,8 +18,8 @@ public class AddCourseDaoTest{
 
 	public AddCourseDaoTest() {
 		course = new Course();
-		course.setCourseId("5709");
 		course.setCourseName("Adv. topics in applied computing");
+		course.setCourseDescription("Gradruate Course");
 
 	}
 	

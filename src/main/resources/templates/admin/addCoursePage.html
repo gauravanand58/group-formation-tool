@@ -13,10 +13,10 @@
 			<form th:action="@{/add_course}" th:object="${course}" method="post">
 				<h3>Enter Course ID and Course Name</h3>
 				</br>
-				<input class="c-id-ip" type="text" placeholder="course id" th:field="*{courseId}">
+				<input class="c-id-ip" type="text" placeholder="course name" th:field="*{courseName}">
 				</br>
-				<input class="c-id-ip"  type="text" placeholder="course name"
-					th:field="*{courseName}">
+				<input class="c-id-ip"  type="text" placeholder="course description"
+					th:field="*{courseDescription}">
 					</br>
 				<button type="submit">submit</button>
 				</br>

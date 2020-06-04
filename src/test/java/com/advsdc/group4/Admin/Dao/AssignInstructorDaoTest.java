@@ -19,8 +19,9 @@ public class AssignInstructorDaoTest {
 
 	public AssignInstructorDaoTest() {
 		course = new Course();
-		course.setCourseId("5709");
+		course.setCourseID(5709);
 		course.setCourseName("Adv. topics in applied computing");
+		course.setCourseDescription("Gradruate Course");
 
 		user = new User();
 		user.setBannerID("B00858585");
@@ -30,10 +31,10 @@ public class AssignInstructorDaoTest {
 
 	@Test
 	public void assignInstructorTest() {
-		when(assignInstructorDao.assignInstructor(course.getCourseId(), user.getBannerID()))
+		when(assignInstructorDao.assignInstructor(course.getCourseID(), user.getBannerID()))
 				.thenReturn("Instructor added successfully");
-		assertEquals(assignInstructorDao.assignInstructor(course.getCourseId(), user.getBannerID()),
+		assertEquals(assignInstructorDao.assignInstructor(course.getCourseID(), user.getBannerID()),
 				"Instructor added successfully");
-		verify(assignInstructorDao).assignInstructor(course.getCourseId(), user.getBannerID());
+		verify(assignInstructorDao).assignInstructor(course.getCourseID(), user.getBannerID());
 	}
 }

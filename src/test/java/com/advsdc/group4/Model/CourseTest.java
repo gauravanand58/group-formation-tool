@@ -1,5 +1,6 @@
 package com.advsdc.group4.Model;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
@@ -9,17 +10,17 @@ import com.advsdc.group4.Model.Course;
 public class CourseTest {
 
 	@Test
-	void getCourseIdTest() {
+	void getCourseIDTest() {
 		Course course = new Course();
-		course.setCourseId("5409");
-		assertTrue(course.getCourseId().equals("5409"));
+		course.setCourseID(5409);
+		assertEquals(Integer.valueOf(5409), course.getCourseID());
 	}
 
 	@Test
-	void setCourseIdTest() {
+	void setCourseIDTest() {
 		Course course = new Course();
-		course.setCourseId("5409");
-		assertTrue(course.getCourseId().equals("5409"));
+		course.setCourseID(5409);
+		assertEquals(Integer.valueOf(5409), course.getCourseID());
 	}
 
 	@Test

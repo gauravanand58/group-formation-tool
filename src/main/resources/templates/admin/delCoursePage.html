@@ -14,18 +14,18 @@
 			<table class="table table-bordered">
 				<thead>
 					<tr>
-						<th>Course Id</th>
 						<th>Course Name</th>
+						<th>Course Description</th>
 						<th>Select</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr th:each="course : ${courseList}">
-						<td><span th:text="${course.courseId}"> course Id </span></td>
-						<td><span th:text="${course.courseName}"> course Name
+						<td><span th:text="${course.courseName}"> course Name </span></td>
+						<td><span th:text="${course.courseDescription}"> course Description
 						</span></td>
 						<td><input type="checkbox" name="courseChecked"
-							th:value="${course.getCourseId()}" /></td>
+							th:value="${course.getCourseID()}" /></td>
 					</tr>
 				</tbody>
 			</table>
