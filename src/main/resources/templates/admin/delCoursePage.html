@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Delete Course Page</title>
+</head>
+<body>
+	<header lang="en" th:replace="fragments/header :: header"></header>
+	<div class="container">
+	
+		<h2 class="align-center">Available Courses</h2>
+		<form th:if="${courseList.size() > 0}" action="#" th:action="@{/display_after_checking}" method="POST">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Course Name</th>
+						<th>Course Description</th>
+						<th>Select</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="course : ${courseList}">
+						<td><span th:text="${course.courseName}"> course Name </span></td>
+						<td><span th:text="${course.courseDescription}"> course Description
+						</span></td>
+						<td><input type="checkbox" name="courseChecked"
+							th:value="${course.getCourseID()}" /></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="align-center">
+			<input type = "submit" value="Submit" />
+			</div>
+			
+		</form>
+		<label>
+				<h3 th:text="${message}"></h3>
+			</label>
+</body>
+</html>
