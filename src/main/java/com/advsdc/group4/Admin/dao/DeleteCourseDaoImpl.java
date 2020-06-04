@@ -44,12 +44,16 @@ public class DeleteCourseDaoImpl implements DeleteCourseDao {
 
 		} finally {
 			try {
-				selectStatement.close();
-				connection.close();
+				if (selectStatement != null) {
+					selectStatement.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}
+
 			} catch (SQLException e) {
 				logger.error(e);
 			}
-
 		}
 
 		return courseList;
@@ -77,14 +81,19 @@ public class DeleteCourseDaoImpl implements DeleteCourseDao {
 			} catch (Exception e) {
 				logger.error(e);
 				message = "Unable to delete course, please select again";
-			}
+			} finally {
+				try {
+					if (statement != null) {
+						statement.close();
+					}
+					if (connection != null) {
+						connection.close();
+					}
 
-		}
-		try {
-			statement.close();
-			connection.close();
-		} catch (SQLException e) {
-			logger.error(e);
+				} catch (SQLException e) {
+					logger.error(e);
+				}
+			}
 		}
 
 		return message;

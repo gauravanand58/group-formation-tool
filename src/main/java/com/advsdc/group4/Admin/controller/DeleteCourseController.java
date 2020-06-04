@@ -33,6 +33,9 @@ public class DeleteCourseController {
 		{
 			message = deleteCourseService.deleteCourse(courseFinalList);
 		}
+		else {
+			message = "Please Select a Course";
+		}
 		model.addAttribute("message", message);
 		model.addAttribute("courseList", new ArrayList<>());
 		return "admin/delCoursePage";
