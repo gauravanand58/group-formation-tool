@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Course Admin Page</title>
+</head>
+<body>
+<div th:replace="navbar/navbar-auth :: navbar"></div>
+<form th:action="@{/SubmitCSV}" method="POST" enctype="multipart/form-data">
+    <div>
+    	<h1>Enroll Students</h1><br>
+        <label for="file">Upload Students CSV file</label>
+        <input type="file" name="csv" accept=".csv">
+        <input type="hidden" name="courseID" th:value="${courseID}"/>
+    </div>
+    <button type="submit" value="Import Users">Import Users</button>
+
+
+<div th:if="${display==3} and ${enrolledStudent}==false">
+     <p>Error:</p>
+     <p>Please select CSV or check the records for error.</p>
+</div>
+<div th:if="${display==3} and ${enrolledStudent}==True">
+     <p>Successfully added and enrolled students.</p>
+</div>
+</form> 
+<h1>Enroll TA</h1><br>
+<form th:action="@{/CourseAdminDetails}" method="post" th:object="${user}">
+   <p>Enter Banner ID: </p><input type="text" name="bannerID" />
+   <input type="hidden" name="courseID" th:value="${courseID}"/>
+   <input type="submit">
+</form>   
+
+<div th:if="${taInfo==null} and ${display==1}">
+   <p>Either no user exists or <span th:text="${bannerID}"/> is currently Student/TA of Course:<span th:text="${courseID}"/></p>
+</div>
+<div th:if="${taInfo!=null}  and ${display==1}" th:object="${user}">
+   <form th:action="@{/CourseTAEnrolled}" method="post">
+   <input type="hidden" name="courseID" th:value="${courseID}"/>
+   <input type="hidden" name="bannerID" th:value="${bannerID}"/>
+   <p>Do you want to enroll <span th:text="${taInfo}"/> as TA of Course:<span th:text="${courseID}"/></p><input type="submit" value="Enroll"/>
+    
+</form>
+</div>
+<div th:if="${enrolledTA==true} and ${display==2}">
+   <p>Successfully enrolled <span th:text="${bannerID}"/> as TA of Course:<span th:text="${courseID}"/></p>
+</div>
+<div th:if="${enrolledTA==false} and ${display==2}">
+   <p>Error while enrolling TA</p>
+</div>
+
+</body>
+</html>
