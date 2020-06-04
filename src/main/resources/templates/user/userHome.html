@@ -5,8 +5,69 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div th:replace="navbar/navbar-auth :: navbar"></div>
-
-User home
+	<div th:replace="navbar/navbar-auth :: navbar"></div>
+		<div class="container">
+		    <h1 th:text="'Welcome ' + ${userBannerID}"></h1>
+		    <hr>
+		    <div>			
+				<table class="table table-striped" th:if="${null != courseList}">
+				  <thead>
+				  	<h3 th:text="'List of courses available'"></h3>
+				    <tr>
+				      <th scope="col" th:style="'padding:0 50px;'"><h3>#</h3></th>
+				      <th scope="col">
+				      	<h3 th:text="'Course ID'"></h3>
+				      </th>
+				      <th scope="col">
+				      	<h3 th:text="'Course Name'"></h3>
+				      </th>
+				      <th scope="col">
+				      	<h3 th:text="'Course Description'"></h3>
+				      </th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr th:each="course: ${courseList}" th:if="${0 != course.courseID}">
+				      <th scope="row" th:style="'padding:0 50px;'" th:text="${courseStat.index}"></th>
+				      <td th:text="${course.courseID}" th:style="'padding:0 50px;'"></td>
+				      <td th:text="${course.courseName}" th:style="'padding:0 50px;'"></td>
+				      <td th:text="${course.courseDescription}" th:style="'padding:0 50px;'"></td>
+				    </tr>
+				  </tbody>
+				  <hr>
+				</table>
+			</div>
+			<div th:each="element: ${userCourseMap}" th:if="${5 != element.key}">			
+				<table class="table table-striped" th:style="'padding:20px 0px;'">
+				  <thead>
+				    <tr>
+				      <th th:switch="${element.key}" scope="col" colspan="3">
+				      	<h3 th:case="2" th:text="'Instructor'"></h3>
+						<h3 th:case="3" th:text="'Teaching Assistant'"></h3>
+						<h3 th:case="4" th:text="'Student'"></h3>
+				      </th>
+				    </tr>
+				    <tr>
+				      <th scope="col" th:style="'padding:0 50px;'"><h5>#</h5></th>
+				      <th scope="col" th:style="'padding:0 50px;'"><h5>Course ID</h5></th>
+				      <th scope="col" th:style="'padding:0 50px;'"><h5>Course Link</h5></th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr th:each="course : ${element.value}">
+				      <th scope="row" th:style="'padding:0 50px;'" th:text="${courseStat.index} +1"></th>
+				      <td th:text="${course}" th:style="'padding:0 50px;'"></td>
+				      <td th:style="'padding:0 50px;'">
+				      	<form method="post" th:action="${element.key==4} ? @{/Student} : @{/CourseAdminPage}">
+							<input type="hidden" th:value="${course}" name="courseID">
+							<input type="hidden" th:value="${userBannerID}" name="bannerID">
+							<button type="submit" name="submit" value="value" class="link-button">Course Page</button>
+						</form>
+				      </td>
+				    </tr>
+				  </tbody>
+				</table>
+			</div>
+		</div>
 </body>
 </html>

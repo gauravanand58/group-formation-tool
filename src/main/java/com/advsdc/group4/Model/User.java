@@ -25,10 +25,6 @@ public class User implements IUser{
 		iUserDao.loadUserWithID(bannerID, this);
 	}
 	
-	public User(String bannerID, ISignUpDao signUpDao) {
-		signUpDao.loadUserWithID(bannerID, this);
-	}
-	
 	public User(String bannerID, IUserHomeDao userHomeDao) {
 		userHomeDao.loadUserCourseMap(bannerID, this);
 	}
