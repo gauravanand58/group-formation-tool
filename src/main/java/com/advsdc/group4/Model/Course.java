@@ -1,7 +1,7 @@
 package com.advsdc.group4.Model;
 
-public class AdminCourse {
-	private String courseName, courseId;
+public class Course {
+	private String courseName, courseId, courseDescription;
 
 	public String getCourseName() {
 		return courseName;
@@ -17,6 +17,14 @@ public class AdminCourse {
 
 	public void setCourseId(String courseID) {
 		this.courseId = courseID;
+	}
+
+	public String getCourseDescription() {
+		return courseDescription;
+	}
+
+	public void setCourseDescription(String courseDescription) {
+		this.courseDescription = courseDescription;
 	}
 	
 }

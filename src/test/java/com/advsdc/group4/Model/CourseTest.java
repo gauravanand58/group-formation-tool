@@ -4,34 +4,34 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import com.advsdc.group4.Model.AdminCourse;
+import com.advsdc.group4.Model.Course;
 
-public class AdminCourseTest {
+public class CourseTest {
 
 	@Test
 	void getCourseIdTest() {
-		AdminCourse course = new AdminCourse();
+		Course course = new Course();
 		course.setCourseId("5409");
 		assertTrue(course.getCourseId().equals("5409"));
 	}
 
 	@Test
 	void setCourseIdTest() {
-		AdminCourse course = new AdminCourse();
+		Course course = new Course();
 		course.setCourseId("5409");
 		assertTrue(course.getCourseId().equals("5409"));
 	}
 
 	@Test
 	void getCourseNameTest() {
-		AdminCourse course = new AdminCourse();
+		Course course = new Course();
 		course.setCourseName("advanced Topics in web");
 		assertTrue(course.getCourseName().equals("advanced Topics in web"));
 	}
 
 	@Test
 	void setCourseNameTest() {
-		AdminCourse course = new AdminCourse();
+		Course course = new Course();
 		course.setCourseName("advanced Topics in web");
 		assertTrue(course.getCourseName().equals("advanced Topics in web"));
 	}

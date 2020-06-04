@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.advsdc.group4.Model.AdminCourse;
-import com.advsdc.group4.Model.AdminUser;
+import com.advsdc.group4.Model.Course;
+import com.advsdc.group4.Model.User;
 import com.advsdc.group4.util.DatabaseConnection;
 
 public class AssignInstructorDaoImpl implements AssignInstructorDao {
@@ -26,19 +26,19 @@ public class AssignInstructorDaoImpl implements AssignInstructorDao {
 	private static final Logger logger = LogManager.getLogger(DeleteCourseDaoImpl.class);
 
 	@Override
-	public ArrayList<AdminUser> viewUsers() {
-		AdminUser user;
-		ArrayList<AdminUser> userList = new ArrayList<AdminUser>();
+	public ArrayList<User> viewUsers() {
+		User user;
+		ArrayList<User> userList = new ArrayList<User>();
 		connection = DatabaseConnection.getConnection();
 		try {
 			selectStatement = connection.createStatement();
 			query = "Select BannerID, FName, LName from users";
 			userResult = selectStatement.executeQuery(query);		
 			while (userResult.next()) {
-				user = new AdminUser();
-				user.setbId(userResult.getString("BannerID"));
-				user.setfName(userResult.getString("FName"));
-				user.setlName(userResult.getString("LName"));
+				user = new User();
+				user.setBannerID(userResult.getString("BannerID"));
+				user.setFirstName(userResult.getString("FName"));
+				user.setLastName(userResult.getString("LName"));
 				userList.add(user);
 			}
 		} catch (SQLException e) {

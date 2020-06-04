@@ -12,14 +12,14 @@ import com.advsdc.group4.Admin.service.AssignInstructorService;
 import com.advsdc.group4.Admin.service.AssignInstructorServiceImpl;
 import com.advsdc.group4.Admin.service.DeleteCourseService;
 import com.advsdc.group4.Admin.service.DeleteCourseServiceImpl;
-import com.advsdc.group4.Model.AdminCourse;
-import com.advsdc.group4.Model.AdminUser;
+import com.advsdc.group4.Model.Course;
+import com.advsdc.group4.Model.User;
 
 @Controller
 public class AssignInstructorController {
 	AssignInstructorService assignInstructorService = new AssignInstructorServiceImpl();
-	ArrayList<AdminCourse> courseList;
-	ArrayList<AdminUser> userList;
+	ArrayList<Course> courseList;
+	ArrayList<User> userList;
 
 	@GetMapping("/assign_instructor_page")
 	public String viewAddInstPage(Model model) {
@@ -32,11 +32,11 @@ public class AssignInstructorController {
 	}
 
 	@PostMapping("/assign_instructor")
-	public String assignInstructor(@RequestParam("courseId") String courseId, AdminUser user, Model model) {
+	public String assignInstructor(@RequestParam("courseId") String courseId, User user, Model model) {
 		model.addAttribute("courseList", courseList);
 		model.addAttribute("userList", userList);
 		
-		String message = assignInstructorService.assignInstructor(courseId.split(" - ")[0], user.getbId());
+		String message = assignInstructorService.assignInstructor(courseId.split(" - ")[0], user.getBannerID());
 		model.addAttribute("message", message);
 		return "admin/adminAssignInstructor";
 	}

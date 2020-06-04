@@ -5,14 +5,14 @@ import java.util.ArrayList;
 import com.advsdc.group4.Admin.dao.AddCourseDaoImpl;
 import com.advsdc.group4.Admin.dao.DeleteCourseDao;
 import com.advsdc.group4.Admin.dao.DeleteCourseDaoImpl;
-import com.advsdc.group4.Model.AdminCourse;
+import com.advsdc.group4.Model.Course;
 
 public class DeleteCourseServiceImpl implements DeleteCourseService {
 	
 	DeleteCourseDao deleteCourseDao = new DeleteCourseDaoImpl();
 	@Override
-	public ArrayList<AdminCourse> viewCourse() {
-		ArrayList<AdminCourse> courseList = new ArrayList<AdminCourse>();
+	public ArrayList<Course> viewCourse() {
+		ArrayList<Course> courseList = new ArrayList<Course>();
 		courseList = deleteCourseDao.viewCourse();
 		return courseList;
 	}

@@ -23,12 +23,12 @@
 				<tbody>
 					<tr th:each="userModel, iterstat:${userList}">
 						<form action="/assign_instructor" method="post">
-							<td th:value="${userModel.getfName()}"
-								th:text="${userModel.getfName()}">Aaron</td>
-							<td th:value="${userModel.getlName()}"
-								th:text="${userModel.getlName()}">Kelly</td>
-							<td th:text="${userModel.getbId()}">B00888888</td> <input
-								type="hidden" th:value="${userModel.getbId()}" name="bId">
+							<td th:value="${userModel.getFirstName()}"
+								th:text="${userModel.getFirstName()}">Aaron</td>
+							<td th:value="${userModel.getLastName()}"
+								th:text="${userModel.getLastName()}">Kelly</td>
+							<td th:text="${userModel.getBannerID()}">B00888888</td> <input
+								type="hidden" th:value="${userModel.getBannerID()}" name="bannerID">
 							<td><select name="courseId">
 									<option>Select courses</option>
 									<div th:each="courseModel : ${courseList}">

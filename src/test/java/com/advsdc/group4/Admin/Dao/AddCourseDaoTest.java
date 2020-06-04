@@ -9,15 +9,15 @@ import org.junit.jupiter.api.Test;
 
 import com.advsdc.group4.Admin.dao.AddCourseDao;
 import com.advsdc.group4.Admin.dao.AddCourseDaoImpl;
-import com.advsdc.group4.Model.AdminCourse;
+import com.advsdc.group4.Model.Course;
 
 public class AddCourseDaoTest{
 	
 	AddCourseDao addCourseDao = mock(AddCourseDaoImpl.class);
-	AdminCourse course;
+	Course course;
 
 	public AddCourseDaoTest() {
-		course = new AdminCourse();
+		course = new Course();
 		course.setCourseId("5709");
 		course.setCourseName("Adv. topics in applied computing");
 

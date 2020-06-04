@@ -11,17 +11,17 @@ import org.junit.jupiter.api.Test;
 
 import com.advsdc.group4.Admin.service.DeleteCourseService;
 import com.advsdc.group4.Admin.service.DeleteCourseServiceImpl;
-import com.advsdc.group4.Model.AdminCourse;
+import com.advsdc.group4.Model.Course;
 
 public class DeleteCourseServiceTest{
 	
 	
 	DeleteCourseService deleteCourseDao = mock(DeleteCourseServiceImpl.class);
-	AdminCourse course;
+	Course course;
 	ArrayList<String> arrayList = new ArrayList<String>();
 
 	public DeleteCourseServiceTest() {
-		course = new AdminCourse();
+		course = new Course();
 		course.setCourseId("5709");
 		course.setCourseName("Adv. topics in applied computing");
 

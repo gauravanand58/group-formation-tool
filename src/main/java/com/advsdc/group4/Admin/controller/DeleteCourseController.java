@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.advsdc.group4.Admin.service.DeleteCourseService;
 import com.advsdc.group4.Admin.service.DeleteCourseServiceImpl;
-import com.advsdc.group4.Model.AdminCourse;
+import com.advsdc.group4.Model.Course;
 
 @Controller
 public class DeleteCourseController {
@@ -18,7 +18,7 @@ public class DeleteCourseController {
 	
 	@RequestMapping("/delete_course")
 	public String viewCourse(Model model) {
-		ArrayList<AdminCourse> courseList = new ArrayList<AdminCourse>();
+		ArrayList<Course> courseList = new ArrayList<Course>();
 		
 		courseList = deleteCourseService.viewCourse();
 		model.addAttribute("courseList", courseList);

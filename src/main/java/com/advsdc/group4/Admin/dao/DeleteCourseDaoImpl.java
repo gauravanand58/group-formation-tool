@@ -10,7 +10,7 @@ import java.util.Iterator;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import com.advsdc.group4.Model.AdminCourse;
+import com.advsdc.group4.Model.Course;
 import com.advsdc.group4.util.DatabaseConnection;
 
 public class DeleteCourseDaoImpl implements DeleteCourseDao {
@@ -24,16 +24,16 @@ public class DeleteCourseDaoImpl implements DeleteCourseDao {
 
 	private static final Logger logger = LogManager.getLogger(DeleteCourseDaoImpl.class);
 
-	public ArrayList<AdminCourse> viewCourse() {
-		ArrayList<AdminCourse> courseList = new ArrayList<AdminCourse>();
+	public ArrayList<Course> viewCourse() {
+		ArrayList<Course> courseList = new ArrayList<Course>();
 		connection = DatabaseConnection.getConnection();
 		try {
 			selectStatement = connection.createStatement();
 			query = "Select CourseId, CourseName from Course";
 			courseResult = selectStatement.executeQuery(query);
-			AdminCourse course;
+			Course course;
 			while (courseResult.next()) {
-				course = new AdminCourse();
+				course = new Course();
 				course.setCourseId(courseResult.getString("CourseId"));
 				course.setCourseName(courseResult.getString("CourseName"));
 				courseList.add(course);
