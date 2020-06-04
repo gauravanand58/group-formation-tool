@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import com.advsdc.group4.Model.Course;
 import com.advsdc.group4.Model.IUser;
 import com.advsdc.group4.UserHome.dao.IUserHomeDao;
 
@@ -29,4 +30,20 @@ public class MockUserHomeDao implements IUserHomeDao{
 		user.setRoleMap(roleMap);
 	}
 
+	@Override
+	public List<Course> getAllCourses() {
+		List<Course> list = new LinkedList<>();
+		list.add(new Course(1, "TestCourseName1", "TestCourseDescription1"));
+		list.add(new Course(2, "TestCourseName2", "TestCourseDescription2"));
+		return list;
+	}
+
+	@Override
+	public String getCourseName(int courseID) {
+		if(courseID == 1) {
+			return "TestCourseName";
+		} else {
+			return "";
+		}
+	}
 }

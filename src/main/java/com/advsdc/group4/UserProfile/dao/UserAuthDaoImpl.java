@@ -36,14 +36,23 @@ public class UserAuthDaoImpl implements IUserAuthDao{
 		} catch (SQLException e) {
 			System.out.println("Error while loading user details:"+ e);
 		} finally {
-			DatabaseConnection.closeConnection();
+			try {
+				if(ps != null) {
+					ps.close();
+				}
+				if(connection != null) {
+					connection.close();
+				}
+			} catch (SQLException e) {
+				System.out.println("Error in closing connection");
+			}
 		}	
 	}
 
 	@Override
 	public int saveOtp(UserAuth userAuth) {
 		Connection connection = null;
-		 PreparedStatement ps;
+		 PreparedStatement ps = null;
 		 int rs = 0;
 		try {
 			
@@ -59,7 +68,16 @@ public class UserAuthDaoImpl implements IUserAuthDao{
 		} catch (SQLException e) {
 			System.out.println("Error while updating user details:"+ e);
 		} finally {
-			DatabaseConnection.closeConnection();
+			try {
+				if(ps != null) {
+					ps.close();
+				}
+				if(connection != null) {
+					connection.close();
+				}
+			} catch (SQLException e) {
+				System.out.println("Error in closing connection");
+			}
 		}	
 		
 		return rs;		
@@ -68,7 +86,7 @@ public class UserAuthDaoImpl implements IUserAuthDao{
 	@Override
 	public int userResetPassword(UserAuth userAuth) {
 		Connection connection = null;
-		 PreparedStatement ps;
+		 PreparedStatement ps = null;
 		 int rs = 0;
 			try {
 				
@@ -84,7 +102,16 @@ public class UserAuthDaoImpl implements IUserAuthDao{
 			} catch (SQLException e) {
 				System.out.println("Error while updating user details:"+ e);
 			} finally {
-				DatabaseConnection.closeConnection();
+				try {
+					if(ps != null) {
+						ps.close();
+					}
+					if(connection != null) {
+						connection.close();
+					}
+				} catch (SQLException e) {
+					System.out.println("Error in closing connection");
+				}
 			}	
 		return rs;	
 				
