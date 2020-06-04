@@ -5,6 +5,7 @@
 <title>Course Admin Page</title>
 </head>
 <body>
+<div th:replace="navbar/navbar-auth :: navbar"></div>
 <form th:action="@{/SubmitCSV}" method="POST" enctype="multipart/form-data">
     <div>
     	<h1>Enroll Students</h1><br>
