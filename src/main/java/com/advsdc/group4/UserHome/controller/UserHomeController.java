@@ -49,17 +49,8 @@ public class UserHomeController {
 		return "user/userHome";
 	}
 	
-	@PostMapping("/CourseAdminPage")
-	public String showCourseAdminPage(@RequestParam(value="courseID") String courseID, @RequestParam(value="bannerID") String bannerID, Model model) {
-		//TODO
-		System.out.println(courseID);
-		System.out.println(bannerID);
-		return "user_home";
-	}
-	
 	@PostMapping("/Student")
 	public String showStudentPage(@RequestParam(value="courseID") String courseID, @RequestParam(value="bannerID") String bannerID, Model model) {
-		//TODO
 		int id = Integer.parseInt(courseID);
 		String courseName = userHomeService.getCourseName(id);
 		System.out.println(courseName);
