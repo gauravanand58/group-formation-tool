@@ -11,7 +11,7 @@
 		<div id="container" class="align-center">
 			
 			<form th:action="@{/add_course}" th:object="${course}" method="post">
-				<h3>Enter Course ID and Course Name</h3>
+				<h3>Enter Course Name and Description</h3>
 				</br>
 				<input class="c-id-ip" type="text" placeholder="course name" th:field="*{courseName}">
 				</br>
