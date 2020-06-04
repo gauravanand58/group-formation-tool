@@ -68,7 +68,7 @@ public class DeleteCourseDaoImpl implements DeleteCourseDao {
 			try {
 				statement = connection.prepareStatement(query);
 				statement.executeUpdate();
-				query = "DELETE FROM course WHERE CourseID='" + courseCurrent + "';";
+				query = "DELETE FROM Course WHERE CourseID='" + courseCurrent + "';";
 				statement = connection.prepareStatement(query);
 				rows = statement.executeUpdate();
 				if (rows > 0) {
