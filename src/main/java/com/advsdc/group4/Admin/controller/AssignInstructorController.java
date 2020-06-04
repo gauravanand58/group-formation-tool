@@ -34,9 +34,15 @@ public class AssignInstructorController {
 	@PostMapping("/assign_instructor")
 	public String assignInstructor(@RequestParam("courseID") String courseID, User user, Model model) {
 		model.addAttribute("courseList", courseList);
-		model.addAttribute("userList", userList);		
-		String message = assignInstructorService.assignInstructor(Integer.parseInt(courseID.split(" - ")[0]), user.getBannerID());
-		model.addAttribute("message", message);
+		model.addAttribute("userList", userList);
+		model.addAttribute("message", "");
+		if (null != courseID && !("Select courses".equals(courseID))) {
+			String message = assignInstructorService.assignInstructor(Integer.parseInt(courseID.split(" - ")[0]), user.getBannerID());
+			model.addAttribute("message", message);
+		} else {
+			model.addAttribute("message", "Please select course");
+		}
+		
 		return "admin/adminAssignInstructor";
 	}
 }

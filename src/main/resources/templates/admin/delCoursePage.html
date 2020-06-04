@@ -10,7 +10,7 @@
 	<div class="container">
 	
 		<h2 class="align-center">Available Courses</h2>
-		<form th:if="${courseList.size() > 0}" action="#" th:action="@{/display_after_checking}" method="POST">
+		<form th:if="${courseList.size() > 0}" th:action="@{/display_after_checking}" method="POST">
 			<table class="table table-bordered">
 				<thead>
 					<tr>
