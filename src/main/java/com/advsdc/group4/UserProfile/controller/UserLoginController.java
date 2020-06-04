@@ -32,11 +32,10 @@ public class UserLoginController {
 			if(grantedAuthority.getAuthority().equals("Admin") ) {
 				return "admin/adminHomePage";
 			}else if (grantedAuthority.getAuthority().equals("Guest")  || grantedAuthority.getAuthority().equals("Student") || grantedAuthority.getAuthority().equals("Instructor") || grantedAuthority.getAuthority().equals("TA")) {
-				return "user/userHome";
+				return "redirect:/userHome";
 			}
 		}
 		
 		return "invalidSession";
-		
 	}
 }

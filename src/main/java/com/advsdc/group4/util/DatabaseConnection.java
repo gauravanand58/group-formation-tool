@@ -4,9 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 
 public class DatabaseConnection {
 	private static Connection con = null;
@@ -18,9 +15,10 @@ public class DatabaseConnection {
 		String pass = DBConfiguration.getPassword(); 
 		
 		try {
-			System.out.println("check:"+url);
-		    Class.forName(DBConfiguration.getDriver()).getClass(); 
-		    con = DriverManager.getConnection(url, user, pass); 
+			if(con == null || !con.isValid(0)) {
+			    Class.forName(DBConfiguration.getDriver()).getClass(); 
+			    con = DriverManager.getConnection(url, user, pass); 
+			}
 		} 
 		catch (ClassNotFoundException | SQLException e) { 
 		

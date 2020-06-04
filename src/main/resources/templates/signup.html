@@ -8,7 +8,7 @@
     </style>
 </head>
 <body>
-	
+	<div th:replace="navbar/navbar-auth :: navbar"></div>
 	<form action="#" th:action="@{/addUser}" th:object="${user}" style="border:1px solid #ccc" method="post">
 	  <div class="container">
 	    <h1>Sign Up</h1>
@@ -29,7 +29,7 @@
 	    	</tr>
 	    	<tr>
 	    		<td><label for="bannerid"><b>Banner ID (B00)</b></label></td>
-	    		<td><input type="text" th:field="*{bannerID}" placeholder="Enter Banner ID" name="bannerid" required></td>
+	    		<td><input type="text" pattern="[Bb][0-9]{8}" th:field="*{bannerID}" placeholder="Enter Banner ID" name="bannerid" required></td>
 	    	</tr>
 	    	<tr>
 	    		<td><label for="psw"><b>Password</b></label></td>
@@ -40,9 +40,9 @@
 	      <button type="submit" class="signupbtn">Sign Up</button>
 	    </div>
 	    <div th:switch="${msg}">
-	    	<p th:case="'User Exists'" th:text="'User already exists. Try to login or create account with different B00'" />
+	    	<p th:case="'User Exists'">User already exists. Try to <a th:href="@{/}">login</a> or use different Banner ID.</p>
 	    	<p th:case="'Error'" th:text="'Error while adding user. Please try again.'" />
-	    	<p th:case="'User Added'" th:text="'User added successfully. You may login now.'" />
+	    	<p th:case="'User Added'">User added successfully. You may <a th:href="@{/}">login</a> now.</p>
 	    	<p th:case="*" th:text="${msg}"/>
 	    </div>
 	  </div>

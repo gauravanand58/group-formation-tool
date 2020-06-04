@@ -10,6 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import com.advsdc.group4.Model.Course;
 import com.advsdc.group4.Model.IUser;
 import com.advsdc.group4.util.DatabaseConnection;
 
@@ -40,7 +41,6 @@ public class UserHomeDaoImpl implements IUserHomeDao{
 			}
 			System.out.println(Arrays.asList(roleMap));
 			user.setRoleMap(roleMap);
-			preparedStatement.close();
 		} catch (SQLException e) {
 			System.out.println("Error while checking user in Users table");
 			e.printStackTrace();
@@ -56,5 +56,74 @@ public class UserHomeDaoImpl implements IUserHomeDao{
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	@Override
+	public List<Course> getAllCourses() {
+		PreparedStatement preparedStatement = null;
+		String sql = "SELECT * from Course";
+		Connection connection = null;
+		List<Course> courseList = new LinkedList<Course>();
+		try {
+			connection = DatabaseConnection.getConnection();
+			preparedStatement = connection.prepareStatement(sql);
+			ResultSet mapResultSet = preparedStatement.executeQuery();
+			int courseID;
+			String courseName, courseDescription;
+			while(mapResultSet.next()) {
+				courseID = mapResultSet.getInt("CourseID");
+				courseName = mapResultSet.getString("CourseName");
+				courseDescription = mapResultSet.getString("CourseDescription");
+				Course course = new Course(courseId, courseName, courseDescription);
+				courseList.add(course);
+			}
+		} catch (SQLException e) {
+			System.out.println("Error while checking user in Users table");
+			e.printStackTrace();
+		} finally {
+			try {
+				if(preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if(connection != null) {
+					connection.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return courseList;
+	}
+
+	@Override
+	public String getCourseName(int courseID) {
+		PreparedStatement preparedStatement = null;
+		String sql = "SELECT * from Course where CourseID = ?;";
+		Connection connection = null;
+		String courseName = null;
+		try {
+			connection = DatabaseConnection.getConnection();
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, courseID);
+			ResultSet mapResultSet = preparedStatement.executeQuery();
+			if(mapResultSet.next()) {
+				courseName = mapResultSet.getString("CourseName");
+			}
+		} catch (SQLException e) {
+			System.out.println("Error while checking user in Users table");
+			e.printStackTrace();
+		} finally {
+			try {
+				if(preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if(connection != null) {
+					connection.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return courseName;
 	}
 }
