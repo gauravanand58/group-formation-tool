@@ -1,4 +1,4 @@
-package com.advsdc.group4.Signup.dao;
+package com.advsdc.group4.UserProfile.dao;
 
 import java.util.HashMap;
 import java.util.LinkedList;

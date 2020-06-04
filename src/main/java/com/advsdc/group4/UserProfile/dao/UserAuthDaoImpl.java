@@ -16,10 +16,10 @@ public class UserAuthDaoImpl implements IUserAuthDao{
 	@Override
 	public void loadUserAuth(String bannerID, IUserAuth userAuth) {
 		Connection connection = null;
-		
+		PreparedStatement ps = null;
 		try {
 			connection =  DatabaseConnection.getConnection();
-			PreparedStatement ps =connection
+			ps =connection
 					.prepareStatement("select * from UserAuth where UBannerID = ? ;");
 			ps.setString(1, bannerID);
 			 ResultSet rs = ps.executeQuery(); 
@@ -34,7 +34,12 @@ public class UserAuthDaoImpl implements IUserAuthDao{
 			System.out.println("Error while loading user details:"+ e);
 		} finally {
 			try {
-				connection.close();
+				if(ps != null) {
+					ps.close();
+				}
+				if(connection != null) {
+					connection.close();
+				}
 			} catch (SQLException e) {
 				System.out.println("Error in closing connection");
 			}
@@ -44,7 +49,7 @@ public class UserAuthDaoImpl implements IUserAuthDao{
 	@Override
 	public int saveOtp(UserAuth userAuth) {
 		Connection connection = null;
-		 PreparedStatement ps;
+		 PreparedStatement ps = null;
 		 int rs = 0;
 		try {
 			
@@ -61,7 +66,12 @@ public class UserAuthDaoImpl implements IUserAuthDao{
 			System.out.println("Error while updating user details:"+ e);
 		} finally {
 			try {
-				connection.close();
+				if(ps != null) {
+					ps.close();
+				}
+				if(connection != null) {
+					connection.close();
+				}
 			} catch (SQLException e) {
 				System.out.println("Error in closing connection");
 			}
@@ -73,7 +83,7 @@ public class UserAuthDaoImpl implements IUserAuthDao{
 	@Override
 	public int userResetPassword(UserAuth userAuth) {
 		Connection connection = null;
-		 PreparedStatement ps;
+		 PreparedStatement ps = null;
 		 int rs = 0;
 			try {
 				
@@ -89,7 +99,12 @@ public class UserAuthDaoImpl implements IUserAuthDao{
 				System.out.println("Error while updating user details:"+ e);
 			} finally {
 				try {
-					connection.close();
+					if(ps != null) {
+						ps.close();
+					}
+					if(connection != null) {
+						connection.close();
+					}
 				} catch (SQLException e) {
 					System.out.println("Error in closing connection");
 				}

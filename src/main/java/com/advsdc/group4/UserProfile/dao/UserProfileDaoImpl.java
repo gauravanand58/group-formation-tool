@@ -16,9 +16,10 @@ public class UserProfileDaoImpl implements IUserProfileDao{
 	@Override
 	public void loadUserWithID(String bannerID, IUser user) {
 			Connection connection = null;
+			PreparedStatement ps = null;
 		try {
 			connection =  DatabaseConnection.getConnection();
-			PreparedStatement ps =connection
+			ps =connection
 					.prepareStatement("select * from Users where BannerID = ?;");
 			ps.setString(1, bannerID);
 			 ResultSet rs = ps.executeQuery(); 
@@ -33,7 +34,12 @@ public class UserProfileDaoImpl implements IUserProfileDao{
 			System.out.println("Error while loading user profile:"+ e);
 		} finally {
 			try {
-				connection.close();
+				if(ps != null) {
+					ps.close();
+				}
+				if(connection != null) {
+					connection.close();
+				}
 			} catch (SQLException e) {
 				System.out.println("Error while closing connection");
 			}

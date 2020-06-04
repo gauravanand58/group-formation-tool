@@ -9,7 +9,7 @@ import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
-import com.advsdc.group4.Signup.dao.MockSignUpDao;
+import com.advsdc.group4.UserProfile.dao.MockSignUpDao;
 
 public class UserTest {
 	
