@@ -23,20 +23,20 @@ build:
   artifacts:
     paths:
       - build/libs/*.jar
-   tags:
-     - dalfcs_gitlab_docker_ci
+  tags:
+    - dalfcs_gitlab_docker_ci
 
 test:
   stage: test
   script:
     - chmod +x ./gradlew 
     - ./gradlew check
-   tags:
-       - dalfcs_gitlab_docker_ci
+  tags:
+      - dalfcs_gitlab_docker_ci
 deploy:
     stage: deploy
     tags:
-     - dalfcs_gitlab_docker_ci
+    - dalfcs_gitlab_docker_ci
     image: ruby:2.3
     script:
     - apt-get update -qy
