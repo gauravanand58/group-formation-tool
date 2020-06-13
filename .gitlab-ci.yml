@@ -35,7 +35,7 @@ test:
        - dalfcs_gitlab_docker_ci
 deploy:
     stage: deploy
-     tags:
+    tags:
      - dalfcs_gitlab_docker_ci
     image: ruby:2.3
     script:
