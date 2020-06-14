@@ -1,52 +1,41 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>SpringBasics</title>
-	<style>
-        input { margin-bottom: 10px; }
-    </style>
-</head>
-<body>
-	<div th:replace="navbar/navbar-auth :: navbar"></div>
-	<form action="#" th:action="@{/addUser}" th:object="${user}" style="border:1px solid #ccc" method="post">
-	  <div class="container">
-	    <h1>Sign Up</h1>
-	    <p>Please fill in this form to create an account.</p>
-	    <hr>
-	    <table>
-	    	<tr>
-	    		<td><label for="fname"><b>First Name</b></label></td>
-	    		<td><input type="text" th:field="*{firstName}" placeholder="Enter First Name" name="fname" required></td>
-	    	</tr>
-	    	<tr>
-	    		<td><label for="lname"><b>Last Name</b></label></td>
-	    		<td><input type="text" th:field="*{lastName}" placeholder="Enter Last Name" name="lname" required></td>
-	    	</tr>
-	    	<tr>
-	    		<td><label for="email"><b>Email</b></label></td>
-	    		<td><input type="text" th:field="*{email}" placeholder="Enter Email" name="email" required></td>
-	    	</tr>
-	    	<tr>
-	    		<td><label for="bannerid"><b>Banner ID (B00)</b></label></td>
-	    		<td><input type="text" pattern="[Bb][0-9]{8}" th:field="*{bannerID}" placeholder="Enter Banner ID" name="bannerid" required></td>
-	    	</tr>
-	    	<tr>
-	    		<td><label for="psw"><b>Password</b></label></td>
-	    		<td><input type="password" th:field="*{password}" placeholder="Enter Password" name="psw" required></td>
-	    	</tr>
-	    </table>
-	    <div class="clearfix">
-	      <button type="submit" class="signupbtn">Sign Up</button>
-	    </div>
-	    <div th:switch="${msg}">
-	    	<p th:case="'User Exists'">User already exists. Try to <a th:href="@{/}">login</a> or use different Banner ID.</p>
-	    	<p th:case="'Error'" th:text="'Error while adding user. Please try again.'" />
-	    	<p th:case="'User Added'">User added successfully. You may <a th:href="@{/}">login</a> now.</p>
-	    	<p th:case="*" th:text="${msg}"/>
-	    </div>
-	  </div>
-	</form>
-	
-</body>
+<!DOCTYPE html>  
+<html xmlns:th="http://www.thymeleaf.org">  
+<head>  
+	<title>CSCI5308 Group Formation Tool - Signup page</title>
+	<!-- Normalize.css by Nicolas Gallagher, used from https://necolas.github.io/normalize.css/ 
+	Necessary to reset some default browser styles for consistent appearance across browsers. -->
+	<link th:href="@{/styles/cssandjs/normalize.css}" rel="stylesheet" />
+
+	<!-- This file includes all default styles for this application. -->
+	<link th:href="@{/styles/cssandjs/main.css}" rel="stylesheet" />
+</head>  
+<body class="bodyGridContainer">
+	<header class="bodyGridRow headerGridContainer">
+		<h1>CSCI5308 Group Formation Tool</h1>
+	</header>
+	<main class="bodyGridRow mainGridContainer">
+		<aside class="mainGridRow welcomeInfoBox">
+			<h2>Welcome to the group formation tool, please enter your information:</h2>
+		</aside>
+		
+		<div class="mainGridCentreInfoBox" th:if="${errorMessage}">
+			<h3 class="errorInfo" th:text="${errorMessage}"></h3>
+		</div>
+		<div class="mainGridCentreCard">
+			<form class="regnLoginGridContainer" th:action="@{/signup}" method="post">
+				<label class="regnLoginGridLeftCol" for="sBannerInput">Banner ID:</label><input id="sBannerInput" class="regnLoginGridRightCol" type="text" name="username"/>
+				<label class="regnLoginGridLeftCol" for="sPswdInput">Password:</label><input id="sPswdInput" class="regnLoginGridRightCol" type="password" name="password"/>
+				<label class="regnLoginGridLeftCol" for="sPswdConfirmInput">Password (Confirmation):</label><input id="sPswdConfirmInput" class="regnLoginGridRightCol" type="password" name="passwordConfirmation"/>
+				<label class="regnLoginGridLeftCol" for="sFNameInput">First Name:</label><input id="sFNameInput" class="regnLoginGridRightCol" type="text" name="firstName"/>
+				<label class="regnLoginGridLeftCol" for="sLNameInput">Last Name:</label><input id="sLNameInput" class="regnLoginGridRightCol" type="text" name="lastName"/>
+				<label class="regnLoginGridLeftCol" for="sEmailInput">Email:</label><input id="sEmailInput" class="regnLoginGridRightCol" type="text" name="email"/>
+				<input class="regnLoginGridRightCol" type="submit" value="Create Account"/>
+			</form>
+		</div>
+		<a class="signupLogin mainGridRow mainGridCentreCard" th:href="@{/login}">Are you an existing user? Click here to log in!</a>
+	</main>
+	<footer class="bodyGridRow footerGridContainer">
+		<p><strong>CSCI5308 (Advanced Topics in Software Development)</strong> is a graduate course offered for students enrolled in the <a href="https://www.dal.ca/macs" target="_blank">Master of Applied Computer Science (MACS)</a> at the <a href="https://www.dal.ca/cs" target="_blank">Faculty of Computer Science</a>, <a href="https://www.dal.ca" target="_blank">Dalhousie University</a>.</p>
+</footer>
+</body>  
 </html>
