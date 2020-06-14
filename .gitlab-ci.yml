@@ -23,8 +23,8 @@ build:
   artifacts:
     paths:
       - build/libs/*.jar
-    tags:
-      - dalfcs_gitlab_docker_ci
+  tags:
+    - dalfcs_gitlab_docker_ci
 
 test:
   stage: test
@@ -32,7 +32,7 @@ test:
     - chmod +x ./gradlew 
     - ./gradlew check
   tags:
-    - dalfcs_gitlab_docker_ci
+      - dalfcs_gitlab_docker_ci
 deploy:
     stage: deploy
     tags:
