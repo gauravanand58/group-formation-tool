@@ -3,6 +3,8 @@ package CSCI5308.GroupFormationTool.AccessControl;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.mail.MessagingException;
+
 import CSCI5308.GroupFormationTool.Security.IPasswordEncryption;
 
 public class User
@@ -135,7 +137,12 @@ public class User
 		boolean success = userDB.createUser(this);
 		if (success && (null != notification))
 		{
-			notification.sendUserLoginCredentials(this, rawPassword);
+			try {
+				notification.sendUserLoginCredentials(this, rawPassword);
+			} catch (MessagingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return success;
 	}
