@@ -22,6 +22,8 @@ public class SignupController
 	@GetMapping("/signup")
 	public String displaySignup(Model model)
 	{
+		model.addAttribute("passwordPolicies", PasswordPolicyConfiguration.getPasswordPolicies());
+		
 		return "signup";
 	}
 	
@@ -34,12 +36,14 @@ public class SignupController
    	@RequestParam(name = LAST_NAME) String lastName,
    	@RequestParam(name = EMAIL) String email)
 	{
+		
 		boolean success = false;
 		if (User.isBannerIDValid(bannerID) &&
 			 User.isEmailValid(email) &&
 			 User.isFirstNameValid(firstName) &&
 			 User.isLastNameValid(lastName) &&
-			 password.equals(passwordConfirm))
+			 password.equals(passwordConfirm) &&
+			 PasswordPolicyConfiguration.isValidPassword(password))
 		{
 			User u = new User();
 			u.setBannerID(bannerID);
@@ -59,8 +63,10 @@ public class SignupController
 		}
 		else
 		{
+			
 			// Something wrong with the input data.
 			m = new ModelAndView("signup");
+			m.addObject("passwordPolicies", PasswordPolicyConfiguration.getPasswordPolicies());
 			m.addObject("errorMessage", "Invalid data, please check your values.");
 		}
 		return m;

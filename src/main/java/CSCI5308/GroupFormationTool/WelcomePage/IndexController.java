@@ -9,6 +9,7 @@ import java.util.List;
 
 import CSCI5308.GroupFormationTool.SystemConfig;
 import CSCI5308.GroupFormationTool.Courses.*;
+import CSCI5308.GroupFormationTool.Security.PasswordPolicyConfiguration;
 
 @Controller
 public class IndexController
@@ -21,6 +22,11 @@ public class IndexController
 		{
 			ICoursePersistence courseDB = SystemConfig.instance().getCourseDB();
 			List<Course> allCourses = courseDB.loadAllCourses();
+			//initialize password configurations
+			SystemConfig.instance().getConfiguration();
+			
+			
+			
 			model.addAttribute("courses", allCourses);
 		}
 		return "index";

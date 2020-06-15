@@ -23,6 +23,7 @@ public class SystemConfig
 	private IDatabaseConfiguration databaseConfiguration;
 	private ICoursePersistence courseDB;
 	private ICourseUserRelationshipPersistence courseUserRelationshipDB;
+	private IPasswordPolicyPersistance passwordPolicyDB;
 	
 	// This private constructor ensures that no class other than System can allocate
 	// the System object. The compiler would prevent it.
@@ -36,6 +37,8 @@ public class SystemConfig
 		databaseConfiguration = new DefaultDatabaseConfiguration();
 		courseDB = new CourseDB();
 		courseUserRelationshipDB = new CourseUserRelationshipDB();
+		passwordPolicyDB = new PasswordPolicyDB();
+		
 	}
 	
 	// This is the way the rest of the application gets access to the System object.
@@ -95,8 +98,22 @@ public class SystemConfig
 		this.courseUserRelationshipDB = courseUserRelationshipDB;
 	}
 	
+	public IPasswordPolicyPersistance getPasswordPolicyDB() {
+		return passwordPolicyDB;
+	}
+
+	public void setPasswordPolicyDB(IPasswordPolicyPersistance passwordPolicyDB) {
+		this.passwordPolicyDB = passwordPolicyDB;
+	}
+
 	public ICourseUserRelationshipPersistence getCourseUserRelationshipDB()
 	{
 		return courseUserRelationshipDB;
 	}
+
+	public PasswordPolicyConfiguration getConfiguration() {
+		return PasswordPolicyConfiguration.instance(passwordPolicyDB);
+	}
+	
+	
 }
