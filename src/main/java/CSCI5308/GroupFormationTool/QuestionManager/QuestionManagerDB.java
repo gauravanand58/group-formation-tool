@@ -1,0 +1,90 @@
+package CSCI5308.GroupFormationTool.QuestionManager;
+
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import CSCI5308.GroupFormationTool.AccessControl.User;
+import CSCI5308.GroupFormationTool.Database.CallStoredProcedure;
+
+public class QuestionManagerDB implements IQuestionManagerDB{
+
+	@Override
+	public List<Question> sortByTitle(String bannerID) {
+		List<Question> sortedQues=new ArrayList<Question>();
+		CallStoredProcedure proc = null;
+		try {
+			proc = new CallStoredProcedure("spSortByTitle(?)");
+			proc.setParameter(1, bannerID);
+			ResultSet results = proc.executeWithResults();
+			if (null != results)
+			{
+				while (results.next())
+				{
+					int quesID = results.getInt(1);
+					String quesTitle = results.getString(2);
+					String quesText = results.getString(3);
+					String quesType = results.getString(4);
+					String quesDateTime = results.getString(5);
+					Question q = new Question();
+					q.setQuesID(quesID);
+					q.setQuesTitle(quesTitle);
+					q.setQuesText(quesText);
+					q.setQuesType(quesType);
+					q.setQuesDateTime(quesDateTime);
+					sortedQues.add(q);
+				}
+			}
+		}catch (Exception e) {
+			//handle exception
+		}
+		finally
+		{
+			if (null != proc)
+			{
+				proc.cleanup();
+			}
+		}
+		return sortedQues;
+	}
+
+	@Override
+	public List<Question> sortByDate(String bannerID) {
+		List<Question> sortedQues=new ArrayList<Question>();
+		CallStoredProcedure proc = null;
+		try {
+			proc = new CallStoredProcedure("spSortByDate(?)");
+			proc.setParameter(1, bannerID);
+			ResultSet results = proc.executeWithResults();
+			if (null != results)
+			{
+				while (results.next())
+				{
+					int quesID = results.getInt(1);
+					String quesTitle = results.getString(2);
+					String quesText = results.getString(3);
+					String quesType = results.getString(4);
+					String quesDateTime = results.getString(5);
+					Question q = new Question();
+					q.setQuesID(quesID);
+					q.setQuesTitle(quesTitle);
+					q.setQuesText(quesText);
+					q.setQuesType(quesType);
+					q.setQuesDateTime(quesDateTime);
+					sortedQues.add(q);
+				}
+			}
+		}catch (Exception e) {
+			//handle exception
+		}
+		finally
+		{
+			if (null != proc)
+			{
+				proc.cleanup();
+			}
+		}
+		return sortedQues;
+	}
+
+}
