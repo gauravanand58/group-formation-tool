@@ -16,7 +16,7 @@ public class CourseController
 	
 	@GetMapping("/course/course")
 	public String course(Model model, @RequestParam(name = ID) long courseID)
-	{
+	{	
 		ICoursePersistence courseDB = SystemConfig.instance().getCourseDB();
 		Course course = new Course();
 		courseDB.loadCourseByID(courseID, course);
