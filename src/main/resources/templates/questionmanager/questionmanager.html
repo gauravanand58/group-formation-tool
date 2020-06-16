@@ -31,15 +31,21 @@
 					</tr>
 					<tr th:each="msg : ${sortedQues}">
 						<td><span th:text="${msg.quesID}"></span></td>
-							<td><span th:text="${msg.quesTitle}"></span></td>
-							<td><span th:text="${msg.quesText}"></span></td>
-							<td><span th:text="${msg.quesType}"></span></td>
-							<td><span th:text="${msg.quesDateTime}"></span></td>
-							<td><a th:href="@{/course/questionmanager/delete(quesID=${msg.quesID},bannerID=${#httpServletRequest.remoteUser})}">Delete</a></td>
-						
+						<td><span th:text="${msg.quesTitle}"></span></td>
+						<td><span th:text="${msg.quesText}"></span></td>
+						<td><span th:text="${msg.quesType}"></span></td>
+						<td><span th:text="${msg.quesDateTime}"></span></td>
+						<td th:with="expr_result = ${msg.checkIfQuestionHasResponse()}">
+							<a th:if="${expr_result}" th:href="@{/course/questionmanager/delete(quesID=${msg.quesID})}"
+							onclick="return confirm('Deleting this question will delete current responses as well. Do you wish to continue?')">
+								Delete
+							</a>
+							<a th:unless="${expr_result}" th:href="@{/course/questionmanager/delete(quesID=${msg.quesID})}">
+								Delete
+							</a>
+						</td>
 					</tr>
 		  		</table>
-			
 			</div>
 </body>
 </html>

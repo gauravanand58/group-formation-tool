@@ -1,10 +1,9 @@
-package CSCI5308.GroupFormationTool.QuestionManager;
+package CSCI5308.GroupFormationTool.Questions;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import CSCI5308.GroupFormationTool.AccessControl.User;
 import CSCI5308.GroupFormationTool.Database.CallStoredProcedure;
 
 public class QuestionManagerDB implements IQuestionManagerDB{

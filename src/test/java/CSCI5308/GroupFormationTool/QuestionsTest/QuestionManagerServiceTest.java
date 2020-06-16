@@ -1,11 +1,11 @@
-package CSCI5308.GroupFormationTool.QuestionManagerTest;
+package CSCI5308.GroupFormationTool.QuestionsTest;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 import org.junit.jupiter.api.Test;
 
-import CSCI5308.GroupFormationTool.QuestionManager.IQuestionManagerDB;
+import CSCI5308.GroupFormationTool.Questions.IQuestionManagerDB;
 
 public class QuestionManagerServiceTest {
 
