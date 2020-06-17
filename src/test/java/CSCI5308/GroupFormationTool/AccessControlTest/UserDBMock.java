@@ -45,4 +45,10 @@ public class UserDBMock implements IUserPersistence
 		user.setEmail("rhawkey@dal.ca");
 		return true;
 	}
+
+	@Override
+	public Long checkUserByBannerID(String bannerID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

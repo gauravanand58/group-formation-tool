@@ -40,6 +40,7 @@
 					</tr>
 				</table>
 			</div>
+			<button th:style="'visibility:'+@{${QuestionSet}}" ><a th:href="@{/createquestions(isUserInstructor=${isUserInstructor})}">Add Question</a></button>
 			<div class="mainGridCentreCard" sec:authorize="!isAuthenticated()">
 				<!-- Send them to login. -->
 				<p>This site requires you to be logged in.</p>

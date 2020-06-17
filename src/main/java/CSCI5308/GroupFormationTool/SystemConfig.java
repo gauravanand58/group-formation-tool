@@ -3,6 +3,8 @@ package CSCI5308.GroupFormationTool;
 import CSCI5308.GroupFormationTool.Security.*;
 import CSCI5308.GroupFormationTool.AccessControl.*;
 import CSCI5308.GroupFormationTool.Database.*;
+import CSCI5308.GroupFormationTool.QuestionManager.IQuestionManagerDB;
+import CSCI5308.GroupFormationTool.QuestionManager.QuestionManagerDB;
 import CSCI5308.GroupFormationTool.Courses.*;
 
 /*
@@ -23,8 +25,12 @@ public class SystemConfig
 	private IDatabaseConfiguration databaseConfiguration;
 	private ICoursePersistence courseDB;
 	private ICourseUserRelationshipPersistence courseUserRelationshipDB;
+
+	private IQuestionManagerDB questionDB;
+
 	private IPasswordPolicyPersistance passwordPolicyDB;
 	private IUserPasswordHistoryRelationshipPersistance userPasswordRelationshipDB;
+
 	
 	// This private constructor ensures that no class other than System can allocate
 	// the System object. The compiler would prevent it.
@@ -38,9 +44,13 @@ public class SystemConfig
 		databaseConfiguration = new DefaultDatabaseConfiguration();
 		courseDB = new CourseDB();
 		courseUserRelationshipDB = new CourseUserRelationshipDB();
+
+		setQuestionDB(new QuestionManagerDB());
+
 		passwordPolicyDB = new PasswordPolicyDB();
 		userPasswordRelationshipDB = new UserPasswordHistoryRelationshipDB();
 		
+
 	}
 	
 	// This is the way the rest of the application gets access to the System object.
@@ -122,9 +132,19 @@ public class SystemConfig
 		return courseUserRelationshipDB;
 	}
 
+
+	public IQuestionManagerDB getQuestionDB() {
+		return questionDB;
+	}
+
+	public void setQuestionDB(IQuestionManagerDB questionDB) {
+		this.questionDB = questionDB;
+	}
+
 	public PasswordPolicyConfiguration getConfiguration() {
 		return PasswordPolicyConfiguration.instance(passwordPolicyDB);
 	}
 	
 	
+
 }
