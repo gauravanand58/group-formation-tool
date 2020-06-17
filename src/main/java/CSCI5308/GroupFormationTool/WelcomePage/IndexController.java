@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import CSCI5308.GroupFormationTool.SystemConfig;
 import CSCI5308.GroupFormationTool.AccessControl.IUserPersistence;
 import CSCI5308.GroupFormationTool.Courses.*;
-import CSCI5308.GroupFormationTool.Security.PasswordPolicyConfiguration;
 
 @Controller
 public class IndexController
