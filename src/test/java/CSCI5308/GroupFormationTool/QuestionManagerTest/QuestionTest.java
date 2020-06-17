@@ -1,12 +1,9 @@
 package CSCI5308.GroupFormationTool.QuestionManagerTest;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.util.Assert;
 
-import CSCI5308.GroupFormationTool.QuestionManager.IQuestionManagerDB;
 import CSCI5308.GroupFormationTool.QuestionManager.Question;
 @SpringBootTest
 @SuppressWarnings("deprecation")
@@ -85,10 +82,5 @@ public class QuestionTest{
 		ques.setQuesText("how familiar with java?");
 		Assert.isTrue(ques.getQuesText().equals("how familiar with java?"));
 	}
-	@Test
-	public void createQuestion() {
-		IQuestionManagerDB dao=new QuestionManagerDBMock();
-		Question ques=new Question();
-		assertEquals(false, dao.createQuestion(ques));
-	}
+	
 }
