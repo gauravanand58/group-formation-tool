@@ -2,15 +2,15 @@ package CSCI5308.GroupFormationTool.QuestionManager;
 
 public class Question {
 	private int quesID;
-	private int instructorID;
+	private Long instructorID;
 	private String quesTitle;
 	private String quesText;
 	private String quesType;
 	private String quesDateTime;
-	public int getInstructorID() {
+	public Long getInstructorID() {
 		return instructorID;
 	}
-	public void setInstructorID(int instructorID) {
+	public void setInstructorID(Long instructorID) {
 		this.instructorID = instructorID;
 	}
 	public int getQuesID() {
@@ -42,5 +42,8 @@ public class Question {
 	}
 	public void setQuesText(String quesText) {
 		this.quesText = quesText;
+	}
+	public boolean createQuestion(IQuestionManagerDB questionDB) {
+		return questionDB.createQuestion(this);
 	}
 }
