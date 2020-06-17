@@ -6,12 +6,12 @@ import CSCI5308.GroupFormationTool.SystemConfig;
 
 public class Question {
 	private int quesID;
-	private int instructorID;
+	private long instructorID;
 	private String quesTitle;
 	private String quesText;
 	private String quesType;
 	private String quesDateTime;
-	
+
 	public Question() {
 		setDefaults();
 	}
@@ -25,11 +25,11 @@ public class Question {
 		quesDateTime = "";
 	}
 	
-	public int getInstructorID() {
+	public long getInstructorID() {
 		return instructorID;
 	}
 	
-	public void setInstructorID(int instructorID) {
+	public void setInstructorID(long instructorID) {
 		this.instructorID = instructorID;
 	}
 	
@@ -89,4 +89,7 @@ public class Question {
 		return true;
 	}
 
+	public boolean createQuestion(IQuestionManagerDB questionDB) {
+		return questionDB.createQuestion(this);
+	}
 }

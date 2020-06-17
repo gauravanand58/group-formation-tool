@@ -82,4 +82,8 @@ public class CallStoredProcedure
 	{
 		statement.execute();
 	}
+
+	public CallableStatement getStatement() {
+		return statement;
+	}
 }

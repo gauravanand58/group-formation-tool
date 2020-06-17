@@ -29,9 +29,6 @@ public class InstructorAdminController
 		courseDB.loadCourseByID(courseID, course);
 		model.addAttribute("course", course);
 		model.addAttribute("displayresults", false);
-		if(course.isCurrentUserEnrolledAsRoleInCourse(Role.INSTRUCTOR)) {
-			model.addAttribute("instructor",true);
-		}
 		if (course.isCurrentUserEnrolledAsRoleInCourse(Role.INSTRUCTOR) ||
 			 course.isCurrentUserEnrolledAsRoleInCourse(Role.TA))
 		{
@@ -39,7 +36,6 @@ public class InstructorAdminController
 		}
 		else
 		{
-			model.addAttribute("instructor",false);
 			return "logout";
 		}
 	}
@@ -60,9 +56,6 @@ public class InstructorAdminController
 		model.addAttribute(SUCCESSFUL, successful);
 		model.addAttribute(FAILURES, failures);
 		model.addAttribute(DISPLAY_RESULTS, displayResults);
-		if(course.isCurrentUserEnrolledAsRoleInCourse(Role.INSTRUCTOR)) {
-			model.addAttribute("instructor",true);
-		}
 		if (course.isCurrentUserEnrolledAsRoleInCourse(Role.INSTRUCTOR) ||
 			 course.isCurrentUserEnrolledAsRoleInCourse(Role.TA))
 		{
@@ -70,7 +63,6 @@ public class InstructorAdminController
 		}
 		else
 		{
-			model.addAttribute("instructor",false);
 			return "logout";
 		}
 	}
@@ -83,9 +75,6 @@ public class InstructorAdminController
 		Course course = new Course();
 		courseDB.loadCourseByID(courseID, course);
 		model.addAttribute("course", course);
-		if(course.isCurrentUserEnrolledAsRoleInCourse(Role.INSTRUCTOR)) {
-			model.addAttribute("instructor",true);
-		}
 		if (course.isCurrentUserEnrolledAsRoleInCourse(Role.INSTRUCTOR) ||
 			 course.isCurrentUserEnrolledAsRoleInCourse(Role.TA))
 		{
@@ -93,7 +82,6 @@ public class InstructorAdminController
 		}
 		else
 		{
-			model.addAttribute("instructor",false);
 			return "logout";
 		}
 	}
