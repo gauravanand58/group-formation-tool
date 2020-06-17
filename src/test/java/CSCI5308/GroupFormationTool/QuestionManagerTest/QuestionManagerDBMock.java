@@ -8,6 +8,7 @@ import CSCI5308.GroupFormationTool.QuestionManager.Question;
 import CSCI5308.GroupFormationTool.QuestionManager.QuestionOptions;
 
 public class QuestionManagerDBMock implements IQuestionManagerDB {
+	
 
 	@Override
 	public List<Question> sortByTitle(String bannerID) {
@@ -63,16 +64,19 @@ public class QuestionManagerDBMock implements IQuestionManagerDB {
 
 	@Override
 	public boolean createQuestion(Question question) {
-//		when(questionDBMock.createQuestion(questionModelMock)).thenReturn(true);
-//		assertTrue(questionDBMock.createQuestion(questionModelMock));
-//		verify(questionDBMock).createQuestion(questionModelMock);
-		return false;
+		question.setInstructorID((long) 1);
+		question.setQuesID(1);
+		question.setQuesTitle("Java");
+		question.setQuesText("How familiar wih java?");
+		question.setQuesDateTime("2020-06-10 00:00:00");
+		return true;
 	}
 
 	@Override
-	public boolean createOption(QuestionOptions questionOptions) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean createOption(QuestionOptions questionOption) {
+		questionOption.setOptionTxt("intermediate");
+		questionOption.setOptionScore("5");
+		return true;
 	}
 	
 	
