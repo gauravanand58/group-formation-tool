@@ -117,7 +117,7 @@ public class QuestionManagerDB implements IQuestionManagerDB {
 		}
 		return displayQues;
 	}
-
+	@Override
 	public boolean createQuestion(Question question) {
 		CallStoredProcedure proc = null;
 		try {
@@ -142,7 +142,7 @@ public class QuestionManagerDB implements IQuestionManagerDB {
 		return true;
 
 	}
-
+	@Override
 	public boolean createOption(QuestionOptions questionOptions) {
 		CallStoredProcedure proc = null;
 		String[] optionTxt = questionOptions.getOptionTxt().split(",");
