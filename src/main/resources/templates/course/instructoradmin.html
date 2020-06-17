@@ -58,7 +58,7 @@
         <br/>
 		<a th:href="@{/course/enrollta(id=${course.id})}">Enroll TAs</a>
 		<div th:if="${instructor}">
-		<a th:href="@{/course/questionmanager}">Question Manager</a>
+		<a th:href="@{/course/questionmanager(bannerID=${#httpServletRequest.remoteUser})}">Question Manager</a>
 		</div>
 	</body>
 </html>
