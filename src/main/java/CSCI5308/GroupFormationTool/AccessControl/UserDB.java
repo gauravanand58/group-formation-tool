@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import CSCI5308.GroupFormationTool.Database.CallStoredProcedure;
 
 public class UserDB implements IUserPersistence
-{	
+{	private Long uId;
 	public void loadUserByID(long id, User user)
 	{
 		CallStoredProcedure proc = null;
@@ -115,5 +115,30 @@ public class UserDB implements IUserPersistence
 	{
 		// Coming in M2!
 		return false;
+	}
+	
+	public Long checkUserByBannerID(String bannerID)
+	{
+		CallStoredProcedure proc = null;
+		try
+		{
+			proc = new CallStoredProcedure("spcheckInstructorByBannerID(?,?)");
+			proc.setParameter(1, bannerID);
+			proc.registerOutputParameterLong(2);
+			proc.execute();
+			uId = proc.getStatement().getLong(2);
+		}
+		catch (SQLException e)
+		{
+			// Logging needed.
+		}
+		finally
+		{
+			if (null != proc)
+			{
+				proc.cleanup();
+			}
+		}
+		return uId;
 	}
 }
