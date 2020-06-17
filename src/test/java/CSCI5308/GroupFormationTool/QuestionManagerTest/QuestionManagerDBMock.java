@@ -46,7 +46,9 @@ public class QuestionManagerDBMock implements IQuestionManagerDB {
 
 	@Override
 	public boolean createQuestion(Question question) {
-		// TODO Auto-generated method stub
+//		when(questionDBMock.createQuestion(questionModelMock)).thenReturn(true);
+//		assertTrue(questionDBMock.createQuestion(questionModelMock));
+//		verify(questionDBMock).createQuestion(questionModelMock);
 		return false;
 	}
 
@@ -55,5 +57,7 @@ public class QuestionManagerDBMock implements IQuestionManagerDB {
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
+	
 
 }

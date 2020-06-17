@@ -35,8 +35,8 @@
 		responses.appendChild(displaytxtlbl);
 
 		var dispalytxt = document.createElement("input");
-		dispalytxt.type = "text";
-		dispalytxt.name = "optionTxt";
+		displaytxt.type = "text";
+		displaytxt.name = "optionTxt";
 		responses.appendChild(dispalytxt);
 
 		var tabspace = document.createElement("label");
@@ -88,5 +88,10 @@
 	<button disabled=true id="add_answer" onClick="addOptions()">add
 		answer</button>
 	</br>
+	</br>
+	<div th:style="'visibility:'+@{${message}}" >
+	Question added successfully
+	</div>
+
 </body>
 </html>
