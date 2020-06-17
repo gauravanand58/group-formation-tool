@@ -1,6 +1,5 @@
 package CSCI5308.GroupFormationTool.SecurityTest;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -121,13 +120,7 @@ public class PasswordPolicyConfigurationTest {
 		assertTrue(configuration.getNotAllowedChar().equals("$%@"));
 	}
 	
-	@Test
-	public void isValidPasswordTest() {
-		
-		assertTrue(PasswordPolicyConfiguration.isValidPassword("srIK2*"));
-		assertFalse(PasswordPolicyConfiguration.isValidPassword("sriK2*"));
-		
-	}
+	
 
 	@Test
 	public void getPasswordPoliciesTest() {

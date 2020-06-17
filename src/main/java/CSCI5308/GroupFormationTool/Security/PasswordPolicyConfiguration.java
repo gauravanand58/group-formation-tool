@@ -111,53 +111,7 @@ public class PasswordPolicyConfiguration {
 		return uniqueInstance;
 	}
 	
-	public static boolean isValidPassword(String password) {
-		int upperCount = 0;
-		int lowerCount = 0;
-		int symbolCount = 0;
-		
-		String tempPassword = password;
-		upperCount = password.length() - tempPassword.replaceAll("[A-Z]", "").length();
-		
-		tempPassword = password;
-		lowerCount = password.length() - tempPassword.replaceAll("[a-z]", "").length();
-		
-		tempPassword = password;
-		symbolCount = password.length() - tempPassword.replaceAll("[^a-z|^A-Z]", "").length();
-		
-		System.out.println("ddd:"+upperCount+","+lowerCount+","+symbolCount);		
-		
-		
-		char[] invalidChars = uniqueInstance.notAllowedChar.toCharArray();
-		
-		// checks for max length and min length for a password
-		if( (uniqueInstance.maxLength!=-1 && password.length()> uniqueInstance.maxLength) 
-				|| (uniqueInstance.minLength!=-1 && password.length() < uniqueInstance.minLength)) {
-			return false;
-		}
-		
-		if( uniqueInstance.minLowerChar!=-1 && lowerCount < uniqueInstance.minLowerChar) {
-			return false;
-		}
-		
-		if( uniqueInstance.minUpperChar!=-1 && upperCount < uniqueInstance.minUpperChar) {
-			return false;
-		}
-		
-		if( uniqueInstance.minSplChar!=-1 && symbolCount < uniqueInstance.minSplChar) {
-			return false;
-		}
-		
-		
-		// checks for invalid characters in password
-		for(int i = 0; i < invalidChars.length; i++) {
-			if( password.contains(String.valueOf(invalidChars[i])) ) {
-				return false;
-			}
-		}
-			
-		return true;
-	}
+	
 
 	
 
