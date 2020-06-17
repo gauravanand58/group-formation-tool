@@ -70,14 +70,14 @@ public class QuestionTest {
 	public void getQuesTextTest() {
 		Question question = new Question();
 		question.setQuesText("Test Question Text");
-		assertTrue(question.getQuesText().equals("Testing Question Text"));
+		assertTrue(question.getQuesText().equals("Test Question Text"));
 	}
 	
 	@Test
 	public void setQuesTextTest() {
 		Question question = new Question();
 		question.setQuesText("Test Question Text");
-		assertTrue(question.getQuesText().equals("Testing Question Text"));
+		assertTrue(question.getQuesText().equals("Test Question Text"));
 	}
 	
 	@Test
