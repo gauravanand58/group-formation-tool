@@ -25,6 +25,9 @@ public class SystemConfig
 	private IDatabaseConfiguration databaseConfiguration;
 	private ICoursePersistence courseDB;
 	private ICourseUserRelationshipPersistence courseUserRelationshipDB;
+
+	private IQuestionManagerDB questionDB;
+
 	private IPasswordPolicyPersistance passwordPolicyDB;
 	private IUserPasswordHistoryRelationshipPersistance userPasswordRelationshipDB;
 	private IQuestionManagerDB questionManagerDB;
@@ -41,10 +44,14 @@ public class SystemConfig
 		databaseConfiguration = new DefaultDatabaseConfiguration();
 		courseDB = new CourseDB();
 		courseUserRelationshipDB = new CourseUserRelationshipDB();
+
+		setQuestionDB(new QuestionManagerDB());
+
 		passwordPolicyDB = new PasswordPolicyDB();
 		userPasswordRelationshipDB = new UserPasswordHistoryRelationshipDB();
 		questionManagerDB = new QuestionManagerDB();
 		
+
 	}
 	
 	// This is the way the rest of the application gets access to the System object.
@@ -126,6 +133,15 @@ public class SystemConfig
 		return courseUserRelationshipDB;
 	}
 
+
+	public IQuestionManagerDB getQuestionDB() {
+		return questionDB;
+	}
+
+	public void setQuestionDB(IQuestionManagerDB questionDB) {
+		this.questionDB = questionDB;
+	}
+
 	public PasswordPolicyConfiguration getConfiguration() {
 		return PasswordPolicyConfiguration.instance(passwordPolicyDB);
 	}
@@ -139,4 +155,5 @@ public class SystemConfig
 	}
 	
 	
+
 }

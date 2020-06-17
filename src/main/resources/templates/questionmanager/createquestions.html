@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<title>CSCI5308 - Group Formation Tool</title>
+<script>
+	function changeOuesType() {
+		var selectedType = document.getElementById("Question_type").value;
+		var button = document.getElementById("add_answer");
+		if (selectedType === 'mcq-1' || selectedType === 'mcq-2') {
+			document.getElementById("options").disabled = true;
+			var nodes = document.getElementById("options")
+					.getElementsByTagName('*');
+			for (var i = 0; i < nodes.length; i++) {
+				nodes[i].disabled = false;
+			}
+			button.disabled = false;
+		} else {
+			document.getElementById("options").disabled = true;
+			var nodes = document.getElementById("options")
+					.getElementsByTagName('*');
+			for (var i = 0; i < nodes.length; i++) {
+				nodes[i].disabled = true;
+			}
+			button.disabled = true;
+		}
+
+	}
+
+	function addOptions() {
+		var responses = document.getElementById("options");
+		var displaytxtlbl = document.createElement("label");
+		displaytxtlbl.innerHTML = "Display Text:";
+		responses.appendChild(displaytxtlbl);
+
+		var dispalytxt = document.createElement("input");
+		dispalytxt.type = "text";
+		dispalytxt.name = "optionTxt";
+		responses.appendChild(dispalytxt);
+
+		var tabspace = document.createElement("label");
+		tabspace.innerHTML = "&nbsp &nbsp";
+		responses.appendChild(tabspace);
+
+		var storedlbl = document.createElement("label");
+		storedlbl.innerHTML = "Stored as:";
+		responses.appendChild(storedlbl);
+
+		var stored_value = document.createElement("input");
+		stored_value.type = "text";
+		stored_value.name = "optionScore";
+		responses.appendChild(stored_value);
+		responses.appendChild(document.createElement("br"));
+
+	}
+</script>
+</head>
+<body>
+	<!-- I got the idea for how to do this from https://www.thymeleaf.org/doc/articles/springsecurity.html -->
+	<div sec:authorize="isAuthenticated()">
+		<h4 th:inline="text">BannerID:
+			[[${#httpServletRequest.remoteUser}]]</h4>
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" />
+		</form>
+	</div>
+	<form th:action="@{/submitquestions}" method="post">
+		<div th:if="${isUserInstrutor!=0}">
+			Question Title <input type="text" name="quesTitle" required><br />
+			Question Text <input type="text" name="quesText" required><br />
+			<label for="Questions">Choose Question Type:</label> <select
+				name="quesType" id="Question_type" onchange="changeOuesType()">
+				<option value="numeric">numeric</option>
+				<option value="mcq-1">multiple choice choose one</option>
+				<option value="mcq-2">multiple choice choose many</option>
+
+				<option value="free text">free text</option>
+			</select>
+
+			<div id="options"></div>
+			<button type="submit" id="submit_answer">Submit</button>
+			</br>
+		</div>
+	</form>
+
+
+	<button disabled=true id="add_answer" onClick="addOptions()">add
+		answer</button>
+	</br>
+</body>
+</html>
