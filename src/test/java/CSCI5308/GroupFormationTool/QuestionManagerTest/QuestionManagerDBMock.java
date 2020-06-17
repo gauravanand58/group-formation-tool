@@ -49,7 +49,7 @@ public class QuestionManagerDBMock implements IQuestionManagerDB {
 		if(bannerID.equals("B-000000")) {
 			List<Question> l=new ArrayList<Question>();
 			Question q=new Question();
-			q.setInstructorID(1);
+			q.setInstructorID((long) 1);
 			q.setQuesID(1);
 			q.setQuesTitle("Java");
 			q.setQuesText("How familiar wih java?");

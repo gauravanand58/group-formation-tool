@@ -12,7 +12,7 @@ import CSCI5308.GroupFormationTool.SystemConfig;
 public class QuestionManagerController {
 	
 	@RequestMapping("/course/questionmanager")
-	public String sortQues(@RequestParam("bannerID") String bannerID,Model model) {
+	public String DisplayQues(@RequestParam("bannerID") String bannerID,Model model) {
 		IQuestionManagerDB questionManagerDB = SystemConfig.instance().getQuestionManagerDB();
 		IQuestionManagerService service=new QuestionManagerService();
 		List<Question> displayQues=service.displayQues(bannerID,questionManagerDB);
