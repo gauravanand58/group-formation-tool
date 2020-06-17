@@ -10,7 +10,7 @@ import CSCI5308.GroupFormationTool.QuestionManager.IQuestionManagerDB;
 public class QuestionManagerServiceTest {
 
 	@Test
-	public void sortQues() {
+	public void sortQuesTest() {
 		IQuestionManagerDB dao=new QuestionManagerDBMock();
 		assertNotNull(dao.sortByTitle("B-000000"));
 		assertNotNull(dao.sortByDate("B-000000"));
@@ -18,7 +18,7 @@ public class QuestionManagerServiceTest {
 		assertNull(dao.sortByDate("B-000001"));
 	}
 	@Test
-	public void displayQues() {
+	public void displayQuesTest() {
 		IQuestionManagerDB dao=new QuestionManagerDBMock();
 		assertNotNull(dao.displayQues("B-000000"));
 		assertNull(dao.displayQues("B-000001"));

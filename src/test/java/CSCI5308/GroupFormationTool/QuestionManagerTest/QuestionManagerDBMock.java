@@ -72,5 +72,4 @@ public class QuestionManagerDBMock implements IQuestionManagerDB {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
 }
