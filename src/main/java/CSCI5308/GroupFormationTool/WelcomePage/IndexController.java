@@ -35,7 +35,7 @@ public class IndexController
 			if(isUserInstructor == 0) 
 			{
 				model.addAttribute("QuestionSet", "hidden");
-				
+				model.addAttribute("isUserInstructor", 0);
 			}
 			else 
 			{
