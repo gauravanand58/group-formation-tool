@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.assertj.core.api.Assert;
 import org.junit.jupiter.api.Test;
 
 import CSCI5308.GroupFormationTool.QuestionManager.IQuestionManagerDB;
