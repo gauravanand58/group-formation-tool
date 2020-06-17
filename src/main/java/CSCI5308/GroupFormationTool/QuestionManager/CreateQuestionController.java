@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import CSCI5308.GroupFormationTool.SystemConfig;
 
 @Controller
-public class CreateQuestion {
+public class CreateQuestionController {
 	private Long uId;
 
 	@RequestMapping("/createquestions")
