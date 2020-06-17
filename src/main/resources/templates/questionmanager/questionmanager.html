@@ -20,7 +20,7 @@
 
 				<a th:href="@{/course/manager(sortBy='Date',bannerID=${#httpServletRequest.remoteUser})}">Sort Ques. by Date</a>
 			</div>
-			<div th:if="${sortedQues!=null}">
+			<div th:if="${ques!=null}">
 				<table>
 				<tr >
 							<th>ID</th>
@@ -29,7 +29,7 @@
 							<th>Type</th>
 							<th>DateTime</th>
 					</tr>
-					<tr th:each="msg : ${sortedQues}">
+					<tr th:each="msg : ${ques}">
 						<td><span th:text="${msg.quesID}"></span></td>
 							<td><span th:text="${msg.quesTitle}"></span></td>
 							<td><span th:text="${msg.quesText}"></span></td>

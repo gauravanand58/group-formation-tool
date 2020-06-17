@@ -45,6 +45,23 @@ public class QuestionManagerDBMock implements IQuestionManagerDB {
 	}
 
 	@Override
+	public List<Question> displayQues(String bannerID) {
+		if(bannerID.equals("B-000000")) {
+			List<Question> l=new ArrayList<Question>();
+			Question q=new Question();
+			q.setInstructorID((long) 1);
+			q.setQuesID(1);
+			q.setQuesTitle("Java");
+			q.setQuesText("How familiar wih java?");
+			q.setQuesDateTime("2020-06-10 00:00:00");
+			l.add(q);
+			return l;
+		}else {
+			return null;	
+		}
+	}
+
+	@Override
 	public boolean createQuestion(Question question) {
 		// TODO Auto-generated method stub
 		return false;

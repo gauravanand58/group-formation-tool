@@ -17,4 +17,10 @@ public class QuestionManagerServiceTest {
 		assertNull(dao.sortByTitle("B-000001"));
 		assertNull(dao.sortByDate("B-000001"));
 	}
+	@Test
+	public void displayQues() {
+		IQuestionManagerDB dao=new QuestionManagerDBMock();
+		assertNotNull(dao.displayQues("B-000000"));
+		assertNull(dao.displayQues("B-000001"));
+	}
 }
