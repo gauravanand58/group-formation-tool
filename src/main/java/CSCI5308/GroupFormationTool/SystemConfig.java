@@ -25,7 +25,12 @@ public class SystemConfig
 	private IDatabaseConfiguration databaseConfiguration;
 	private ICoursePersistence courseDB;
 	private ICourseUserRelationshipPersistence courseUserRelationshipDB;
+
 	private IQuestionManagerDB questionDB;
+
+	private IPasswordPolicyPersistance passwordPolicyDB;
+	private IUserPasswordHistoryRelationshipPersistance userPasswordRelationshipDB;
+
 	
 	// This private constructor ensures that no class other than System can allocate
 	// the System object. The compiler would prevent it.
@@ -39,7 +44,13 @@ public class SystemConfig
 		databaseConfiguration = new DefaultDatabaseConfiguration();
 		courseDB = new CourseDB();
 		courseUserRelationshipDB = new CourseUserRelationshipDB();
+
 		setQuestionDB(new QuestionManagerDB());
+
+		passwordPolicyDB = new PasswordPolicyDB();
+		userPasswordRelationshipDB = new UserPasswordHistoryRelationshipDB();
+		
+
 	}
 	
 	// This is the way the rest of the application gets access to the System object.
@@ -99,10 +110,28 @@ public class SystemConfig
 		this.courseUserRelationshipDB = courseUserRelationshipDB;
 	}
 	
+	public IPasswordPolicyPersistance getPasswordPolicyDB() {
+		return passwordPolicyDB;
+	}
+
+	public void setPasswordPolicyDB(IPasswordPolicyPersistance passwordPolicyDB) {
+		this.passwordPolicyDB = passwordPolicyDB;
+	}
+
+	
+	public IUserPasswordHistoryRelationshipPersistance getUserPasswordRelationshipDB() {
+		return userPasswordRelationshipDB;
+	}
+
+	public void setUserPasswordRelationshipDB(IUserPasswordHistoryRelationshipPersistance userPasswordRelationshipDB) {
+		this.userPasswordRelationshipDB = userPasswordRelationshipDB;
+	}
+
 	public ICourseUserRelationshipPersistence getCourseUserRelationshipDB()
 	{
 		return courseUserRelationshipDB;
 	}
+
 
 	public IQuestionManagerDB getQuestionDB() {
 		return questionDB;
@@ -111,4 +140,11 @@ public class SystemConfig
 	public void setQuestionDB(IQuestionManagerDB questionDB) {
 		this.questionDB = questionDB;
 	}
+
+	public PasswordPolicyConfiguration getConfiguration() {
+		return PasswordPolicyConfiguration.instance(passwordPolicyDB);
+	}
+	
+	
+
 }

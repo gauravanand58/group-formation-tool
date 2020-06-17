@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import CSCI5308.GroupFormationTool.SystemConfig;
 import CSCI5308.GroupFormationTool.AccessControl.IUserPersistence;
 import CSCI5308.GroupFormationTool.Courses.*;
+import CSCI5308.GroupFormationTool.Security.PasswordPolicyConfiguration;
 
 @Controller
 public class IndexController
@@ -24,6 +25,11 @@ public class IndexController
 		{
 			ICoursePersistence courseDB = SystemConfig.instance().getCourseDB();
 			List<Course> allCourses = courseDB.loadAllCourses();
+			//initialize password configurations
+			SystemConfig.instance().getConfiguration();
+			
+			
+			
 			model.addAttribute("courses", allCourses);
 			IUserPersistence userDb = SystemConfig.instance().getUserDB();
 			Long isUserInstructor = userDb.checkUserByBannerID(httpServletRequest.getRemoteUser());
