@@ -32,4 +32,11 @@ public class QuestionManagerController {
 	public void sortQues(@RequestParam("bannerID") String bannerID,@RequestParam("quesID") int quesID) {
 		System.out.println(quesID+"---"+bannerID);
 	}
+	
+	@RequestMapping("/mainquestionmanager")
+	public String DisplayQuestionManager(@RequestParam("id") Long courseID,@RequestParam("isUserInstructor") Long isUserInstructor,Model model) {
+		model.addAttribute("courseID",courseID);
+		model.addAttribute("isUserInstructor",isUserInstructor);
+		return "questionmanager/mainquestionmanager";
+	}
 }

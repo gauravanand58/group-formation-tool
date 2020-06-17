@@ -167,7 +167,6 @@ public class QuestionManagerDB implements IQuestionManagerDB {
 			}
 		}
 		return true;
-//		
-//	}
+
 	}
 }
