@@ -15,23 +15,24 @@ import CSCI5308.GroupFormationTool.Courses.ICoursePersistence;
 @Controller
 public class CreateQuestion {
 	private Long uId;
+
 	@RequestMapping("/createquestions")
 	public String createQuestion(Model model, @RequestParam(name = "isUserInstructor") Long isUserInstrutor) {
-		model.addAttribute("isUserInstrutor",isUserInstrutor);
+		model.addAttribute("isUserInstrutor", isUserInstrutor);
 		this.uId = isUserInstrutor;
 		return "questionmanager/createquestions";
 	}
 
 	@PostMapping("/submitquestions")
-	public String submitQuestions(QuestionOptions questionOption,Model model, Question question) {
+	public String submitQuestions(QuestionOptions questionOption, Model model, Question question) {
 		IQuestionManagerDB questionDB = SystemConfig.instance().getQuestionDB();
 		question.setInstructorID(uId);
 		question.createQuestion(questionDB);
-		if(question.getQuesType() == "mcq-1" || question.getQuesType() == "mcq-2" ) {
+		if (question.getQuesType() == "mcq-1" || question.getQuesType() == "mcq-2") {
 			questionOption.createOption(questionDB);
-		}		
+		}
 		return "questionmanager/createquestions";
-		
+
 	}
-	
+
 }
