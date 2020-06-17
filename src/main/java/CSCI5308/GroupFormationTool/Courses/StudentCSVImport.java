@@ -14,10 +14,12 @@ public class StudentCSVImport
 	private Course course;
 	private IUserPersistence userDB;
 	private IPasswordEncryption passwordEncryption;
+	private IUserNotifications userNotification;
 	private IStudentCSVParser parser;
 	
 	public StudentCSVImport(IStudentCSVParser parser, Course course)
 	{
+		userNotification = new UserNotifications();
 		this.course = course;
 		successResults = new ArrayList<String>();
 		failureResults = new ArrayList<String>();
@@ -46,7 +48,8 @@ public class StudentCSVImport
 				user.setFirstName(firstName);
 				user.setLastName(lastName);
 				user.setEmail(email);
-				if (user.createUser(userDB, passwordEncryption, null))
+				user.setPassword(u.getBannerID());
+				if (user.createUser(userDB, passwordEncryption, userNotification))
 				{
 					successResults.add("Created: " + userDetails);
 					userDB.loadUserByBannerID(bannerID, user);

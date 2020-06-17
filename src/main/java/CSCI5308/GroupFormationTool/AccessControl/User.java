@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.mail.MessagingException;
+
 import CSCI5308.GroupFormationTool.Security.IPasswordEncryption;
 import CSCI5308.GroupFormationTool.Security.IUserPasswordHistoryRelationshipPersistance;
 import CSCI5308.GroupFormationTool.Security.PasswordPolicyConfiguration;
@@ -115,8 +117,14 @@ public class User {
 		String rawPassword = password;
 		this.password = passwordEncryption.encryptPassword(this.password);
 		boolean success = userDB.createUser(this);
-		if (success && (null != notification)) {
-			notification.sendUserLoginCredentials(this, rawPassword);
+		if (success && (null != notification))
+		{
+			try {
+				notification.sendUserLoginCredentials(this, rawPassword);
+			} catch (MessagingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return success;
 	}
