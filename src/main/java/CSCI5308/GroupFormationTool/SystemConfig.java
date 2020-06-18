@@ -3,8 +3,14 @@ package CSCI5308.GroupFormationTool;
 import CSCI5308.GroupFormationTool.Security.*;
 import CSCI5308.GroupFormationTool.AccessControl.*;
 import CSCI5308.GroupFormationTool.Database.*;
-import CSCI5308.GroupFormationTool.QuestionManager.IQuestionManagerDB;
-import CSCI5308.GroupFormationTool.QuestionManager.QuestionManagerDB;
+
+import CSCI5308.GroupFormationTool.Questions.IQuestionPersistence;
+import CSCI5308.GroupFormationTool.Questions.IResponsePersistence;
+import CSCI5308.GroupFormationTool.Questions.QuestionDB;
+import CSCI5308.GroupFormationTool.Questions.ResponseDB;
+import CSCI5308.GroupFormationTool.Questions.IQuestionManagerDB;
+import CSCI5308.GroupFormationTool.Questions.QuestionManagerDB;
+
 import CSCI5308.GroupFormationTool.Courses.*;
 
 /*
@@ -25,12 +31,12 @@ public class SystemConfig
 	private IDatabaseConfiguration databaseConfiguration;
 	private ICoursePersistence courseDB;
 	private ICourseUserRelationshipPersistence courseUserRelationshipDB;
-
-	private IQuestionManagerDB questionDB;
-
+	private IQuestionPersistence questionDB;
+	private IResponsePersistence reponseDB;
 	private IPasswordPolicyPersistance passwordPolicyDB;
 	private IUserPasswordHistoryRelationshipPersistance userPasswordRelationshipDB;
 	private IQuestionManagerDB questionManagerDB;
+
 	
 	// This private constructor ensures that no class other than System can allocate
 	// the System object. The compiler would prevent it.
@@ -44,14 +50,11 @@ public class SystemConfig
 		databaseConfiguration = new DefaultDatabaseConfiguration();
 		courseDB = new CourseDB();
 		courseUserRelationshipDB = new CourseUserRelationshipDB();
-
-		setQuestionDB(new QuestionManagerDB());
-
+		questionDB = new QuestionDB();
+		reponseDB = new ResponseDB();
 		passwordPolicyDB = new PasswordPolicyDB();
 		userPasswordRelationshipDB = new UserPasswordHistoryRelationshipDB();
 		questionManagerDB = new QuestionManagerDB();
-		
-
 	}
 	
 	// This is the way the rest of the application gets access to the System object.
@@ -133,13 +136,20 @@ public class SystemConfig
 		return courseUserRelationshipDB;
 	}
 
-
-	public IQuestionManagerDB getQuestionDB() {
+	public IQuestionPersistence getQuestionDB() {
 		return questionDB;
 	}
 
-	public void setQuestionDB(IQuestionManagerDB questionDB) {
+	public void setQuestionDB(IQuestionPersistence questionDB) {
 		this.questionDB = questionDB;
+	}
+
+	public IResponsePersistence getReponseDB() {
+		return reponseDB;
+	}
+
+	public void setReponseDB(IResponsePersistence reponseDB) {
+		this.reponseDB = reponseDB;
 	}
 
 	public PasswordPolicyConfiguration getConfiguration() {
@@ -153,7 +163,4 @@ public class SystemConfig
 	public void setQuestionManagerDB(IQuestionManagerDB questionManagerDB) {
 		this.questionManagerDB = questionManagerDB;
 	}
-	
-	
-
 }

@@ -1,4 +1,4 @@
-package CSCI5308.GroupFormationTool.QuestionManager;
+package CSCI5308.GroupFormationTool.Questions;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

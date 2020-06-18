@@ -1,10 +1,10 @@
-package CSCI5308.GroupFormationTool.QuestionManagerTest;
+package CSCI5308.GroupFormationTool.QuestionsTest;
 
 import static org.junit.jupiter.api.Assertions.assertSame;
 
 import org.junit.jupiter.api.Test;
 
-import CSCI5308.GroupFormationTool.QuestionManager.QuestionOptions;
+import CSCI5308.GroupFormationTool.Questions.QuestionOptions;
 
 public class QuestionOptionsMock {
 	@Test
