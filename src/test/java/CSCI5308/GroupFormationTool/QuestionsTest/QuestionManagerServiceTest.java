@@ -23,23 +23,23 @@ public class QuestionManagerServiceTest {
 	@Test
 	public void displayQuesTest() {
 		IQuestionManagerDB dao=new QuestionManagerDBMock();
-		assertNotNull(dao.displayQues("B-000000"));
-		assertNull(dao.displayQues("B-000001"));
+		assertNotNull(dao.displayQuestions("B-000000"));
+		assertNull(dao.displayQuestions("B-000001"));
 	}
 	@Test
 	public void createQuestionTest() {
 		IQuestionManagerDB dao=new QuestionManagerDBMock();
 		Question question = new Question();
 		question.setInstructorID((long) 1);
-		question.setQuesID(1);
-		question.setQuesTitle("Java");
-		question.setQuesText("How familiar wih java?");
-		question.setQuesDateTime("2020-06-10 00:00:00");
+		question.setQuestionID(1);
+		question.setQuestionTitle("Java");
+		question.setQuestionText("How familiar wih java?");
+		question.setQuestionDateTime("2020-06-10 00:00:00");
 		dao.createQuestion(question);
-		assertTrue(question.getQuesID()==1);
-		assertTrue(question.getQuesTitle()=="Java");
-		assertTrue(question.getQuesText()=="How familiar wih java?");
-		assertTrue(question.getQuesDateTime()=="2020-06-10 00:00:00");
+		assertTrue(question.getQuestionID()==1);
+		assertTrue(question.getQuestionTitle()=="Java");
+		assertTrue(question.getQuestionText()=="How familiar wih java?");
+		assertTrue(question.getQuestionDateTime()=="2020-06-10 00:00:00");
 	}
 	@Test
 	public void createOptionTest() {

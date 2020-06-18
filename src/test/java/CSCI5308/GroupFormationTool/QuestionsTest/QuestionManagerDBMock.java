@@ -16,10 +16,10 @@ public class QuestionManagerDBMock implements IQuestionManagerDB {
 			List<Question> l=new ArrayList<Question>();
 			Question q=new Question();
 			q.setInstructorID((long) 1);
-			q.setQuesID(1);
-			q.setQuesTitle("Java");
-			q.setQuesText("How familiar wih java?");
-			q.setQuesDateTime("2020-06-10 00:00:00");
+			q.setQuestionID(1);
+			q.setQuestionTitle("Java");
+			q.setQuestionText("How familiar wih java?");
+			q.setQuestionDateTime("2020-06-10 00:00:00");
 			l.add(q);
 			return l;
 		}else {
@@ -34,10 +34,10 @@ public class QuestionManagerDBMock implements IQuestionManagerDB {
 			List<Question> l=new ArrayList<Question>();
 			Question q=new Question();
 			q.setInstructorID((long) 1);
-			q.setQuesID(1);
-			q.setQuesTitle("Java");
-			q.setQuesText("How familiar wih java?");
-			q.setQuesDateTime("2020-06-10 00:00:00");
+			q.setQuestionID(1);
+			q.setQuestionTitle("Java");
+			q.setQuestionText("How familiar wih java?");
+			q.setQuestionDateTime("2020-06-10 00:00:00");
 			l.add(q);
 			return l;
 		}else {
@@ -46,15 +46,15 @@ public class QuestionManagerDBMock implements IQuestionManagerDB {
 	}
 
 	@Override
-	public List<Question> displayQues(String bannerID) {
+	public List<Question> displayQuestions(String bannerID) {
 		if(bannerID.equals("B-000000")) {
 			List<Question> l=new ArrayList<Question>();
 			Question q=new Question();
 			q.setInstructorID((long) 1);
-			q.setQuesID(1);
-			q.setQuesTitle("Java");
-			q.setQuesText("How familiar wih java?");
-			q.setQuesDateTime("2020-06-10 00:00:00");
+			q.setQuestionID(1);
+			q.setQuestionTitle("Java");
+			q.setQuestionText("How familiar wih java?");
+			q.setQuestionDateTime("2020-06-10 00:00:00");
 			l.add(q);
 			return l;
 		}else {
@@ -65,10 +65,10 @@ public class QuestionManagerDBMock implements IQuestionManagerDB {
 	@Override
 	public boolean createQuestion(Question question) {
 		question.setInstructorID((long) 1);
-		question.setQuesID(1);
-		question.setQuesTitle("Java");
-		question.setQuesText("How familiar wih java?");
-		question.setQuesDateTime("2020-06-10 00:00:00");
+		question.setQuestionID(1);
+		question.setQuestionTitle("Java");
+		question.setQuestionText("How familiar wih java?");
+		question.setQuestionDateTime("2020-06-10 00:00:00");
 		return true;
 	}
 
