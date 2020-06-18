@@ -1,7 +1,7 @@
 package CSCI5308.GroupFormationTool.CoursesTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 
@@ -29,7 +29,7 @@ class CourseUserRelationshipTest {
 		List<Role> roles = courseUserRelationshipDB.loadUserRolesForCourse(course, user);
 		assertThat(roles).isNotNull();
 		assertThat(roles).isNotEmpty();
-		assertNull(roles.size() > 0);
+		assertTrue(roles.size() > 0);
 	}
 
 	@Test
@@ -39,7 +39,7 @@ class CourseUserRelationshipTest {
 		CurrentUserMock currentUser = new CurrentUserMock();
 		User user = currentUser.getCurrentAuthenticatedUser();
 		List<Role> roles = courseUserRelationshipDB.loadUserRolesForCourse(course, user);
-		assertNull(roles.size() > 0);
+		assertTrue(roles.size() > 0);
 	}
 
 	@Test
@@ -48,6 +48,6 @@ class CourseUserRelationshipTest {
 		CurrentUserMock currentUser = new CurrentUserMock();
 		User user = currentUser.getCurrentAuthenticatedUser();
 		boolean result = courseUserRelationshipDB.enrollUser(course, user, Role.STUDENT);
-		assertNull(result);
+		assertTrue(result);
 	}
 }
