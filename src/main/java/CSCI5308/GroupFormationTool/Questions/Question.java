@@ -5,24 +5,24 @@ import java.util.List;
 import CSCI5308.GroupFormationTool.SystemConfig;
 
 public class Question {
-	private int quesID;
+	private int questionID;
 	private long instructorID;
-	private String quesTitle;
-	private String quesText;
-	private String quesType;
-	private String quesDateTime;
+	private String questionTitle;
+	private String questionText;
+	private String questionType;
+	private String questionDateTime;
 
 	public Question() {
 		setDefaults();
 	}
 	
 	private void setDefaults() {
-		quesID = -1;
+		questionID = -1;
 		instructorID = -1;
-		quesTitle = "";
-		quesText = "";
-		quesType = "";
-		quesDateTime = "";
+		questionTitle = "";
+		questionText = "";
+		questionType = "";
+		questionDateTime = "";
 	}
 	
 	public long getInstructorID() {
@@ -33,52 +33,52 @@ public class Question {
 		this.instructorID = instructorID;
 	}
 	
-	public int getQuesID() {
-		return quesID;
+	public int getQuestionID() {
+		return questionID;
 	}
 	
-	public void setQuesID(int quesID) {
-		this.quesID = quesID;
+	public void setQuestionID(int quesID) {
+		this.questionID = quesID;
 	}
 	
-	public String getQuesTitle() {
-		return quesTitle;
+	public String getQuestionTitle() {
+		return questionTitle;
 	}
 	
-	public void setQuesTitle(String quesTitle) {
-		this.quesTitle = quesTitle;
+	public void setQuestionTitle(String quesTitle) {
+		this.questionTitle = quesTitle;
 	}
 	
-	public String getQuesType() {
-		return quesType;
+	public String getQuestionType() {
+		return questionType;
 	}
 	
-	public void setQuesType(String quesType) {
-		this.quesType = quesType;
+	public void setQuestionType(String quesType) {
+		this.questionType = quesType;
 	}
 	
-	public String getQuesDateTime() {
-		return quesDateTime;
+	public String getQuestionDateTime() {
+		return questionDateTime;
 	}
 	
-	public void setQuesDateTime(String quesDateTime) {
-		this.quesDateTime = quesDateTime;
+	public void setQuestionDateTime(String quesDateTime) {
+		this.questionDateTime = quesDateTime;
 	}
 	
-	public String getQuesText() {
-		return quesText;
+	public String getQuestionText() {
+		return questionText;
 	}
 	
-	public void setQuesText(String quesText) {
-		this.quesText = quesText;
+	public void setQuestionText(String quesText) {
+		this.questionText = quesText;
 	}
 	
 	public boolean deleteQuestion(IQuestionPersistence questionDB) {
-		return questionDB.deleteQuestion(quesID);
+		return questionDB.deleteQuestion(questionID);
 	}
 	
 	public List<QuestionResponse> getAllResponses(IQuestionResponsePersistence responseDB) {
-		return responseDB.getAllResponsesOfQuestion(quesID);
+		return responseDB.getAllResponsesOfQuestion(questionID);
 	}
 	
 	public boolean checkIfQuestionHasResponse() {

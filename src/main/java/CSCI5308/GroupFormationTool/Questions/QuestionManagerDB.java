@@ -12,7 +12,7 @@ public class QuestionManagerDB implements IQuestionManagerDB {
 
 	@Override
 	public List<Question> sortByTitle(String bannerID) {
-		List<Question> sortedQues = new ArrayList<Question>();
+		List<Question> sortedQuestions = new ArrayList<Question>();
 		CallStoredProcedure proc = null;
 		try {
 			proc = new CallStoredProcedure("spSortByTitle(?)");
@@ -20,18 +20,18 @@ public class QuestionManagerDB implements IQuestionManagerDB {
 			ResultSet results = proc.executeWithResults();
 			if (null != results) {
 				while (results.next()) {
-					int quesID = results.getInt(1);
-					String quesTitle = results.getString(2);
-					String quesText = results.getString(3);
-					String quesType = results.getString(4);
-					String quesDateTime = results.getString(5);
+					int questionID = results.getInt(1);
+					String questionTitle = results.getString(2);
+					String questionText = results.getString(3);
+					String questionType = results.getString(4);
+					String questionDateTime = results.getString(5);
 					Question q = new Question();
-					q.setQuesID(quesID);
-					q.setQuesTitle(quesTitle);
-					q.setQuesText(quesText);
-					q.setQuesType(quesType);
-					q.setQuesDateTime(quesDateTime);
-					sortedQues.add(q);
+					q.setQuestionID(questionID);
+					q.setQuestionTitle(questionTitle);
+					q.setQuestionText(questionText);
+					q.setQuestionType(questionType);
+					q.setQuestionDateTime(questionDateTime);
+					sortedQuestions.add(q);
 				}
 			}
 		} catch (Exception e) {
@@ -41,13 +41,13 @@ public class QuestionManagerDB implements IQuestionManagerDB {
 				proc.cleanup();
 			}
 		}
-		return sortedQues;
+		return sortedQuestions;
 	}
 
 	@Override
 	public List<Question> sortByDate(String bannerID) {
 
-		List<Question> sortedQues = new ArrayList<Question>();
+		List<Question> sortedQuestions = new ArrayList<Question>();
 		CallStoredProcedure proc = null;
 		try {
 			proc = new CallStoredProcedure("spSortByDate(?)");
@@ -55,18 +55,18 @@ public class QuestionManagerDB implements IQuestionManagerDB {
 			ResultSet results = proc.executeWithResults();
 			if (null != results) {
 				while (results.next()) {
-					int quesID = results.getInt(1);
-					String quesTitle = results.getString(2);
-					String quesText = results.getString(3);
-					String quesType = results.getString(4);
-					String quesDateTime = results.getString(5);
+					int questionID = results.getInt(1);
+					String questionTitle = results.getString(2);
+					String questionText = results.getString(3);
+					String questionType = results.getString(4);
+					String questionDateTime = results.getString(5);
 					Question q = new Question();
-					q.setQuesID(quesID);
-					q.setQuesTitle(quesTitle);
-					q.setQuesText(quesText);
-					q.setQuesType(quesType);
-					q.setQuesDateTime(quesDateTime);
-					sortedQues.add(q);
+					q.setQuestionID(questionID);
+					q.setQuestionTitle(questionTitle);
+					q.setQuestionText(questionText);
+					q.setQuestionType(questionType);
+					q.setQuestionDateTime(questionDateTime);
+					sortedQuestions.add(q);
 				}
 			}
 		} catch (Exception e) {
@@ -76,12 +76,12 @@ public class QuestionManagerDB implements IQuestionManagerDB {
 				proc.cleanup();
 			}
 		}
-		return sortedQues;
+		return sortedQuestions;
 	}
 
 	@Override
-	public List<Question> displayQues(String bannerID) {
-		List<Question> displayQues=new ArrayList<Question>();
+	public List<Question> displayQuestions(String bannerID) {
+		List<Question> displayQuestions=new ArrayList<Question>();
 		CallStoredProcedure proc = null;
 		try {
 			proc = new CallStoredProcedure("spDisplayQuestions(?)");
@@ -91,18 +91,18 @@ public class QuestionManagerDB implements IQuestionManagerDB {
 			{
 				while (results.next())
 				{
-					int quesID = results.getInt(1);
-					String quesTitle = results.getString(2);
-					String quesText = results.getString(3);
-					String quesType = results.getString(4);
-					String quesDateTime = results.getString(5);
+					int questionID = results.getInt(1);
+					String questionTitle = results.getString(2);
+					String questionText = results.getString(3);
+					String questionType = results.getString(4);
+					String questionDateTime = results.getString(5);
 					Question q = new Question();
-					q.setQuesID(quesID);
-					q.setQuesTitle(quesTitle);
-					q.setQuesText(quesText);
-					q.setQuesType(quesType);
-					q.setQuesDateTime(quesDateTime);
-					displayQues.add(q);
+					q.setQuestionID(questionID);
+					q.setQuestionTitle(questionTitle);
+					q.setQuestionText(questionText);
+					q.setQuestionType(questionType);
+					q.setQuestionDateTime(questionDateTime);
+					displayQuestions.add(q);
 				}
 			}
 		}catch (Exception e) {
@@ -115,7 +115,7 @@ public class QuestionManagerDB implements IQuestionManagerDB {
 				proc.cleanup();
 			}
 		}
-		return displayQues;
+		return displayQuestions;
 	}
 	@Override
 	public boolean createQuestion(Question question) {
@@ -123,9 +123,9 @@ public class QuestionManagerDB implements IQuestionManagerDB {
 		try {
 			proc = new CallStoredProcedure("spCreateQuestion(?, ?, ?, ?, ?)");
 			proc.setParameter(1, question.getInstructorID());
-			proc.setParameter(2, question.getQuesTitle());
-			proc.setParameter(3, question.getQuesText());
-			proc.setParameter(4, question.getQuesType());
+			proc.setParameter(2, question.getQuestionTitle());
+			proc.setParameter(3, question.getQuestionText());
+			proc.setParameter(4, question.getQuestionType());
 			proc.registerOutputParameterLong(5);
 			proc.execute();
 			lastInsertedQuestion = proc.getStatement().getLong(5);

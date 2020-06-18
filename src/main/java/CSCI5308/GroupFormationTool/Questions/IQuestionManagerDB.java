@@ -7,5 +7,5 @@ public interface IQuestionManagerDB {
 	public List<Question> sortByDate(String bannerID);
 	public boolean createQuestion(Question question);
 	public boolean createOption(QuestionOptions questionOptions);
-	public List<Question> displayQues(String bannerID);
+	public List<Question> displayQuestions(String bannerID);
 }
