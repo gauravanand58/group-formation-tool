@@ -24,7 +24,7 @@ public class CreateQuestionController {
 		IQuestionManagerDB questionDB = SystemConfig.instance().getQuestionManagerDB();
 		question.setInstructorID(uId);
 		question.createQuestion(questionDB);
-		if (question.getQuesType() == "mcq-1" || question.getQuesType() == "mcq-2") {
+		if (question.getQuesType().equals("mcq-1") || question.getQuesType().equals("mcq-2")) {
 			questionOption.createOption(questionDB);
 		}
 		model.addAttribute("message", "visible");
