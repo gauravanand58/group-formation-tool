@@ -9,7 +9,7 @@ import CSCI5308.GroupFormationTool.SystemConfig;
 
 @Controller
 public class CreateQuestionController {
-	private Long uId;
+	private long uId;
 
 	@RequestMapping("/createquestions")
 	public String createQuestion(Model model, @RequestParam(name = "isUserInstructor") Long isUserInstrutor) {

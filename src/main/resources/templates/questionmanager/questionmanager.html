@@ -36,11 +36,11 @@
 						<td><span th:text="${msg.quesType}"></span></td>
 						<td><span th:text="${msg.quesDateTime}"></span></td>
 						<td th:with="expr_result = ${msg.checkIfQuestionHasResponse()}">
-							<a th:if="${expr_result}" th:href="@{/course/questionmanager/delete(quesID=${msg.quesID})}"
+							<a th:if="${expr_result}" th:href="@{/course/questionmanager/delete(quesID=${msg.quesID},bannerID=${#httpServletRequest.remoteUser})}"
 							onclick="return confirm('Deleting this question will delete current responses as well. Do you wish to continue?')">
 								Delete
 							</a>
-							<a th:unless="${expr_result}" th:href="@{/course/questionmanager/delete(quesID=${msg.quesID})}">
+							<a th:unless="${expr_result}" th:href="@{/course/questionmanager/delete(quesID=${msg.quesID},bannerID=${#httpServletRequest.remoteUser})}">
 								Delete
 							</a>
 						</td>
