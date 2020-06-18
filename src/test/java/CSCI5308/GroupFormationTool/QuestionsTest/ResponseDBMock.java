@@ -3,15 +3,15 @@ package CSCI5308.GroupFormationTool.QuestionsTest;
 import java.util.LinkedList;
 import java.util.List;
 
-import CSCI5308.GroupFormationTool.Questions.IResponsePersistence;
-import CSCI5308.GroupFormationTool.Questions.Response;
+import CSCI5308.GroupFormationTool.Questions.IQuestionResponsePersistence;
+import CSCI5308.GroupFormationTool.Questions.QuestionResponse;
 
-public class ResponseDBMock implements IResponsePersistence{
+public class ResponseDBMock implements IQuestionResponsePersistence{
 
 	@Override
-	public List<Response> getAllResponsesOfQuestion(int questionID) {
-		List<Response> list = new LinkedList<Response>();
-		list.add(new Response());
+	public List<QuestionResponse> getAllResponsesOfQuestion(int questionID) {
+		List<QuestionResponse> list = new LinkedList<QuestionResponse>();
+		list.add(new QuestionResponse());
 		return list;
 	}
 }

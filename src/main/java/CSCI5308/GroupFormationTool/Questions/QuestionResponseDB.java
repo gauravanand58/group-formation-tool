@@ -7,11 +7,11 @@ import java.util.List;
 
 import CSCI5308.GroupFormationTool.Database.CallStoredProcedure;
 
-public class ResponseDB implements IResponsePersistence{
+public class QuestionResponseDB implements IQuestionResponsePersistence{
 
 	@Override
-	public List<Response> getAllResponsesOfQuestion(int questionID) {
-		List<Response> responseList = new LinkedList<Response>();
+	public List<QuestionResponse> getAllResponsesOfQuestion(int questionID) {
+		List<QuestionResponse> responseList = new LinkedList<QuestionResponse>();
 		CallStoredProcedure proc = null;
 		try
 		{
@@ -24,7 +24,7 @@ public class ResponseDB implements IResponsePersistence{
 				{
 					int responseID = results.getInt(1);
 					String responseText = results.getString(2);
-					Response response = new Response();
+					QuestionResponse response = new QuestionResponse();
 					response.setId(responseID);
 					response.setResponseText(responseText);
 					responseList.add(response);
