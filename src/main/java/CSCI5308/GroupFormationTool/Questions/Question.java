@@ -89,7 +89,7 @@ public class Question {
 		return true;
 	}
 
-	public boolean createQuestion(IQuestionManagerDB questionDB) {
+	public long createQuestion(IQuestionPersistence questionDB) {
 		return questionDB.createQuestion(this);
 	}
 }

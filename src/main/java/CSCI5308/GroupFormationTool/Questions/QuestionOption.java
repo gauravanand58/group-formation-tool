@@ -1,6 +1,6 @@
 package CSCI5308.GroupFormationTool.Questions;
 
-public class QuestionOptions {
+public class QuestionOption {
 	private String optionTxt;
 	private String optionScore;
 	public String getOptionTxt() {
@@ -15,8 +15,8 @@ public class QuestionOptions {
 	public void setOptionScore(String optionScore) {
 		this.optionScore = optionScore;
 	}
-	public boolean createOption(IQuestionManagerDB questionDB) {
-		return questionDB.createOption(this);
+	public boolean createOption(IQuestionOptionPersistence questionOptionDB, long questionID) {
+		return questionOptionDB.createOption(this, questionID);
 	}
 
 }

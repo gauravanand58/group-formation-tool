@@ -23,16 +23,17 @@ public class QuestionAdminController {
 	}
 
 	@PostMapping("/submitquestions")
-	public String submitQuestions(QuestionOptions questionOption, Model model, Question question) {
-		IQuestionManagerDB questionDB = SystemConfig.instance().getQuestionManagerDB();
+	public String submitQuestions(QuestionOption questionOption, Model model, Question question) {
+		long createdQuestionID;
+		IQuestionPersistence questionDB = SystemConfig.instance().getQuestionDB();
+		IQuestionOptionPersistence questionOptionDB = SystemConfig.instance().getQuestionOptionDB();
 		question.setInstructorID(uId);
-		question.createQuestion(questionDB);
+		createdQuestionID = question.createQuestion(questionDB);
 		if (question.getQuestionType().equals("mcq-1") || question.getQuestionType().equals("mcq-2")) {
-			questionOption.createOption(questionDB);
+			questionOption.createOption(questionOptionDB, createdQuestionID);
 		}
 		model.addAttribute("message", "visible");
 		return "questionmanager/createquestions";
-
 	}
 
 	@RequestMapping("/course/questionmanager/delete")

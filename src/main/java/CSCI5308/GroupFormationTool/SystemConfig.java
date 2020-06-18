@@ -7,10 +7,12 @@ import CSCI5308.GroupFormationTool.Database.*;
 import CSCI5308.GroupFormationTool.Questions.IQuestionPersistence;
 import CSCI5308.GroupFormationTool.Questions.IQuestionResponsePersistence;
 import CSCI5308.GroupFormationTool.Questions.QuestionDB;
+import CSCI5308.GroupFormationTool.Questions.QuestionListManager;
 import CSCI5308.GroupFormationTool.Questions.QuestionResponseDB;
+import CSCI5308.GroupFormationTool.Questions.IQuestionListManager;
 import CSCI5308.GroupFormationTool.Questions.IQuestionManagerDB;
-import CSCI5308.GroupFormationTool.Questions.QuestionManagerDB;
-
+import CSCI5308.GroupFormationTool.Questions.IQuestionOptionPersistence;
+import CSCI5308.GroupFormationTool.Questions.QuestionOptionDB;
 import CSCI5308.GroupFormationTool.Courses.*;
 
 public class SystemConfig
@@ -27,6 +29,8 @@ public class SystemConfig
 	private IPasswordPolicyPersistance passwordPolicyDB;
 	private IUserPasswordHistoryRelationshipPersistance userPasswordRelationshipDB;
 	private IQuestionManagerDB questionManagerDB;
+	private IQuestionOptionPersistence questionOptionDB;
+	private IQuestionListManager questionListManager;
 
 	
 	// This private constructor ensures that no class other than System can allocate
@@ -45,7 +49,8 @@ public class SystemConfig
 		reponseDB = new QuestionResponseDB();
 		passwordPolicyDB = new PasswordPolicyDB();
 		userPasswordRelationshipDB = new UserPasswordHistoryRelationshipDB();
-		questionManagerDB = new QuestionManagerDB();
+		questionOptionDB = new QuestionOptionDB();
+		questionListManager = new QuestionListManager();
 	}
 	
 	// This is the way the rest of the application gets access to the System object.
@@ -153,5 +158,21 @@ public class SystemConfig
 
 	public void setQuestionManagerDB(IQuestionManagerDB questionManagerDB) {
 		this.questionManagerDB = questionManagerDB;
+	}
+
+	public IQuestionOptionPersistence getQuestionOptionDB() {
+		return questionOptionDB;
+	}
+
+	public void setQuestionOptionDB(IQuestionOptionPersistence questionOptionDB) {
+		this.questionOptionDB = questionOptionDB;
+	}
+
+	public IQuestionListManager getQuestionListManager() {
+		return questionListManager;
+	}
+
+	public void setQuestionListManager(IQuestionListManager questionListManager) {
+		this.questionListManager = questionListManager;
 	}
 }

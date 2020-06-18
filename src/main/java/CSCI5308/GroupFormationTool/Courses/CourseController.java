@@ -15,13 +15,13 @@ public class CourseController
 	private static final String ID = "id";
 	
 	@GetMapping("/course/course")
-	public String course(Model model, @RequestParam(name = ID) long courseID,@RequestParam(name = "isUserInstructor") long isUserInstructor)
+	public String course(Model model, @RequestParam(name = ID) long courseID,@RequestParam(name = "isUserInstructor") long userID)
 	{	
 		ICoursePersistence courseDB = SystemConfig.instance().getCourseDB();
 		Course course = new Course();
 		courseDB.loadCourseByID(courseID, course);
 		model.addAttribute("course", course);
-		model.addAttribute("isUserInstructor", isUserInstructor);
+		model.addAttribute("isUserInstructor", userID);
 		List<Role> userRoles = course.getAllRolesForCurrentUserInCourse();
 		if (null == userRoles)
 		{

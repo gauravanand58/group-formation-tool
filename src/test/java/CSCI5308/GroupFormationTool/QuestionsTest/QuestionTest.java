@@ -1,10 +1,17 @@
 package CSCI5308.GroupFormationTool.QuestionsTest;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.util.Assert;
 
+import CSCI5308.GroupFormationTool.Questions.IQuestionPersistence;
+import CSCI5308.GroupFormationTool.Questions.IQuestionResponsePersistence;
 import CSCI5308.GroupFormationTool.Questions.Question;
+import CSCI5308.GroupFormationTool.Questions.QuestionResponse;
 @SpringBootTest
 @SuppressWarnings("deprecation")
 public class QuestionTest{
@@ -83,4 +90,32 @@ public class QuestionTest{
 		Assert.isTrue(ques.getQuestionText().equals("how familiar with java?"));
 	}
 	
+	@Test
+	public void deleteQuestionTest() {
+		IQuestionPersistence questionDBMock = new QuestionDBMock();
+		boolean response = questionDBMock.deleteQuestion(-1);
+		Assert.isTrue(response);
+	}
+	
+	@Test
+	public void getAllResponsesTest() {
+		IQuestionResponsePersistence responseDBMock = new QuestionResponseDBMock();
+		List<QuestionResponse> responseList = responseDBMock.getAllResponsesOfQuestion(-1);
+		Assert.isTrue(responseList != null && responseList.size() > 0);
+	}
+	
+	@Test
+	public void checkIfQuestionHasResponseTest() {
+		IQuestionResponsePersistence responseDBMock = new QuestionResponseDBMock();
+		List<QuestionResponse> responseList = responseDBMock.getAllResponsesOfQuestion(-1);
+		Assert.isTrue(responseList != null && responseList.size() > 0);
+	}
+
+	@Test
+	public void createQuestionTest() {
+		IQuestionPersistence questionDBMock = new QuestionDBMock();
+		Question question = new Question();
+		questionDBMock.createQuestion(question);
+		assertTrue(question.getQuestionID()==1);
+	}
 }
