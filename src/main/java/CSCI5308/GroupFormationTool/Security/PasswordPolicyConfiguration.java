@@ -102,8 +102,7 @@ public class PasswordPolicyConfiguration {
 
 	public static PasswordPolicyConfiguration instance(IPasswordPolicyPersistance persistance)
 	{
-		// Using lazy initialization, this is the one and only place that the System
-		// object will be instantiated.
+		
 		if (null == uniqueInstance)
 		{
 			uniqueInstance = new PasswordPolicyConfiguration(persistance);

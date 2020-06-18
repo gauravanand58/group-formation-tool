@@ -22,8 +22,6 @@ public class CourseController
 		courseDB.loadCourseByID(courseID, course);
 		model.addAttribute("course", course);
 		model.addAttribute("isUserInstructor", isUserInstructor);
-		// This is likely something I would repeat elsewhere, I should come up with a generic solution
-		// for this in milestone 2.
 		List<Role> userRoles = course.getAllRolesForCurrentUserInCourse();
 		if (null == userRoles)
 		{

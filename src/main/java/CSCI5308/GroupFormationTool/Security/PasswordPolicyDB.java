@@ -32,7 +32,7 @@ public class PasswordPolicyDB implements IPasswordPolicyPersistance {
 		}
 		catch (SQLException e)
 		{
-			// Logging needed.
+			e.printStackTrace();
 		}
 		finally
 		{

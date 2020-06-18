@@ -35,7 +35,7 @@ public class QuestionManagerDB implements IQuestionManagerDB {
 				}
 			}
 		} catch (Exception e) {
-			// handle exception
+			e.printStackTrace();
 		} finally {
 			if (null != proc) {
 				proc.cleanup();
@@ -70,7 +70,7 @@ public class QuestionManagerDB implements IQuestionManagerDB {
 				}
 			}
 		} catch (Exception e) {
-			// handle exception
+			e.printStackTrace();
 		} finally {
 			if (null != proc) {
 				proc.cleanup();
@@ -106,7 +106,7 @@ public class QuestionManagerDB implements IQuestionManagerDB {
 				}
 			}
 		}catch (Exception e) {
-			//handle exception
+			e.printStackTrace();
 		}
 		finally
 		{
@@ -131,8 +131,7 @@ public class QuestionManagerDB implements IQuestionManagerDB {
 			lastInsertedQuestion = proc.getStatement().getLong(5);
 
 		} catch (SQLException e) {
-			// Logging needed
-			System.out.println("error" + e);
+			e.printStackTrace();
 			return false;
 		} finally {
 			if (null != proc) {
@@ -158,8 +157,7 @@ public class QuestionManagerDB implements IQuestionManagerDB {
 			}
 
 		} catch (SQLException e) {
-			// Logging needed
-			System.out.println("error" + e);
+			e.printStackTrace();
 			return false;
 		} finally {
 			if (null != proc) {

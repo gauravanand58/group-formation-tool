@@ -39,7 +39,7 @@ public class CourseUserRelationshipDB implements ICourseUserRelationshipPersiste
 		}
 		catch (SQLException e)
 		{
-			// Logging needed.
+			e.printStackTrace();
 		}
 		finally
 		{
@@ -74,7 +74,7 @@ public class CourseUserRelationshipDB implements ICourseUserRelationshipPersiste
 		}
 		catch (SQLException e)
 		{
-			// Logging needed.
+			e.printStackTrace();
 		}
 		finally
 		{
@@ -99,7 +99,7 @@ public class CourseUserRelationshipDB implements ICourseUserRelationshipPersiste
 		}
 		catch (SQLException e)
 		{
-			// Logging needed
+			e.printStackTrace();
 			return false;
 		}
 		finally
@@ -133,7 +133,7 @@ public class CourseUserRelationshipDB implements ICourseUserRelationshipPersiste
 		}
 		catch (SQLException e)
 		{
-			// Logging needed.
+			e.printStackTrace();
 		}
 		finally
 		{

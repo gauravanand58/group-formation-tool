@@ -36,7 +36,7 @@ public class UserDB implements IUserPersistence
 		}
 		catch (SQLException e)
 		{
-			// Logging needed.
+			e.printStackTrace();
 		}
 		finally
 		{
@@ -66,7 +66,7 @@ public class UserDB implements IUserPersistence
 		}
 		catch (SQLException e)
 		{
-			// Logging needed.
+			e.printStackTrace();
 		}
 		finally
 		{
@@ -98,7 +98,7 @@ public class UserDB implements IUserPersistence
 		}
 		catch (SQLException e)
 		{
-			// Logging needed
+			e.printStackTrace();
 			return false;
 		}
 		finally
@@ -113,7 +113,6 @@ public class UserDB implements IUserPersistence
 	
 	public boolean updateUser(User user)
 	{
-		// Coming in M2!
 		return false;
 	}
 	
@@ -130,7 +129,7 @@ public class UserDB implements IUserPersistence
 		}
 		catch (SQLException e)
 		{
-			// Logging needed.
+			e.printStackTrace();
 		}
 		finally
 		{

@@ -11,8 +11,6 @@ import CSCI5308.GroupFormationTool.Security.IUserPasswordHistoryRelationshipPers
 import CSCI5308.GroupFormationTool.Security.PasswordPolicyConfiguration;
 
 public class User {
-	// This regex comes from here:
-	// https://howtodoinjava.com/regex/java-regex-validate-email-address/
 	private static final String EMAIL_REGEX = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
 
 	private long id;
@@ -79,7 +77,6 @@ public class User {
 		return bannerID;
 	}
 
-	// Also here for Thymeleaf nonsense.
 	public String getBanner() {
 		return bannerID;
 	}
@@ -122,7 +119,6 @@ public class User {
 			try {
 				notification.sendUserLoginCredentials(this, rawPassword);
 			} catch (MessagingException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

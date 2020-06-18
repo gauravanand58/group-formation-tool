@@ -33,7 +33,7 @@ public class CourseDB implements ICoursePersistence
 		}
 		catch (SQLException e)
 		{
-			// Logging needed.
+			e.printStackTrace();
 		}
 		finally
 		{
@@ -65,7 +65,7 @@ public class CourseDB implements ICoursePersistence
 		}
 		catch (SQLException e)
 		{
-			// Logging needed.
+			e.printStackTrace();
 		}
 		finally
 		{
@@ -88,7 +88,7 @@ public class CourseDB implements ICoursePersistence
 		}
 		catch (SQLException e)
 		{
-			// Logging needed
+			e.printStackTrace();
 			return false;
 		}
 		finally
@@ -112,7 +112,7 @@ public class CourseDB implements ICoursePersistence
 		}
 		catch (SQLException e)
 		{
-			// Logging needed
+			e.printStackTrace();
 			return false;
 		}
 		finally

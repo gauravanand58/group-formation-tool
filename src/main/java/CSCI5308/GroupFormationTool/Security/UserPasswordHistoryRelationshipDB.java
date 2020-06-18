@@ -22,7 +22,7 @@ public class UserPasswordHistoryRelationshipDB implements IUserPasswordHistoryRe
 		}
 		catch (SQLException e)
 		{
-			// Logging needed.
+			e.printStackTrace();
 			return false;
 		}
 		finally
@@ -56,7 +56,7 @@ public class UserPasswordHistoryRelationshipDB implements IUserPasswordHistoryRe
 		}
 		catch (SQLException e)
 		{
-			// Logging needed.
+			e.printStackTrace();
 		}
 		finally
 		{
