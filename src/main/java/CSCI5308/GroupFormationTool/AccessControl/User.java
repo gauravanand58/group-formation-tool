@@ -52,7 +52,6 @@ public class User {
 		return id;
 	}
 
-	// These are here for the Thymeleaf / Spring binding nonsense.
 	public void setId(long id) {
 		this.id = id;
 	}
@@ -141,15 +140,15 @@ public class User {
 	}
 
 	public static boolean isBannerIDValid(String bannerID) {
-		return !isStringNullOrEmpty(bannerID);
+		return isStringNullOrEmpty(bannerID)==false;
 	}
 
 	public static boolean isFirstNameValid(String name) {
-		return !isStringNullOrEmpty(name);
+		return isStringNullOrEmpty(name)==false;
 	}
 
 	public static boolean isLastNameValid(String name) {
-		return !isStringNullOrEmpty(name);
+		return isStringNullOrEmpty(name)==false;
 	}
 
 	public static boolean isEmailValid(String email) {
@@ -192,7 +191,6 @@ public class User {
 
 		char[] invalidChars = uniqueInstance.getNotAllowedChar().toCharArray();
 
-		// checks for max length and min length for a password
 		if ((uniqueInstance.getMaxLength() != -1 && password.length() > uniqueInstance.getMaxLength())
 				|| (uniqueInstance.getMinLength() != -1 && password.length() < uniqueInstance.getMinLength())) {
 			return false;
@@ -210,7 +208,6 @@ public class User {
 			return false;
 		}
 
-		// checks for invalid characters in password
 		for (int i = 0; i < invalidChars.length; i++) {
 			if (password.contains(String.valueOf(invalidChars[i]))) {
 				return false;

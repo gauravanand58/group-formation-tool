@@ -25,13 +25,10 @@ public class QuestionListController {
 		List<Question> sortedQuestions;
 		IQuestionPersistence questionDB = SystemConfig.instance().getQuestionDB();
 		IQuestionListManager questionListManager = new QuestionListManager();
-		if(sortBy == "Title") {
-			sortedQuestions = questionListManager.sortQuestionsByTitle(bannerID,questionDB);
-		} else {
-			sortedQuestions = questionListManager.sortQuestionsByDate(bannerID,questionDB);
-		}
+		sortedQuestions=questionListManager.sortQuestions(bannerID, sortBy,questionDB);
 		model.addAttribute("ques",sortedQuestions);
-		return "questionmanager/questionlist";
+		return "questionmanager/questionlist";	
+
 	}
 	
 	@RequestMapping("/mainquestionmanager")

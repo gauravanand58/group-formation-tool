@@ -12,18 +12,16 @@ import CSCI5308.GroupFormationTool.Questions.Question;
 public class QuestionListManagerTest {
 
 	@Test
-	public void sortQuestionsByTitle() {
+	public void sortQuesTest() {
+		List<Question> questionList;
 		IQuestionPersistence questionDBMock = new QuestionDBMock();
-		List<Question> questionList = questionDBMock.sortByTitle("B000000");
+		questionList = questionDBMock.sortByDate("B000000");
 		Assert.isTrue(questionList != null && questionList.size()>0);
-	}
-	@Test
-	public void sortQuestionsByDate() {
-		IQuestionPersistence questionDBMock = new QuestionDBMock();
-		List<Question> questionList = questionDBMock.sortByDate("B000000");
+		questionList = questionDBMock.sortByTitle("B000000");
 		Assert.isTrue(questionList != null && questionList.size()>0);
 	}
 
+	
 	@Test
 	public void displayQuestions() {
 		IQuestionPersistence questionDBMock = new QuestionDBMock();
