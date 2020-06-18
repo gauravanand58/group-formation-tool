@@ -20,7 +20,6 @@ public class QuestionOptionDB implements IQuestionOptionPersistence{
 				proc.setParameter(3, optionScore[i]);
 				proc.execute();
 			}
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
