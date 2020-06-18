@@ -1,4 +1,4 @@
-package CSCI5308.GroupFormationTool.QuestionManager;
+package CSCI5308.GroupFormationTool.Questions;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,7 +9,7 @@ import CSCI5308.GroupFormationTool.SystemConfig;
 
 @Controller
 public class CreateQuestionController {
-	private Long uId;
+	private long uId;
 
 	@RequestMapping("/createquestions")
 	public String createQuestion(Model model, @RequestParam(name = "isUserInstructor") Long isUserInstrutor) {
@@ -21,10 +21,10 @@ public class CreateQuestionController {
 
 	@PostMapping("/submitquestions")
 	public String submitQuestions(QuestionOptions questionOption, Model model, Question question) {
-		IQuestionManagerDB questionDB = SystemConfig.instance().getQuestionDB();
+		IQuestionManagerDB questionDB = SystemConfig.instance().getQuestionManagerDB();
 		question.setInstructorID(uId);
 		question.createQuestion(questionDB);
-		if (question.getQuesType() == "mcq-1" || question.getQuesType() == "mcq-2") {
+		if (question.getQuesType().equals("mcq-1") || question.getQuesType().equals("mcq-2")) {
 			questionOption.createOption(questionDB);
 		}
 		model.addAttribute("message", "visible");

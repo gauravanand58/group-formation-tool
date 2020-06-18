@@ -1,10 +1,10 @@
-package CSCI5308.GroupFormationTool.QuestionManagerTest;
+package CSCI5308.GroupFormationTool.QuestionsTest;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.util.Assert;
 
-import CSCI5308.GroupFormationTool.QuestionManager.Question;
+import CSCI5308.GroupFormationTool.Questions.Question;
 @SpringBootTest
 @SuppressWarnings("deprecation")
 public class QuestionTest{

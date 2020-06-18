@@ -1,4 +1,4 @@
-package CSCI5308.GroupFormationTool.QuestionManager;
+package CSCI5308.GroupFormationTool.Questions;
 
 import java.util.List;
 
@@ -27,10 +27,6 @@ public class QuestionManagerController {
 		List<Question> sortedQues=service.sortQues(bannerID, sortBy,questionManagerDB);
 		model.addAttribute("ques",sortedQues);
 		return "questionmanager/questionmanager";
-	}
-	@RequestMapping("/course/questionmanager/delete")
-	public void sortQues(@RequestParam("bannerID") String bannerID,@RequestParam("quesID") int quesID) {
-		System.out.println(quesID+"---"+bannerID);
 	}
 	
 	@RequestMapping("/mainquestionmanager")

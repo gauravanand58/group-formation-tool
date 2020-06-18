@@ -1,11 +1,11 @@
-package CSCI5308.GroupFormationTool.QuestionManagerTest;
+package CSCI5308.GroupFormationTool.QuestionsTest;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import CSCI5308.GroupFormationTool.QuestionManager.IQuestionManagerDB;
-import CSCI5308.GroupFormationTool.QuestionManager.Question;
-import CSCI5308.GroupFormationTool.QuestionManager.QuestionOptions;
+import CSCI5308.GroupFormationTool.Questions.IQuestionManagerDB;
+import CSCI5308.GroupFormationTool.Questions.Question;
+import CSCI5308.GroupFormationTool.Questions.QuestionOptions;
 
 public class QuestionManagerDBMock implements IQuestionManagerDB {
 	
