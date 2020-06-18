@@ -13,22 +13,16 @@ public class UserPasswordHistoryRelationshipDB implements IUserPasswordHistoryRe
 	@Override
 	public boolean saveUserPassword(User user) {
 		CallStoredProcedure proc = null;
-		try
-		{
+		try {
 			proc = new CallStoredProcedure("spSaveUserPasswordHistory(?)");
 			proc.setParameter(1, user.getBannerID());
 			proc.execute();
 
-		}
-		catch (SQLException e)
-		{
+		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
-		}
-		finally
-		{
-			if (null != proc)
-			{
+		} finally {
+			if (null != proc) {
 				proc.cleanup();
 			}
 		}
@@ -36,37 +30,26 @@ public class UserPasswordHistoryRelationshipDB implements IUserPasswordHistoryRe
 	}
 
 	@Override
-	public List<String> loadAllUserPassword(User user,int limit) {
-
+	public List<String> loadAllUserPassword(User user, int limit) {
 		List<String> userPasswords = new ArrayList<String>();
 		CallStoredProcedure proc = null;
-		try
-		{
+		try {
 			proc = new CallStoredProcedure("spLoadUserPasswordHistory(?,?)");
 			proc.setParameter(1, user.getID());
 			proc.setParameter(2, limit);
 			ResultSet results = proc.executeWithResults();
-			if (null != results)
-			{
-				while (results.next())
-				{
+			if (null != results) {
+				while (results.next()) {
 					userPasswords.add(results.getString("password"));
 				}
 			}
-		}
-		catch (SQLException e)
-		{
+		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-		finally
-		{
-			if (null != proc)
-			{
+		} finally {
+			if (null != proc) {
 				proc.cleanup();
 			}
 		}
-	
 		return userPasswords;
 	}
-
 }

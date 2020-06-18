@@ -22,8 +22,6 @@ public class UserPasswordHistoryRelationshipDBMock implements IUserPasswordHisto
 		if (user.getID() == 2) {
 			passwords.add("encrypted");
 		}
-
 		return passwords;
 	}
-
 }

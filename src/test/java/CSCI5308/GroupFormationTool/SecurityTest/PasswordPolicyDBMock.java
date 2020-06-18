@@ -14,7 +14,5 @@ public class PasswordPolicyDBMock implements IPasswordPolicyPersistance {
 		policyConfiguration.setMinSplChar(2);
 		policyConfiguration.setNotAllowedChar("@#$%^");
 		policyConfiguration.setPasswordHistoryCount(3);
-		
 	}
-
 }

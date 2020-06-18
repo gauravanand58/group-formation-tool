@@ -114,8 +114,7 @@ public class User {
 		String rawPassword = password;
 		this.password = passwordEncryption.encryptPassword(this.password);
 		boolean success = userDB.createUser(this);
-		if (success && (null != notification))
-		{
+		if (success && (null != notification)) {
 			try {
 				notification.sendUserLoginCredentials(this, rawPassword);
 			} catch (MessagingException e) {
@@ -156,7 +155,6 @@ public class User {
 		if (isStringNullOrEmpty(email)) {
 			return false;
 		}
-
 		Pattern pattern = Pattern.compile(EMAIL_REGEX);
 		Matcher matcher = pattern.matcher(email);
 		return matcher.matches();
@@ -171,7 +169,6 @@ public class User {
 			if (passwordEncryption.matches(password, pass)) {
 				return false;
 			}
-
 		}
 		return true;
 	}
@@ -216,7 +213,6 @@ public class User {
 				return false;
 			}
 		}
-
 		return true;
 	}
 }

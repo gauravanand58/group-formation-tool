@@ -7,26 +7,20 @@ import java.util.List;
 
 import CSCI5308.GroupFormationTool.Database.CallStoredProcedure;
 
-public class QuestionDB implements IQuestionPersistence{
+public class QuestionDB implements IQuestionPersistence {
 
 	@Override
 	public boolean deleteQuestion(int questionID) {
 		CallStoredProcedure proc = null;
-		try
-		{
+		try {
 			proc = new CallStoredProcedure("spDeleteQuestion(?)");
 			proc.setParameter(1, questionID);
 			proc.execute();
-		}
-		catch (SQLException e)
-		{
+		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
-		}
-		finally
-		{
-			if (null != proc)
-			{
+		} finally {
+			if (null != proc) {
 				proc.cleanup();
 			}
 		}
@@ -56,7 +50,7 @@ public class QuestionDB implements IQuestionPersistence{
 		}
 		return lastInsertedQuestion;
 	}
-	
+
 	@Override
 	public List<Question> sortByTitle(String bannerID) {
 		List<Question> sortedQuestions = new ArrayList<Question>();
@@ -128,16 +122,14 @@ public class QuestionDB implements IQuestionPersistence{
 
 	@Override
 	public List<Question> displayQuestions(String bannerID) {
-		List<Question> displayQuestions=new ArrayList<Question>();
+		List<Question> displayQuestions = new ArrayList<Question>();
 		CallStoredProcedure proc = null;
 		try {
 			proc = new CallStoredProcedure("spDisplayQuestions(?)");
 			proc.setParameter(1, bannerID);
 			ResultSet results = proc.executeWithResults();
-			if (null != results)
-			{
-				while (results.next())
-				{
+			if (null != results) {
+				while (results.next()) {
 					int questionID = results.getInt(1);
 					String questionTitle = results.getString(2);
 					String questionText = results.getString(3);
@@ -152,17 +144,13 @@ public class QuestionDB implements IQuestionPersistence{
 					displayQuestions.add(q);
 				}
 			}
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-		}
-		finally
-		{
-			if (null != proc)
-			{
+		} finally {
+			if (null != proc) {
 				proc.cleanup();
 			}
 		}
 		return displayQuestions;
 	}
-	
 }

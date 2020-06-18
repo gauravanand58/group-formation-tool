@@ -20,7 +20,6 @@ public class SignupController {
 	@GetMapping("/signup")
 	public String displaySignup(Model model) {
 		model.addAttribute("passwordPolicies", PasswordPolicyConfiguration.getPasswordPolicies());
-
 		return "signup";
 	}
 
@@ -51,7 +50,6 @@ public class SignupController {
 		if (success) {
 			m = new ModelAndView("login");
 		} else {
-			// Something wrong with the input data.
 			m = new ModelAndView("signup");
 			m.addObject("passwordPolicies", PasswordPolicyConfiguration.getPasswordPolicies());
 			m.addObject("errorMessage", "Invalid data, please check your values.");

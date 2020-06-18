@@ -8,20 +8,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class CourseDB implements ICoursePersistence
-{
-	public List<Course> loadAllCourses()
-	{
+public class CourseDB implements ICoursePersistence {
+	public List<Course> loadAllCourses() {
 		List<Course> courses = new ArrayList<Course>();
 		CallStoredProcedure proc = null;
-		try
-		{
+		try {
 			proc = new CallStoredProcedure("spLoadAllCourses()");
 			ResultSet results = proc.executeWithResults();
-			if (null != results)
-			{
-				while (results.next())
-				{
+			if (null != results) {
+				while (results.next()) {
 					long id = results.getLong(1);
 					String title = results.getString(2);
 					Course c = new Course();
@@ -30,95 +25,67 @@ public class CourseDB implements ICoursePersistence
 					courses.add(c);
 				}
 			}
-		}
-		catch (SQLException e)
-		{
+		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-		finally
-		{
-			if (null != proc)
-			{
+		} finally {
+			if (null != proc) {
 				proc.cleanup();
 			}
 		}
 		return courses;
 	}
 
-	public void loadCourseByID(long id, Course course)
-	{
+	public void loadCourseByID(long id, Course course) {
 		CallStoredProcedure proc = null;
-		try
-		{
+		try {
 			proc = new CallStoredProcedure("spFindCourseByID(?)");
 			proc.setParameter(1, id);
 			ResultSet results = proc.executeWithResults();
-			if (null != results)
-			{
-				while (results.next())
-				{
+			if (null != results) {
+				while (results.next()) {
 					String title = results.getString(2);
 					course.setId(id);
 					course.setTitle(title);
 				}
 			}
-		}
-		catch (SQLException e)
-		{
+		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-		finally
-		{
-			if (null != proc)
-			{
+		} finally {
+			if (null != proc) {
 				proc.cleanup();
 			}
 		}
 	}
-	
-	public boolean createCourse(Course course)
-	{
+
+	public boolean createCourse(Course course) {
 		CallStoredProcedure proc = null;
-		try
-		{
+		try {
 			proc = new CallStoredProcedure("spCreateCourse(?, ?)");
 			proc.setParameter(1, course.getTitle());
 			proc.registerOutputParameterLong(2);
 			proc.execute();
-		}
-		catch (SQLException e)
-		{
+		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
-		}
-		finally
-		{
-			if (null != proc)
-			{
+		} finally {
+			if (null != proc) {
 				proc.cleanup();
 			}
 		}
 		return true;
 	}
-	
-	public boolean deleteCourse(long id)
-	{
+
+	public boolean deleteCourse(long id) {
 		CallStoredProcedure proc = null;
-		try
-		{
+		try {
 			proc = new CallStoredProcedure("spDeleteCourse(?)");
 			proc.setParameter(1, id);
 			proc.execute();
-		}
-		catch (SQLException e)
-		{
+		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
-		}
-		finally
-		{
-			if (null != proc)
-			{
+		} finally {
+			if (null != proc) {
 				proc.cleanup();
 			}
 		}

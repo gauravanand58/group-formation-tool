@@ -11,7 +11,6 @@ import CSCI5308.GroupFormationTool.SystemConfig;
 
 @Controller
 public class QuestionAdminController {
-	
 	private long uId;
 
 	@RequestMapping("/createquestions")

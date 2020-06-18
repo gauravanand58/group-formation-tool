@@ -4,14 +4,14 @@ import java.sql.SQLException;
 
 import CSCI5308.GroupFormationTool.Database.CallStoredProcedure;
 
-public class QuestionOptionDB implements IQuestionOptionPersistence{
+public class QuestionOptionDB implements IQuestionOptionPersistence {
 
 	@Override
 	public boolean createOption(QuestionOption questionOptions, long questionID) {
 		CallStoredProcedure proc = null;
 		String[] optionTxt = questionOptions.getOptionTxt().split(",");
 		String[] optionScore = questionOptions.getOptionScore().split(",");
-		
+
 		try {
 			for (int i = 0; i < optionTxt.length; i++) {
 				proc = new CallStoredProcedure("spCreateQuestionOption(?, ?, ?)");
