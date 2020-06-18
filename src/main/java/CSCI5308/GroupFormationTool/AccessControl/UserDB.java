@@ -75,7 +75,6 @@ public class UserDB implements IUserPersistence
 				proc.cleanup();
 			}
 		}
-		// If we found the ID load the full details.
 		if (userID > -1)
 		{
 			loadUserByID(userID, user);

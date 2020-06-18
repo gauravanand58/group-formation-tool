@@ -24,7 +24,6 @@ public class IndexController
 		{
 			ICoursePersistence courseDB = SystemConfig.instance().getCourseDB();
 			List<Course> allCourses = courseDB.loadAllCourses();
-			//initialize password configurations
 			SystemConfig.instance().getConfiguration();
 			
 			
