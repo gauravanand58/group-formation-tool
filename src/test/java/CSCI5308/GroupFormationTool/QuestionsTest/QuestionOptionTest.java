@@ -12,39 +12,39 @@ import CSCI5308.GroupFormationTool.Questions.QuestionOption;
 public class QuestionOptionTest {
 	@Test
     void getOptionTxt() {
-        QuestionOption questionModel=new QuestionOption();
-        questionModel.setOptionTxt("a");
-        assertSame("a",questionModel.getOptionTxt());
+        QuestionOption questionOption = new QuestionOption();
+        questionOption.setOptionTxt("a");
+        assertSame("a",questionOption.getOptionTxt());
     }
 
 	@Test
     void setOptionTxt() {
-        QuestionOption questionModel=new QuestionOption();
-        questionModel.setOptionTxt("a");
-        assertSame("a",questionModel.getOptionTxt());
+        QuestionOption questionOption=new QuestionOption();
+        questionOption.setOptionTxt("a");
+        assertSame("a",questionOption.getOptionTxt());
     }
 	
 	@Test
     void getOptionScore() {
-        QuestionOption questionModel=new QuestionOption();
-        questionModel.setOptionScore("1");
-        assertSame("1",questionModel.getOptionScore());
+        QuestionOption questionOption=new QuestionOption();
+        questionOption.setOptionScore("1");
+        assertSame("1",questionOption.getOptionScore());
     }
 
 	@Test
     void setOptionScore() {
-        QuestionOption questionModel=new QuestionOption();
-        questionModel.setOptionScore("1");
-        assertSame("1",questionModel.getOptionScore());
+        QuestionOption questionOption=new QuestionOption();
+        questionOption.setOptionScore("1");
+        assertSame("1",questionOption.getOptionScore());
     }
 	
 	@Test
 	public void createOptionTest() {
-		IQuestionOptionPersistence dao=new QuestionOptionDBMock();
+		IQuestionOptionPersistence questionOptionDBMock=new QuestionOptionDBMock();
 		QuestionOption questionOption = new QuestionOption();
 		questionOption.setOptionTxt("intermediate");
 		questionOption.setOptionScore("5");
-		dao.createOption(questionOption, 0);
+		questionOptionDBMock.createOption(questionOption, 0);
 		assertTrue(questionOption.getOptionTxt()=="intermediate");
 		assertTrue(questionOption.getOptionScore()=="5");
 	}
