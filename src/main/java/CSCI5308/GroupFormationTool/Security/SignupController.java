@@ -20,7 +20,6 @@ public class SignupController {
 	@GetMapping("/signup")
 	public String displaySignup(Model model) {
 		model.addAttribute("passwordPolicies", PasswordPolicyConfiguration.getPasswordPolicies());
-
 		return "signup";
 	}
 

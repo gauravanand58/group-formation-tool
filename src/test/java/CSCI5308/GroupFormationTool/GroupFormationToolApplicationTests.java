@@ -9,5 +9,4 @@ class GroupFormationToolApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }

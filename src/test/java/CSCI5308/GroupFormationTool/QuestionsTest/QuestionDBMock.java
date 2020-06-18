@@ -6,11 +6,11 @@ import java.util.List;
 import CSCI5308.GroupFormationTool.Questions.IQuestionPersistence;
 import CSCI5308.GroupFormationTool.Questions.Question;
 
-public class QuestionDBMock implements IQuestionPersistence{
+public class QuestionDBMock implements IQuestionPersistence {
 
 	@Override
 	public boolean deleteQuestion(int questionID) {
-		if(questionID == -1) {
+		if (questionID == -1) {
 			return true;
 		}
 		return false;
@@ -30,7 +30,7 @@ public class QuestionDBMock implements IQuestionPersistence{
 	public List<Question> sortByTitle(String bannerID) {
 		List<Question> questionList = new LinkedList<Question>();
 		Question question = new Question();
-		if(bannerID == "B000000") {
+		if (bannerID == "B000000") {
 			questionList.add(question);
 			return questionList;
 		}
@@ -41,7 +41,7 @@ public class QuestionDBMock implements IQuestionPersistence{
 	public List<Question> sortByDate(String bannerID) {
 		List<Question> questionList = new LinkedList<Question>();
 		Question question = new Question();
-		if(bannerID == "B000000") {
+		if (bannerID == "B000000") {
 			questionList.add(question);
 			return questionList;
 		}
@@ -52,11 +52,10 @@ public class QuestionDBMock implements IQuestionPersistence{
 	public List<Question> displayQuestions(String bannerID) {
 		List<Question> questionList = new LinkedList<Question>();
 		Question question = new Question();
-		if(bannerID == "B000000") {
+		if (bannerID == "B000000") {
 			questionList.add(question);
 			return questionList;
 		}
 		return null;
 	}
-	
 }

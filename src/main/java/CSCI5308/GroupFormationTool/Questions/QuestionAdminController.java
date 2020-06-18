@@ -11,7 +11,6 @@ import CSCI5308.GroupFormationTool.SystemConfig;
 
 @Controller
 public class QuestionAdminController {
-	
 	private long uId;
 	private static final String mcq_1="mcq-1";
 	private static final String mcq_2="mcq-2";

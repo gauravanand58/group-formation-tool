@@ -3,7 +3,7 @@ package CSCI5308.GroupFormationTool;
 import CSCI5308.GroupFormationTool.Security.*;
 import CSCI5308.GroupFormationTool.AccessControl.*;
 import CSCI5308.GroupFormationTool.Database.*;
-
+import CSCI5308.GroupFormationTool.Courses.*;
 import CSCI5308.GroupFormationTool.Questions.IQuestionPersistence;
 import CSCI5308.GroupFormationTool.Questions.IQuestionResponsePersistence;
 import CSCI5308.GroupFormationTool.Questions.QuestionDB;
@@ -12,12 +12,10 @@ import CSCI5308.GroupFormationTool.Questions.QuestionResponseDB;
 import CSCI5308.GroupFormationTool.Questions.IQuestionListManager;
 import CSCI5308.GroupFormationTool.Questions.IQuestionOptionPersistence;
 import CSCI5308.GroupFormationTool.Questions.QuestionOptionDB;
-import CSCI5308.GroupFormationTool.Courses.*;
 
-public class SystemConfig
-{
+public class SystemConfig {
 	private static SystemConfig uniqueInstance = null;
-	
+
 	private IPasswordEncryption passwordEncryption;
 	private IUserPersistence userDB;
 	private IDatabaseConfiguration databaseConfiguration;
@@ -30,9 +28,7 @@ public class SystemConfig
 	private IQuestionOptionPersistence questionOptionDB;
 	private IQuestionListManager questionListManager;
 
-	private SystemConfig()
-	{
-		
+	private SystemConfig() {
 		passwordEncryption = new BCryptPasswordEncryption();
 		userDB = new UserDB();
 		databaseConfiguration = new DefaultDatabaseConfiguration();
@@ -45,62 +41,51 @@ public class SystemConfig
 		questionOptionDB = new QuestionOptionDB();
 		questionListManager = new QuestionListManager();
 	}
-	
-	
-	public static SystemConfig instance()
-	{
-		if (null == uniqueInstance)
-		{
+
+	public static SystemConfig instance() {
+		if (null == uniqueInstance) {
+
 			uniqueInstance = new SystemConfig();
 		}
 		return uniqueInstance;
 	}
-	
-	public IPasswordEncryption getPasswordEncryption()
-	{
+
+	public IPasswordEncryption getPasswordEncryption() {
 		return passwordEncryption;
 	}
-	
-	public void setPasswordEncryption(IPasswordEncryption passwordEncryption)
-	{
+
+	public void setPasswordEncryption(IPasswordEncryption passwordEncryption) {
 		this.passwordEncryption = passwordEncryption;
 	}
-	
-	public IUserPersistence getUserDB()
-	{
+
+	public IUserPersistence getUserDB() {
 		return userDB;
 	}
-	
-	public void setUserDB(IUserPersistence userDB)
-	{
+
+	public void setUserDB(IUserPersistence userDB) {
 		this.userDB = userDB;
 	}
-	
-	public IDatabaseConfiguration getDatabaseConfiguration()
-	{
+
+	public IDatabaseConfiguration getDatabaseConfiguration() {
 		return databaseConfiguration;
 	}
-	
-	public void setDatabaseConfiguration(IDatabaseConfiguration databaseConfiguration)
-	{
+
+	public void setDatabaseConfiguration(IDatabaseConfiguration databaseConfiguration) {
 		this.databaseConfiguration = databaseConfiguration;
 	}
-	
-	public void setCourseDB(ICoursePersistence courseDB)
-	{
+
+	public void setCourseDB(ICoursePersistence courseDB) {
 		this.courseDB = courseDB;
 	}
-	
-	public ICoursePersistence getCourseDB()
-	{
+
+	public ICoursePersistence getCourseDB() {
 		return courseDB;
 	}
-	
-	public void setCourseUserRelationshipDB(ICourseUserRelationshipPersistence courseUserRelationshipDB)
-	{
+
+	public void setCourseUserRelationshipDB(ICourseUserRelationshipPersistence courseUserRelationshipDB) {
 		this.courseUserRelationshipDB = courseUserRelationshipDB;
 	}
-	
+
 	public IPasswordPolicyPersistance getPasswordPolicyDB() {
 		return passwordPolicyDB;
 	}
@@ -109,7 +94,6 @@ public class SystemConfig
 		this.passwordPolicyDB = passwordPolicyDB;
 	}
 
-	
 	public IUserPasswordHistoryRelationshipPersistance getUserPasswordRelationshipDB() {
 		return userPasswordRelationshipDB;
 	}
@@ -118,8 +102,7 @@ public class SystemConfig
 		this.userPasswordRelationshipDB = userPasswordRelationshipDB;
 	}
 
-	public ICourseUserRelationshipPersistence getCourseUserRelationshipDB()
-	{
+	public ICourseUserRelationshipPersistence getCourseUserRelationshipDB() {
 		return courseUserRelationshipDB;
 	}
 
