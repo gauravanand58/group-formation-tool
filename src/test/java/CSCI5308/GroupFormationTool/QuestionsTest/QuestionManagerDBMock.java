@@ -5,7 +5,7 @@ import java.util.List;
 
 import CSCI5308.GroupFormationTool.Questions.IQuestionManagerDB;
 import CSCI5308.GroupFormationTool.Questions.Question;
-import CSCI5308.GroupFormationTool.Questions.QuestionOptions;
+import CSCI5308.GroupFormationTool.Questions.QuestionOption;
 
 public class QuestionManagerDBMock implements IQuestionManagerDB {
 	
@@ -15,7 +15,7 @@ public class QuestionManagerDBMock implements IQuestionManagerDB {
 		if(bannerID.equals("B-000000")) {
 			List<Question> l=new ArrayList<Question>();
 			Question q=new Question();
-			q.setInstructorID((long) 1);
+			q.setInstructorID(1);
 			q.setQuesID(1);
 			q.setQuesTitle("Java");
 			q.setQuesText("How familiar wih java?");
@@ -33,7 +33,7 @@ public class QuestionManagerDBMock implements IQuestionManagerDB {
 		if(bannerID.equals("B-000000")) {
 			List<Question> l=new ArrayList<Question>();
 			Question q=new Question();
-			q.setInstructorID((long) 1);
+			q.setInstructorID(1);
 			q.setQuesID(1);
 			q.setQuesTitle("Java");
 			q.setQuesText("How familiar wih java?");
@@ -50,7 +50,7 @@ public class QuestionManagerDBMock implements IQuestionManagerDB {
 		if(bannerID.equals("B-000000")) {
 			List<Question> l=new ArrayList<Question>();
 			Question q=new Question();
-			q.setInstructorID((long) 1);
+			q.setInstructorID(1);
 			q.setQuesID(1);
 			q.setQuesTitle("Java");
 			q.setQuesText("How familiar wih java?");
@@ -61,24 +61,4 @@ public class QuestionManagerDBMock implements IQuestionManagerDB {
 			return null;	
 		}
 	}
-
-	@Override
-	public boolean createQuestion(Question question) {
-		question.setInstructorID((long) 1);
-		question.setQuesID(1);
-		question.setQuesTitle("Java");
-		question.setQuesText("How familiar wih java?");
-		question.setQuesDateTime("2020-06-10 00:00:00");
-		return true;
-	}
-
-	@Override
-	public boolean createOption(QuestionOptions questionOption) {
-		questionOption.setOptionTxt("intermediate");
-		questionOption.setOptionScore("5");
-		return true;
-	}
-	
-	
-
 }

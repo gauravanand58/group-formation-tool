@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import CSCI5308.GroupFormationTool.Questions.QuestionResponse;
 
-public class ResponseTest {
+public class QuestionResponseTest {
 	
 	@Test
 	public void getIdTest() {

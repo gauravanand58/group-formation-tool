@@ -12,12 +12,12 @@ import CSCI5308.GroupFormationTool.SystemConfig;
 public class QuestionManagerController {
 	
 	@RequestMapping("/course/questionmanager")
-	public String DisplayQues(@RequestParam("bannerID") String bannerID,Model model) {
+	public String displayQues(@RequestParam("bannerID") String bannerID,Model model) {
 		IQuestionManagerDB questionManagerDB = SystemConfig.instance().getQuestionManagerDB();
 		IQuestionManagerService service=new QuestionManagerService();
 		List<Question> displayQues=service.displayQues(bannerID,questionManagerDB);
 		model.addAttribute("ques",displayQues);
-		return "questionmanager/questionmanager";
+		return "questionmanager/questionlist";
 	}
 	
 	@RequestMapping("/course/manager")
@@ -26,13 +26,13 @@ public class QuestionManagerController {
 		IQuestionManagerService service=new QuestionManagerService();
 		List<Question> sortedQues=service.sortQues(bannerID, sortBy,questionManagerDB);
 		model.addAttribute("ques",sortedQues);
-		return "questionmanager/questionmanager";
+		return "questionmanager/questionlist";
 	}
 	
 	@RequestMapping("/mainquestionmanager")
 	public String DisplayQuestionManager(@RequestParam("id") Long courseID,@RequestParam("isUserInstructor") Long isUserInstructor,Model model) {
 		model.addAttribute("courseID",courseID);
 		model.addAttribute("isUserInstructor",isUserInstructor);
-		return "questionmanager/mainquestionmanager";
+		return "questionmanager/main";
 	}
 }

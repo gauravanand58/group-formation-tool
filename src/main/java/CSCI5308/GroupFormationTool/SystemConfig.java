@@ -9,8 +9,9 @@ import CSCI5308.GroupFormationTool.Questions.IQuestionResponsePersistence;
 import CSCI5308.GroupFormationTool.Questions.QuestionDB;
 import CSCI5308.GroupFormationTool.Questions.QuestionResponseDB;
 import CSCI5308.GroupFormationTool.Questions.IQuestionManagerDB;
+import CSCI5308.GroupFormationTool.Questions.IQuestionOptionPersistence;
 import CSCI5308.GroupFormationTool.Questions.QuestionManagerDB;
-
+import CSCI5308.GroupFormationTool.Questions.QuestionOptionDB;
 import CSCI5308.GroupFormationTool.Courses.*;
 
 public class SystemConfig
@@ -27,6 +28,7 @@ public class SystemConfig
 	private IPasswordPolicyPersistance passwordPolicyDB;
 	private IUserPasswordHistoryRelationshipPersistance userPasswordRelationshipDB;
 	private IQuestionManagerDB questionManagerDB;
+	private IQuestionOptionPersistence questionOptionDB;
 
 	
 	// This private constructor ensures that no class other than System can allocate
@@ -46,6 +48,7 @@ public class SystemConfig
 		passwordPolicyDB = new PasswordPolicyDB();
 		userPasswordRelationshipDB = new UserPasswordHistoryRelationshipDB();
 		questionManagerDB = new QuestionManagerDB();
+		questionOptionDB = new QuestionOptionDB();
 	}
 	
 	// This is the way the rest of the application gets access to the System object.
@@ -153,5 +156,13 @@ public class SystemConfig
 
 	public void setQuestionManagerDB(IQuestionManagerDB questionManagerDB) {
 		this.questionManagerDB = questionManagerDB;
+	}
+
+	public IQuestionOptionPersistence getQuestionOptionDB() {
+		return questionOptionDB;
+	}
+
+	public void setQuestionOptionDB(IQuestionOptionPersistence questionOptionDB) {
+		this.questionOptionDB = questionOptionDB;
 	}
 }

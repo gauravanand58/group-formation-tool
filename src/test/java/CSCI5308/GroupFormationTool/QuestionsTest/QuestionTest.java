@@ -1,9 +1,13 @@
 package CSCI5308.GroupFormationTool.QuestionsTest;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.util.Assert;
 
+import CSCI5308.GroupFormationTool.Questions.IQuestionManagerDB;
+import CSCI5308.GroupFormationTool.Questions.IQuestionPersistence;
 import CSCI5308.GroupFormationTool.Questions.Question;
 @SpringBootTest
 @SuppressWarnings("deprecation")
@@ -83,4 +87,11 @@ public class QuestionTest{
 		Assert.isTrue(ques.getQuesText().equals("how familiar with java?"));
 	}
 	
+	@Test
+	public void createQuestionTest() {
+		IQuestionPersistence dao=new QuestionDBMock();
+		Question question = new Question();
+		dao.createQuestion(question);
+		assertTrue(question.getQuesID()==1);
+	}
 }
