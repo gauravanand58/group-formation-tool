@@ -17,17 +17,13 @@ import CSCI5308.GroupFormationTool.AccessControl.*;
 
 public class CustomAuthenticationManager implements AuthenticationManager {
 	private static final String ADMIN_BANNER_ID = "B-000000";
-
-	private Authentication checkAdmin(String password, User u, Authentication authentication)
-			throws AuthenticationException {
-		// The admin password is not encrypted because it is hardcoded in the DB.
-		if (password.equals(u.getPassword())) {
-			
-			// Grant ADMIN rights system-wide, this is used to protect controller mappings.
+	
+	private Authentication checkAdmin(String password, User u, Authentication authentication) throws AuthenticationException
+	{
+		if (password.equals(u.getPassword()))
+		{
 			List<GrantedAuthority> rights = new ArrayList<GrantedAuthority>();
 			rights.add(new SimpleGrantedAuthority("ADMIN"));
-			
-			// Return valid authentication token.
 			UsernamePasswordAuthenticationToken token;
 			token = new UsernamePasswordAuthenticationToken(authentication.getPrincipal(),
 					authentication.getCredentials(), rights);
@@ -40,13 +36,12 @@ public class CustomAuthenticationManager implements AuthenticationManager {
 	private Authentication checkNormal(String password, User u, Authentication authentication)
 			throws AuthenticationException {
 		IPasswordEncryption passwordEncryption = SystemConfig.instance().getPasswordEncryption();
-		if (passwordEncryption.matches(password, u.getPassword())) {
+		if (passwordEncryption.matches(password, u.getPassword()))
+		{
 			
-			// Grant USER rights system-wide, this is used to protect controller mappings.
 			List<GrantedAuthority> rights = new ArrayList<GrantedAuthority>();
 			rights.add(new SimpleGrantedAuthority("USER"));
 			
-			// Return valid authentication token.
 			UsernamePasswordAuthenticationToken token;
 			token = new UsernamePasswordAuthenticationToken(authentication.getPrincipal(),
 					authentication.getCredentials(), rights);
@@ -55,9 +50,9 @@ public class CustomAuthenticationManager implements AuthenticationManager {
 			throw new BadCredentialsException("1000");
 		}
 	}
-
-	// Authenticate against our database using the input banner ID and password.
-	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+	
+	public Authentication authenticate(Authentication authentication) throws AuthenticationException
+	{
 		String bannerID = authentication.getPrincipal().toString();
 		String password = authentication.getCredentials().toString();
 		IUserPersistence userDB = SystemConfig.instance().getUserDB();
@@ -73,8 +68,8 @@ public class CustomAuthenticationManager implements AuthenticationManager {
 			} else {
 				return checkNormal(password, u, authentication);
 			}
-		} else {
-			// No user with this banner id found.
+		}
+		else {
 			throw new BadCredentialsException("1001");
 		}
 	}

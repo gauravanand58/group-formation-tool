@@ -12,6 +12,8 @@ import CSCI5308.GroupFormationTool.SystemConfig;
 @Controller
 public class QuestionAdminController {
 	private long uId;
+	private static final String mcq_1="mcq-1";
+	private static final String mcq_2="mcq-2";
 
 	@RequestMapping("/createquestions")
 	public String createQuestion(Model model, @RequestParam(name = "isUserInstructor") Long isUserInstrutor) {
@@ -28,7 +30,7 @@ public class QuestionAdminController {
 		IQuestionOptionPersistence questionOptionDB = SystemConfig.instance().getQuestionOptionDB();
 		question.setInstructorID(uId);
 		createdQuestionID = question.createQuestion(questionDB);
-		if (question.getQuestionType().equals("mcq-1") || question.getQuestionType().equals("mcq-2")) {
+		if (question.getQuestionType().equals(mcq_1) || question.getQuestionType().equals(mcq_2)) {
 			questionOption.createOption(questionOptionDB, createdQuestionID);
 		}
 		model.addAttribute("message", "visible");

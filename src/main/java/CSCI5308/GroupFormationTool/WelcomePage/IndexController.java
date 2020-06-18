@@ -21,10 +21,7 @@ public class IndexController {
 		if (authentication.isAuthenticated()) {
 			ICoursePersistence courseDB = SystemConfig.instance().getCourseDB();
 			List<Course> allCourses = courseDB.loadAllCourses();
-			
-			// initialize password configurations
 			SystemConfig.instance().getConfiguration();
-
 			model.addAttribute("courses", allCourses);
 			IUserPersistence userDb = SystemConfig.instance().getUserDB();
 			long userID = userDb.checkUserByBannerID(httpServletRequest.getRemoteUser());
