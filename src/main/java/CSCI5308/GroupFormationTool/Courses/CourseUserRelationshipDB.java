@@ -117,7 +117,7 @@ public class CourseUserRelationshipDB implements ICourseUserRelationshipPersiste
 		List<Role> roles = new ArrayList<Role>();
 		CallStoredProcedure proc = null;
 		try
-		{	System.out.println(course.getId()+" "+user.getID());
+		{	
 			proc = new CallStoredProcedure("spLoadUserRolesForCourse(?, ?)");
 			proc.setParameter(1, course.getId());
 			proc.setParameter(2, user.getID());

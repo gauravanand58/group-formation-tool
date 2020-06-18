@@ -32,9 +32,5 @@ public class UserNotifications implements IUserNotifications{
 		   commonMessage+="Username:"+user.getBannerID()+"\nPassword:"+rawPassword;
 		   msg.setContent(commonMessage, "text/html");
 		   Transport.send(msg);   
-		   System.out.println("Successfully sent email");
-
-		
 	}
-
 }
