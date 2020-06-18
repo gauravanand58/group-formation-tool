@@ -10,7 +10,6 @@ import CSCI5308.GroupFormationTool.Questions.QuestionDB;
 import CSCI5308.GroupFormationTool.Questions.QuestionListManager;
 import CSCI5308.GroupFormationTool.Questions.QuestionResponseDB;
 import CSCI5308.GroupFormationTool.Questions.IQuestionListManager;
-import CSCI5308.GroupFormationTool.Questions.IQuestionManagerDB;
 import CSCI5308.GroupFormationTool.Questions.IQuestionOptionPersistence;
 import CSCI5308.GroupFormationTool.Questions.QuestionOptionDB;
 import CSCI5308.GroupFormationTool.Courses.*;
@@ -28,7 +27,6 @@ public class SystemConfig
 	private IQuestionResponsePersistence reponseDB;
 	private IPasswordPolicyPersistance passwordPolicyDB;
 	private IUserPasswordHistoryRelationshipPersistance userPasswordRelationshipDB;
-	private IQuestionManagerDB questionManagerDB;
 	private IQuestionOptionPersistence questionOptionDB;
 	private IQuestionListManager questionListManager;
 
@@ -150,14 +148,6 @@ public class SystemConfig
 
 	public PasswordPolicyConfiguration getConfiguration() {
 		return PasswordPolicyConfiguration.instance(passwordPolicyDB);
-	}
-
-	public IQuestionManagerDB getQuestionManagerDB() {
-		return questionManagerDB;
-	}
-
-	public void setQuestionManagerDB(IQuestionManagerDB questionManagerDB) {
-		this.questionManagerDB = questionManagerDB;
 	}
 
 	public IQuestionOptionPersistence getQuestionOptionDB() {
