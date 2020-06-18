@@ -8,8 +8,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.util.Assert;
 
-import CSCI5308.GroupFormationTool.SystemConfig;
-import CSCI5308.GroupFormationTool.Questions.IQuestionManagerDB;
 import CSCI5308.GroupFormationTool.Questions.IQuestionPersistence;
 import CSCI5308.GroupFormationTool.Questions.IQuestionResponsePersistence;
 import CSCI5308.GroupFormationTool.Questions.Question;
@@ -34,62 +32,62 @@ public class QuestionTest{
 	@Test
 	public void getQuesID() {
 		Question ques=new Question();
-		ques.setQuesID(1);
-		Assert.isTrue(1==ques.getQuesID());
+		ques.setQuestionID(1);
+		Assert.isTrue(1==ques.getQuestionID());
 	}
 	@Test
 	public void setQuesID() {
 		Question ques=new Question();
-		ques.setQuesID(1);
-		Assert.isTrue(1==ques.getQuesID());
+		ques.setQuestionID(1);
+		Assert.isTrue(1==ques.getQuestionID());
 	}
 	@Test
 	public void getQuesTitle() {
 		Question ques=new Question();
-		ques.setQuesTitle("Java");
-		Assert.isTrue(ques.getQuesTitle().equals("Java"));
+		ques.setQuestionTitle("Java");
+		Assert.isTrue(ques.getQuestionTitle().equals("Java"));
 	}
 	@Test
 	public void setQuesTitle() {
 		Question ques=new Question();
-		ques.setQuesTitle("Java");
-		Assert.isTrue(ques.getQuesTitle().equals("Java"));
+		ques.setQuestionTitle("Java");
+		Assert.isTrue(ques.getQuestionTitle().equals("Java"));
 	}
 	@Test
 	public void getQuesType() {
 		Question ques=new Question();
-		ques.setQuesType("Numeric");
-		Assert.isTrue(ques.getQuesType().equals("Numeric"));
+		ques.setQuestionType("Numeric");
+		Assert.isTrue(ques.getQuestionType().equals("Numeric"));
 	}
 	@Test
 	public void setQuesType() {
 		Question ques=new Question();
-		ques.setQuesType("Numeric");
-		Assert.isTrue(ques.getQuesType().equals("Numeric"));
+		ques.setQuestionType("Numeric");
+		Assert.isTrue(ques.getQuestionType().equals("Numeric"));
 	}
 	@Test
 	public void getQuesDateTime() {
 		Question ques=new Question();
-		ques.setQuesDateTime("2020-06-10 00:00:00");
-		Assert.isTrue(ques.getQuesDateTime().equals("2020-06-10 00:00:00"));
+		ques.setQuestionDateTime("2020-06-10 00:00:00");
+		Assert.isTrue(ques.getQuestionDateTime().equals("2020-06-10 00:00:00"));
 	}
 	@Test
 	public void setQuesDateTime() {
 		Question ques=new Question();
-		ques.setQuesDateTime("2020-06-10 00:00:00");
-		Assert.isTrue(ques.getQuesDateTime().equals("2020-06-10 00:00:00"));
+		ques.setQuestionDateTime("2020-06-10 00:00:00");
+		Assert.isTrue(ques.getQuestionDateTime().equals("2020-06-10 00:00:00"));
 	}
 	@Test
 	public void getQuesText() {
 		Question ques=new Question();
-		ques.setQuesText("how familiar with java?");
-		Assert.isTrue(ques.getQuesText().equals("how familiar with java?"));
+		ques.setQuestionText("how familiar with java?");
+		Assert.isTrue(ques.getQuestionText().equals("how familiar with java?"));
 	}
 	@Test
 	public void setQuesText() {
 		Question ques=new Question();
-		ques.setQuesText("how familiar with java?");
-		Assert.isTrue(ques.getQuesText().equals("how familiar with java?"));
+		ques.setQuestionText("how familiar with java?");
+		Assert.isTrue(ques.getQuestionText().equals("how familiar with java?"));
 	}
 	
 	@Test
@@ -118,6 +116,6 @@ public class QuestionTest{
 		IQuestionPersistence questionDBMock = new QuestionDBMock();
 		Question question = new Question();
 		questionDBMock.createQuestion(question);
-		assertTrue(question.getQuesID()==1);
+		assertTrue(question.getQuestionID()==1);
 	}
 }

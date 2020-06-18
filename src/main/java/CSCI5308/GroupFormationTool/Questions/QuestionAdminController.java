@@ -29,7 +29,7 @@ public class QuestionAdminController {
 		IQuestionOptionPersistence questionOptionDB = SystemConfig.instance().getQuestionOptionDB();
 		question.setInstructorID(uId);
 		createdQuestionID = question.createQuestion(questionDB);
-		if (question.getQuesType().equals("mcq-1") || question.getQuesType().equals("mcq-2")) {
+		if (question.getQuestionType().equals("mcq-1") || question.getQuestionType().equals("mcq-2")) {
 			questionOption.createOption(questionOptionDB, createdQuestionID);
 		}
 		model.addAttribute("message", "visible");
@@ -40,7 +40,7 @@ public class QuestionAdminController {
 	public ModelAndView deleteQuestion(@RequestParam("bannerID") String bannerID, @RequestParam("quesID") int quesID) {
 		IQuestionPersistence questionDB = SystemConfig.instance().getQuestionDB();
 		Question question = new Question();
-		question.setQuesID(quesID);
+		question.setQuestionID(quesID);
 		question.deleteQuestion(questionDB);
 		ModelAndView mav = new ModelAndView("redirect:/course/questionmanager");
 		mav.addObject("bannerID", bannerID);

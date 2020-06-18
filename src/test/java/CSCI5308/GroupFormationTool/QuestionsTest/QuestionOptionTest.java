@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import CSCI5308.GroupFormationTool.Questions.IQuestionManagerDB;
 import CSCI5308.GroupFormationTool.Questions.IQuestionOptionPersistence;
 import CSCI5308.GroupFormationTool.Questions.QuestionOption;
 
