@@ -1,6 +1,6 @@
 package CSCI5308.GroupFormationTool.Questions;
 
-public class Response {
+public class QuestionResponse {
 	private int id;
 	private String responseText;
 	

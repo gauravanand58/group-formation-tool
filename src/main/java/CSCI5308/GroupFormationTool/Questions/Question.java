@@ -77,12 +77,12 @@ public class Question {
 		return questionDB.deleteQuestion(quesID);
 	}
 	
-	public List<Response> getAllResponses(IResponsePersistence responseDB) {
+	public List<QuestionResponse> getAllResponses(IQuestionResponsePersistence responseDB) {
 		return responseDB.getAllResponsesOfQuestion(quesID);
 	}
 	
 	public boolean checkIfQuestionHasResponse() {
-		List<Response> responseList = getAllResponses(SystemConfig.instance().getReponseDB());
+		List<QuestionResponse> responseList = getAllResponses(SystemConfig.instance().getReponseDB());
 		if(responseList == null || responseList.size() == 0) {
 			return false;
 		}

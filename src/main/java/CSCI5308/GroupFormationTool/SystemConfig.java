@@ -5,9 +5,9 @@ import CSCI5308.GroupFormationTool.AccessControl.*;
 import CSCI5308.GroupFormationTool.Database.*;
 
 import CSCI5308.GroupFormationTool.Questions.IQuestionPersistence;
-import CSCI5308.GroupFormationTool.Questions.IResponsePersistence;
+import CSCI5308.GroupFormationTool.Questions.IQuestionResponsePersistence;
 import CSCI5308.GroupFormationTool.Questions.QuestionDB;
-import CSCI5308.GroupFormationTool.Questions.ResponseDB;
+import CSCI5308.GroupFormationTool.Questions.QuestionResponseDB;
 import CSCI5308.GroupFormationTool.Questions.IQuestionManagerDB;
 import CSCI5308.GroupFormationTool.Questions.QuestionManagerDB;
 
@@ -23,7 +23,7 @@ public class SystemConfig
 	private ICoursePersistence courseDB;
 	private ICourseUserRelationshipPersistence courseUserRelationshipDB;
 	private IQuestionPersistence questionDB;
-	private IResponsePersistence reponseDB;
+	private IQuestionResponsePersistence reponseDB;
 	private IPasswordPolicyPersistance passwordPolicyDB;
 	private IUserPasswordHistoryRelationshipPersistance userPasswordRelationshipDB;
 	private IQuestionManagerDB questionManagerDB;
@@ -42,7 +42,7 @@ public class SystemConfig
 		courseDB = new CourseDB();
 		courseUserRelationshipDB = new CourseUserRelationshipDB();
 		questionDB = new QuestionDB();
-		reponseDB = new ResponseDB();
+		reponseDB = new QuestionResponseDB();
 		passwordPolicyDB = new PasswordPolicyDB();
 		userPasswordRelationshipDB = new UserPasswordHistoryRelationshipDB();
 		questionManagerDB = new QuestionManagerDB();
@@ -135,11 +135,11 @@ public class SystemConfig
 		this.questionDB = questionDB;
 	}
 
-	public IResponsePersistence getReponseDB() {
+	public IQuestionResponsePersistence getReponseDB() {
 		return reponseDB;
 	}
 
-	public void setReponseDB(IResponsePersistence reponseDB) {
+	public void setReponseDB(IQuestionResponsePersistence reponseDB) {
 		this.reponseDB = reponseDB;
 	}
 
