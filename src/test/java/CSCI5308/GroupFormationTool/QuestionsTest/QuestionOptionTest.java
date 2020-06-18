@@ -1,41 +1,40 @@
 package CSCI5308.GroupFormationTool.QuestionsTest;
 
-import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.Test;
+import org.springframework.util.Assert;
 
 import CSCI5308.GroupFormationTool.Questions.IQuestionOptionPersistence;
 import CSCI5308.GroupFormationTool.Questions.QuestionOption;
 
+@SuppressWarnings("deprecation")
 public class QuestionOptionTest {
 	@Test
     void getOptionTxt() {
         QuestionOption questionOption = new QuestionOption();
         questionOption.setOptionTxt("a");
-        assertSame("a",questionOption.getOptionTxt());
+        Assert.isTrue(questionOption.getOptionTxt().equals("a"));
     }
 
 	@Test
     void setOptionTxt() {
         QuestionOption questionOption=new QuestionOption();
         questionOption.setOptionTxt("a");
-        assertSame("a",questionOption.getOptionTxt());
+        Assert.isTrue(questionOption.getOptionTxt().equals("a"));
     }
 	
 	@Test
     void getOptionScore() {
         QuestionOption questionOption=new QuestionOption();
         questionOption.setOptionScore("1");
-        assertSame("1",questionOption.getOptionScore());
+        Assert.isTrue(questionOption.getOptionScore().equals("1"));
     }
 
 	@Test
     void setOptionScore() {
         QuestionOption questionOption=new QuestionOption();
         questionOption.setOptionScore("1");
-        assertSame("1",questionOption.getOptionScore());
-    }
+        Assert.isTrue(questionOption.getOptionScore().equals("1"));
+	}
 	
 	@Test
 	public void createOptionTest() {
@@ -44,7 +43,7 @@ public class QuestionOptionTest {
 		questionOption.setOptionTxt("intermediate");
 		questionOption.setOptionScore("5");
 		questionOptionDBMock.createOption(questionOption, 0);
-		assertTrue(questionOption.getOptionTxt()=="intermediate");
-		assertTrue(questionOption.getOptionScore()=="5");
+		Assert.isTrue(questionOption.getOptionTxt()=="intermediate");
+		Assert.isTrue(questionOption.getOptionScore()=="5");
 	}
 }

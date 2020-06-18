@@ -67,10 +67,10 @@
 	</div>
 	<form th:action="@{/submitquestions}" method="post">
 		<div th:if="${isUserInstrutor!=0}">
-			Question Title <input type="text" name="quesTitle" required><br />
-			Question Text <input type="text" name="quesText" required><br />
+			Question Title <input type="text" name="questionTitle" required><br />
+			Question Text <input type="text" name="questionText" required><br />
 			<label for="Questions">Choose Question Type:</label> <select
-				name="quesType" id="Question_type" onchange="changeOuesType()">
+				name="questionType" id="Question_type" onchange="changeOuesType()">
 				<option value="numeric">numeric</option>
 				<option value="mcq-1">multiple choice choose one</option>
 				<option value="mcq-2">multiple choice choose many</option>

@@ -30,7 +30,6 @@ public class QuestionDB implements IQuestionPersistence{
 				proc.cleanup();
 			}
 		}
-		System.out.println("delted: " + questionID);
 		return true;
 	}
 
