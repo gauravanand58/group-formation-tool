@@ -1,12 +1,19 @@
 plugins {
-	id 'org.springframework.boot' version '2.3.0.RELEASE'
+	id 'org.springframework.boot' version '2.2.4.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 	id 'java'
 }
 
-group = 'com.advsdc'
+group = 'CSCI5308'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
+
+configurations {
+	developmentOnly
+	runtimeClasspath {
+		extendsFrom developmentOnly
+	}
+}
 
 repositories {
 	mavenCentral()
@@ -14,23 +21,22 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-mail'
-	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.mockito:mockito-core:2.7.22'
-	implementation 'com.opencsv:opencsv:5.0'
-	compile 'com.opencsv:opencsv:5.2'
-	compile('org.springframework.boot:spring-boot-starter-mail')
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+	implementation 'org.springframework.session:spring-session-core'
+	compile "com.opencsv:opencsv:5.1"
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'mysql:mysql-connector-java'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 	testImplementation 'org.springframework.security:spring-security-test'
-	
-	testCompile "org.mockito:mockito-core:2.+"
-	testImplementation('org.springframework.boot:spring-boot-starter-test') {
-		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-	}
+	testCompile("org.junit.jupiter:junit-jupiter-api:5.4.2")
+    testRuntime("org.junit.jupiter:junit-jupiter-engine:5.4.2")
+    testRuntime("org.junit.platform:junit-platform-launcher:1.4.2")
 }
 
 test {
