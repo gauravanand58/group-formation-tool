@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+<head>
+<title>CSCI5308 - Group Formation Tool</title>
+</head>
+<body>
+<!-- I got the idea for how to do this from https://www.thymeleaf.org/doc/articles/springsecurity.html -->
+	  	<div sec:authorize="isAuthenticated()">
+	       <h4 th:inline="text">BannerID: [[${#httpServletRequest.remoteUser}]]</h4>
+	       <form th:action="@{/logout}" method="post">
+	           <input type="submit" value="Sign Out"/>
+	       </form>
+	       </div>
+	       <div>
+				<a th:href="@{/course/manager(sortBy='Title',bannerID=${#httpServletRequest.remoteUser})}">Sort Ques. by Title</a>
+
+				<a th:href="@{/course/manager(sortBy='Date',bannerID=${#httpServletRequest.remoteUser})}">Sort Ques. by Date</a>
+			</div>
+			<div th:if="${ques!=null}">
+				<table>
+				<tr >
+							<th>ID</th>
+							<th>Title</th>
+							<th>Text</th>
+							<th>Type</th>
+							<th>DateTime</th>
+					</tr>
+					<tr th:each="msg : ${ques}">
+						<td><span th:text="${msg.questionID}"></span></td>
+						<td><span th:text="${msg.questionTitle}"></span></td>
+						<td><span th:text="${msg.questionText}"></span></td>
+						<td><span th:text="${msg.questionType}"></span></td>
+						<td><span th:text="${msg.questionDateTime}"></span></td>
+						<td th:with="expr_result = ${msg.checkIfQuestionHasResponse()}">
+							<a th:if="${expr_result}" th:href="@{/course/questionmanager/delete(quesID=${msg.questionID},bannerID=${#httpServletRequest.remoteUser})}"
+							onclick="return confirm('Deleting this question will delete current responses as well. Do you wish to continue?')">
+								Delete
+							</a>
+							<a th:unless="${expr_result}" th:href="@{/course/questionmanager/delete(quesID=${msg.questionID},bannerID=${#httpServletRequest.remoteUser})}">
+								Delete
+							</a>
+						</td>
+					</tr>
+		  		</table>
+			</div>
+</body>
+</html>
