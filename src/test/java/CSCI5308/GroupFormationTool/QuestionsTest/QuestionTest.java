@@ -15,113 +15,113 @@ public class QuestionTest{
 
 	@Test
 	public void getInstructorID() {
-		Question ques=new Question();
+		Question ques=QuestionsSystemConfigTest.instance().getQuestion();
 		ques.setInstructorID((long) 1);
 		assertTrue(1==ques.getInstructorID());
 	}
 	
 	@Test
 	public void setInstructorID() {
-		Question ques=new Question();
+		Question ques=QuestionsSystemConfigTest.instance().getQuestion();
 		ques.setInstructorID((long) 1);
 		assertTrue(1==ques.getInstructorID());
 	}
 	
 	@Test
 	public void getQuesID() {
-		Question ques=new Question();
+		Question ques=QuestionsSystemConfigTest.instance().getQuestion();
 		ques.setQuestionID(1);
 		assertTrue(1==ques.getQuestionID());
 	}
 	
 	@Test
 	public void setQuesID() {
-		Question ques=new Question();
+		Question ques=QuestionsSystemConfigTest.instance().getQuestion();
 		ques.setQuestionID(1);
 		assertTrue(1==ques.getQuestionID());
 	}
 	
 	@Test
 	public void getQuesTitle() {
-		Question ques=new Question();
+		Question ques=QuestionsSystemConfigTest.instance().getQuestion();
 		ques.setQuestionTitle("Java");
 		assertTrue(ques.getQuestionTitle().equals("Java"));
 	}
 	
 	@Test
 	public void setQuesTitle() {
-		Question ques=new Question();
+		Question ques=QuestionsSystemConfigTest.instance().getQuestion();
 		ques.setQuestionTitle("Java");
 		assertTrue(ques.getQuestionTitle().equals("Java"));
 	}
 	
 	@Test
 	public void getQuesType() {
-		Question ques=new Question();
+		Question ques=QuestionsSystemConfigTest.instance().getQuestion();
 		ques.setQuestionType("Numeric");
 		assertTrue(ques.getQuestionType().equals("Numeric"));
 	}
 	
 	@Test
 	public void setQuesType() {
-		Question ques=new Question();
+		Question ques=QuestionsSystemConfigTest.instance().getQuestion();
 		ques.setQuestionType("Numeric");
 		assertTrue(ques.getQuestionType().equals("Numeric"));
 	}
 	
 	@Test
 	public void getQuesDateTime() {
-		Question ques=new Question();
+		Question ques=QuestionsSystemConfigTest.instance().getQuestion();
 		ques.setQuestionDateTime("2020-06-10 00:00:00");
 		assertTrue(ques.getQuestionDateTime().equals("2020-06-10 00:00:00"));
 	}
 	
 	@Test
 	public void setQuesDateTime() {
-		Question ques=new Question();
+		Question ques=QuestionsSystemConfigTest.instance().getQuestion();
 		ques.setQuestionDateTime("2020-06-10 00:00:00");
 		assertTrue(ques.getQuestionDateTime().equals("2020-06-10 00:00:00"));
 	}
 	
 	@Test
 	public void getQuesText() {
-		Question ques=new Question();
+		Question ques=QuestionsSystemConfigTest.instance().getQuestion();
 		ques.setQuestionText("how familiar with java?");
 		assertTrue(ques.getQuestionText().equals("how familiar with java?"));
 	}
 	
 	@Test
 	public void setQuesText() {
-		Question ques=new Question();
+		Question ques=QuestionsSystemConfigTest.instance().getQuestion();
 		ques.setQuestionText("how familiar with java?");
 		assertTrue(ques.getQuestionText().equals("how familiar with java?"));
 	}
 	
 	@Test
 	public void deleteQuestionTest() {
-		IQuestionPersistence questionDBMock = new QuestionDBMock();
+		IQuestionPersistence questionDBMock = QuestionsSystemConfigPersistenceTest.instance().getQuestionDBMock();
 		boolean response = questionDBMock.deleteQuestion(-1);
 		assertTrue(response);
 	}
 	
 	@Test
 	public void getAllResponsesTest() {
-		IQuestionResponsePersistence responseDBMock = new QuestionResponseDBMock();
+		IQuestionResponsePersistence responseDBMock = QuestionsSystemConfigPersistenceTest.instance().getReponseDBMock();
 		List<QuestionResponse> responseList = responseDBMock.getAllResponsesOfQuestion(-1);
 		assertTrue(null != responseList && responseList.size() > 0);
 	}
 	
 	@Test
 	public void checkIfQuestionHasResponseTest() {
-		IQuestionResponsePersistence responseDBMock = new QuestionResponseDBMock();
+		IQuestionResponsePersistence responseDBMock = QuestionsSystemConfigPersistenceTest.instance().getReponseDBMock();
 		List<QuestionResponse> responseList = responseDBMock.getAllResponsesOfQuestion(-1);
 		assertTrue(null != responseList && responseList.size() > 0);
 	}
 
 	@Test
 	public void createQuestionTest() {
-		IQuestionPersistence questionDBMock = new QuestionDBMock();
-		Question question = new Question();
+		IQuestionPersistence questionDBMock = QuestionsSystemConfigPersistenceTest.instance().getQuestionDBMock();
+		Question question = QuestionsSystemConfigTest.instance().getQuestion();
 		questionDBMock.createQuestion(question);
 		assertTrue(question.getQuestionID()==1);
 	}
