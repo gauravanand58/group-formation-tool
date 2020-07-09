@@ -5,7 +5,6 @@ import java.util.List;
 import CSCI5308.GroupFormationTool.AccessControl.User;
 
 public interface ICourse {
-	public long id=0;
 
 	public boolean delete(ICoursePersistence courseDB);
 
