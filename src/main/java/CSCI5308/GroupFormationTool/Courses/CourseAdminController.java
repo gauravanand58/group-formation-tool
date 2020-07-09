@@ -31,7 +31,7 @@ public class CourseAdminController {
 	@GetMapping("/admin/assigninstructor")
 	public String assignInstructor(Model model, @RequestParam(name = ID) long courseID) {
 		ICoursePersistence courseDB = SystemConfig.instance().getCourseDB();
-		Course c = new Course();
+		ICourse c = ObjectFactory.objFactory(new CourseFactory());
 		courseDB.loadCourseByID(courseID, c);
 		model.addAttribute("course", c);
 		ICourseUserRelationshipPersistence courseUserRelationshipDB = SystemConfig.instance()
@@ -45,7 +45,7 @@ public class CourseAdminController {
 	@GetMapping("/admin/deletecourse")
 	public ModelAndView deleteCourse(@RequestParam(name = ID) long courseID) {
 		ICoursePersistence courseDB = SystemConfig.instance().getCourseDB();
-		Course c = new Course();
+		ICourse c = ObjectFactory.objFactory(new CourseFactory());
 		c.setId(courseID);
 		c.delete(courseDB);
 		ModelAndView mav = new ModelAndView("redirect:/admin/course");
@@ -55,7 +55,7 @@ public class CourseAdminController {
 	@RequestMapping(value = "/admin/createcourse", method = RequestMethod.POST)
 	public ModelAndView createCourse(@RequestParam(name = TITLE) String title) {
 		ICoursePersistence courseDB = SystemConfig.instance().getCourseDB();
-		Course c = new Course();
+		ICourse c = ObjectFactory.objFactory(new CourseFactory());
 		c.setTitle(title);
 		c.createCourse(courseDB);
 		ModelAndView mav = new ModelAndView("redirect:/admin/course");
@@ -65,7 +65,7 @@ public class CourseAdminController {
 	@RequestMapping(value = "/admin/assigninstructor", method = RequestMethod.POST)
 	public ModelAndView assignInstructorToCourse(@RequestParam(name = INSTRUCTOR) List<Integer> instructor,
 			@RequestParam(name = ID) long courseID) {
-		Course c = new Course();
+		ICourse c = ObjectFactory.objFactory(new CourseFactory());
 		c.setId(courseID);
 		Iterator<Integer> iter = instructor.iterator();
 		ICourseUserRelationshipPersistence courseUserRelationshipDB = SystemConfig.instance()

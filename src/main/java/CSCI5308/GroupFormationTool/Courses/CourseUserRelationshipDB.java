@@ -67,7 +67,7 @@ public class CourseUserRelationshipDB implements ICourseUserRelationshipPersiste
 		return users;
 	}
 
-	public boolean enrollUser(Course course, User user, Role role) {
+	public boolean enrollUser(ICourse course, User user, Role role) {
 		CallStoredProcedure proc = null;
 		try {
 			proc = new CallStoredProcedure("spEnrollUser(?, ?, ?)");
@@ -86,7 +86,7 @@ public class CourseUserRelationshipDB implements ICourseUserRelationshipPersiste
 		return true;
 	}
 
-	public List<Role> loadUserRolesForCourse(Course course, User user) {
+	public List<Role> loadUserRolesForCourse(ICourse course, User user) {
 		List<Role> roles = new ArrayList<Role>();
 		CallStoredProcedure proc = null;
 		try {
