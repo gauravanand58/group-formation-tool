@@ -1,6 +1,5 @@
 package CSCI5308.GroupFormationTool.Courses;
 
-
 public class CourseSystemConfig {
 	private static CourseSystemConfig uniqueInstance = null;
 	private ICoursePersistence courseDB;
