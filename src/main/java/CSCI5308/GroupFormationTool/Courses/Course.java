@@ -5,7 +5,7 @@ import java.util.List;
 import CSCI5308.GroupFormationTool.AccessControl.CurrentUser;
 import CSCI5308.GroupFormationTool.AccessControl.User;
 
-public class Course implements ICourse{
+public class Course implements ICourse {
 	private long id;
 	private String title;
 	private ICourseUserRelationship userRoleDecider;
