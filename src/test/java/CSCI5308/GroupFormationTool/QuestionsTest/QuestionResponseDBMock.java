@@ -11,7 +11,7 @@ public class QuestionResponseDBMock implements IQuestionResponsePersistence{
 	@Override
 	public List<QuestionResponse> getAllResponsesOfQuestion(int questionID) {
 		List<QuestionResponse> list = new LinkedList<QuestionResponse>();
-		list.add(new QuestionResponse());
+		list.add(QuestionsSystemConfigTest.instance().getQuestionResponse());
 		return list;
 	}
 }
