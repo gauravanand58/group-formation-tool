@@ -19,8 +19,6 @@ public class SystemConfig {
 	private IPasswordEncryption passwordEncryption;
 	private IUserPersistence userDB;
 	private IDatabaseConfiguration databaseConfiguration;
-	private ICoursePersistence courseDB;
-	private ICourseUserRelationshipPersistence courseUserRelationshipDB;
 	private IQuestionPersistence questionDB;
 	private IQuestionResponsePersistence reponseDB;
 	private IPasswordPolicyPersistance passwordPolicyDB;
@@ -32,8 +30,6 @@ public class SystemConfig {
 		passwordEncryption = new BCryptPasswordEncryption();
 		userDB = new UserDB();
 		databaseConfiguration = new DefaultDatabaseConfiguration();
-//		courseDB = new CourseDB();
-//		courseUserRelationshipDB = new CourseUserRelationshipDB();
 		questionDB = new QuestionDB();
 		reponseDB = new QuestionResponseDB();
 		passwordPolicyDB = new PasswordPolicyDB();
@@ -74,18 +70,6 @@ public class SystemConfig {
 		this.databaseConfiguration = databaseConfiguration;
 	}
 
-//	public void setCourseDB(ICoursePersistence courseDB) {
-//		this.courseDB = courseDB;
-//	}
-//
-//	public ICoursePersistence getCourseDB() {
-//		return courseDB;
-//	}
-//
-//	public void setCourseUserRelationshipDB(ICourseUserRelationshipPersistence courseUserRelationshipDB) {
-//		this.courseUserRelationshipDB = courseUserRelationshipDB;
-//	}
-
 	public IPasswordPolicyPersistance getPasswordPolicyDB() {
 		return passwordPolicyDB;
 	}
@@ -101,10 +85,6 @@ public class SystemConfig {
 	public void setUserPasswordRelationshipDB(IUserPasswordHistoryRelationshipPersistance userPasswordRelationshipDB) {
 		this.userPasswordRelationshipDB = userPasswordRelationshipDB;
 	}
-
-//	public ICourseUserRelationshipPersistence getCourseUserRelationshipDB() {
-//		return courseUserRelationshipDB;
-//	}
 
 	public IQuestionPersistence getQuestionDB() {
 		return questionDB;
