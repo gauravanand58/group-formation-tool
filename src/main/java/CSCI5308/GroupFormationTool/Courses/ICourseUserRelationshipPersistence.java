@@ -9,7 +9,7 @@ public interface ICourseUserRelationshipPersistence {
 
 	public List<User> findAllUsersWithCourseRole(Role role, long courseID);
 
-	public boolean enrollUser(Course course, User user, Role role);
+	public boolean enrollUser(ICourse c, User user, Role role);
 
-	public List<Role> loadUserRolesForCourse(Course course, User user);
+	public List<Role> loadUserRolesForCourse(ICourse course, User user);
 }

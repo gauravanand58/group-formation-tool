@@ -3,7 +3,6 @@ package CSCI5308.GroupFormationTool;
 import CSCI5308.GroupFormationTool.Security.*;
 import CSCI5308.GroupFormationTool.AccessControl.*;
 import CSCI5308.GroupFormationTool.Database.*;
-import CSCI5308.GroupFormationTool.Courses.*;
 
 
 public class SystemConfig {
@@ -12,8 +11,6 @@ public class SystemConfig {
 	private IPasswordEncryption passwordEncryption;
 	private IUserPersistence userDB;
 	private IDatabaseConfiguration databaseConfiguration;
-	private ICoursePersistence courseDB;
-	private ICourseUserRelationshipPersistence courseUserRelationshipDB;
 	private IPasswordPolicyPersistance passwordPolicyDB;
 	private IUserPasswordHistoryRelationshipPersistance userPasswordRelationshipDB;
 	
@@ -21,8 +18,6 @@ public class SystemConfig {
 		passwordEncryption = new BCryptPasswordEncryption();
 		userDB = new UserDB();
 		databaseConfiguration = new DefaultDatabaseConfiguration();
-		courseDB = new CourseDB();
-		courseUserRelationshipDB = new CourseUserRelationshipDB();
 		passwordPolicyDB = new PasswordPolicyDB();
 		userPasswordRelationshipDB = new UserPasswordHistoryRelationshipDB();
 
@@ -64,18 +59,6 @@ public class SystemConfig {
 		this.databaseConfiguration = databaseConfiguration;
 	}
 
-	public void setCourseDB(ICoursePersistence courseDB) {
-		this.courseDB = courseDB;
-	}
-
-	public ICoursePersistence getCourseDB() {
-		return courseDB;
-	}
-
-	public void setCourseUserRelationshipDB(ICourseUserRelationshipPersistence courseUserRelationshipDB) {
-		this.courseUserRelationshipDB = courseUserRelationshipDB;
-	}
-
 	public IPasswordPolicyPersistance getPasswordPolicyDB() {
 		return passwordPolicyDB;
 	}
@@ -92,8 +75,5 @@ public class SystemConfig {
 		this.userPasswordRelationshipDB = userPasswordRelationshipDB;
 	}
 
-	public ICourseUserRelationshipPersistence getCourseUserRelationshipDB() {
-		return courseUserRelationshipDB;
-	}
 
 }

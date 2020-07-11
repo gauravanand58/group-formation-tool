@@ -10,15 +10,15 @@ import CSCI5308.GroupFormationTool.Security.IPasswordEncryption;
 public class StudentCSVImport {
 	private List<String> successResults;
 	private List<String> failureResults;
-	private Course course;
+	private ICourse course;
 	private IUserPersistence userDB;
 	private IPasswordEncryption passwordEncryption;
 	private IUserNotifications userNotification;
 	private IStudentCSVParser parser;
 
-	public StudentCSVImport(IStudentCSVParser parser, Course course) {
+	public StudentCSVImport(IStudentCSVParser parser, ICourse course2) {
 		userNotification = new UserNotifications();
-		this.course = course;
+		this.course = course2;
 		successResults = new ArrayList<String>();
 		failureResults = new ArrayList<String>();
 		userDB = SystemConfig.instance().getUserDB();
