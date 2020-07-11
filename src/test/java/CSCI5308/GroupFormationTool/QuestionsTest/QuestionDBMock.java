@@ -29,7 +29,7 @@ public class QuestionDBMock implements IQuestionPersistence {
 	@Override
 	public List<Question> sortByTitle(String bannerID) {
 		List<Question> questionList = new LinkedList<Question>();
-		Question question = new Question();
+		Question question = QuestionsSystemConfigTest.instance().getQuestion();
 		if (bannerID == "B000000") {
 			questionList.add(question);
 			return questionList;
@@ -40,7 +40,7 @@ public class QuestionDBMock implements IQuestionPersistence {
 	@Override
 	public List<Question> sortByDate(String bannerID) {
 		List<Question> questionList = new LinkedList<Question>();
-		Question question = new Question();
+		Question question = QuestionsSystemConfigTest.instance().getQuestion();
 		if (bannerID == "B000000") {
 			questionList.add(question);
 			return questionList;
@@ -51,7 +51,7 @@ public class QuestionDBMock implements IQuestionPersistence {
 	@Override
 	public List<Question> displayQuestions(String bannerID) {
 		List<Question> questionList = new LinkedList<Question>();
-		Question question = new Question();
+		Question question = QuestionsSystemConfigTest.instance().getQuestion();
 		if (bannerID == "B000000") {
 			questionList.add(question);
 			return questionList;

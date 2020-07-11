@@ -10,28 +10,28 @@ public class QuestionResponseTest {
 	
 	@Test
 	public void getIdTest() {
-		QuestionResponse response = new QuestionResponse();
+		QuestionResponse response = QuestionsSystemConfigTest.instance().getQuestionResponse();
 		response.setId(0);
 		assertTrue(response.getId() == 0);
 	}
 	
 	@Test
 	public void setIdTest() {
-		QuestionResponse response = new QuestionResponse();
+		QuestionResponse response = QuestionsSystemConfigTest.instance().getQuestionResponse();
 		response.setId(0);
 		assertTrue(response.getId() == 0);
 	}
 	
 	@Test
 	public void getResponseTextTest() {
-		QuestionResponse response = new QuestionResponse();
+		QuestionResponse response = QuestionsSystemConfigTest.instance().getQuestionResponse();
 		response.setResponseText("Test Response Text");
 		assertTrue(response.getResponseText().equals("Test Response Text"));
 	}
 	
 	@Test
 	public void setResponseTextTest() {
-		QuestionResponse response = new QuestionResponse();
+		QuestionResponse response = QuestionsSystemConfigTest.instance().getQuestionResponse();
 		response.setResponseText("Test Response Text");
 		assertTrue(response.getResponseText().equals("Test Response Text"));
 	}

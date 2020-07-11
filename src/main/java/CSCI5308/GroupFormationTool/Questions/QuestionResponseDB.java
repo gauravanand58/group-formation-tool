@@ -21,7 +21,7 @@ public class QuestionResponseDB implements IQuestionResponsePersistence {
 				while (results.next()) {
 					int responseID = results.getInt(1);
 					String responseText = results.getString(2);
-					QuestionResponse response = new QuestionResponse();
+					QuestionResponse response = QuestionsSystemConfig.instance().getQuestionResponse();
 					response.setId(responseID);
 					response.setResponseText(responseText);
 					responseList.add(response);

@@ -66,7 +66,7 @@ public class QuestionDB implements IQuestionPersistence {
 					String questionText = results.getString(3);
 					String questionType = results.getString(4);
 					String questionDateTime = results.getString(5);
-					Question q = new Question();
+					Question q = QuestionsSystemConfig.instance().getQuestion();
 					q.setQuestionID(questionID);
 					q.setQuestionTitle(questionTitle);
 					q.setQuestionText(questionText);
@@ -101,7 +101,7 @@ public class QuestionDB implements IQuestionPersistence {
 					String questionText = results.getString(3);
 					String questionType = results.getString(4);
 					String questionDateTime = results.getString(5);
-					Question q = new Question();
+					Question q = QuestionsSystemConfig.instance().getQuestion();
 					q.setQuestionID(questionID);
 					q.setQuestionTitle(questionTitle);
 					q.setQuestionText(questionText);
@@ -135,7 +135,7 @@ public class QuestionDB implements IQuestionPersistence {
 					String questionText = results.getString(3);
 					String questionType = results.getString(4);
 					String questionDateTime = results.getString(5);
-					Question q = new Question();
+					Question q = QuestionsSystemConfig.instance().getQuestion();
 					q.setQuestionID(questionID);
 					q.setQuestionTitle(questionTitle);
 					q.setQuestionText(questionText);

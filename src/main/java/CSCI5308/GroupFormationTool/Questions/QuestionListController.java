@@ -7,15 +7,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import CSCI5308.GroupFormationTool.SystemConfig;
-
 @Controller
 public class QuestionListController {
 
 	@RequestMapping("/course/questionmanager")
 	public String displayQuestionsList(@RequestParam("bannerID") String bannerID, Model model) {
-		IQuestionPersistence questionDB = SystemConfig.instance().getQuestionDB();
-		IQuestionListManager questionListManager = new QuestionListManager();
+		IQuestionPersistence questionDB = QuestionsSystemConfigPersistence.instance().getQuestionDB();
+		IQuestionListManager questionListManager = QuestionsSystemConfig.instance().getQuestionListManager();
 		List<Question> displayQues = questionListManager.displayQuestions(bannerID, questionDB);
 		model.addAttribute("ques", displayQues);
 		return "questionmanager/questionlist";
@@ -25,8 +23,8 @@ public class QuestionListController {
 	public String sortList(@RequestParam("bannerID") String bannerID, @RequestParam("sortBy") String sortBy,
 			Model model) {
 		List<Question> sortedQuestions;
-		IQuestionPersistence questionDB = SystemConfig.instance().getQuestionDB();
-		IQuestionListManager questionListManager = new QuestionListManager();
+		IQuestionPersistence questionDB = QuestionsSystemConfigPersistence.instance().getQuestionDB();
+		IQuestionListManager questionListManager = QuestionsSystemConfig.instance().getQuestionListManager();
 		sortedQuestions=questionListManager.sortQuestions(bannerID, sortBy,questionDB);
 		model.addAttribute("ques",sortedQuestions);
 		return "questionmanager/questionlist";	

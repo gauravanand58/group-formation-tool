@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import CSCI5308.GroupFormationTool.SystemConfig;
-
 @Controller
 public class QuestionAdminController {
 	private long uId;
@@ -26,8 +24,8 @@ public class QuestionAdminController {
 	@PostMapping("/submitquestions")
 	public String submitQuestions(QuestionOption questionOption, Model model, Question question) {
 		long createdQuestionID;
-		IQuestionPersistence questionDB = SystemConfig.instance().getQuestionDB();
-		IQuestionOptionPersistence questionOptionDB = SystemConfig.instance().getQuestionOptionDB();
+		IQuestionPersistence questionDB = QuestionsSystemConfigPersistence.instance().getQuestionDB();
+		IQuestionOptionPersistence questionOptionDB = QuestionsSystemConfigPersistence.instance().getQuestionOptionDB();
 		question.setInstructorID(uId);
 		createdQuestionID = question.createQuestion(questionDB);
 		if (question.getQuestionType().equals(mcq_1) || question.getQuestionType().equals(mcq_2)) {
@@ -39,8 +37,8 @@ public class QuestionAdminController {
 
 	@RequestMapping("/course/questionmanager/delete")
 	public ModelAndView deleteQuestion(@RequestParam("bannerID") String bannerID, @RequestParam("quesID") int quesID) {
-		IQuestionPersistence questionDB = SystemConfig.instance().getQuestionDB();
-		Question question = new Question();
+		IQuestionPersistence questionDB = QuestionsSystemConfigPersistence.instance().getQuestionDB();
+		Question question = QuestionsSystemConfig.instance().getQuestion();
 		question.setQuestionID(quesID);
 		question.deleteQuestion(questionDB);
 		ModelAndView mav = new ModelAndView("redirect:/course/questionmanager");

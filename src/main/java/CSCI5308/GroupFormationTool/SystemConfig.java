@@ -3,15 +3,7 @@ package CSCI5308.GroupFormationTool;
 import CSCI5308.GroupFormationTool.Security.*;
 import CSCI5308.GroupFormationTool.AccessControl.*;
 import CSCI5308.GroupFormationTool.Database.*;
-import CSCI5308.GroupFormationTool.Courses.*;
-import CSCI5308.GroupFormationTool.Questions.IQuestionPersistence;
-import CSCI5308.GroupFormationTool.Questions.IQuestionResponsePersistence;
-import CSCI5308.GroupFormationTool.Questions.QuestionDB;
-import CSCI5308.GroupFormationTool.Questions.QuestionListManager;
-import CSCI5308.GroupFormationTool.Questions.QuestionResponseDB;
-import CSCI5308.GroupFormationTool.Questions.IQuestionListManager;
-import CSCI5308.GroupFormationTool.Questions.IQuestionOptionPersistence;
-import CSCI5308.GroupFormationTool.Questions.QuestionOptionDB;
+
 
 public class SystemConfig {
 	private static SystemConfig uniqueInstance = null;
@@ -19,23 +11,16 @@ public class SystemConfig {
 	private IPasswordEncryption passwordEncryption;
 	private IUserPersistence userDB;
 	private IDatabaseConfiguration databaseConfiguration;
-	private IQuestionPersistence questionDB;
-	private IQuestionResponsePersistence reponseDB;
 	private IPasswordPolicyPersistance passwordPolicyDB;
 	private IUserPasswordHistoryRelationshipPersistance userPasswordRelationshipDB;
-	private IQuestionOptionPersistence questionOptionDB;
-	private IQuestionListManager questionListManager;
-
+	
 	private SystemConfig() {
 		passwordEncryption = new BCryptPasswordEncryption();
 		userDB = new UserDB();
 		databaseConfiguration = new DefaultDatabaseConfiguration();
-		questionDB = new QuestionDB();
-		reponseDB = new QuestionResponseDB();
 		passwordPolicyDB = new PasswordPolicyDB();
 		userPasswordRelationshipDB = new UserPasswordHistoryRelationshipDB();
-		questionOptionDB = new QuestionOptionDB();
-		questionListManager = new QuestionListManager();
+
 	}
 
 	public static SystemConfig instance() {
@@ -60,6 +45,10 @@ public class SystemConfig {
 
 	public void setUserDB(IUserPersistence userDB) {
 		this.userDB = userDB;
+	}
+	
+	public PasswordPolicyConfiguration getConfiguration() {
+		return PasswordPolicyConfiguration.instance(passwordPolicyDB);
 	}
 
 	public IDatabaseConfiguration getDatabaseConfiguration() {
@@ -86,39 +75,5 @@ public class SystemConfig {
 		this.userPasswordRelationshipDB = userPasswordRelationshipDB;
 	}
 
-	public IQuestionPersistence getQuestionDB() {
-		return questionDB;
-	}
 
-	public void setQuestionDB(IQuestionPersistence questionDB) {
-		this.questionDB = questionDB;
-	}
-
-	public IQuestionResponsePersistence getReponseDB() {
-		return reponseDB;
-	}
-
-	public void setReponseDB(IQuestionResponsePersistence reponseDB) {
-		this.reponseDB = reponseDB;
-	}
-
-	public PasswordPolicyConfiguration getConfiguration() {
-		return PasswordPolicyConfiguration.instance(passwordPolicyDB);
-	}
-
-	public IQuestionOptionPersistence getQuestionOptionDB() {
-		return questionOptionDB;
-	}
-
-	public void setQuestionOptionDB(IQuestionOptionPersistence questionOptionDB) {
-		this.questionOptionDB = questionOptionDB;
-	}
-
-	public IQuestionListManager getQuestionListManager() {
-		return questionListManager;
-	}
-
-	public void setQuestionListManager(IQuestionListManager questionListManager) {
-		this.questionListManager = questionListManager;
-	}
 }

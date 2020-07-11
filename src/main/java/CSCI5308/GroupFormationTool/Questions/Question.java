@@ -2,8 +2,6 @@ package CSCI5308.GroupFormationTool.Questions;
 
 import java.util.List;
 
-import CSCI5308.GroupFormationTool.SystemConfig;
-
 public class Question {
 	private int questionID;
 	private long instructorID;
@@ -82,7 +80,7 @@ public class Question {
 	}
 
 	public boolean checkIfQuestionHasResponse() {
-		List<QuestionResponse> responseList = getAllResponses(SystemConfig.instance().getReponseDB());
+		List<QuestionResponse> responseList = getAllResponses(QuestionsSystemConfigPersistence.instance().getReponseDB());
 		if (null == responseList || responseList.size() == 0) {
 			return false;
 		}
