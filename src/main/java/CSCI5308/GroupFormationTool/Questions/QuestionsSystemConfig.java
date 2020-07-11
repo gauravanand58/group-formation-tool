@@ -21,10 +21,6 @@ public class QuestionsSystemConfig {
 		return questionListManager;
 	}
 
-	public void setQuestionListManager(IQuestionListManager questionListManager) {
-		this.questionListManager = questionListManager;
-	}
-
 	public Question getQuestion() {
 		return new Question();
 	}

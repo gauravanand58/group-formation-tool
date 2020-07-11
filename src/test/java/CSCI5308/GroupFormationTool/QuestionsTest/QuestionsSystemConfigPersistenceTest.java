@@ -29,25 +29,12 @@ public class QuestionsSystemConfigPersistenceTest {
 		return questionDBMock;
 	}
 
-	public void setQuestionDBMock(IQuestionPersistence questionDBMock) {
-		this.questionDBMock = questionDBMock;
-	}
-
 	public IQuestionResponsePersistence getReponseDBMock() {
 		return reponseDBMock;
-	}
-
-	public void setReponseDBMock(IQuestionResponsePersistence reponseDBMock) {
-		this.reponseDBMock = reponseDBMock;
 	}
 
 	public IQuestionOptionPersistence getQuestionOptionDBMock() {
 		return questionOptionDBMock;
 	}
-
-	public void setQuestionOptionDBMock(IQuestionOptionPersistence questionOptionDBMock) {
-		this.questionOptionDBMock = questionOptionDBMock;
-	}
-	
 
 }

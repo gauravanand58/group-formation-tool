@@ -25,24 +25,12 @@ public class QuestionsSystemConfigPersistence {
 		return questionDB;
 	}
 
-	public void setQuestionDB(IQuestionPersistence questionDB) {
-		this.questionDB = questionDB;
-	}
-
 	public IQuestionResponsePersistence getReponseDB() {
 		return reponseDB;
 	}
 
-	public void setReponseDB(IQuestionResponsePersistence reponseDB) {
-		this.reponseDB = reponseDB;
-	}
-
 	public IQuestionOptionPersistence getQuestionOptionDB() {
 		return questionOptionDB;
-	}
-
-	public void setQuestionOptionDB(IQuestionOptionPersistence questionOptionDB) {
-		this.questionOptionDB = questionOptionDB;
 	}
 
 }
