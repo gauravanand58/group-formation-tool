@@ -35,7 +35,7 @@ public class CourseDB implements ICoursePersistence {
 		return courses;
 	}
 
-	public void loadCourseByID(long id, Course course) {
+	public void loadCourseByID(long id, ICourse course) {
 		CallStoredProcedure proc = null;
 		try {
 			proc = new CallStoredProcedure("spFindCourseByID(?)");
@@ -57,7 +57,7 @@ public class CourseDB implements ICoursePersistence {
 		}
 	}
 
-	public boolean createCourse(Course course) {
+	public boolean createCourse(ICourse course) {
 		CallStoredProcedure proc = null;
 		try {
 			proc = new CallStoredProcedure("spCreateCourse(?, ?)");

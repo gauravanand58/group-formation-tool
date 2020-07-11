@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import CSCI5308.GroupFormationTool.Courses.Course;
+import CSCI5308.GroupFormationTool.Courses.ICourse;
 import CSCI5308.GroupFormationTool.Courses.ICoursePersistence;
 
 public class CourseDBMock implements ICoursePersistence {
@@ -20,12 +21,12 @@ public class CourseDBMock implements ICoursePersistence {
 		return courseList;
 	}
 
-	public void loadCourseByID(long id, Course course) {
+	public void loadCourseByID(long id, ICourse course) {
 		course.setId(id);
 		course.setTitle("Software Engineering");
 	}
 
-	public boolean createCourse(Course course) {
+	public boolean createCourse(ICourse course) {
 		course.setId(0);
 		course.setTitle("Software Engineering");
 		return true;

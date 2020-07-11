@@ -7,8 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import CSCI5308.GroupFormationTool.SystemConfig;
-
 @Controller
 public class CourseController {
 	private static final String ID = "id";
@@ -16,8 +14,8 @@ public class CourseController {
 	@GetMapping("/course/course")
 	public String course(Model model, @RequestParam(name = ID) long courseID,
 			@RequestParam(name = "isUserInstructor") long userID) {
-		ICoursePersistence courseDB = SystemConfig.instance().getCourseDB();
-		Course course = new Course();
+		ICoursePersistence courseDB = CourseSystemConfig.instance().getCourseDB();
+		ICourse course = CourseObjectFactory.objFactory(new CourseFactory());
 		courseDB.loadCourseByID(courseID, course);
 		model.addAttribute("course", course);
 		model.addAttribute("isUserInstructor", userID);

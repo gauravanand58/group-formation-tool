@@ -19,7 +19,7 @@ public class IndexController {
 	public String greeting(Model model, HttpServletRequest httpServletRequest) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		if (authentication.isAuthenticated()) {
-			ICoursePersistence courseDB = SystemConfig.instance().getCourseDB();
+			ICoursePersistence courseDB = CourseSystemConfig.instance().getCourseDB();
 			List<Course> allCourses = courseDB.loadAllCourses();
 			SystemConfig.instance().getConfiguration();
 			model.addAttribute("courses", allCourses);
