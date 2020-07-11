@@ -14,7 +14,7 @@ public class QuestionListManagerTest {
 	@Test
 	public void sortQuesTest() {
 		List<Question> questionList;
-		IQuestionPersistence questionDBMock = new QuestionDBMock();
+		IQuestionPersistence questionDBMock = QuestionsSystemConfigPersistenceTest.instance().getQuestionDBMock();
 		questionList = questionDBMock.sortByDate("B000000");
 		assertTrue(questionList != null && questionList.size()>0);
 		questionList = questionDBMock.sortByTitle("B000000");
@@ -23,7 +23,7 @@ public class QuestionListManagerTest {
 
 	@Test
 	public void displayQuestions() {
-		IQuestionPersistence questionDBMock = new QuestionDBMock();
+		IQuestionPersistence questionDBMock = QuestionsSystemConfigPersistenceTest.instance().getQuestionDBMock();
 		List<Question> questionList = questionDBMock.displayQuestions("B000000");
 		assertTrue(null != questionList && questionList.size() > 0);
 	}

@@ -10,36 +10,36 @@ import CSCI5308.GroupFormationTool.Questions.QuestionOption;
 public class QuestionOptionTest {
 	@Test
 	void getOptionTxt() {
-		QuestionOption questionOption = new QuestionOption();
+		QuestionOption questionOption = QuestionsSystemConfigTest.instance().getQuestionOption();
 		questionOption.setOptionTxt("a");
 		assertTrue(questionOption.getOptionTxt().equals("a"));
 	}
 
 	@Test
 	void setOptionTxt() {
-		QuestionOption questionOption = new QuestionOption();
+		QuestionOption questionOption = QuestionsSystemConfigTest.instance().getQuestionOption();
 		questionOption.setOptionTxt("a");
 		assertTrue(questionOption.getOptionTxt().equals("a"));
 	}
 
 	@Test
 	void getOptionScore() {
-		QuestionOption questionOption = new QuestionOption();
+		QuestionOption questionOption = QuestionsSystemConfigTest.instance().getQuestionOption();
 		questionOption.setOptionScore("1");
 		assertTrue(questionOption.getOptionScore().equals("1"));
 	}
 
 	@Test
 	void setOptionScore() {
-		QuestionOption questionOption = new QuestionOption();
+		QuestionOption questionOption = QuestionsSystemConfigTest.instance().getQuestionOption();
 		questionOption.setOptionScore("1");
 		assertTrue(questionOption.getOptionScore().equals("1"));
 	}
 
 	@Test
 	public void createOptionTest() {
-		IQuestionOptionPersistence questionOptionDBMock = new QuestionOptionDBMock();
-		QuestionOption questionOption = new QuestionOption();
+		IQuestionOptionPersistence questionOptionDBMock = QuestionsSystemConfigPersistenceTest.instance().getQuestionOptionDBMock();
+		QuestionOption questionOption = QuestionsSystemConfigTest.instance().getQuestionOption();
 		questionOption.setOptionTxt("intermediate");
 		questionOption.setOptionScore("5");
 		questionOptionDBMock.createOption(questionOption, 0);
