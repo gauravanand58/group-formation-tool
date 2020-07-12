@@ -2,10 +2,13 @@ package CSCI5308.GroupFormationTool.Questions;
 
 import java.sql.SQLException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import CSCI5308.GroupFormationTool.Database.CallStoredProcedure;
 
 public class QuestionOptionDB implements IQuestionOptionPersistence {
-
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Override
 	public boolean createOption(QuestionOption questionOptions, long questionID) {
 		CallStoredProcedure proc = null;
@@ -21,6 +24,7 @@ public class QuestionOptionDB implements IQuestionOptionPersistence {
 				proc.execute();
 			}
 		} catch (SQLException e) {
+			logger.error("spCreateQuestionOption(?, ?, ?) throws SQLException:"+e.getMessage());
 			e.printStackTrace();
 			return false;
 		} finally {
@@ -28,6 +32,7 @@ public class QuestionOptionDB implements IQuestionOptionPersistence {
 				proc.cleanup();
 			}
 		}
+		logger.info("Successfully created question options");
 		return true;
 	}
 }
