@@ -2,6 +2,9 @@ package CSCI5308.GroupFormationTool.Courses;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import CSCI5308.GroupFormationTool.Database.CallStoredProcedure;
 
 import java.sql.ResultSet;
@@ -9,6 +12,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class CourseDB implements ICoursePersistence {
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
 	public List<Course> loadAllCourses() {
 		List<Course> courses = new ArrayList<Course>();
 		CallStoredProcedure proc = null;
@@ -26,6 +31,7 @@ public class CourseDB implements ICoursePersistence {
 				}
 			}
 		} catch (SQLException e) {
+			logger.error("spLoadAllCourses(?) throws SQLException:" + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
@@ -49,6 +55,7 @@ public class CourseDB implements ICoursePersistence {
 				}
 			}
 		} catch (SQLException e) {
+			logger.error("spFindCourseByID(?) throws SQLException:" + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
@@ -65,6 +72,7 @@ public class CourseDB implements ICoursePersistence {
 			proc.registerOutputParameterLong(2);
 			proc.execute();
 		} catch (SQLException e) {
+			logger.error("spCreateCourse(?) throws SQLException:" + e.getMessage());
 			e.printStackTrace();
 			return false;
 		} finally {
@@ -72,6 +80,7 @@ public class CourseDB implements ICoursePersistence {
 				proc.cleanup();
 			}
 		}
+		logger.info("Course created successfully");
 		return true;
 	}
 
@@ -82,6 +91,7 @@ public class CourseDB implements ICoursePersistence {
 			proc.setParameter(1, id);
 			proc.execute();
 		} catch (SQLException e) {
+			logger.error("spDeleteCourse(?) throws SQLException:" + e.getMessage());
 			e.printStackTrace();
 			return false;
 		} finally {
@@ -89,6 +99,7 @@ public class CourseDB implements ICoursePersistence {
 				proc.cleanup();
 			}
 		}
+		logger.info("Course deleted successfully");
 		return true;
 	}
 }

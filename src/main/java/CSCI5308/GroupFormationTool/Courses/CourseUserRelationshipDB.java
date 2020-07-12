@@ -5,10 +5,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import CSCI5308.GroupFormationTool.AccessControl.User;
 import CSCI5308.GroupFormationTool.Database.CallStoredProcedure;
 
 public class CourseUserRelationshipDB implements ICourseUserRelationshipPersistence {
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
 	public List<User> findAllUsersWithoutCourseRole(Role role, long courseID) {
 		List<User> users = new ArrayList<User>();
 		CallStoredProcedure proc = null;
@@ -32,6 +37,7 @@ public class CourseUserRelationshipDB implements ICourseUserRelationshipPersiste
 				}
 			}
 		} catch (SQLException e) {
+			logger.error("spFindUsersWithoutCourseRole(?, ?) throws SQLException:" + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
@@ -58,6 +64,7 @@ public class CourseUserRelationshipDB implements ICourseUserRelationshipPersiste
 				}
 			}
 		} catch (SQLException e) {
+			logger.error("spFindUsersWithCourseRole(?, ?) throws SQLException:" + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
@@ -76,6 +83,7 @@ public class CourseUserRelationshipDB implements ICourseUserRelationshipPersiste
 			proc.setParameter(3, role.toString());
 			proc.execute();
 		} catch (SQLException e) {
+			logger.error("spEnrollUser(?, ?, ?) throws SQLException:" + e.getMessage());
 			e.printStackTrace();
 			return false;
 		} finally {
@@ -83,6 +91,7 @@ public class CourseUserRelationshipDB implements ICourseUserRelationshipPersiste
 				proc.cleanup();
 			}
 		}
+		logger.info("Successfully enrolled user with ID:" + user.getID());
 		return true;
 	}
 
@@ -101,6 +110,7 @@ public class CourseUserRelationshipDB implements ICourseUserRelationshipPersiste
 				}
 			}
 		} catch (SQLException e) {
+			logger.error("spLoadUserRolesForCourse(?, ?) throws SQLException:" + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
