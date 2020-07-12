@@ -5,10 +5,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import CSCI5308.GroupFormationTool.Database.CallStoredProcedure;
 
 public class QuestionDB implements IQuestionPersistence {
-
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Override
 	public boolean deleteQuestion(int questionID) {
 		CallStoredProcedure proc = null;
@@ -17,6 +20,7 @@ public class QuestionDB implements IQuestionPersistence {
 			proc.setParameter(1, questionID);
 			proc.execute();
 		} catch (SQLException e) {
+			logger.error("spDeleteQuestion(?) throws SQLException:"+e.getMessage());
 			e.printStackTrace();
 			return false;
 		} finally {
@@ -24,6 +28,7 @@ public class QuestionDB implements IQuestionPersistence {
 				proc.cleanup();
 			}
 		}
+		logger.info("Successfully deleted question of ID:"+questionID);
 		return true;
 	}
 
@@ -42,6 +47,7 @@ public class QuestionDB implements IQuestionPersistence {
 			lastInsertedQuestion = proc.getStatement().getLong(5);
 
 		} catch (SQLException e) {
+			logger.error("spCreateQuestion(?, ?, ?, ?, ?) throws SQLException:"+e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
@@ -76,12 +82,14 @@ public class QuestionDB implements IQuestionPersistence {
 				}
 			}
 		} catch (Exception e) {
+			logger.error("spSortByTitle(?) thows SQLExcpetion:"+e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
 				proc.cleanup();
 			}
 		}
+		logger.info("Successfully sorted by title");
 		return sortedQuestions;
 	}
 
@@ -111,12 +119,14 @@ public class QuestionDB implements IQuestionPersistence {
 				}
 			}
 		} catch (Exception e) {
+			logger.error("spSortByDate(?) throws SQLException:"+e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
 				proc.cleanup();
 			}
 		}
+		logger.info("Successfully sorted by date");
 		return sortedQuestions;
 	}
 
@@ -145,6 +155,7 @@ public class QuestionDB implements IQuestionPersistence {
 				}
 			}
 		} catch (Exception e) {
+			logger.error("spDisplayQuestions(?) throws SQLException:"+e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
