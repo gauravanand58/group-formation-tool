@@ -1,3 +1,21 @@
-[INFO ] 2020-07-11 20:32:31.530 [restartedMain] ContextLoader - Root WebApplicationContext: initialization completed in 754 ms
-[INFO ] 2020-07-11 20:36:05.111 [restartedMain] ContextLoader - Root WebApplicationContext: initialization completed in 193 ms
-[INFO ] 2020-07-11 21:28:05.795 [restartedMain] ContextLoader - Root WebApplicationContext: initialization completed in 767 ms
+[INFO ] 2020-07-14 19:09:56.357 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on LAPTOP-USJ57PKN with PID 108624 (H:\Study\Dalhousie\ASDC\test\group4\bin\main started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-14 19:09:56.360 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-14 19:09:56.360 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-14 19:09:56.622 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 0.29 seconds (JVM running for 1061.488)
+[INFO ] 2020-07-14 19:11:19.437 [http-nio-8080-exec-1] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-14 19:11:19.438 [http-nio-8080-exec-1] ConnectionManager - User name of database:CSCI5308_4_DEVINT_USER
+[DEBUG] 2020-07-14 19:11:26.610 [http-nio-8080-exec-7] UserDB - Loaded user with user ID19
+[DEBUG] 2020-07-14 19:11:28.866 [http-nio-8080-exec-1] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-14 19:11:28.866 [http-nio-8080-exec-1] CurrentUser - Valid User
+[INFO ] 2020-07-14 19:11:33.747 [http-nio-8080-exec-4] QuestionListManager - Sorting questions by Date
+[INFO ] 2020-07-14 19:11:33.888 [http-nio-8080-exec-4] QuestionDB - Successfully sorted by date
+[INFO ] 2020-07-14 19:11:34.921 [http-nio-8080-exec-5] QuestionListManager - Sorting questions by Title
+[INFO ] 2020-07-14 19:11:35.042 [http-nio-8080-exec-5] QuestionDB - Successfully sorted by title
+[INFO ] 2020-07-14 19:13:43.609 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on LAPTOP-USJ57PKN with PID 108624 (H:\Study\Dalhousie\ASDC\test\group4\bin\main started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-14 19:13:43.609 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-14 19:13:43.609 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-14 19:13:43.846 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 0.258 seconds (JVM running for 1288.712)
+[INFO ] 2020-07-14 19:14:13.526 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on LAPTOP-USJ57PKN with PID 108624 (H:\Study\Dalhousie\ASDC\test\group4\bin\main started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-14 19:14:13.526 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-14 19:14:13.527 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-14 19:14:13.757 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 0.252 seconds (JVM running for 1318.622)
