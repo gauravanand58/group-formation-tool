@@ -34,7 +34,7 @@ public class QuestionSurveyRelationshipPersistence implements IQuestionSurveyRel
 				}
 			}
 		} catch (SQLException e) {
-			logger.error("sploadQuestionsForSurveyID() throws SQLException:" + e.getMessage());
+			logger.error("sploadQuestionsForSurveyID throws SQLException:" + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {

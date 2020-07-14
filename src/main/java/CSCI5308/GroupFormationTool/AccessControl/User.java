@@ -6,13 +6,16 @@ import java.util.regex.Pattern;
 
 import javax.mail.MessagingException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import CSCI5308.GroupFormationTool.Security.IPasswordEncryption;
 import CSCI5308.GroupFormationTool.Security.IUserPasswordHistoryRelationshipPersistance;
 import CSCI5308.GroupFormationTool.Security.PasswordPolicyConfiguration;
 
 public class User {
 	private static final String EMAIL_REGEX = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
-
+	private final static Logger logger = LoggerFactory.getLogger(User.class);
 	private long id;
 	private String password;
 	private String bannerID;
@@ -117,9 +120,11 @@ public class User {
 			try {
 				notification.sendUserLoginCredentials(this, rawPassword);
 			} catch (MessagingException e) {
+				logger.error("Failed to send login credentials to users"+e.getMessage());
 				e.printStackTrace();
 			}
 		}
+		logger.info("Successfully created user and sent credentials");
 		return success;
 	}
 
@@ -166,9 +171,11 @@ public class User {
 				passwordPolicyConfiguration.getPasswordHistoryCount());
 		for (String pass : passwordHistory) {
 			if (passwordEncryption.matches(password, pass)) {
+				logger.info("Invalid password history");
 				return false;
 			}
 		}
+		logger.info("Valid password history");
 		return true;
 	}
 
@@ -190,26 +197,32 @@ public class User {
 
 		if ((uniqueInstance.getMaxLength() != -1 && password.length() > uniqueInstance.getMaxLength())
 				|| (uniqueInstance.getMinLength() != -1 && password.length() < uniqueInstance.getMinLength())) {
+			logger.info("Invalid password length");
 			return false;
 		}
 
 		if (uniqueInstance.getMinLowerChar() != -1 && lowerCount < uniqueInstance.getMinLowerChar()) {
+			logger.info("Invalid password lower char");
 			return false;
 		}
 
 		if (uniqueInstance.getMinUpperChar() != -1 && upperCount < uniqueInstance.getMinUpperChar()) {
+			logger.info("Invalid password upper char");
 			return false;
 		}
 
 		if (uniqueInstance.getMinSplChar() != -1 && symbolCount < uniqueInstance.getMinSplChar()) {
+			logger.info("Invalid password special char");
 			return false;
 		}
 
 		for (int i = 0; i < invalidChars.length; i++) {
 			if (password.contains(String.valueOf(invalidChars[i]))) {
+				logger.info("Password contains invalid char");
 				return false;
 			}
 		}
+		logger.info("Valid password");
 		return true;
 	}
 }
