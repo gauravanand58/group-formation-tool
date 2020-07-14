@@ -20,7 +20,7 @@ public class QuestionDB implements IQuestionPersistence {
 			proc.setParameter(1, questionID);
 			proc.execute();
 		} catch (SQLException e) {
-			logger.error("spDeleteQuestion(?) throws SQLException:"+e.getMessage());
+			logger.error("spDeleteQuestion throws SQLException:"+e.getMessage());
 			e.printStackTrace();
 			return false;
 		} finally {
@@ -47,7 +47,7 @@ public class QuestionDB implements IQuestionPersistence {
 			lastInsertedQuestion = proc.getStatement().getLong(5);
 
 		} catch (SQLException e) {
-			logger.error("spCreateQuestion(?, ?, ?, ?, ?) throws SQLException:"+e.getMessage());
+			logger.error("spCreateQuestion throws SQLException:"+e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
@@ -82,7 +82,7 @@ public class QuestionDB implements IQuestionPersistence {
 				}
 			}
 		} catch (Exception e) {
-			logger.error("spSortByTitle(?) thows SQLExcpetion:"+e.getMessage());
+			logger.error("spSortByTitle thows SQLExcpetion:"+e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
@@ -119,7 +119,7 @@ public class QuestionDB implements IQuestionPersistence {
 				}
 			}
 		} catch (Exception e) {
-			logger.error("spSortByDate(?) throws SQLException:"+e.getMessage());
+			logger.error("spSortByDate throws SQLException:"+e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
@@ -155,7 +155,7 @@ public class QuestionDB implements IQuestionPersistence {
 				}
 			}
 		} catch (Exception e) {
-			logger.error("spDisplayQuestions(?) throws SQLException:"+e.getMessage());
+			logger.error("spDisplayQuestions throws SQLException:"+e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
