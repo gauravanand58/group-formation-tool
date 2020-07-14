@@ -37,7 +37,7 @@ public class CourseUserRelationshipDB implements ICourseUserRelationshipPersiste
 				}
 			}
 		} catch (SQLException e) {
-			logger.error("spFindUsersWithoutCourseRole(?, ?) throws SQLException:" + e.getMessage());
+			logger.error("spFindUsersWithoutCourseRole throws SQLException: " + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
@@ -64,7 +64,7 @@ public class CourseUserRelationshipDB implements ICourseUserRelationshipPersiste
 				}
 			}
 		} catch (SQLException e) {
-			logger.error("spFindUsersWithCourseRole(?, ?) throws SQLException:" + e.getMessage());
+			logger.error("spFindUsersWithCourseRole throws SQLException: " + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
@@ -83,7 +83,7 @@ public class CourseUserRelationshipDB implements ICourseUserRelationshipPersiste
 			proc.setParameter(3, role.toString());
 			proc.execute();
 		} catch (SQLException e) {
-			logger.error("spEnrollUser(?, ?, ?) throws SQLException:" + e.getMessage());
+			logger.error("spEnrollUser throws SQLException: " + e.getMessage());
 			e.printStackTrace();
 			return false;
 		} finally {
@@ -110,7 +110,7 @@ public class CourseUserRelationshipDB implements ICourseUserRelationshipPersiste
 				}
 			}
 		} catch (SQLException e) {
-			logger.error("spLoadUserRolesForCourse(?, ?) throws SQLException:" + e.getMessage());
+			logger.error("spLoadUserRolesForCourse throws SQLException: " + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {

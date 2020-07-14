@@ -23,7 +23,7 @@ public class QuestionListManager implements IQuestionListManager{
 			logger.info("Sorting questions by Date");
 			return questionDB.sortByDate(bannerID);
 		}else {
-			logger.error("String sortBy is not equal to Title/Date");
+			logger.error("String sortBy is not equal to 'Title'/'Date'");
 			return null;
 		}
 	}

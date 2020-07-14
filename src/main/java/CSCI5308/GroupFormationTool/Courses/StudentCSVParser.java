@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.opencsv.CSVReader;
@@ -17,7 +19,7 @@ import CSCI5308.GroupFormationTool.AccessControl.User;
 public class StudentCSVParser implements IStudentCSVParser {
 	private MultipartFile uploadedFile;
 	private List<User> studentList = new ArrayList<>();
-
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	public StudentCSVParser(MultipartFile file) {
 		this.uploadedFile = file;
 
@@ -46,10 +48,13 @@ public class StudentCSVParser implements IStudentCSVParser {
 				studentList.add(u);
 			}
 		} catch (IOException e) {
+			logger.error("IOException while reading csv file: "+e.getMessage());
 			failureResults.add("Failure reading uploaded file: " + e.getMessage());
 		} catch (Exception e) {
+			logger.error("Exception while parsing the csv file: "+e.getMessage());
 			failureResults.add("Failure parsing CSV file: " + e.getMessage());
 		}
+		logger.debug("Parsed csv file with first student as "+studentList.get(0).getBannerID());
 		return studentList;
 	}
 }
