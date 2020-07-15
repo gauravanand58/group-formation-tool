@@ -17,7 +17,7 @@ public class QuestionListController {
 		logger.debug("At '/course/questionmanager'");
 		IQuestionPersistence questionDB = QuestionsSystemConfigPersistence.instance().getQuestionDB();
 		IQuestionListManager questionListManager = QuestionsSystemConfig.instance().getQuestionListManager();
-		List<Question> displayQues = questionListManager.displayQuestions(bannerID, questionDB);
+		List<IQuestion> displayQues = questionListManager.displayQuestions(bannerID, questionDB);
 		model.addAttribute("ques", displayQues);
 		return "questionmanager/questionlist";
 	}
@@ -26,7 +26,7 @@ public class QuestionListController {
 	public String sortList(@RequestParam("bannerID") String bannerID, @RequestParam("sortBy") String sortBy,
 			Model model) {
 		logger.debug("At '/course/manager'");
-		List<Question> sortedQuestions;
+		List<IQuestion> sortedQuestions;
 		IQuestionPersistence questionDB = QuestionsSystemConfigPersistence.instance().getQuestionDB();
 		IQuestionListManager questionListManager = QuestionsSystemConfig.instance().getQuestionListManager();
 		logger.info("Calling question sort function");

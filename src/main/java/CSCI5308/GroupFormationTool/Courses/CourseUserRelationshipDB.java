@@ -47,13 +47,13 @@ public class CourseUserRelationshipDB implements ICourseUserRelationshipPersiste
 		return users;
 	}
 
-	public List<User> findAllUsersWithCourseRole(Role role, long courseID) {
+	public List<User> findAllUsersWithCourseRole(Role role, long courseId) {
 		List<User> users = new ArrayList<User>();
 		CallStoredProcedure proc = null;
 		try {
 			proc = new CallStoredProcedure("spFindUsersWithCourseRole(?, ?)");
 			proc.setParameter(1, role.toString());
-			proc.setParameter(2, courseID);
+			proc.setParameter(2, courseId);
 			ResultSet results = proc.executeWithResults();
 			if (null != results) {
 				while (results.next()) {

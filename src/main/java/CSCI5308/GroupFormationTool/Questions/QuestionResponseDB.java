@@ -38,7 +38,7 @@ public class QuestionResponseDB implements IQuestionResponsePersistence {
 				proc.cleanup();
 			}
 		}
-		logger.debug("Returning responseList with list[0]:"+responseList.get(0));
+		logger.debug("Returning responseList with list[0]:"+responseList.size());
 		return responseList;
 	}
 }

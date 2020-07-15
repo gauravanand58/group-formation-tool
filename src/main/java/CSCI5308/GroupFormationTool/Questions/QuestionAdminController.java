@@ -47,7 +47,7 @@ public class QuestionAdminController {
 	public ModelAndView deleteQuestion(@RequestParam("bannerID") String bannerID, @RequestParam("quesID") int quesID) {
 		logger.debug("At '/course/questionmanager/delete'");
 		IQuestionPersistence questionDB = QuestionsSystemConfigPersistence.instance().getQuestionDB();
-		Question question = QuestionsSystemConfig.instance().getQuestion();
+		IQuestion question = QuestionsSystemConfig.instance().getQuestion();
 		question.setQuestionID(quesID);
 		logger.info("Calling deleteQuestion with ID:"+quesID);
 		question.deleteQuestion(questionDB);

@@ -2,7 +2,7 @@ package CSCI5308.GroupFormationTool.Questions;
 
 import java.util.List;
 
-public class Question {
+public class Question implements IQuestion{
 	private int questionID;
 	private long instructorID;
 	private String questionTitle;
@@ -21,7 +21,11 @@ public class Question {
 		questionType = "";
 		questionDateTime = "";
 	}
-
+	
+	public Question(IQuestionPersistence questionDB, long questionID) {
+		questionDB.loadQuestionByID(this, questionID);
+	}
+	
 	public long getInstructorID() {
 		return instructorID;
 	}
