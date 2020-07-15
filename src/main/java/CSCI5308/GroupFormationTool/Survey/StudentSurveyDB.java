@@ -53,7 +53,7 @@ public class StudentSurveyDB implements IStudentSurveyPersistence{
 					
 				}
 		} catch (SQLException e) {
-			logger.error("spcheckIfSurveyPublished(?) throws SQLException:"+e.getMessage());
+			logger.error("spcheckIfSurveyPublished throws SQLException:"+e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
@@ -76,7 +76,7 @@ public class StudentSurveyDB implements IStudentSurveyPersistence{
 			studentSubmission = proc.getStatement().getLong(3);
 
 		} catch (SQLException e) {
-			logger.error("spCreateQuestion(spcheckIfStudentCompletedSurvey(?, ?, ?) throws SQLException:"+e.getMessage());
+			logger.error("spCreateQuestion(spcheckIfStudentCompletedSurvey throws SQLException:"+e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
@@ -86,7 +86,7 @@ public class StudentSurveyDB implements IStudentSurveyPersistence{
 		return studentSubmission;
 	}
 	
-	public boolean createStudentResponse(String BannerID, long CourseID, String ResponseArray[]) {
+	public boolean createStudentResponse(String BannerID, long CourseID, String ResponseArray[]) throws SQLException{
 		CallStoredProcedure proc = null;
 		
 		try {
@@ -101,15 +101,29 @@ public class StudentSurveyDB implements IStudentSurveyPersistence{
 			}
 			
 
-		} catch (SQLException e) {
-			logger.error("spCreateSurveyResponse(?, ?, ?, ?) throws SQLException:"+e.getMessage());
-			e.printStackTrace();
 		} finally {
 			if (null != proc) {
 				proc.cleanup();
 			}
 		}
 		return true;
+	}
+	public void deleteResponse(String BannerID, long CourseId) {
+		CallStoredProcedure proc = null;
+		try {
+			proc = new CallStoredProcedure("spDeleteSurveyResponse(?, ?)");
+			proc.setParameter(1, BannerID);
+			proc.setParameter(2, CourseId);
+			proc.execute();
+
+		} catch (SQLException e) {
+			logger.error("spDeleteSurveyResponse throws SQLException:"+e.getMessage());
+			e.printStackTrace();
+		} finally {
+			if (null != proc) {
+				proc.cleanup();
+			}
+		}
 	}
 
 }
