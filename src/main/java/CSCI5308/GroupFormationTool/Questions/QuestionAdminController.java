@@ -38,7 +38,7 @@ public class QuestionAdminController {
 	@RequestMapping("/course/questionmanager/delete")
 	public ModelAndView deleteQuestion(@RequestParam("bannerID") String bannerID, @RequestParam("quesID") int quesID) {
 		IQuestionPersistence questionDB = QuestionsSystemConfigPersistence.instance().getQuestionDB();
-		Question question = QuestionsSystemConfig.instance().getQuestion();
+		IQuestion question = QuestionsSystemConfig.instance().getQuestion();
 		question.setQuestionID(quesID);
 		question.deleteQuestion(questionDB);
 		ModelAndView mav = new ModelAndView("redirect:/course/questionmanager");

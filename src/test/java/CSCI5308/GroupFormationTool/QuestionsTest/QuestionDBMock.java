@@ -3,6 +3,7 @@ package CSCI5308.GroupFormationTool.QuestionsTest;
 import java.util.LinkedList;
 import java.util.List;
 
+import CSCI5308.GroupFormationTool.Questions.IQuestion;
 import CSCI5308.GroupFormationTool.Questions.IQuestionPersistence;
 import CSCI5308.GroupFormationTool.Questions.Question;
 
@@ -27,8 +28,19 @@ public class QuestionDBMock implements IQuestionPersistence {
 	}
 
 	@Override
-	public List<Question> sortByTitle(String bannerID) {
-		List<Question> questionList = new LinkedList<Question>();
+	public List<IQuestion> sortByTitle(String bannerID) {
+		List<IQuestion> questionList = new LinkedList<>();
+		IQuestion question = QuestionsSystemConfigTest.instance().getQuestion();
+		if (bannerID == "B000000") {
+			questionList.add(question);
+			return questionList;
+		}
+		return null;
+	}
+
+	@Override
+	public List<IQuestion> sortByDate(String bannerID) {
+		List<IQuestion> questionList = new LinkedList<>();
 		Question question = QuestionsSystemConfigTest.instance().getQuestion();
 		if (bannerID == "B000000") {
 			questionList.add(question);
@@ -38,8 +50,8 @@ public class QuestionDBMock implements IQuestionPersistence {
 	}
 
 	@Override
-	public List<Question> sortByDate(String bannerID) {
-		List<Question> questionList = new LinkedList<Question>();
+	public List<IQuestion> displayQuestions(String bannerID) {
+		List<IQuestion> questionList = new LinkedList<>();
 		Question question = QuestionsSystemConfigTest.instance().getQuestion();
 		if (bannerID == "B000000") {
 			questionList.add(question);
@@ -49,13 +61,8 @@ public class QuestionDBMock implements IQuestionPersistence {
 	}
 
 	@Override
-	public List<Question> displayQuestions(String bannerID) {
-		List<Question> questionList = new LinkedList<Question>();
-		Question question = QuestionsSystemConfigTest.instance().getQuestion();
-		if (bannerID == "B000000") {
-			questionList.add(question);
-			return questionList;
-		}
-		return null;
+	public void loadQuestionByID(Question question, long questionID) {
+		// TODO Auto-generated method stub
+		
 	}
 }
