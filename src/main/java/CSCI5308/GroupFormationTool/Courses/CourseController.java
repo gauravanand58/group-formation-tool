@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import CSCI5308.GroupFormationTool.Questions.Question;
 import CSCI5308.GroupFormationTool.Questions.QuestionResponse;
 import CSCI5308.GroupFormationTool.Survey.IStudentSurveyPersistence;
-import CSCI5308.GroupFormationTool.Survey.StudentSurveyDB;
 import CSCI5308.GroupFormationTool.Survey.SurveySystemConfig;
 
 @Controller
