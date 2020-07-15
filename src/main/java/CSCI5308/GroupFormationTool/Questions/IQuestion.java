@@ -34,4 +34,7 @@ public interface IQuestion {
 	public boolean checkIfQuestionHasResponse();
 
 	public long createQuestion(IQuestionPersistence questionDB);
+
+	public void setQuestionOptions(List<QuestionOption> tempQuestionOptionObj);
+	public List<QuestionOption> getQuestionOptions();
 }
