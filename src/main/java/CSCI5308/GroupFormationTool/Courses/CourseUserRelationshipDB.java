@@ -38,7 +38,7 @@ public class CourseUserRelationshipDB implements ICourseUserRelationshipPersiste
 			}
 		} catch (SQLException e) {
 			logger.error("spFindUsersWithoutCourseRole(?, ?) throws SQLException:" + e.getMessage());
-			e.printStackTrace();
+			
 		} finally {
 			if (null != proc) {
 				proc.cleanup();
@@ -84,7 +84,7 @@ public class CourseUserRelationshipDB implements ICourseUserRelationshipPersiste
 			proc.execute();
 		} catch (SQLException e) {
 			logger.error("spEnrollUser(?, ?, ?) throws SQLException:" + e.getMessage());
-			e.printStackTrace();
+			
 			return false;
 		} finally {
 			if (null != proc) {

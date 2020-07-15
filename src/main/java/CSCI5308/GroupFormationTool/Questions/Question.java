@@ -9,6 +9,11 @@ public class Question {
 	private String questionText;
 	private String questionType;
 	private String questionDateTime;
+	
+	//for thymleaf
+	private String type;
+	private int value;
+	
 	public Question() {
 		setDefaults();
 	}
@@ -20,6 +25,8 @@ public class Question {
 		questionText = "";
 		questionType = "";
 		questionDateTime = "";
+		type="";
+		value = -1;
 	}
 
 	public long getInstructorID() {
@@ -68,6 +75,23 @@ public class Question {
 
 	public void setQuestionText(String quesText) {
 		this.questionText = quesText;
+	}
+	
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public int getValue() {
+		return value;
+	}
+
+	public void setValue(int value) {
+		this.value = value;
 	}
 
 	public boolean deleteQuestion(IQuestionPersistence questionDB) {
