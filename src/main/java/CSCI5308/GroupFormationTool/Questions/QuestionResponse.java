@@ -6,9 +6,6 @@ public class QuestionResponse {
 	private int id;
 	private String responseText;
 	private long questionID;
-	private long studentID;
-//	private long courseid;
-	private long surveyid;
 	private String questionType;
 	private List<QuestionOption> questionOptions;
 
@@ -42,30 +39,6 @@ public class QuestionResponse {
 
 	public void setQuestionID(long questionID) {
 		this.questionID = questionID;
-	}
-
-	public long getStudentID() {
-		return studentID;
-	}
-
-	public void setStudentID(long studentID) {
-		this.studentID = studentID;
-	}
-
-//	public long getCourseid() {
-//		return courseid;
-//	}
-//
-//	public void setCourseid(long courseid) {
-//		this.courseid = courseid;
-//	}
-
-	public long getSurveyid() {
-		return surveyid;
-	}
-
-	public void setSurveyid(long surveyid) {
-		this.surveyid = surveyid;
 	}
 
 	public List<QuestionOption> getQuestionOptions() {

@@ -74,7 +74,7 @@
 						<input type="number" th:id="'numVal'+${quesMod.questionID}"
 							th:name="${quesMod.questionID}"
 							th:onblur="|numericQuestion('${quesMod.questionID}')|" required>
-						<input type="text" th:id="'numId'+${quesMod.questionID}"
+						<input type="hidden" th:id="'numId'+${quesMod.questionID}"
 							th:name="${quesMod.questionID}" th:field="*{questionType}">
 					</div>
 
@@ -82,7 +82,7 @@
 						<textarea th:id="'textVal'+${quesMod.questionID}"
 							th:name="${quesMod.questionID}" rows="3" cols="60"
 							th:onblur="|freetextQuestion('${quesMod.questionID}')| " required></textarea>
-						<input type="text" th:id="'textId'+${quesMod.questionID}"
+						<input type="hidden" th:id="'textId'+${quesMod.questionID}"
 							th:name="${quesMod.questionID}" th:field="*{questionType}">
 					</div>
 				</div>

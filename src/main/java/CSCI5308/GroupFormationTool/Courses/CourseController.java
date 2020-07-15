@@ -45,7 +45,7 @@ public class CourseController {
 		IStudentSurveyPersistence surveyDB = SurveySystemConfig.instance().getStudentSurveyDB();
 		List<Question> surveyQuestions = surveyDB.viewSurveyQuestions(courseID);
 		if(surveyQuestions.isEmpty()) {
-			message = "Survey not yet displayed";
+			message = "Survey not yet published, please check again later";
 			model.addAttribute("message", message);
 		}
 		long responseCount = surveyDB.checkSurveySubmission(BannerID, courseID);
