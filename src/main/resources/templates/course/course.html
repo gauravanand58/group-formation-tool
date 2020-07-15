@@ -5,15 +5,13 @@
 
 <head>
 <script type="text/javascript">
-	function onBlurNumField(data) {
-		var element = document.getElementById("num_" + data);
-		element.value = data + " - "
-				+ document.getElementById("num_ip_" + data).value;
+	function freetextQuestion(id) {
+		var ele = document.getElementById("textId" + id);
+		ele.value = id + " - " + document.getElementById("textVal" + id).value;
 	}
-	function onBlurFreeTextField(data) {
-		var element = document.getElementById("freetext_" + data);
-		element.value = data + " - "
-				+ document.getElementById("freetext_ip_" + data).value;
+	function numericQuestion(id) {
+		var ele = document.getElementById("numId" + id);
+		ele.value = id + " - " + document.getElementById("numVal" + id).value;
 	}
 </script>
 <title>CSCI5308 - Group Formation Tool</title>
@@ -43,48 +41,55 @@
 	</div>
 	<div th:if="${student}">
 		<br />
-		<form th:action="@{/studentResponse}" method="POST"
-			th:object="${QuestionResponseObj}">
-			<input type="hidden" name="BannerID"
-				th:value="${#httpServletRequest.remoteUser}" /> <input
-				type="hidden" name="courseid" th:value="${course.id}" />
-			<div th:each="questionModel: ${surveyQuestions}">
-				<p th:text="${questionModel.questionText}"></p>
-				<div th:if="${questionModel.questionType.equals('mcq-1')}">
-					<div th:each="answer:${questionModel.questionOptions}">
-						<input type="radio" th:name="${questionModel.questionID}"
-							th:value="${questionModel.questionID}+' - '+${answer.optionTxt}"
-							th:field="*{questionType}" required><label
-							th:text="${answer.optionTxt}"></label>
+		<div th:if="${message.length() > 0}">
+			<p th:text="${message}"></p>
+		</div>
+		<div th:if="${message.length() == 0}">
+			<h3>Course Survey</h3>
+			<form th:action="@{/studentResponse}" method="POST"
+				th:object="${QuestionResponseObj}">
+				<input type="hidden" name="BannerID"
+					th:value="${#httpServletRequest.remoteUser}" /> <input
+					type="hidden" name="courseid" th:value="${course.id}" />
+				<div th:each="quesMod: ${surveyQuestions}">
+					<p th:text="${quesMod.questionText}"></p>
+					<div th:if="${quesMod.questionType.equals('mcq-1')}">
+						<div th:each="answer:${quesMod.questionOptions}">
+							<input type="radio" th:name="${quesMod.questionID}"
+								th:value="${quesMod.questionID}+' - '+${answer.optionTxt}"
+								th:field="*{questionType}" required><label
+								th:text="${answer.optionTxt}"></label>
+						</div>
+					</div>
+					<div th:if="${quesMod.questionType.equals('mcq-2')}">
+						<div th:each="answer:${quesMod.questionOptions}">
+							<input type="checkbox" th:name="${quesMod.questionID}"
+								th:value="${quesMod.questionID}+' - '+${answer.optionTxt}"
+								th:field="*{questionType}"> <label
+								th:text="${answer.optionTxt}"></label>
+						</div>
+					</div>
+
+					<div th:if="${quesMod.questionType.equals('numeric')}">
+						<input type="number" th:id="'numVal'+${quesMod.questionID}"
+							th:name="${quesMod.questionID}"
+							th:onblur="|numericQuestion('${quesMod.questionID}')|" required>
+						<input type="text" th:id="'numId'+${quesMod.questionID}"
+							th:name="${quesMod.questionID}" th:field="*{questionType}">
+					</div>
+
+					<div th:if="${quesMod.questionType.equals('free text')}">
+						<textarea th:id="'textVal'+${quesMod.questionID}"
+							th:name="${quesMod.questionID}" rows="3" cols="60"
+							th:onblur="|freetextQuestion('${quesMod.questionID}')| " required></textarea>
+						<input type="text" th:id="'textId'+${quesMod.questionID}"
+							th:name="${quesMod.questionID}" th:field="*{questionType}">
 					</div>
 				</div>
-				<div th:if="${questionModel.questionType.equals('mcq-2')}">
-					<div th:each="answer:${questionModel.questionOptions}">
-						<input type="checkbox" th:name="${questionModel.questionID}"
-							th:value="${questionModel.questionID}+' - '+${answer.optionTxt}"
-							th:field="*{questionType}" required> <label
-							th:text="${answer.optionTxt}"></label>
-					</div>
-				</div>
+				<button class="btn btn-primary">Submit</button>
+			</form>
+		</div>
 
-				<div th:if="${questionModel.questionType.equals('numeric')}">
-					<input type="number" th:id="'num_ip_'+${questionModel.questionID}"
-						th:name="${questionModel.questionID}"
-						th:onblur="|onBlurNumField('${questionModel.questionID}')|">
-					<input type="text" th:id="'num_'+${questionModel.questionID}"
-						th:name="${questionModel.questionID}" th:field="*{questionType}">
-				</div>
-
-				<div th:if="${questionModel.questionType.equals('free text')}">
-					<textarea th:id="'freetext_ip_'+${questionModel.questionID}"
-						th:name="${questionModel.questionID}" rows="3" cols="60"
-						th:onblur="|onBlurFreeTextField('${questionModel.questionID}')|"></textarea>
-					<input type="text" th:id="'freetext_'+${questionModel.questionID}"
-						th:name="${questionModel.questionID}" th:field="*{questionType}">
-				</div>
-			</div>
-			<button class="btn btn-primary">Submit</button>
-		</form>
 	</div>
 
 

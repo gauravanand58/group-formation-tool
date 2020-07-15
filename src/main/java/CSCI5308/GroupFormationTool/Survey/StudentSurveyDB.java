@@ -12,8 +12,9 @@ import CSCI5308.GroupFormationTool.Database.CallStoredProcedure;
 import CSCI5308.GroupFormationTool.Questions.Question;
 import CSCI5308.GroupFormationTool.Questions.QuestionOption;
 
-public class StudentSurveyDB {
+public class StudentSurveyDB implements IStudentSurveyPersistence{
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
 	public List<Question> viewSurveyQuestions(long courseID) {
 		CallStoredProcedure proc = null;
 		List<Question> surveyQuestions = new ArrayList<Question>();
@@ -86,10 +87,9 @@ public class StudentSurveyDB {
 	
 	public boolean createStudentResponse(String BannerID, long CourseID, String ResponseArray[]) {
 		CallStoredProcedure proc = null;
-		long lastInsertedQuestion = -1;
 		
 		try {
-			for(int i=0; i<=ResponseArray.length;i++) {
+			for(int i=0; i<ResponseArray.length;i++) {
 				String arr2[]= ResponseArray[i].split("-");
 				proc = new CallStoredProcedure("spCreateSurveyResponse(?, ?, ?, ?)");
 				proc.setParameter(1, BannerID);

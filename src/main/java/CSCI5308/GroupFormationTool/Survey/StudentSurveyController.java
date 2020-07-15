@@ -23,8 +23,9 @@ public class StudentSurveyController {
 		long courseid = courseId;
 		QuestionResponse surveyResponseList = question;
 		String arr1[] = surveyResponseList.getQuestionType().split(",");
-		StudentSurveyDB surveyDB = new StudentSurveyDB();
+		IStudentSurveyPersistence surveyDB = SurveySystemConfig.instance().getStudentSurveyDB();
 		surveyDB.createStudentResponse(bannerID, courseid, arr1);
-		return null;
+		
+		return "redirect:/course/course?id="+courseId+"&isUserInstructor=0&BannerID="+BannerID;
 	}
 }
