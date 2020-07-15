@@ -32,7 +32,7 @@
 	</div>
 	<div th:if="${student}">
 		<br />
-		<div th:if="${isUserInstructor==-1}">
+		<div th:if="${isUserInstructor==1}">
 			<p>Failed to submit the response. Please try again later!!!</p>
 		</div>
 		<div th:if="${message.length() > 0}">

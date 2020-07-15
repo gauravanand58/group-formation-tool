@@ -56,14 +56,14 @@ public class Survey implements ISurvey{
 		return surveyDB.publishSurvey(surveyID);
 	}
 	
-	public boolean submitResponse(IStudentSurveyPersistence surveyDB,String bannerID, long courseid,String[] arr1) {
+	public boolean submitResponse(IStudentSurveyPersistence surveyDB,String bannerID, long courseID,String[] arr1) {
 		try {
-			surveyDB.createStudentResponse(bannerID, courseid, arr1);
+			surveyDB.createStudentResponse(bannerID, courseID, arr1);
 			
 		}catch (SQLException e) {
 			logger.error("spCreateSurveyResponse throws SQLException:"+e.getMessage());
 			e.printStackTrace();
-			surveyDB.deleteResponse(bannerID, courseid);	
+			surveyDB.deleteResponse(bannerID, courseID);	
 			return false;
 		} 
 		

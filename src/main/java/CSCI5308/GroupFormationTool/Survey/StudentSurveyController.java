@@ -21,11 +21,7 @@ public class StudentSurveyController {
 		ISurvey survey=new Survey();
 		IStudentSurveyPersistence surveyDB = SurveySystemConfig.instance().getStudentSurveyDB();
 		boolean responsesaved = survey.submitResponse(surveyDB, bannerID, courseid, arr1);
-		if(responsesaved) {
-			return "redirect:/course/course?id="+courseId+"&isUserInstructor=0&BannerID="+BannerID;
-		}else {
-			return "redirect:/course/course?id="+courseId+"&isUserInstructor=-1&BannerID="+BannerID;
-		}
-		
+		int  isUserInstructor = (responsesaved)?0:1;
+		return "redirect:/course/course?id="+courseId+"&isUserInstructor="+isUserInstructor+"&BannerID="+BannerID;		
 	}
 }
