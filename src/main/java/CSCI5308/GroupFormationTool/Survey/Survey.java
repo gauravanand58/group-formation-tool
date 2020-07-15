@@ -1,6 +1,10 @@
 package CSCI5308.GroupFormationTool.Survey;
 
+import java.sql.SQLException;
 import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import CSCI5308.GroupFormationTool.Questions.IQuestion;
 
@@ -9,7 +13,7 @@ public class Survey implements ISurvey{
 	private long instructorId;
 	private long courseId;
 	private boolean isPublished;
-	
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	public Survey() {
 		
 	}
@@ -51,5 +55,18 @@ public class Survey implements ISurvey{
 	public boolean publishSurvey(long surveyID, ISurveyPersistence surveyDB ) {
 		return surveyDB.publishSurvey(surveyID);
 	}
-
+	
+	public boolean submitResponse(IStudentSurveyPersistence surveyDB,String bannerID, long courseID,String[] arr1) {
+		try {
+			surveyDB.createStudentResponse(bannerID, courseID, arr1);
+			
+		}catch (SQLException e) {
+			logger.error("spCreateSurveyResponse throws SQLException:"+e.getMessage());
+			e.printStackTrace();
+			surveyDB.deleteResponse(bannerID, courseID);	
+			return false;
+		} 
+		
+		return true;
+	} 
 }
