@@ -1,29 +1,94 @@
 <!DOCTYPE html>
-<html
-	xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="https://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
->
-	<head>
-		<title>CSCI5308 - Group Formation Tool</title>
-	</head>
-	<body>
-		<!-- I got the idea for how to do this from https://www.thymeleaf.org/doc/articles/springsecurity.html -->
-	  	<div sec:authorize="isAuthenticated()">
-	       <h4 th:inline="text">BannerID: [[${#httpServletRequest.remoteUser}]]</h4>
-	       <form th:action="@{/logout}" method="post">
-	           <input type="submit" value="Sign Out"/>
-	       </form>
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+<script type="text/javascript">
+	function onBlurNumField(data) {
+		var element = document.getElementById("num_" + data);
+		element.value = data + " - "
+				+ document.getElementById("num_ip_" + data).value;
+	}
+	function onBlurFreeTextField(data) {
+		var element = document.getElementById("freetext_" + data);
+		element.value = data + " - "
+				+ document.getElementById("freetext_ip_" + data).value;
+	}
+</script>
+<title>CSCI5308 - Group Formation Tool</title>
+</head>
+<body>
+	<!-- I got the idea for how to do this from https://www.thymeleaf.org/doc/articles/springsecurity.html -->
+	<div sec:authorize="isAuthenticated()">
+		<h4 th:inline="text">BannerID:
+			[[${#httpServletRequest.remoteUser}]]</h4>
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" />
+		</form>
+	</div>
+	<h1 th:text="'Course: ' + ${course.title}">Course: Title Not Found</h1>
+	<div th:if="${instructor} or ${ta}">
+		<br /> <a th:href="@{/course/instructoradmin(id=${course.id})}">Course
+			Administration</a>
+	</div>
+	<div th:if="${instructor}">
+		<br />
+		<div>
+			<a
+				th:href="@{/mainquestionmanager(id=${course.id},isUserInstructor=${isUserInstructor})}">Question
+				Manager</a>
 		</div>
-		<h1 th:text="'Course: ' + ${course.title}">Course: Title Not Found</h1>
-		<div th:if="${instructor} or ${ta}">
-			<br/>
-			<a th:href="@{/course/instructoradmin(id=${course.id})}">Course Administration</a>
-		</div>
-		<div th:if="${instructor}">
-			<br/>
-			<div><a th:href="@{/mainquestionmanager(id=${course.id},isUserInstructor=${isUserInstructor})}">Question Manager</a></div>
-		
-		</div>
-	</body>
+
+	</div>
+	<div th:if="${student}">
+		<br />
+		<form th:action="@{/studentResponse}" method="POST"
+			th:object="${QuestionResponseObj}">
+			<input type="hidden" name="BannerID"
+				th:value="${#httpServletRequest.remoteUser}" /> <input
+				type="hidden" name="courseid" th:value="${course.id}" />
+			<div th:each="questionModel: ${surveyQuestions}">
+				<p th:text="${questionModel.questionText}"></p>
+				<div th:if="${questionModel.questionType.equals('mcq-1')}">
+					<div th:each="answer:${questionModel.questionOptions}">
+						<input type="radio" th:name="${questionModel.questionID}"
+							th:value="${questionModel.questionID}+' - '+${answer.optionTxt}"
+							th:field="*{questionType}" required><label
+							th:text="${answer.optionTxt}"></label>
+					</div>
+				</div>
+				<div th:if="${questionModel.questionType.equals('mcq-2')}">
+					<div th:each="answer:${questionModel.questionOptions}">
+						<input type="checkbox" th:name="${questionModel.questionID}"
+							th:value="${questionModel.questionID}+' - '+${answer.optionTxt}"
+							th:field="*{questionType}" required> <label
+							th:text="${answer.optionTxt}"></label>
+					</div>
+				</div>
+
+				<div th:if="${questionModel.questionType.equals('numeric')}">
+					<input type="number" th:id="'num_ip_'+${questionModel.questionID}"
+						th:name="${questionModel.questionID}"
+						th:onblur="|onBlurNumField('${questionModel.questionID}')|">
+					<input type="text" th:id="'num_'+${questionModel.questionID}"
+						th:name="${questionModel.questionID}" th:field="*{questionType}">
+				</div>
+
+				<div th:if="${questionModel.questionType.equals('free text')}">
+					<textarea th:id="'freetext_ip_'+${questionModel.questionID}"
+						th:name="${questionModel.questionID}" rows="3" cols="60"
+						th:onblur="|onBlurFreeTextField('${questionModel.questionID}')|"></textarea>
+					<input type="text" th:id="'freetext_'+${questionModel.questionID}"
+						th:name="${questionModel.questionID}" th:field="*{questionType}">
+				</div>
+			</div>
+			<button class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+
+
+
+
+</body>
 </html>

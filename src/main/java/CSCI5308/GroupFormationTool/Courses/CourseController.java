@@ -7,13 +7,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import CSCI5308.GroupFormationTool.Questions.Question;
+import CSCI5308.GroupFormationTool.Questions.QuestionResponse;
+import CSCI5308.GroupFormationTool.Survey.StudentSurveyDB;
+
 @Controller
 public class CourseController {
 	private static final String ID = "id";
 
 	@GetMapping("/course/course")
 	public String course(Model model, @RequestParam(name = ID) long courseID,
-			@RequestParam(name = "isUserInstructor") long userID) {
+			@RequestParam(name = "isUserInstructor") long userID, @RequestParam(name = "BannerID") String BannerID) {
 		ICoursePersistence courseDB = CourseSystemConfig.instance().getCourseDB();
 		ICourse course = CourseObjectFactory.objFactory(new CourseFactory());
 		courseDB.loadCourseByID(courseID, course);
@@ -33,6 +37,12 @@ public class CourseController {
 			model.addAttribute("student", userRoles.contains(Role.STUDENT));
 			model.addAttribute("guest", userRoles.isEmpty());
 		}
+		StudentSurveyDB surveyDB = new StudentSurveyDB();
+		List<Question> surveyQuestions = surveyDB.viewSurveyQuestions(courseID);
+		long responseCount = surveyDB.checkSurveySubmission(BannerID, courseID);
+		model.addAttribute("surveyQuestions", surveyQuestions);
+		model.addAttribute("QuestionResponseObj", new QuestionResponse());
+		
 		return "course/course";
 	}
 }
