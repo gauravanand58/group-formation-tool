@@ -17,7 +17,7 @@ import CSCI5308.GroupFormationTool.Survey.StudentSurveyDB;
 
 public class StudentSurveyDBMock {
 	List<IQuestion> surveyQuestions;
-	String[] responseArray = {"2-none","3-none"};
+	String[] responseArray = { "2-none", "3-none" };
 	IStudentSurveyPersistence studentSurveyMock = mock(StudentSurveyDB.class);
 
 	StudentSurveyDBMock() {
@@ -27,7 +27,7 @@ public class StudentSurveyDBMock {
 		question.setQuestionText("Favourite Course");
 		question.setQuestionType("numeric");
 		surveyQuestions.add(question);
-		
+
 	}
 
 	@Test
@@ -39,15 +39,15 @@ public class StudentSurveyDBMock {
 
 	@Test
 	public void checkSurveySubmission() {
-		when(studentSurveyMock.checkSurveySubmission("B000000",3)).thenReturn(1L);
-		assertEquals(studentSurveyMock.checkSurveySubmission("B000000",3), 1L);
-		verify(studentSurveyMock).checkSurveySubmission("B000000",3);
+		when(studentSurveyMock.checkSurveySubmission("B000000", 3)).thenReturn(1L);
+		assertEquals(studentSurveyMock.checkSurveySubmission("B000000", 3), 1L);
+		verify(studentSurveyMock).checkSurveySubmission("B000000", 3);
 	}
 
 	@Test
 	public void createStudentResponse() {
-		when(studentSurveyMock.createStudentResponse("B000000",3,responseArray)).thenReturn(true);
-		assertTrue(studentSurveyMock.createStudentResponse("B000000",3, responseArray));
+		when(studentSurveyMock.createStudentResponse("B000000", 3, responseArray)).thenReturn(true);
+		assertTrue(studentSurveyMock.createStudentResponse("B000000", 3, responseArray));
 	}
 
 }
