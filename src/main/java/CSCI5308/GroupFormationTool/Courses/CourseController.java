@@ -30,8 +30,6 @@ public class CourseController {
 		model.addAttribute("isUserInstructor", userID);
 		List<Role> userRoles = course.getAllRolesForCurrentUserInCourse();
 		if (null == userRoles) {
-
-			// Default user is a guest.
 			model.addAttribute("instructor", false);
 			model.addAttribute("ta", false);
 			model.addAttribute("student", false);

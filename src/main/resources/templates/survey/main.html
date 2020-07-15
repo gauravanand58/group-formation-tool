@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+<head>
+<style type="text/css">
+	.myOtherTable { background-color:#FFFFE0;border-collapse:collapse;color:#000;font-size:18px; }
+	.myOtherTable th { background-color:#BDB76B;color:white;width:17%;text-align:center; }
+	.myOtherTable td, .myOtherTable th { padding:5px;border:0;text-align:center; }
+	.myOtherTable td { border-bottom:1px dotted #BDB76B; }
+</style>
+<title>Create Survey Page</title>
+</head>
+<body>
+	  	<div sec:authorize="isAuthenticated()">
+	       <h4 th:inline="text">BannerID: [[${#httpServletRequest.remoteUser}]]</h4>
+	       <form th:action="@{/logout}" method="post">
+	           <input type="submit" value="Sign Out"/>
+	       </form>
+	       </div>
+			<div>
+				<table th:if="${survey.isPublished()} == false" class="myOtherTable">
+				<tr>
+							<th>ID</th>
+							<th>Title</th>
+							<th>Text</th>
+							<th>Type</th>
+							<th>DateTime</th>
+					</tr>
+					<tr th:each="question : ${availableQuestions}">
+						<td><span th:text="${question.questionID}"></span></td>
+						<td><span th:text="${question.questionTitle}"></span></td>
+						<td><span th:text="${question.questionText}"></span></td>
+						<td><span th:text="${question.questionType}"></span></td>
+						<td><span th:text="${question.questionDateTime}"></span></td>
+						<td>
+							<a th:href="@{/survey/addIntoSurvey(id=${courseID}, questionID=${question.questionID})}">
+								Add
+							</a>
+						</td>
+					</tr>
+		  		</table>
+			</div>
+			
+			<div>
+				<h2>Survey Questions</h2>
+			</div>
+			
+			<div>
+				<table class="myOtherTable">
+				<tr>
+							<th>ID</th>
+							<th>Title</th>
+							<th>Text</th>
+							<th>Type</th>
+							<th>DateTime</th>
+					</tr>
+					<tr th:each="question : ${addedQuestions}">
+						<td><span th:text="${question.questionID}"></span></td>
+						<td><span th:text="${question.questionTitle}"></span></td>
+						<td><span th:text="${question.questionText}"></span></td>
+						<td><span th:text="${question.questionType}"></span></td>
+						<td><span th:text="${question.questionDateTime}"></span></td>
+					</tr>
+		  		</table>
+			</div>
+			<div th:if="${survey.isPublished()} == false">
+				<button type="button" onClick="">Publish Survey</button>
+			</div>
+			
+</body>
+</html>

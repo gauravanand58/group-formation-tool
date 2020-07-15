@@ -8,8 +8,10 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
+import CSCI5308.GroupFormationTool.AccessControl.IUser;
 import CSCI5308.GroupFormationTool.AccessControl.IUserPersistence;
 import CSCI5308.GroupFormationTool.AccessControl.User;
+import CSCI5308.GroupFormationTool.AccessControl.UserAbstractFactory;
 import CSCI5308.GroupFormationTool.AccessControlTest.UserDBMock;
 import CSCI5308.GroupFormationTool.Courses.Course;
 import CSCI5308.GroupFormationTool.Courses.Role;
@@ -20,7 +22,7 @@ class StudentCSVImportTest {
 
 	@Test
 	public void enrollStudentFromRecord() {
-		User user = new User();
+		IUser user = UserAbstractFactory.instance().createUserObject();
 		Course course = new Course();
 		IUserPersistence userDB = new UserDBMock();
 		IPasswordEncryption passwordEncryption = new PasswordEncryptionMock();

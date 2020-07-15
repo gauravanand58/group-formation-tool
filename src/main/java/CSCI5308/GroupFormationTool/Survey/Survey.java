@@ -1,23 +1,30 @@
 package CSCI5308.GroupFormationTool.Survey;
 
-public class Survey {
+import java.util.ArrayList;
+import java.util.List;
+
+import CSCI5308.GroupFormationTool.Questions.IQuestion;
+import CSCI5308.GroupFormationTool.Questions.Question;
+
+public class Survey implements ISurvey{
 	private long surveyId;
-	private String surveyName;
 	private long instructorId;
-	private long courseid;
+	private long courseId;
 	private boolean isPublished;
+	
+	public Survey() {
+		
+	}
+	
+	public Survey(ISurveyPersistence surveyDB, long courseID) {
+		surveyDB.loadSurveyByCourseID(this, courseID);
+	}
 	
 	public long getSurveyId() {
 		return surveyId;
 	}
 	public void setSurveyId(long surveyId) {
 		this.surveyId = surveyId;
-	}
-	public String getSurveyName() {
-		return surveyName;
-	}
-	public void setSurveyName(String surveyName) {
-		this.surveyName = surveyName;
 	}
 	public long getInstructorId() {
 		return instructorId;
@@ -26,10 +33,10 @@ public class Survey {
 		this.instructorId = instructorId;
 	}
 	public long getCourseid() {
-		return courseid;
+		return courseId;
 	}
-	public void setCourseid(long courseid) {
-		this.courseid = courseid;
+	public void setCourseid(long courseId) {
+		this.courseId = courseId;
 	}
 	public boolean isPublished() {
 		return isPublished;
@@ -38,7 +45,8 @@ public class Survey {
 		this.isPublished = isPublished;
 	}
 	
-	
-	
-
+	public List<IQuestion> loadQuestionsByCourseId(
+			ISurveyPersistence surveyDB) {
+		return surveyDB.loadQuestionsByCourseId(courseId);
+	}
 }

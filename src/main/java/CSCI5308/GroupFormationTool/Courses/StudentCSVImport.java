@@ -17,28 +17,28 @@ public class StudentCSVImport {
 	private IStudentCSVParser parser;
 
 	public StudentCSVImport(IStudentCSVParser parser, ICourse course2) {
-		userNotification = new UserNotifications();
+		userNotification = UserSystemConfig.instance().getUserNotifications();
 		this.course = course2;
 		successResults = new ArrayList<String>();
 		failureResults = new ArrayList<String>();
-		userDB = SystemConfig.instance().getUserDB();
+		userDB = UserSystemConfig.instance().getUserDB();
 		passwordEncryption = SystemConfig.instance().getPasswordEncryption();
 		this.parser = parser;
 		enrollStudentFromRecord();
 	}
 
 	private void enrollStudentFromRecord() {
-		List<User> studentList = parser.parseCSVFile(failureResults);
-		for (User u : studentList) {
+		List<IUser> studentList = parser.parseCSVFile(failureResults);
+		for (IUser u : studentList) {
 			String bannerID = u.getBanner();
 			String firstName = u.getFirstName();
 			String lastName = u.getLastName();
 			String email = u.getEmail();
 			String userDetails = bannerID + " " + firstName + " " + lastName + " " + email;
 
-			User user = new User();
+			IUser user = UserAbstractFactory.instance().createUserObject();
 			userDB.loadUserByBannerID(bannerID, user);
-			if (!user.isValidUser()) {
+			if (user.isValidUser()==false) {
 				user.setBannerID(bannerID);
 				user.setFirstName(firstName);
 				user.setLastName(lastName);
