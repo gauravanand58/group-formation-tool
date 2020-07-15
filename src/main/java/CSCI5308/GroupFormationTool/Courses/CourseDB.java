@@ -6,6 +6,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import CSCI5308.GroupFormationTool.Database.CallStoredProcedure;
+import CSCI5308.GroupFormationTool.Survey.ISurvey;
+import CSCI5308.GroupFormationTool.Survey.Survey;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -49,9 +51,15 @@ public class CourseDB implements ICoursePersistence {
 			ResultSet results = proc.executeWithResults();
 			if (null != results) {
 				while (results.next()) {
-					String title = results.getString(2);
+					String title = results.getString(1);
 					course.setId(id);
 					course.setTitle(title);
+					ISurvey survey = new Survey();
+					survey.setCourseid(id);
+					survey.setSurveyId(results.getLong(2));
+					survey.setInstructorId(results.getLong(3));
+					survey.setPublished(results.getBoolean(4));
+					course.setCourseSurvey(survey);
 				}
 			}
 		} catch (SQLException e) {

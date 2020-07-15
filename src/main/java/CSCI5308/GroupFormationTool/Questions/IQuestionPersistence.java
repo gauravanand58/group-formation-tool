@@ -7,9 +7,11 @@ public interface IQuestionPersistence {
 
 	public boolean deleteQuestion(int questionID);
 
-	public List<Question> sortByTitle(String bannerID);
+	public List<IQuestion> sortByTitle(String bannerID);
 
-	public List<Question> sortByDate(String bannerID);
+	public List<IQuestion> sortByDate(String bannerID);
 
-	public List<Question> displayQuestions(String bannerID);
+	public List<IQuestion> displayQuestions(String bannerID);
+	
+	public void loadQuestionByID(Question question, long questionID);
 }

@@ -10,4 +10,6 @@ public interface ICourseUserRelationship {
 	public List<Role> loadAllRoluesForUserInCourse(User user, ICourse course);
 
 	public boolean enrollUserInCourse(User user, ICourse course, Role role);
+	
+	public User findInstructorWithCourse(long courseId);
 }
