@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import CSCI5308.GroupFormationTool.SystemConfig;
 import CSCI5308.GroupFormationTool.AccessControl.IUserPersistence;
+import CSCI5308.GroupFormationTool.AccessControl.UserSystemConfig;
 import CSCI5308.GroupFormationTool.Courses.*;
 
 @Controller
@@ -23,7 +24,7 @@ public class IndexController {
 			List<Course> allCourses = courseDB.loadAllCourses();
 			SystemConfig.instance().getConfiguration();
 			model.addAttribute("courses", allCourses);
-			IUserPersistence userDb = SystemConfig.instance().getUserDB();
+			IUserPersistence userDb = UserSystemConfig.instance().getUserDB();
 			long userID = userDb.checkUserByBannerID(httpServletRequest.getRemoteUser());
 			if (userID == 0) {
 				model.addAttribute("QuestionSet", "hidden");

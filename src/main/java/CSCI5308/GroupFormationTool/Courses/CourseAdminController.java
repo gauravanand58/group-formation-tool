@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import CSCI5308.GroupFormationTool.AccessControl.IUser;
 import CSCI5308.GroupFormationTool.AccessControl.User;
+import CSCI5308.GroupFormationTool.AccessControl.UserAbstractFactory;
 
 @Controller
 public class CourseAdminController {
@@ -35,7 +37,7 @@ public class CourseAdminController {
 		model.addAttribute("course", c);
 		ICourseUserRelationshipPersistence courseUserRelationshipDB = CourseSystemConfig.instance()
 				.getCourseUserRelationshipDB();
-		List<User> allUsersNotCurrentlyInstructors = courseUserRelationshipDB
+		List<IUser> allUsersNotCurrentlyInstructors = courseUserRelationshipDB
 				.findAllUsersWithoutCourseRole(Role.INSTRUCTOR, courseID);
 		model.addAttribute("users", allUsersNotCurrentlyInstructors);
 		return "admin/assigninstructor";
@@ -70,7 +72,7 @@ public class CourseAdminController {
 		ICourseUserRelationshipPersistence courseUserRelationshipDB = CourseSystemConfig.instance()
 				.getCourseUserRelationshipDB();
 		while (iter.hasNext()) {
-			User u = new User();
+			IUser u = UserAbstractFactory.instance().createUserObject();
 			u.setId(iter.next().longValue());
 			courseUserRelationshipDB.enrollUser(c, u, Role.INSTRUCTOR);
 		}

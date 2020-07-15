@@ -32,5 +32,4 @@ public class QuestionsSystemConfig {
 	public QuestionResponse getQuestionResponse() {
 		return new QuestionResponse();
 	}
-
 }

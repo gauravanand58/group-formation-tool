@@ -31,16 +31,16 @@ public class SignupController {
 			@RequestParam(name = EMAIL) String email) {
 
 		boolean success = false;
-		if (User.isBannerIDValid(bannerID) && User.isEmailValid(email) && User.isFirstNameValid(firstName)
-				&& User.isLastNameValid(lastName) && password.equals(passwordConfirm)
-				&& User.isValidPassword(password, SystemConfig.instance().getConfiguration())) {
-			User u = new User();
+		if (IUser.isBannerIDValid(bannerID) && IUser.isEmailValid(email) && IUser.isFirstNameValid(firstName)
+				&& IUser.isLastNameValid(lastName) && password.equals(passwordConfirm)
+				&& IUser.isValidPassword(password, SystemConfig.instance().getConfiguration())) {
+			IUser u = UserAbstractFactory.instance().createUserObject();
 			u.setBannerID(bannerID);
 			u.setPassword(password);
 			u.setFirstName(firstName);
 			u.setLastName(lastName);
 			u.setEmail(email);
-			IUserPersistence userDB = SystemConfig.instance().getUserDB();
+			IUserPersistence userDB = UserSystemConfig.instance().getUserDB();
 			IPasswordEncryption passwordEncryption = SystemConfig.instance().getPasswordEncryption();
 			if (u.createUser(userDB, passwordEncryption, null)) {
 				success = u.saveUserPasswordHistory(SystemConfig.instance().getUserPasswordRelationshipDB());
