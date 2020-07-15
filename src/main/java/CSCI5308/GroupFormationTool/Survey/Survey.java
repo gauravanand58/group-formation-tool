@@ -1,10 +1,8 @@
 package CSCI5308.GroupFormationTool.Survey;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import CSCI5308.GroupFormationTool.Questions.IQuestion;
-import CSCI5308.GroupFormationTool.Questions.Question;
 
 public class Survey implements ISurvey{
 	private long surveyId;
@@ -49,4 +47,9 @@ public class Survey implements ISurvey{
 			ISurveyPersistence surveyDB) {
 		return surveyDB.loadQuestionsByCourseId(courseId);
 	}
+	
+	public boolean publishSurvey(long surveyID, ISurveyPersistence surveyDB ) {
+		return surveyDB.publishSurvey(surveyID);
+	}
+
 }

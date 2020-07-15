@@ -12,4 +12,6 @@ public interface ISurveyPersistence {
 	public void addQuestionToSurvey(IQuestion question, long courseId);
 	
 	public void loadSurveyByCourseID(ISurvey survey, long courseId);
+
+	public boolean publishSurvey(long surveyID);
 }
