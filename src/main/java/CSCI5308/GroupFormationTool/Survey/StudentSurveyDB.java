@@ -9,18 +9,19 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import CSCI5308.GroupFormationTool.Database.CallStoredProcedure;
-import CSCI5308.GroupFormationTool.Questions.Question;
+import CSCI5308.GroupFormationTool.Questions.IQuestion;
 import CSCI5308.GroupFormationTool.Questions.QuestionOption;
+import CSCI5308.GroupFormationTool.Questions.QuestionsSystemConfig;
 
 public class StudentSurveyDB implements IStudentSurveyPersistence{
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	public List<Question> viewSurveyQuestions(long courseID) {
+	public List<IQuestion> viewSurveyQuestions(long courseID) {
 		CallStoredProcedure proc = null;
-		List<Question> surveyQuestions = new ArrayList<Question>();
+		List<IQuestion> surveyQuestions = new ArrayList<IQuestion>();
 		List<QuestionOption> tempQuestionOptionObj;
-		Question tempObj;
-		QuestionOption tempObj2;
+		IQuestion question;
+		QuestionOption questionOption;
 		try {
 				proc = new CallStoredProcedure("spcheckIfSurveyPublished(?)");
 				proc.setParameter(1, courseID);
@@ -29,10 +30,10 @@ public class StudentSurveyDB implements IStudentSurveyPersistence{
 				if(null!=results) {
 					
 					while(results.next()) {
-						tempObj=new Question();
-						tempObj.setQuestionID(results.getInt(1));
-						tempObj.setQuestionText(results.getString(2));
-						tempObj.setQuestionType(results.getString(3));
+						question=QuestionsSystemConfig.instance().getQuestion();
+						question.setQuestionID(results.getInt(1));
+						question.setQuestionText(results.getString(2));
+						question.setQuestionType(results.getString(3));
 						
 						proc = new CallStoredProcedure("sploadallquestionoptions(?)");
 						proc.setParameter(1, results.getInt(1));
@@ -40,14 +41,14 @@ public class StudentSurveyDB implements IStudentSurveyPersistence{
 						if(null!=resultOption) {
 							tempQuestionOptionObj=new ArrayList<QuestionOption>();
 							while(resultOption.next()) {
-								tempObj2=new QuestionOption();
-								tempObj2.setOptionId(resultOption.getInt(1));
-								tempObj2.setOptionTxt(resultOption.getString(2));
-								tempQuestionOptionObj.add(tempObj2);
+								questionOption=QuestionsSystemConfig.instance().getQuestionOption();
+								questionOption.setOptionId(resultOption.getInt(1));
+								questionOption.setOptionTxt(resultOption.getString(2));
+								tempQuestionOptionObj.add(questionOption);
 							}
-							tempObj.setQuestionOptions(tempQuestionOptionObj);
+							question.setQuestionOptions(tempQuestionOptionObj);
 						}
-						surveyQuestions.add(tempObj);
+						surveyQuestions.add(question);
 					}
 					
 				}
@@ -90,12 +91,12 @@ public class StudentSurveyDB implements IStudentSurveyPersistence{
 		
 		try {
 			for(int i=0; i<ResponseArray.length;i++) {
-				String arr2[]= ResponseArray[i].split("-");
+				String responseArray[]= ResponseArray[i].split("-");
 				proc = new CallStoredProcedure("spCreateSurveyResponse(?, ?, ?, ?)");
 				proc.setParameter(1, BannerID);
 				proc.setParameter(2, CourseID);
-				proc.setParameter(3, arr2[0]);
-				proc.setParameter(4, arr2[1]);
+				proc.setParameter(3, responseArray[0]);
+				proc.setParameter(4, responseArray[1]);
 				proc.execute();
 			}
 			

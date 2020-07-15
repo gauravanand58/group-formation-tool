@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import CSCI5308.GroupFormationTool.Questions.Question;
+import CSCI5308.GroupFormationTool.Questions.IQuestion;
 import CSCI5308.GroupFormationTool.Questions.QuestionResponse;
 import CSCI5308.GroupFormationTool.Survey.IStudentSurveyPersistence;
 import CSCI5308.GroupFormationTool.Survey.SurveySystemConfig;
@@ -40,7 +40,7 @@ public class CourseController {
 			model.addAttribute("guest", userRoles.isEmpty());
 		}
 		IStudentSurveyPersistence surveyDB = SurveySystemConfig.instance().getStudentSurveyDB();
-		List<Question> surveyQuestions = surveyDB.viewSurveyQuestions(courseID);
+		List<IQuestion> surveyQuestions = surveyDB.viewSurveyQuestions(courseID);
 		if(surveyQuestions.isEmpty()) {
 			message = "Survey not yet published, please check again later";
 			model.addAttribute("message", message);
