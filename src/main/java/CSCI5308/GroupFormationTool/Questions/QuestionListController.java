@@ -13,7 +13,7 @@ public class QuestionListController {
 	public String displayQuestionsList(@RequestParam("bannerID") String bannerID, Model model) {
 		IQuestionPersistence questionDB = QuestionsSystemConfigPersistence.instance().getQuestionDB();
 		IQuestionListManager questionListManager = QuestionsSystemConfig.instance().getQuestionListManager();
-		List<Question> displayQues = questionListManager.displayQuestions(bannerID, questionDB);
+		List<IQuestion> displayQues = questionListManager.displayQuestions(bannerID, questionDB);
 		model.addAttribute("ques", displayQues);
 		return "questionmanager/questionlist";
 	}

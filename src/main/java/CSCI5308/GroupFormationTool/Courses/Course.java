@@ -4,11 +4,14 @@ import java.util.List;
 
 import CSCI5308.GroupFormationTool.AccessControl.CurrentUser;
 import CSCI5308.GroupFormationTool.AccessControl.User;
+import CSCI5308.GroupFormationTool.Survey.ISurvey;
+import CSCI5308.GroupFormationTool.Survey.Survey;
 
 public class Course implements ICourse {
 	private long id;
 	private String title;
 	private ICourseUserRelationship userRoleDecider;
+	private ISurvey courseSurvey;
 
 	public Course() {
 		setDefaults();
@@ -23,6 +26,7 @@ public class Course implements ICourse {
 		id = -1;
 		title = "";
 		userRoleDecider = new CourseUserRelationship();
+		courseSurvey = new Survey();
 	}
 
 	public void setId(long id) {
@@ -64,5 +68,13 @@ public class Course implements ICourse {
 
 	public List<Role> getAllRolesForCurrentUserInCourse() {
 		return userRoleDecider.loadAllRoluesForUserInCourse(CurrentUser.instance().getCurrentAuthenticatedUser(), this);
+	}
+
+	public ISurvey getCourseSurvey() {
+		return courseSurvey;
+	}
+
+	public void setCourseSurvey(ISurvey courseSurvey) {
+		this.courseSurvey = courseSurvey;
 	}
 }
