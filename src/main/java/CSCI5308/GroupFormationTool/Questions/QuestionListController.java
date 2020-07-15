@@ -21,7 +21,7 @@ public class QuestionListController {
 	@RequestMapping("/course/manager")
 	public String sortList(@RequestParam("bannerID") String bannerID, @RequestParam("sortBy") String sortBy,
 			Model model) {
-		List<Question> sortedQuestions;
+		List<IQuestion> sortedQuestions;
 		IQuestionPersistence questionDB = QuestionsSystemConfigPersistence.instance().getQuestionDB();
 		IQuestionListManager questionListManager = QuestionsSystemConfig.instance().getQuestionListManager();
 		sortedQuestions=questionListManager.sortQuestions(bannerID, sortBy,questionDB);
