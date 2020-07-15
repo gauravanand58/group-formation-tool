@@ -119,4 +119,25 @@ public class SurveyDB implements ISurveyPersistence{
 			}
 		}
 	}
+
+	@Override
+	public boolean publishSurvey(long surveyID) {
+		CallStoredProcedure proc = null;
+		try {
+			proc = new CallStoredProcedure("spPublishSurveyByID(?)");
+			proc.setParameter(1, surveyID);
+			proc.execute();
+		} catch (SQLException e) {
+			logger.error("spPublishSurveyByID throws SQLException:" + e.getMessage());
+			e.printStackTrace();
+			return false;
+		} finally {
+			if (null != proc) {
+				proc.cleanup();
+			}
+		}
+		logger.debug("Successfully published survey with ID:"+surveyID);
+		return true;
+	}
+		
 }

@@ -22,4 +22,6 @@ public interface ISurvey {
 	public void setPublished(boolean isPublished);
 	
 	public List<IQuestion> loadQuestionsByCourseId(ISurveyPersistence surveyDB);
-}
+	
+	public boolean publishSurvey(long surveyID, ISurveyPersistence surveyDB );
+		}
