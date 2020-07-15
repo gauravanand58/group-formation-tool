@@ -10,8 +10,8 @@ import CSCI5308.GroupFormationTool.SystemConfig;
 public class CurrentUser {
 	private static CurrentUser uniqueInstance = null;
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+	
 	private CurrentUser() {
-
 	}
 
 	public static CurrentUser instance() {
@@ -21,12 +21,12 @@ public class CurrentUser {
 		return uniqueInstance;
 	}
 
-	public User getCurrentAuthenticatedUser() {
-		IUserPersistence userDB = SystemConfig.instance().getUserDB();
+	public IUser getCurrentAuthenticatedUser() {
+		IUserPersistence userDB = UserSystemConfig.instance().getUserDB();
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		if (authentication.isAuthenticated()) {
 			String bannerID = authentication.getPrincipal().toString();
-			User u = new User();
+			IUser u = UserAbstractFactory.instance().createUserObject();
 			userDB.loadUserByBannerID(bannerID, u);
 			if (u.isValidUser()) {
 				logger.info("Valid User");

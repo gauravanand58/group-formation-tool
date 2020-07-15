@@ -49,9 +49,4 @@ public class Survey implements ISurvey{
 			ISurveyPersistence surveyDB) {
 		return surveyDB.loadQuestionsByCourseId(courseId);
 	}
-	
-	public void addQuestion(IQuestion question) {
-		
-	}
-
 }

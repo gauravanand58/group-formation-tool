@@ -9,14 +9,12 @@ public class SystemConfig {
 	private static SystemConfig uniqueInstance = null;
 
 	private IPasswordEncryption passwordEncryption;
-	private IUserPersistence userDB;
 	private IDatabaseConfiguration databaseConfiguration;
 	private IPasswordPolicyPersistance passwordPolicyDB;
 	private IUserPasswordHistoryRelationshipPersistance userPasswordRelationshipDB;
 	
 	private SystemConfig() {
 		passwordEncryption = new BCryptPasswordEncryption();
-		userDB = new UserDB();
 		databaseConfiguration = new DefaultDatabaseConfiguration();
 		passwordPolicyDB = new PasswordPolicyDB();
 		userPasswordRelationshipDB = new UserPasswordHistoryRelationshipDB();
@@ -37,14 +35,6 @@ public class SystemConfig {
 
 	public void setPasswordEncryption(IPasswordEncryption passwordEncryption) {
 		this.passwordEncryption = passwordEncryption;
-	}
-
-	public IUserPersistence getUserDB() {
-		return userDB;
-	}
-
-	public void setUserDB(IUserPersistence userDB) {
-		this.userDB = userDB;
 	}
 	
 	public PasswordPolicyConfiguration getConfiguration() {
