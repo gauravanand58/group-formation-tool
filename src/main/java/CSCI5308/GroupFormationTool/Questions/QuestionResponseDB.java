@@ -31,14 +31,13 @@ public class QuestionResponseDB implements IQuestionResponsePersistence {
 				}
 			}
 		} catch (SQLException e) {
-			logger.error("spGetAllResponsesOfQuestion(?) throws SQLException:"+e.getMessage());
+			logger.error("spGetAllResponsesOfQuestion throws SQLException:"+e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
 				proc.cleanup();
 			}
 		}
-		logger.debug("Returning responseList with list[0]:"+responseList.size());
 		return responseList;
 	}
 }

@@ -10,8 +10,12 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class UserNotifications implements IUserNotifications {
 	private String commonMessage = "Given are the credentials to access your account:\n";
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Override
 	public void sendUserLoginCredentials(User user, String rawPassword) throws MessagingException {
@@ -33,5 +37,6 @@ public class UserNotifications implements IUserNotifications {
 		commonMessage += "Username:" + user.getBannerID() + "\nPassword:" + rawPassword;
 		msg.setContent(commonMessage, "text/html");
 		Transport.send(msg);
+		logger.info("Successfully sent email with credentials");
 	}
 }

@@ -33,7 +33,7 @@ public class CourseDB implements ICoursePersistence {
 				}
 			}
 		} catch (SQLException e) {
-			logger.error("spLoadAllCourses(?) throws SQLException:" + e.getMessage());
+			logger.error("spLoadAllCourses throws SQLException: " + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
@@ -63,7 +63,7 @@ public class CourseDB implements ICoursePersistence {
 				}
 			}
 		} catch (SQLException e) {
-			logger.error("spFindCourseByID(?) throws SQLException:" + e.getMessage());
+			logger.error("spFindCourseByID throws SQLException: " + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
@@ -80,7 +80,7 @@ public class CourseDB implements ICoursePersistence {
 			proc.registerOutputParameterLong(2);
 			proc.execute();
 		} catch (SQLException e) {
-			logger.error("spCreateCourse(?) throws SQLException:" + e.getMessage());
+			logger.error("spCreateCourse throws SQLException: " + e.getMessage());
 			e.printStackTrace();
 			return false;
 		} finally {
@@ -88,7 +88,7 @@ public class CourseDB implements ICoursePersistence {
 				proc.cleanup();
 			}
 		}
-		logger.info("Course created successfully");
+		logger.info("Course created successfully with title:"+course.getTitle());
 		return true;
 	}
 
@@ -107,7 +107,7 @@ public class CourseDB implements ICoursePersistence {
 				proc.cleanup();
 			}
 		}
-		logger.info("Course deleted successfully");
+		logger.info("Course deleted successfully with courseID:"+id);
 		return true;
 	}
 }

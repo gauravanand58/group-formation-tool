@@ -4,11 +4,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import CSCI5308.GroupFormationTool.SystemConfig;
 
 public class ConnectionManager {
 	private static ConnectionManager uniqueInstance = null;
-
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	private String dbURL;
 	private String dbUserName;
 	private String dbPassword;
@@ -18,6 +21,8 @@ public class ConnectionManager {
 		dbURL = config.getDatabaseURL();
 		dbUserName = config.getDatabaseUserName();
 		dbPassword = config.getDatabasePassword();
+		logger.info("URL of database:"+dbURL);
+		logger.info("User name of database:"+dbUserName);
 	}
 
 	public static ConnectionManager instance() {
