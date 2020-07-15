@@ -211,3 +211,56 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 [DEBUG] 2020-07-15 17:27:49.558 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
 [INFO ] 2020-07-15 17:27:49.559 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
 [INFO ] 2020-07-15 17:27:50.134 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 0.636 seconds (JVM running for 1032.834)
+[INFO ] 2020-07-15 19:23:25.236 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on LAPTOP-USJ57PKN with PID 158368 (H:\Study\Dalhousie\ASDC\test\group4\bin\main started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-15 19:23:25.240 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-15 19:23:25.240 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-15 19:23:26.388 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 1.31 seconds (JVM running for 2.133)
+[INFO ] 2020-07-15 19:23:31.088 [http-nio-8080-exec-1] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-15 19:23:31.088 [http-nio-8080-exec-1] ConnectionManager - User name of database:CSCI5308_4_DEVINT_USER
+[DEBUG] 2020-07-15 19:23:38.553 [http-nio-8080-exec-7] UserDB - Loaded user with user ID19
+[DEBUG] 2020-07-15 19:24:29.812 [http-nio-8080-exec-1] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-15 19:24:29.812 [http-nio-8080-exec-1] CurrentUser - Valid User
+[INFO ] 2020-07-15 19:24:30.503 [http-nio-8080-exec-1] StudentSurveyDB - Successfully created question options
+[INFO ] 2020-07-15 19:25:53.131 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on LAPTOP-USJ57PKN with PID 158368 (H:\Study\Dalhousie\ASDC\test\group4\bin\main started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-15 19:25:53.131 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-15 19:25:53.132 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-15 19:25:53.449 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 0.347 seconds (JVM running for 149.193)
+[INFO ] 2020-07-15 19:25:57.765 [http-nio-8080-exec-1] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-15 19:25:57.766 [http-nio-8080-exec-1] ConnectionManager - User name of database:CSCI5308_4_DEVINT_USER
+[DEBUG] 2020-07-15 19:25:58.213 [http-nio-8080-exec-1] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-15 19:25:58.213 [http-nio-8080-exec-1] CurrentUser - Valid User
+[INFO ] 2020-07-15 19:25:58.822 [http-nio-8080-exec-1] StudentSurveyDB - Successfully created question options
+[ERROR] 2020-07-15 19:26:03.888 [http-nio-8080-exec-2] Survey - spCreateSurveyResponse throws SQLException:PROCEDURE CSCI5308_4_DEVINT.spCreateSurveyRespons does not exist
+[DEBUG] 2020-07-15 19:26:04.529 [http-nio-8080-exec-3] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-15 19:26:04.530 [http-nio-8080-exec-3] CurrentUser - Valid User
+[INFO ] 2020-07-15 19:26:05.209 [http-nio-8080-exec-3] StudentSurveyDB - Successfully created question options
+[INFO ] 2020-07-15 19:27:18.841 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on LAPTOP-USJ57PKN with PID 165412 (H:\Study\Dalhousie\ASDC\test\group4\bin\main started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-15 19:27:18.844 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-15 19:27:18.845 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-15 19:27:19.923 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 1.237 seconds (JVM running for 1.829)
+[INFO ] 2020-07-15 19:27:24.294 [http-nio-8080-exec-1] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-15 19:27:24.295 [http-nio-8080-exec-1] ConnectionManager - User name of database:CSCI5308_4_DEVINT_USER
+[DEBUG] 2020-07-15 19:27:24.938 [http-nio-8080-exec-1] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-15 19:27:24.939 [http-nio-8080-exec-1] CurrentUser - Valid User
+[INFO ] 2020-07-15 19:27:25.608 [http-nio-8080-exec-1] StudentSurveyDB - Successfully created question options
+[ERROR] 2020-07-15 19:27:29.557 [http-nio-8080-exec-2] Survey - spCreateSurveyResponse throws SQLException:PROCEDURE CSCI5308_4_DEVINT.spCreateSurveyRespons does not exist
+[DEBUG] 2020-07-15 19:27:30.127 [http-nio-8080-exec-3] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-15 19:27:30.128 [http-nio-8080-exec-3] CurrentUser - Valid User
+[INFO ] 2020-07-15 19:27:30.737 [http-nio-8080-exec-3] StudentSurveyDB - Successfully created question options
+[INFO ] 2020-07-15 19:29:57.819 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on LAPTOP-USJ57PKN with PID 165412 (H:\Study\Dalhousie\ASDC\test\group4\bin\main started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-15 19:29:57.820 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-15 19:29:57.820 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-15 19:29:58.135 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 0.343 seconds (JVM running for 160.041)
+[INFO ] 2020-07-15 19:30:02.175 [http-nio-8080-exec-1] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-15 19:30:02.175 [http-nio-8080-exec-1] ConnectionManager - User name of database:CSCI5308_4_DEVINT_USER
+[DEBUG] 2020-07-15 19:30:02.704 [http-nio-8080-exec-1] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-15 19:30:02.705 [http-nio-8080-exec-1] CurrentUser - Valid User
+[INFO ] 2020-07-15 19:30:03.402 [http-nio-8080-exec-1] StudentSurveyDB - Successfully created question options
+[ERROR] 2020-07-15 19:30:07.215 [http-nio-8080-exec-2] Survey - spCreateSurveyResponse throws SQLException:PROCEDURE CSCI5308_4_DEVINT.spCreateSurveyRespons does not exist
+[DEBUG] 2020-07-15 19:30:08.086 [http-nio-8080-exec-3] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-15 19:30:08.087 [http-nio-8080-exec-3] CurrentUser - Valid User
+[INFO ] 2020-07-15 19:30:08.876 [http-nio-8080-exec-3] StudentSurveyDB - Successfully created question options
+[INFO ] 2020-07-15 19:30:23.847 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on LAPTOP-USJ57PKN with PID 165412 (H:\Study\Dalhousie\ASDC\test\group4\bin\main started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-15 19:30:23.847 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-15 19:30:23.848 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-15 19:30:24.121 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 0.3 seconds (JVM running for 186.027)

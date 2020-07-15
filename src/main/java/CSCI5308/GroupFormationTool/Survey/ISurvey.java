@@ -24,4 +24,6 @@ public interface ISurvey {
 	public List<IQuestion> loadQuestionsByCourseId(ISurveyPersistence surveyDB);
 	
 	public boolean publishSurvey(long surveyID, ISurveyPersistence surveyDB );
+	
+	public boolean submitResponse(IStudentSurveyPersistence surveyDB,String bannerID, long courseid,String[] arr1);
 		}
