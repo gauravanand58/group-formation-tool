@@ -12,7 +12,7 @@ public class UserDB implements IUserPersistence {
 	private long userID;
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	public void loadUserByID(long id, User user) {
+	public void loadUserByID(long id, IUser user) {
 		CallStoredProcedure proc = null;
 		try {
 			proc = new CallStoredProcedure("spLoadUser(?)");
@@ -45,7 +45,7 @@ public class UserDB implements IUserPersistence {
 		}
 	}
 
-	public void loadUserByBannerID(String bannerID, User user) {
+	public void loadUserByBannerID(String bannerID, IUser user) {
 		CallStoredProcedure proc = null;
 		long userID = -1;
 		try {
@@ -71,7 +71,7 @@ public class UserDB implements IUserPersistence {
 		}
 	}
 
-	public boolean createUser(User user) {
+	public boolean createUser(IUser user) {
 		CallStoredProcedure proc = null;
 		try {
 			proc = new CallStoredProcedure("spCreateUser(?, ?, ?, ?, ?, ?)");
@@ -95,7 +95,7 @@ public class UserDB implements IUserPersistence {
 		return true;
 	}
 
-	public boolean updateUser(User user) {
+	public boolean updateUser(IUser user) {
 		return false;
 	}
 

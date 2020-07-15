@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
+import CSCI5308.GroupFormationTool.AccessControl.IUser;
 import CSCI5308.GroupFormationTool.AccessControl.User;
 import CSCI5308.GroupFormationTool.AccessControlTest.CurrentUserMock;
 import CSCI5308.GroupFormationTool.Courses.Course;
@@ -25,7 +26,7 @@ class CourseUserRelationshipTest {
 		Course course = new Course();
 		course.setId(0);
 		CurrentUserMock currentUser = new CurrentUserMock();
-		User user = currentUser.getCurrentAuthenticatedUser();
+		IUser user = currentUser.getCurrentAuthenticatedUser();
 		List<Role> roles = courseUserRelationshipDB.loadUserRolesForCourse(course, user);
 		assertThat(roles).isNotNull();
 		assertThat(roles).isNotEmpty();
@@ -37,7 +38,7 @@ class CourseUserRelationshipTest {
 		Course course = new Course();
 		course.setId(0);
 		CurrentUserMock currentUser = new CurrentUserMock();
-		User user = currentUser.getCurrentAuthenticatedUser();
+		IUser user = currentUser.getCurrentAuthenticatedUser();
 		List<Role> roles = courseUserRelationshipDB.loadUserRolesForCourse(course, user);
 		assertTrue(roles.size() > 0);
 	}
@@ -46,7 +47,7 @@ class CourseUserRelationshipTest {
 	public void enrollUserInCourse() {
 		Course course = new Course();
 		CurrentUserMock currentUser = new CurrentUserMock();
-		User user = currentUser.getCurrentAuthenticatedUser();
+		IUser user = currentUser.getCurrentAuthenticatedUser();
 		boolean result = courseUserRelationshipDB.enrollUser(course, user, Role.STUDENT);
 		assertTrue(result);
 	}

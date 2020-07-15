@@ -14,11 +14,13 @@ import org.springframework.web.multipart.MultipartFile;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 
+import CSCI5308.GroupFormationTool.AccessControl.IUser;
 import CSCI5308.GroupFormationTool.AccessControl.User;
+import CSCI5308.GroupFormationTool.AccessControl.UserAbstractFactory;
 
 public class StudentCSVParser implements IStudentCSVParser {
 	private MultipartFile uploadedFile;
-	private List<User> studentList = new ArrayList<>();
+	private List<IUser> studentList = new ArrayList<>();
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	public StudentCSVParser(MultipartFile file) {
 		this.uploadedFile = file;
@@ -26,13 +28,12 @@ public class StudentCSVParser implements IStudentCSVParser {
 	}
 
 	@Override
-	public List<User> parseCSVFile(List<String> failureResults) {
+	public List<IUser> parseCSVFile(List<String> failureResults) {
 		try {
 			Reader reader = new InputStreamReader(uploadedFile.getInputStream());
 			CSVReader csvReader = new CSVReaderBuilder(reader).build();
 			List<String[]> records = csvReader.readAll();
 			Iterator<String[]> iter = records.iterator();
-			User u;
 			while (iter.hasNext()) {
 				String[] record = iter.next();
 				String bannerID = record[0];
@@ -40,7 +41,7 @@ public class StudentCSVParser implements IStudentCSVParser {
 				String lastName = record[2];
 				String email = record[3];
 
-				u = new User();
+				IUser u = UserAbstractFactory.instance().createUserObject();
 				u.setBannerID(bannerID);
 				u.setFirstName(firstName);
 				u.setLastName(lastName);
