@@ -60,6 +60,7 @@ public class CourseUserRelationshipDB implements ICourseUserRelationshipPersiste
 					long userID = results.getLong(1);
 					User u = new User();
 					u.setID(userID);
+					u.setBannerID(results.getString(2));
 					users.add(u);
 				}
 			}

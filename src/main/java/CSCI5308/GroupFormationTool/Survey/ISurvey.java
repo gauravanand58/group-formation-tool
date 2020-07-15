@@ -23,5 +23,5 @@ public interface ISurvey {
 	
 	public List<IQuestion> loadQuestionsByCourseId(ISurveyPersistence surveyDB);
 	
-	public void addQuestion(IQuestion question);
+	public boolean publishSurvey(long surveyID, ISurveyPersistence surveyDB );
 		}

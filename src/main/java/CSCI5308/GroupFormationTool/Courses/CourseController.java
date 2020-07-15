@@ -13,7 +13,7 @@ public class CourseController {
 
 	@GetMapping("/course/course")
 	public String course(Model model, @RequestParam(name = ID) long courseID,
-			@RequestParam(name = "isUserInstructor") long userID) {
+			@RequestParam(name = "isUserInstructor") long userID,@RequestParam(name = "BannerID") String BannerID) {
 		ICoursePersistence courseDB = CourseSystemConfig.instance().getCourseDB();
 		ICourse course = CourseObjectFactory.objFactory(new CourseFactory());
 		courseDB.loadCourseByID(courseID, course);

@@ -10,19 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import CSCI5308.GroupFormationTool.AccessControl.User;
-import CSCI5308.GroupFormationTool.Courses.CourseAbstractFactory;
-import CSCI5308.GroupFormationTool.Courses.CourseDbFactory;
-import CSCI5308.GroupFormationTool.Courses.CourseFactory;
-import CSCI5308.GroupFormationTool.Courses.CourseObjectFactory;
-import CSCI5308.GroupFormationTool.Courses.CourseSystemConfig;
 import CSCI5308.GroupFormationTool.Courses.CourseUserRelationship;
-import CSCI5308.GroupFormationTool.Courses.CourseUserRelationshipPersistenceAbstractFactory;
-import CSCI5308.GroupFormationTool.Courses.CourseUserRelationshipPersistenceFactory;
-import CSCI5308.GroupFormationTool.Courses.ICourse;
-import CSCI5308.GroupFormationTool.Courses.ICoursePersistence;
 import CSCI5308.GroupFormationTool.Courses.ICourseUserRelationship;
-import CSCI5308.GroupFormationTool.Courses.ICourseUserRelationshipPersistence;
-import CSCI5308.GroupFormationTool.Courses.Role;
 import CSCI5308.GroupFormationTool.Questions.IQuestion;
 import CSCI5308.GroupFormationTool.Questions.IQuestionPersistence;
 import CSCI5308.GroupFormationTool.Questions.QuestionsSystemConfig;
@@ -50,7 +39,8 @@ public class SurveyController {
 		model.addAttribute("availableQuestions", availableQuestionsList);
 		model.addAttribute("courseID", courseID);
 		model.addAttribute("survey", survey);
-		
+		model.addAttribute("instructorBannerID", instructor.getBannerID());
+		model.addAttribute("instructorUserID", instructor.getId());
 		addedQuestionsList = surveyDB.loadQuestionsByCourseId(courseID);
 		model.addAttribute("addedQuestions", addedQuestionsList);
 		return "survey/main";
@@ -66,5 +56,20 @@ public class SurveyController {
 		ModelAndView mav = new ModelAndView("redirect:/survey/editSurvey");
 		mav.addObject("id", courseID);
 		return mav;
+	}
+	
+	@GetMapping("/survey/publish")
+	public ModelAndView publishSurvey(@RequestParam(name="surveyID") long surveyID,@RequestParam(name="instructorUserID") long instructorUserID, 
+			@RequestParam(name="courseID") long courseID,@RequestParam(name="BannerID") String BannerID, Model model) {
+		ISurveyPersistence surveyDB = new SurveyDB();
+		ISurvey survey = new Survey();
+		boolean surveyPublished=survey.publishSurvey(surveyID, surveyDB);
+		model.addAttribute("surveyPublished",surveyPublished);
+		ModelAndView mav = new ModelAndView("redirect:/course/course");
+		mav.addObject("id", courseID);
+		mav.addObject("isUserInstructor", instructorUserID);
+		mav.addObject("BannerID", BannerID);
+		return mav;
+		
 	}
 }
