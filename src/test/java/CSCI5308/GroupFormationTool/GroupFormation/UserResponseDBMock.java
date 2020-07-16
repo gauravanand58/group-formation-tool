@@ -9,9 +9,9 @@ public class UserResponseDBMock implements IUserResponsePersistence {
 
 	@Override
 	public Map<Long, Map<Long, String>> loadUserResponsesForQuestions(long courseId) {
-		Map<Long, Map<Long, String>> response  = new HashMap<Long, Map<Long,String>>();
+		Map<Long, Map<Long, String>> response = new HashMap<Long, Map<Long, String>>();
 		Map<Long, String> questionMap = new HashMap<Long, String>();
-		questionMap.put(11l, "Java");		
+		questionMap.put(11l, "Java");
 		response.put(1l, questionMap);
 		response.put(2l, questionMap);
 		return response;
@@ -19,7 +19,7 @@ public class UserResponseDBMock implements IUserResponsePersistence {
 
 	@Override
 	public Map<Long, Map<Long, List<String>>> loadUserResponsesForMCQ2(long courseId) {
-		Map<Long, Map<Long, List<String>>> response  = new HashMap<Long, Map<Long,List<String>>>();
+		Map<Long, Map<Long, List<String>>> response = new HashMap<Long, Map<Long, List<String>>>();
 		Map<Long, List<String>> questionMap = new HashMap<Long, List<String>>();
 		List<String> userResponse = new ArrayList<String>();
 		userResponse.add("Java");

@@ -2,8 +2,7 @@ package CSCI5308.GroupFormationTool.Courses;
 
 import java.util.List;
 
-import CSCI5308.GroupFormationTool.AccessControl.*;
-import CSCI5308.GroupFormationTool.Questions.IQuestion;
+import CSCI5308.GroupFormationTool.AccessControl.IUser;
 
 public class CourseUserRelationship implements ICourseUserRelationship {
 	public boolean userHasRoleInCourse(IUser user, Role role, ICourse course) {
@@ -37,12 +36,12 @@ public class CourseUserRelationship implements ICourseUserRelationship {
 				.getCourseUserRelationshipDB();
 		return userCourseRelationshipDB.enrollUser(course, user, role);
 	}
-	
-	public IUser findInstructorWithCourse(long courseId){
+
+	public IUser findInstructorWithCourse(long courseId) {
 		ICourseUserRelationshipPersistence userCourseRelationshipDB = CourseSystemConfig.instance()
 				.getCourseUserRelationshipDB();
 		List<IUser> usersList = userCourseRelationshipDB.findAllUsersWithCourseRole(Role.INSTRUCTOR, courseId);
-		if(usersList.size() == 0) {
+		if (usersList.size() == 0) {
 			return null;
 		}
 		return usersList.get(0);

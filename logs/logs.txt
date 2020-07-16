@@ -1,0 +1,285 @@
+[DEBUG] 2020-07-16 13:00:50.554 [http-nio-8080-exec-6] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-16 13:00:50.555 [http-nio-8080-exec-6] CurrentUser - Valid User
+[INFO ] 2020-07-16 13:00:55.980 [http-nio-8080-exec-6] SurveyStudentDB - Successfully created question options
+[INFO ] 2020-07-16 13:40:39.198 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on LAPTOP-USJ57PKN with PID 118252 (H:\Study\Dalhousie\ASDC\test\group4\bin\main started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-16 13:40:39.201 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 13:40:39.201 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 13:40:40.340 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 1.305 seconds (JVM running for 2.057)
+[INFO ] 2020-07-16 13:40:49.130 [http-nio-8080-exec-2] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-16 13:40:49.130 [http-nio-8080-exec-2] ConnectionManager - User name of database:CSCI5308_4_DEVINT_USER
+[DEBUG] 2020-07-16 13:40:57.754 [http-nio-8080-exec-7] UserDB - Loaded user with user ID19
+[DEBUG] 2020-07-16 13:41:01.113 [http-nio-8080-exec-2] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-16 13:41:01.113 [http-nio-8080-exec-2] CurrentUser - Valid User
+[INFO ] 2020-07-16 13:41:01.868 [http-nio-8080-exec-2] SurveyStudentDB - Successfully created question options
+[INFO ] 2020-07-16 13:41:22.225 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on LAPTOP-USJ57PKN with PID 118252 (H:\Study\Dalhousie\ASDC\test\group4\bin\main started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-16 13:41:22.226 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 13:41:22.226 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 13:41:22.546 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 0.355 seconds (JVM running for 44.263)
+[INFO ] 2020-07-16 13:41:27.515 [http-nio-8080-exec-1] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-16 13:41:27.515 [http-nio-8080-exec-1] ConnectionManager - User name of database:CSCI5308_4_DEVIN_USER
+[ERROR] 2020-07-16 13:41:27.558 [http-nio-8080-exec-1] Survey - spCreateSurveyResponse throws SQLException:Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[ERROR] 2020-07-16 13:41:27.595 [http-nio-8080-exec-1] SurveyStudentDB - spDeleteSurveyResponse throws SQLException:Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[ERROR] 2020-07-16 13:41:27.656 [http-nio-8080-exec-2] CourseDB - spFindCourseByID throws SQLException: Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[ERROR] 2020-07-16 13:41:27.734 [http-nio-8080-exec-2] UserDB - spFindUserByBannerID throws SQLException Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[ERROR] 2020-07-16 13:41:27.792 [http-nio-8080-exec-2] CourseUserRelationshipDB - spLoadUserRolesForCourse throws SQLException: Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[ERROR] 2020-07-16 13:41:27.822 [http-nio-8080-exec-2] SurveyStudentDB - spcheckIfSurveyPublished throws SQLException:Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[INFO ] 2020-07-16 13:41:27.823 [http-nio-8080-exec-2] SurveyStudentDB - Successfully created question options
+[ERROR] 2020-07-16 13:41:27.851 [http-nio-8080-exec-2] SurveyStudentDB - spCreateQuestion(spcheckIfStudentCompletedSurvey throws SQLException:Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[INFO ] 2020-07-16 13:47:43.084 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on LAPTOP-USJ57PKN with PID 122108 (H:\Study\Dalhousie\ASDC\test\group4\bin\main started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-16 13:47:43.087 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 13:47:43.087 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 13:47:44.243 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 1.325 seconds (JVM running for 1.932)
+[INFO ] 2020-07-16 13:47:50.784 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on LAPTOP-USJ57PKN with PID 122108 (H:\Study\Dalhousie\ASDC\test\group4\bin\main started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-16 13:47:50.784 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 13:47:50.784 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 13:47:51.094 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 0.343 seconds (JVM running for 8.783)
+[INFO ] 2020-07-16 13:47:57.380 [http-nio-8080-exec-5] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-16 13:47:57.380 [http-nio-8080-exec-5] ConnectionManager - User name of database:CSCI5308_4_DEVINT_USER
+[DEBUG] 2020-07-16 13:47:58.104 [http-nio-8080-exec-5] UserDB - Loaded user with user ID19
+[DEBUG] 2020-07-16 13:48:03.054 [http-nio-8080-exec-9] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-16 13:48:03.055 [http-nio-8080-exec-9] CurrentUser - Valid User
+[INFO ] 2020-07-16 13:48:03.773 [http-nio-8080-exec-9] SurveyStudentDB - Successfully created question options
+[INFO ] 2020-07-16 13:48:27.916 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on LAPTOP-USJ57PKN with PID 122108 (H:\Study\Dalhousie\ASDC\test\group4\bin\main started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-16 13:48:27.917 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 13:48:27.917 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 13:48:28.190 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 0.297 seconds (JVM running for 45.879)
+[INFO ] 2020-07-16 13:48:30.130 [http-nio-8080-exec-1] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-16 13:48:30.130 [http-nio-8080-exec-1] ConnectionManager - User name of database:CSCI5308_4_DEVIN_USER
+[ERROR] 2020-07-16 13:48:30.165 [http-nio-8080-exec-1] Survey - spCreateSurveyResponse throws SQLException:Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[ERROR] 2020-07-16 13:48:30.201 [http-nio-8080-exec-1] SurveyStudentDB - spDeleteSurveyResponse throws SQLException:Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[ERROR] 2020-07-16 13:48:30.261 [http-nio-8080-exec-3] CourseDB - spFindCourseByID throws SQLException: Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[ERROR] 2020-07-16 13:48:30.308 [http-nio-8080-exec-3] UserDB - spFindUserByBannerID throws SQLException Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[ERROR] 2020-07-16 13:48:30.349 [http-nio-8080-exec-3] CourseUserRelationshipDB - spLoadUserRolesForCourse throws SQLException: Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[ERROR] 2020-07-16 13:48:30.378 [http-nio-8080-exec-3] SurveyStudentDB - spcheckIfSurveyPublished throws SQLException:Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[INFO ] 2020-07-16 13:48:30.379 [http-nio-8080-exec-3] SurveyStudentDB - Successfully created question options
+[ERROR] 2020-07-16 13:48:30.419 [http-nio-8080-exec-3] SurveyStudentDB - spCreateQuestion(spcheckIfStudentCompletedSurvey throws SQLException:Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[INFO ] 2020-07-16 13:50:58.098 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on LAPTOP-USJ57PKN with PID 122108 (H:\Study\Dalhousie\ASDC\test\group4\bin\main started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-16 13:50:58.098 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 13:50:58.098 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 13:50:58.351 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 0.276 seconds (JVM running for 196.04)
+[INFO ] 2020-07-16 13:51:39.058 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on LAPTOP-USJ57PKN with PID 132456 (H:\Study\Dalhousie\ASDC\test\group4\bin\main started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-16 13:51:39.061 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 13:51:39.062 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 13:51:40.240 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 1.383 seconds (JVM running for 2.028)
+[INFO ] 2020-07-16 13:52:09.125 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on LAPTOP-USJ57PKN with PID 132456 (H:\Study\Dalhousie\ASDC\test\group4\bin\main started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-16 13:52:09.125 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 13:52:09.126 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 13:52:09.426 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 0.325 seconds (JVM running for 31.215)
+[INFO ] 2020-07-16 13:52:32.009 [http-nio-8080-exec-1] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-16 13:52:32.009 [http-nio-8080-exec-1] ConnectionManager - User name of database:CSCI5308_4_DEVINT_USER
+[DEBUG] 2020-07-16 13:52:38.163 [http-nio-8080-exec-7] UserDB - Loaded user with user ID19
+[DEBUG] 2020-07-16 13:52:42.654 [http-nio-8080-exec-1] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-16 13:52:42.654 [http-nio-8080-exec-1] CurrentUser - Valid User
+[INFO ] 2020-07-16 13:52:43.353 [http-nio-8080-exec-1] SurveyStudentDB - Successfully created question options
+[DEBUG] 2020-07-16 13:52:50.322 [http-nio-8080-exec-3] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-16 13:52:50.323 [http-nio-8080-exec-3] CurrentUser - Valid User
+[INFO ] 2020-07-16 13:52:51.210 [http-nio-8080-exec-3] SurveyStudentDB - Successfully created question options
+[DEBUG] 2020-07-16 13:53:19.565 [http-nio-8080-exec-8] UserDB - Loaded user with user ID19
+[DEBUG] 2020-07-16 13:53:23.085 [http-nio-8080-exec-2] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-16 13:53:23.085 [http-nio-8080-exec-2] CurrentUser - Valid User
+[INFO ] 2020-07-16 13:53:23.814 [http-nio-8080-exec-2] SurveyStudentDB - Successfully created question options
+[DEBUG] 2020-07-16 13:53:32.503 [http-nio-8080-exec-4] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-16 13:53:32.504 [http-nio-8080-exec-4] CurrentUser - Valid User
+[INFO ] 2020-07-16 13:53:33.764 [http-nio-8080-exec-4] SurveyStudentDB - Successfully created question options
+[INFO ] 2020-07-16 13:53:34.042 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on LAPTOP-USJ57PKN with PID 132456 (H:\Study\Dalhousie\ASDC\test\group4\bin\main started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-16 13:53:34.043 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 13:53:34.044 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 13:53:34.339 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 0.333 seconds (JVM running for 116.127)
+[INFO ] 2020-07-16 13:53:34.531 [http-nio-8080-exec-1] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-16 13:53:34.531 [http-nio-8080-exec-1] ConnectionManager - User name of database:CSCI5308_4_DEVIN_USER
+[ERROR] 2020-07-16 13:53:34.661 [http-nio-8080-exec-1] CourseDB - spFindCourseByID throws SQLException: Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[ERROR] 2020-07-16 13:53:34.692 [http-nio-8080-exec-1] UserDB - spFindUserByBannerID throws SQLException Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[ERROR] 2020-07-16 13:53:34.775 [http-nio-8080-exec-1] CourseUserRelationshipDB - spLoadUserRolesForCourse throws SQLException: Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[ERROR] 2020-07-16 13:53:34.809 [http-nio-8080-exec-1] SurveyStudentDB - spcheckIfSurveyPublished throws SQLException:Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[INFO ] 2020-07-16 13:53:34.810 [http-nio-8080-exec-1] SurveyStudentDB - Successfully created question options
+[ERROR] 2020-07-16 13:53:34.867 [http-nio-8080-exec-1] SurveyStudentDB - spCreateQuestion(spcheckIfStudentCompletedSurvey throws SQLException:Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[INFO ] 2020-07-16 13:55:59.165 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on LAPTOP-USJ57PKN with PID 132456 (H:\Study\Dalhousie\ASDC\test\group4\bin\main started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-16 13:55:59.165 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 13:55:59.165 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 13:55:59.423 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 0.283 seconds (JVM running for 261.212)
+[INFO ] 2020-07-16 13:57:07.570 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on LAPTOP-USJ57PKN with PID 132456 (H:\Study\Dalhousie\ASDC\test\group4\bin\main started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-16 13:57:07.570 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 13:57:07.571 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 13:57:07.893 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 0.393 seconds (JVM running for 329.682)
+[INFO ] 2020-07-16 13:57:13.441 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on LAPTOP-USJ57PKN with PID 161032 (H:\Study\Dalhousie\ASDC\test\group4\bin\main started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-16 13:57:13.445 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 13:57:13.445 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 13:57:14.615 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 1.354 seconds (JVM running for 1.998)
+[INFO ] 2020-07-16 13:57:45.179 [http-nio-8080-exec-1] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-16 13:57:45.180 [http-nio-8080-exec-1] ConnectionManager - User name of database:CSCI5308_4_DEVINT_USER
+[DEBUG] 2020-07-16 13:57:45.722 [http-nio-8080-exec-1] UserDB - Loaded user with user ID19
+[DEBUG] 2020-07-16 13:57:50.296 [http-nio-8080-exec-4] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-16 13:57:50.297 [http-nio-8080-exec-4] CurrentUser - Valid User
+[INFO ] 2020-07-16 13:57:52.049 [http-nio-8080-exec-4] SurveyStudentDB - Successfully created question options
+[INFO ] 2020-07-16 13:57:59.470 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on LAPTOP-USJ57PKN with PID 161032 (H:\Study\Dalhousie\ASDC\test\group4\bin\main started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-16 13:57:59.470 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 13:57:59.471 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 13:57:59.785 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 0.341 seconds (JVM running for 47.168)
+[INFO ] 2020-07-16 13:58:06.575 [http-nio-8080-exec-1] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-16 13:58:06.575 [http-nio-8080-exec-1] ConnectionManager - User name of database:CSCI5308_4_DEVIN_USER
+[ERROR] 2020-07-16 13:58:06.661 [http-nio-8080-exec-1] Survey - spCreateSurveyResponse throws SQLException:Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[ERROR] 2020-07-16 13:58:06.689 [http-nio-8080-exec-1] SurveyStudentDB - spDeleteSurveyResponse throws SQLException:Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[ERROR] 2020-07-16 13:58:06.730 [http-nio-8080-exec-2] CourseDB - spFindCourseByID throws SQLException: Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[ERROR] 2020-07-16 13:58:06.769 [http-nio-8080-exec-2] UserDB - spFindUserByBannerID throws SQLException Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[ERROR] 2020-07-16 13:58:06.849 [http-nio-8080-exec-2] CourseUserRelationshipDB - spLoadUserRolesForCourse throws SQLException: Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[ERROR] 2020-07-16 13:58:06.877 [http-nio-8080-exec-2] SurveyStudentDB - spcheckIfSurveyPublished throws SQLException:Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[INFO ] 2020-07-16 13:58:06.878 [http-nio-8080-exec-2] SurveyStudentDB - Successfully created question options
+[ERROR] 2020-07-16 13:58:06.960 [http-nio-8080-exec-2] SurveyStudentDB - spCreateQuestion(spcheckIfStudentCompletedSurvey throws SQLException:Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[INFO ] 2020-07-16 13:58:23.508 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on LAPTOP-USJ57PKN with PID 161032 (H:\Study\Dalhousie\ASDC\test\group4\bin\main started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-16 13:58:23.508 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 13:58:23.509 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 13:58:23.789 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 0.302 seconds (JVM running for 71.171)
+[INFO ] 2020-07-16 13:58:51.163 [http-nio-8080-exec-1] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-16 13:58:51.163 [http-nio-8080-exec-1] ConnectionManager - User name of database:CSCI5308_4_DEVINT_USER
+[DEBUG] 2020-07-16 13:58:51.490 [http-nio-8080-exec-1] UserDB - Loaded user with user ID19
+[DEBUG] 2020-07-16 13:58:54.581 [http-nio-8080-exec-5] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-16 13:58:54.582 [http-nio-8080-exec-5] CurrentUser - Valid User
+[INFO ] 2020-07-16 13:58:55.319 [http-nio-8080-exec-5] SurveyStudentDB - Successfully created question options
+[DEBUG] 2020-07-16 13:59:12.431 [http-nio-8080-exec-7] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-16 13:59:12.431 [http-nio-8080-exec-7] CurrentUser - Valid User
+[INFO ] 2020-07-16 13:59:13.180 [http-nio-8080-exec-7] SurveyStudentDB - Successfully created question options
+[DEBUG] 2020-07-16 13:59:43.729 [http-nio-8080-exec-2] UserDB - Loaded user with user ID19
+[DEBUG] 2020-07-16 13:59:48.903 [http-nio-8080-exec-6] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-16 13:59:48.903 [http-nio-8080-exec-6] CurrentUser - Valid User
+[INFO ] 2020-07-16 13:59:50.073 [http-nio-8080-exec-6] SurveyStudentDB - Successfully created question options
+[INFO ] 2020-07-16 14:00:05.179 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on LAPTOP-USJ57PKN with PID 161032 (H:\Study\Dalhousie\ASDC\test\group4\bin\main started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-16 14:00:05.179 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 14:00:05.179 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 14:00:05.423 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 0.268 seconds (JVM running for 172.806)
+[INFO ] 2020-07-16 14:00:10.626 [http-nio-8080-exec-1] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-16 14:00:10.627 [http-nio-8080-exec-1] ConnectionManager - User name of database:CSCI5308_4_DEVIN_USER
+[ERROR] 2020-07-16 14:00:10.699 [http-nio-8080-exec-1] Survey - spCreateSurveyResponse throws SQLException:Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[ERROR] 2020-07-16 14:00:10.740 [http-nio-8080-exec-1] SurveyStudentDB - spDeleteSurveyResponse throws SQLException:Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[ERROR] 2020-07-16 14:00:10.778 [http-nio-8080-exec-2] CourseDB - spFindCourseByID throws SQLException: Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[ERROR] 2020-07-16 14:00:10.807 [http-nio-8080-exec-2] UserDB - spFindUserByBannerID throws SQLException Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[ERROR] 2020-07-16 14:00:10.836 [http-nio-8080-exec-2] CourseUserRelationshipDB - spLoadUserRolesForCourse throws SQLException: Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[ERROR] 2020-07-16 14:00:10.866 [http-nio-8080-exec-2] SurveyStudentDB - spcheckIfSurveyPublished throws SQLException:Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[INFO ] 2020-07-16 14:00:10.869 [http-nio-8080-exec-2] SurveyStudentDB - Successfully created question options
+[ERROR] 2020-07-16 14:00:10.927 [http-nio-8080-exec-2] SurveyStudentDB - spCreateQuestion(spcheckIfStudentCompletedSurvey throws SQLException:Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[INFO ] 2020-07-16 14:00:19.068 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on LAPTOP-USJ57PKN with PID 161032 (H:\Study\Dalhousie\ASDC\test\group4\bin\main started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-16 14:00:19.069 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 14:00:19.069 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 14:00:19.317 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 0.276 seconds (JVM running for 186.7)
+[INFO ] 2020-07-16 14:00:22.977 [http-nio-8080-exec-1] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-16 14:00:22.977 [http-nio-8080-exec-1] ConnectionManager - User name of database:CSCI5308_4_DEVINT_USER
+[DEBUG] 2020-07-16 14:00:23.508 [http-nio-8080-exec-1] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-16 14:00:23.509 [http-nio-8080-exec-1] CurrentUser - Valid User
+[INFO ] 2020-07-16 14:00:24.247 [http-nio-8080-exec-1] SurveyStudentDB - Successfully created question options
+[DEBUG] 2020-07-16 14:00:28.473 [http-nio-8080-exec-3] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-16 14:00:28.473 [http-nio-8080-exec-3] CurrentUser - Valid User
+[INFO ] 2020-07-16 14:00:29.191 [http-nio-8080-exec-3] SurveyStudentDB - Successfully created question options
+[DEBUG] 2020-07-16 14:02:00.124 [http-nio-8080-exec-10] UserDB - Loaded user with user ID19
+[DEBUG] 2020-07-16 14:02:02.866 [http-nio-8080-exec-4] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-16 14:02:02.867 [http-nio-8080-exec-4] CurrentUser - Valid User
+[INFO ] 2020-07-16 14:02:03.576 [http-nio-8080-exec-4] SurveyStudentDB - Successfully created question options
+[DEBUG] 2020-07-16 14:02:17.460 [http-nio-8080-exec-6] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-16 14:02:17.460 [http-nio-8080-exec-6] CurrentUser - Valid User
+[INFO ] 2020-07-16 14:02:18.191 [http-nio-8080-exec-6] SurveyStudentDB - Successfully created question options
+[DEBUG] 2020-07-16 14:02:47.119 [http-nio-8080-exec-9] SurveyDB - Successfully published survey with ID:5
+[DEBUG] 2020-07-16 14:02:47.679 [http-nio-8080-exec-8] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-16 14:02:47.679 [http-nio-8080-exec-8] CurrentUser - Valid User
+[INFO ] 2020-07-16 14:02:48.427 [http-nio-8080-exec-8] SurveyStudentDB - Successfully created question options
+[DEBUG] 2020-07-16 14:04:02.537 [http-nio-8080-exec-3] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-16 14:04:02.538 [http-nio-8080-exec-3] CurrentUser - Valid User
+[INFO ] 2020-07-16 14:04:03.276 [http-nio-8080-exec-3] SurveyStudentDB - Successfully created question options
+[DEBUG] 2020-07-16 14:04:08.258 [http-nio-8080-exec-4] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-16 14:04:08.258 [http-nio-8080-exec-4] CurrentUser - Valid User
+[INFO ] 2020-07-16 14:04:08.929 [http-nio-8080-exec-4] SurveyStudentDB - Successfully created question options
+[DEBUG] 2020-07-16 14:05:06.184 [http-nio-8080-exec-5] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-16 14:05:06.184 [http-nio-8080-exec-5] CurrentUser - Valid User
+[INFO ] 2020-07-16 14:05:06.940 [http-nio-8080-exec-5] SurveyStudentDB - Successfully created question options
+[INFO ] 2020-07-16 14:05:16.604 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on LAPTOP-USJ57PKN with PID 161032 (H:\Study\Dalhousie\ASDC\test\group4\bin\main started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-16 14:05:16.605 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 14:05:16.605 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 14:05:16.855 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 0.279 seconds (JVM running for 484.238)
+[INFO ] 2020-07-16 14:05:19.654 [http-nio-8080-exec-2] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-16 14:05:19.654 [http-nio-8080-exec-2] ConnectionManager - User name of database:CSCI5308_4_DEVIN_USER
+[ERROR] 2020-07-16 14:05:19.682 [http-nio-8080-exec-2] Survey - spCreateSurveyResponse throws SQLException:Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[ERROR] 2020-07-16 14:05:19.710 [http-nio-8080-exec-2] SurveyStudentDB - spDeleteSurveyResponse throws SQLException:Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[ERROR] 2020-07-16 14:05:19.750 [http-nio-8080-exec-1] CourseDB - spFindCourseByID throws SQLException: Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[ERROR] 2020-07-16 14:05:19.809 [http-nio-8080-exec-1] UserDB - spFindUserByBannerID throws SQLException Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[ERROR] 2020-07-16 14:05:19.840 [http-nio-8080-exec-1] CourseUserRelationshipDB - spLoadUserRolesForCourse throws SQLException: Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[ERROR] 2020-07-16 14:05:19.869 [http-nio-8080-exec-1] SurveyStudentDB - spcheckIfSurveyPublished throws SQLException:Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[INFO ] 2020-07-16 14:05:19.870 [http-nio-8080-exec-1] SurveyStudentDB - Successfully created question options
+[ERROR] 2020-07-16 14:05:19.931 [http-nio-8080-exec-1] SurveyStudentDB - spCreateQuestion(spcheckIfStudentCompletedSurvey throws SQLException:Access denied for user 'CSCI5308_4_DEVIN_USER'@'hlfxns017vw-142-68-128-122.dhcp-dynamic.fibreop.ns.bellalian' (using password: YES)
+[INFO ] 2020-07-16 14:05:31.507 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on LAPTOP-USJ57PKN with PID 161032 (H:\Study\Dalhousie\ASDC\test\group4\bin\main started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-16 14:05:31.508 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 14:05:31.508 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 14:05:31.755 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 0.272 seconds (JVM running for 499.138)
+[INFO ] 2020-07-16 14:05:34.177 [http-nio-8080-exec-1] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-16 14:05:34.177 [http-nio-8080-exec-1] ConnectionManager - User name of database:CSCI5308_4_DEVINT_USER
+[DEBUG] 2020-07-16 14:05:35.011 [http-nio-8080-exec-1] UserDB - Loaded user with user ID19
+[DEBUG] 2020-07-16 14:05:37.660 [http-nio-8080-exec-5] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-16 14:05:37.660 [http-nio-8080-exec-5] CurrentUser - Valid User
+[INFO ] 2020-07-16 14:05:38.576 [http-nio-8080-exec-5] SurveyStudentDB - Successfully created question options
+[INFO ] 2020-07-16 14:11:13.711 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on LAPTOP-USJ57PKN with PID 161032 (H:\Study\Dalhousie\ASDC\test\group4\bin\main started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-16 14:11:13.711 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 14:11:13.711 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 14:11:13.950 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 0.258 seconds (JVM running for 841.333)
+[INFO ] 2020-07-16 14:11:25.520 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on LAPTOP-USJ57PKN with PID 161032 (H:\Study\Dalhousie\ASDC\test\group4\bin\main started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-16 14:11:25.521 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 14:11:25.521 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 14:11:25.752 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 0.251 seconds (JVM running for 853.135)
+[INFO ] 2020-07-16 14:11:40.360 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on LAPTOP-USJ57PKN with PID 161032 (H:\Study\Dalhousie\ASDC\test\group4\bin\main started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-16 14:11:40.361 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 14:11:40.361 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 14:11:40.595 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 0.254 seconds (JVM running for 867.978)
+[INFO ] 2020-07-16 14:12:13.344 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on LAPTOP-USJ57PKN with PID 161032 (H:\Study\Dalhousie\ASDC\test\group4\bin\main started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-16 14:12:13.344 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 14:12:13.344 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 14:12:13.574 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 0.252 seconds (JVM running for 900.958)
+[INFO ] 2020-07-16 14:12:33.311 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on LAPTOP-USJ57PKN with PID 127656 (H:\Study\Dalhousie\ASDC\test\group4\bin\main started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-16 14:12:33.315 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 14:12:33.315 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 14:12:34.435 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 1.287 seconds (JVM running for 1.935)
+[INFO ] 2020-07-16 16:58:05.535 [main] User - Successfully created user and sent credentials
+[INFO ] 2020-07-16 16:58:05.557 [main] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-16 16:58:05.557 [main] ConnectionManager - User name of database:CSCI5308_4_DEVINT_USER
+[ERROR] 2020-07-16 16:58:06.969 [main] CourseUserRelationshipDB - spEnrollUser(?, ?, ?) throws SQLException:Cannot add or update a child row: a foreign key constraint fails (`CSCI5308_4_DEVINT`.`CourseRole`, CONSTRAINT `CourseRole_ibfk_1` FOREIGN KEY (`courseID`) REFERENCES `Course` (`id`))
+[INFO ] 2020-07-16 16:58:07.029 [main] User - Valid password history
+[INFO ] 2020-07-16 16:58:07.029 [main] User - Invalid password history
+[INFO ] 2020-07-16 16:58:07.034 [main] User - Valid password
+[INFO ] 2020-07-16 16:58:07.034 [main] User - Invalid password upper char
+[DEBUG] 2020-07-16 16:58:07.116 [main] GroupingService - groups created: 1
+[DEBUG] 2020-07-16 16:58:07.920 [main] UserDB - Loaded user with user ID1
+[INFO ] 2020-07-16 16:58:10.621 [main] GroupFormationToolApplicationTests - Starting GroupFormationToolApplicationTests on LAPTOP-USJ57PKN with PID 166156 (started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-16 16:58:10.626 [main] GroupFormationToolApplicationTests - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 16:58:10.628 [main] GroupFormationToolApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 16:58:14.389 [main] GroupFormationToolApplicationTests - Started GroupFormationToolApplicationTests in 4.221 seconds (JVM running for 13.095)
+[INFO ] 2020-07-16 16:58:29.812 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on LAPTOP-USJ57PKN with PID 130396 (H:\Study\Dalhousie\ASDC\test\group4\bin\main started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-16 16:58:29.815 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 16:58:29.816 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 16:58:30.950 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 1.302 seconds (JVM running for 1.924)
+[INFO ] 2020-07-16 16:58:36.419 [http-nio-8080-exec-1] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-16 16:58:36.419 [http-nio-8080-exec-1] ConnectionManager - User name of database:CSCI5308_4_DEVINT_USER
+[DEBUG] 2020-07-16 16:58:43.050 [http-nio-8080-exec-7] UserDB - Loaded user with user ID19
+[DEBUG] 2020-07-16 16:58:45.767 [http-nio-8080-exec-1] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-16 16:58:45.768 [http-nio-8080-exec-1] CurrentUser - Valid User
+[INFO ] 2020-07-16 16:58:46.853 [http-nio-8080-exec-1] SurveyStudentDB - Successfully created question options
+[DEBUG] 2020-07-16 16:58:58.676 [http-nio-8080-exec-2] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-16 16:58:58.676 [http-nio-8080-exec-2] CurrentUser - Valid User
+[INFO ] 2020-07-16 16:58:59.356 [http-nio-8080-exec-2] SurveyStudentDB - Successfully created question options
+[DEBUG] 2020-07-16 16:59:42.758 [http-nio-8080-exec-8] UserDB - Loaded user with user ID19
+[DEBUG] 2020-07-16 16:59:45.336 [http-nio-8080-exec-3] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-16 16:59:45.336 [http-nio-8080-exec-3] CurrentUser - Valid User
+[INFO ] 2020-07-16 16:59:45.987 [http-nio-8080-exec-3] SurveyStudentDB - Successfully created question options
+[INFO ] 2020-07-16 16:59:53.756 [http-nio-8080-exec-5] QuestionListManager - Sorting questions by Date
+[INFO ] 2020-07-16 16:59:53.894 [http-nio-8080-exec-5] QuestionDB - Successfully sorted by date
+[INFO ] 2020-07-16 17:00:04.495 [http-nio-8080-exec-6] QuestionListManager - Sorting questions by Title
+[INFO ] 2020-07-16 17:00:04.721 [http-nio-8080-exec-6] QuestionDB - Successfully sorted by title
+[INFO ] 2020-07-16 17:00:10.773 [http-nio-8080-exec-7] QuestionListManager - Sorting questions by Date
+[INFO ] 2020-07-16 17:00:10.948 [http-nio-8080-exec-7] QuestionDB - Successfully sorted by date
+[INFO ] 2020-07-16 17:27:07.824 [main] User - Successfully created user and sent credentials
+[INFO ] 2020-07-16 17:27:07.831 [main] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-16 17:27:07.832 [main] ConnectionManager - User name of database:CSCI5308_4_DEVINT_USER
+[ERROR] 2020-07-16 17:27:08.248 [main] CourseUserRelationshipDB - spEnrollUser(?, ?, ?) throws SQLException:Cannot add or update a child row: a foreign key constraint fails (`CSCI5308_4_DEVINT`.`CourseRole`, CONSTRAINT `CourseRole_ibfk_1` FOREIGN KEY (`courseID`) REFERENCES `Course` (`id`))
+[INFO ] 2020-07-16 17:27:08.267 [main] User - Valid password history
+[INFO ] 2020-07-16 17:27:08.268 [main] User - Invalid password history
+[INFO ] 2020-07-16 17:27:08.269 [main] User - Valid password
+[INFO ] 2020-07-16 17:27:08.269 [main] User - Invalid password upper char
+[DEBUG] 2020-07-16 17:27:08.279 [main] GroupingService - groups created: 1
+[DEBUG] 2020-07-16 17:27:08.475 [main] UserDB - Loaded user with user ID1
+[INFO ] 2020-07-16 17:27:09.298 [main] GroupFormationToolApplicationTests - Starting GroupFormationToolApplicationTests on LAPTOP-USJ57PKN with PID 135176 (started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-16 17:27:09.303 [main] GroupFormationToolApplicationTests - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 17:27:09.304 [main] GroupFormationToolApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 17:27:11.276 [main] GroupFormationToolApplicationTests - Started GroupFormationToolApplicationTests in 2.169 seconds (JVM running for 5.158)

@@ -21,8 +21,8 @@ public class ConnectionManager {
 		dbURL = config.getDatabaseURL();
 		dbUserName = config.getDatabaseUserName();
 		dbPassword = config.getDatabasePassword();
-		logger.info("URL of database:"+dbURL);
-		logger.info("User name of database:"+dbUserName);
+		logger.info("URL of database:" + dbURL);
+		logger.info("User name of database:" + dbUserName);
 	}
 
 	public static ConnectionManager instance() {

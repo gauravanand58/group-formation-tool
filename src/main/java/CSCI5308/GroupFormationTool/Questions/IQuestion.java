@@ -26,15 +26,16 @@ public interface IQuestion {
 	public String getQuestionText();
 
 	public void setQuestionText(String quesText);
-	
+
 	public boolean deleteQuestion(IQuestionPersistence questionDB);
 
-	public List<QuestionResponse> getAllResponses(IQuestionResponsePersistence responseDB);
+	public List<IQuestionResponse> getAllResponses(IQuestionResponsePersistence responseDB);
 
 	public boolean checkIfQuestionHasResponse();
 
 	public long createQuestion(IQuestionPersistence questionDB);
 
-	public void setQuestionOptions(List<QuestionOption> tempQuestionOptionObj);
-	public List<QuestionOption> getQuestionOptions();
+	public void setQuestionOptions(List<IQuestionOption> tempQuestionOptionObj);
+
+	public List<IQuestionOption> getQuestionOptions();
 }

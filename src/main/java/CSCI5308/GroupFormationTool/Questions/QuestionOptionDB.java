@@ -9,8 +9,9 @@ import CSCI5308.GroupFormationTool.Database.CallStoredProcedure;
 
 public class QuestionOptionDB implements IQuestionOptionPersistence {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
 	@Override
-	public boolean createOption(QuestionOption questionOptions, long questionID) {
+	public boolean createOption(IQuestionOption questionOptions, long questionID) {
 		CallStoredProcedure proc = null;
 		String[] optionTxt = questionOptions.getOptionTxt().split(",");
 		String[] optionScore = questionOptions.getOptionScore().split(",");
@@ -24,7 +25,7 @@ public class QuestionOptionDB implements IQuestionOptionPersistence {
 				proc.execute();
 			}
 		} catch (SQLException e) {
-			logger.error("spCreateQuestionOption throws SQLException:"+e.getMessage());
+			logger.error("spCreateQuestionOption throws SQLException:" + e.getMessage());
 			e.printStackTrace();
 			return false;
 		} finally {

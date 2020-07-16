@@ -15,7 +15,6 @@ import CSCI5308.GroupFormationTool.Survey.SurveySystemConfig;
 @Controller
 public class CourseController {
 	private static final String ID = "id";
-	
 
 	@GetMapping("/course/course")
 	public String course(Model model, @RequestParam(name = ID) long courseID,
@@ -41,16 +40,15 @@ public class CourseController {
 		}
 		ISurveyStudentPersistence surveyDB = SurveySystemConfig.instance().getStudentSurveyDB();
 		List<IQuestion> surveyQuestions = surveyDB.viewSurveyQuestions(courseID);
-		if(surveyQuestions.isEmpty()) {
+		if (surveyQuestions.isEmpty()) {
 			message = "Survey not yet published, please check again later";
 			model.addAttribute("message", message);
 		}
 		long responseCount = surveyDB.checkSurveySubmission(BannerID, courseID);
-		if(responseCount >= 1) {
+		if (responseCount >= 1) {
 			message = "Survey already completed";
 			model.addAttribute("message", message);
-		}
-		else {
+		} else {
 			model.addAttribute("surveyQuestions", surveyQuestions);
 			model.addAttribute("QuestionResponseObj", new QuestionResponse());
 		}

@@ -2,24 +2,22 @@ package CSCI5308.GroupFormationTool.Questions;
 
 import java.util.List;
 
-public class Question implements IQuestion{
+public class Question implements IQuestion {
 	private int questionID;
 	private long instructorID;
 	private String questionTitle;
 	private String questionText;
 	private String questionType;
 	private String questionDateTime;
-	
-	//for thymleaf
 	private String type;
 	private int value;
-	
-	private List<QuestionOption> questionOptions;
 
-public Question() {
+	private List<IQuestionOption> questionOptions;
+
+	public Question() {
 		setDefaults();
 	}
-	
+
 	private void setDefaults() {
 		questionID = -1;
 		instructorID = -1;
@@ -27,14 +25,14 @@ public Question() {
 		questionText = "";
 		questionType = "";
 		questionDateTime = "";
-		type="";
+		type = "";
 		value = -1;
 	}
-	
+
 	public Question(IQuestionPersistence questionDB, long questionID) {
 		questionDB.loadQuestionByID(this, questionID);
 	}
-	
+
 	public long getInstructorID() {
 		return instructorID;
 	}
@@ -82,7 +80,6 @@ public Question() {
 	public void setQuestionText(String quesText) {
 		this.questionText = quesText;
 	}
-	
 
 	public String getType() {
 		return type;
@@ -104,12 +101,13 @@ public Question() {
 		return questionDB.deleteQuestion(questionID);
 	}
 
-	public List<QuestionResponse> getAllResponses(IQuestionResponsePersistence responseDB) {
+	public List<IQuestionResponse> getAllResponses(IQuestionResponsePersistence responseDB) {
 		return responseDB.getAllResponsesOfQuestion(questionID);
 	}
 
 	public boolean checkIfQuestionHasResponse() {
-		List<QuestionResponse> responseList = getAllResponses(QuestionsSystemConfigPersistence.instance().getReponseDB());
+		List<IQuestionResponse> responseList = getAllResponses(
+				QuestionsSystemConfig.instance().getReponseDB());
 		if (null == responseList || responseList.size() == 0) {
 			return false;
 		}
@@ -120,12 +118,12 @@ public Question() {
 		return questionDB.createQuestion(this);
 	}
 
-	public List<QuestionOption> getQuestionOptions() {
+	public List<IQuestionOption> getQuestionOptions() {
 		return questionOptions;
 	}
 
-	public void setQuestionOptions(List<QuestionOption> questionOptions) {
+	public void setQuestionOptions(List<IQuestionOption> questionOptions) {
 		this.questionOptions = questionOptions;
 	}
-	
+
 }

@@ -12,6 +12,7 @@ import CSCI5308.GroupFormationTool.Database.CallStoredProcedure;
 
 public class QuestionDB implements IQuestionPersistence {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
 	@Override
 	public boolean deleteQuestion(int questionID) {
 		CallStoredProcedure proc = null;
@@ -20,7 +21,7 @@ public class QuestionDB implements IQuestionPersistence {
 			proc.setParameter(1, questionID);
 			proc.execute();
 		} catch (SQLException e) {
-			logger.error("spDeleteQuestion throws SQLException:"+e.getMessage());
+			logger.error("spDeleteQuestion throws SQLException:" + e.getMessage());
 			e.printStackTrace();
 			return false;
 		} finally {
@@ -28,12 +29,12 @@ public class QuestionDB implements IQuestionPersistence {
 				proc.cleanup();
 			}
 		}
-		logger.info("Successfully deleted question of ID:"+questionID);
+		logger.info("Successfully deleted question of ID:" + questionID);
 		return true;
 	}
 
 	@Override
-	public long createQuestion(Question question) {
+	public long createQuestion(IQuestion question) {
 		CallStoredProcedure proc = null;
 		long lastInsertedQuestion = -1;
 		try {
@@ -47,7 +48,7 @@ public class QuestionDB implements IQuestionPersistence {
 			lastInsertedQuestion = proc.getStatement().getLong(5);
 
 		} catch (SQLException e) {
-			logger.error("spCreateQuestion throws SQLException:"+e.getMessage());
+			logger.error("spCreateQuestion throws SQLException:" + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
@@ -72,7 +73,7 @@ public class QuestionDB implements IQuestionPersistence {
 					String questionText = results.getString(3);
 					String questionType = results.getString(4);
 					String questionDateTime = results.getString(5);
-					IQuestion q = QuestionsSystemConfig.instance().getQuestion();
+					IQuestion q = QuestionAbstractFactory.instance().makeQuestion();
 					q.setQuestionID(questionID);
 					q.setQuestionTitle(questionTitle);
 					q.setQuestionText(questionText);
@@ -82,7 +83,7 @@ public class QuestionDB implements IQuestionPersistence {
 				}
 			}
 		} catch (Exception e) {
-			logger.error("spSortByTitle thows SQLExcpetion:"+e.getMessage());
+			logger.error("spSortByTitle thows SQLExcpetion:" + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
@@ -109,7 +110,7 @@ public class QuestionDB implements IQuestionPersistence {
 					String questionText = results.getString(3);
 					String questionType = results.getString(4);
 					String questionDateTime = results.getString(5);
-					IQuestion q = QuestionsSystemConfig.instance().getQuestion();
+					IQuestion q = QuestionAbstractFactory.instance().makeQuestion();
 					q.setQuestionID(questionID);
 					q.setQuestionTitle(questionTitle);
 					q.setQuestionText(questionText);
@@ -119,7 +120,7 @@ public class QuestionDB implements IQuestionPersistence {
 				}
 			}
 		} catch (Exception e) {
-			logger.error("spSortByDate throws SQLException:"+e.getMessage());
+			logger.error("spSortByDate throws SQLException:" + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
@@ -145,7 +146,7 @@ public class QuestionDB implements IQuestionPersistence {
 					String questionText = results.getString(3);
 					String questionType = results.getString(4);
 					String questionDateTime = results.getString(5);
-					IQuestion q = QuestionsSystemConfig.instance().getQuestion();
+					IQuestion q = QuestionAbstractFactory.instance().makeQuestion();
 					q.setQuestionID(questionID);
 					q.setQuestionTitle(questionTitle);
 					q.setQuestionText(questionText);
@@ -155,7 +156,7 @@ public class QuestionDB implements IQuestionPersistence {
 				}
 			}
 		} catch (Exception e) {
-			logger.error("spDisplayQuestions throws SQLException:"+e.getMessage());
+			logger.error("spDisplayQuestions throws SQLException:" + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
@@ -164,8 +165,8 @@ public class QuestionDB implements IQuestionPersistence {
 		}
 		return displayQuestions;
 	}
-	
-	public void loadQuestionByID(Question question, long questionID) {
+
+	public void loadQuestionByID(IQuestion question, long questionID) {
 		CallStoredProcedure proc = null;
 		try {
 			proc = new CallStoredProcedure("spLoadQuestion(?)");

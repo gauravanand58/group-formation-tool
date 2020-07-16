@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class QuestionListController {
 	@RequestMapping("/course/questionmanager")
 	public String displayQuestionsList(@RequestParam("bannerID") String bannerID, Model model) {
-		IQuestionPersistence questionDB = QuestionsSystemConfigPersistence.instance().getQuestionDB();
-		IQuestionListManager questionListManager = QuestionsSystemConfig.instance().getQuestionListManager();
+		IQuestionPersistence questionDB = QuestionsSystemConfig.instance().getQuestionDB();
+		IQuestionListManager questionListManager = QuestionAbstractFactory.instance().makeQuestionListManager();
 		List<IQuestion> displayQues = questionListManager.displayQuestions(bannerID, questionDB);
 		model.addAttribute("ques", displayQues);
 		return "questionmanager/questionlist";
@@ -22,11 +22,11 @@ public class QuestionListController {
 	public String sortList(@RequestParam("bannerID") String bannerID, @RequestParam("sortBy") String sortBy,
 			Model model) {
 		List<IQuestion> sortedQuestions;
-		IQuestionPersistence questionDB = QuestionsSystemConfigPersistence.instance().getQuestionDB();
-		IQuestionListManager questionListManager = QuestionsSystemConfig.instance().getQuestionListManager();
-		sortedQuestions=questionListManager.sortQuestions(bannerID, sortBy,questionDB);
-		model.addAttribute("ques",sortedQuestions);
-		return "questionmanager/questionlist";	
+		IQuestionPersistence questionDB = QuestionsSystemConfig.instance().getQuestionDB();
+		IQuestionListManager questionListManager = QuestionAbstractFactory.instance().makeQuestionListManager();
+		sortedQuestions = questionListManager.sortQuestions(bannerID, sortBy, questionDB);
+		model.addAttribute("ques", sortedQuestions);
+		return "questionmanager/questionlist";
 	}
 
 	@RequestMapping("/mainquestionmanager")

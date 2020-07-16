@@ -17,7 +17,6 @@
 <title>CSCI5308 - Group Formation Tool</title>
 </head>
 <body>
-	<!-- I got the idea for how to do this from https://www.thymeleaf.org/doc/articles/springsecurity.html -->
 	<div sec:authorize="isAuthenticated()">
 		<h4 th:inline="text">BannerID:
 			[[${#httpServletRequest.remoteUser}]]</h4>
@@ -30,11 +29,11 @@
 		<br /> <a th:href="@{/course/instructoradmin(id=${course.id})}">Course
 			Administration</a>
 	</div>
-	<div th:if="${student}">
-		<br />
-		<div th:if="${isUserInstructor==1}">
+	<div th:if="${isUserInstructor==-1}">
 			<p>Failed to submit the response. Please try again later!!!</p>
 		</div>
+	<div th:if="${student}">
+		<br />
 		<div th:if="${message.length() > 0}">
 			<p th:text="${message}"></p>
 		</div>

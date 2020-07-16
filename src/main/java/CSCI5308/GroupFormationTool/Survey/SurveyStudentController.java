@@ -17,10 +17,9 @@ public class SurveyStudentController {
 		long courseid = courseId;
 		QuestionResponse surveyResponseList = question;
 		String studentResponse[] = surveyResponseList.getQuestionType().split(",");
-		ISurvey survey=new Survey();
+		ISurvey survey = new Survey();
 		ISurveyStudentPersistence surveyDB = SurveySystemConfig.instance().getStudentSurveyDB();
-		boolean responsesaved = survey.submitResponse(surveyDB, bannerID, courseid, studentResponse);
-		int  isUserInstructor = (responsesaved)?0:1;
+		int  isUserInstructor = survey.submitResponse(surveyDB, bannerID, courseid, studentResponse);
 		return "redirect:/course/course?id="+courseId+"&isUserInstructor="+isUserInstructor+"&BannerID="+BannerID;		
 	}
 }

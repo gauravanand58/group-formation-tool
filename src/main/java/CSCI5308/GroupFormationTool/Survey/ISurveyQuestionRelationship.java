@@ -5,5 +5,6 @@ import java.util.List;
 import CSCI5308.GroupFormationTool.Questions.Question;
 
 public interface ISurveyQuestionRelationship {
-	public List<Question> loadQuestionsBySurveyId(long courseId, IQuestionSurveyRelationshipPersistence questionSurveyRelationshipPersistence);
+	public List<Question> loadQuestionsBySurveyId(long courseId,
+			IQuestionSurveyRelationshipPersistence questionSurveyRelationshipPersistence);
 }

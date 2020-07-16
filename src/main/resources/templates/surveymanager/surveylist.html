@@ -8,18 +8,11 @@
 <title>CSCI5308 - Group Formation Tool</title>
 </head>
 <body>
-<!-- I got the idea for how to do this from https://www.thymeleaf.org/doc/articles/springsecurity.html -->
 	  	<div >
-	      <!--  <h4 th:inline="text">BannerID: [[${#httpServletRequest.remoteUser}]]</h4>-->
 	       <form th:action="@{/logout}" method="post">
 	           <input type="submit" value="Sign Out"/>
 	       </form>
 	       </div>
-	       <!--  <div>
-				<a th:href="@{/course/manager(sortBy='Title',bannerID=${#httpServletRequest.remoteUser})}">Sort Ques. by Title</a>
-
-				<a th:href="@{/course/manager(sortBy='Date',bannerID=${#httpServletRequest.remoteUser})}">Sort Ques. by Date</a>
-			</div>-->
 			<div th:if="${ques!=null}">
 			<form th:action="@{/submitSurveyRules(id=${courseID})}" th:object="${form}" method="post">
 				<div>
