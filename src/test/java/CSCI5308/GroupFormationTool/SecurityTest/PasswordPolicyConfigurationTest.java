@@ -46,7 +46,6 @@ public class PasswordPolicyConfigurationTest {
 	@Test
 	public void getMinLengthTest() {
 		PasswordPolicyConfiguration configuration = PasswordPolicyConfiguration.instance(persistanceMock);
-		System.out.println("xcxc:" + configuration.getMinLength());
 		assertTrue(configuration.getMinLength() == 1);
 	}
 

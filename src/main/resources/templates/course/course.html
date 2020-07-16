@@ -95,12 +95,9 @@
 	<div th:if="${instructor} or ${ta}">
 		<br /> <a th:href="@{/survey/editSurvey(id=${course.id})}">Create/Publish
 			Survey</a>
+			
 	</div>
 
-
-
-
-
-
+<div th:if="${instructor}"><a th:href="@{/surveymanager(id=${course.id})}">Set Group Formation Rules</a></div>
 </body>
 </html>

@@ -5,6 +5,8 @@ import java.util.List;
 public class QuestionResponse {
 	private int id;
 	private String responseText;
+	private long studentId;
+	private long courseId;
 	private long questionID;
 	private String questionType;
 	private List<QuestionOption> questionOptions;
@@ -33,6 +35,22 @@ public class QuestionResponse {
 		this.responseText = responseText;
 	}
 
+	public long getStudentId() {
+		return studentId;
+	}
+
+	public void setStudentId(long studentId) {
+		this.studentId = studentId;
+	}
+
+	public long getCourseId() {
+		return courseId;
+	}
+
+	public void setCourseId(long courseId) {
+		this.courseId = courseId;
+	}
+	
 	public long getQuestionID() {
 		return questionID;
 	}
