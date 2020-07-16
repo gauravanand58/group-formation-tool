@@ -246,3 +246,40 @@
 [DEBUG] 2020-07-16 16:58:10.626 [main] GroupFormationToolApplicationTests - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
 [INFO ] 2020-07-16 16:58:10.628 [main] GroupFormationToolApplicationTests - No active profile set, falling back to default profiles: default
 [INFO ] 2020-07-16 16:58:14.389 [main] GroupFormationToolApplicationTests - Started GroupFormationToolApplicationTests in 4.221 seconds (JVM running for 13.095)
+[INFO ] 2020-07-16 16:58:29.812 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on LAPTOP-USJ57PKN with PID 130396 (H:\Study\Dalhousie\ASDC\test\group4\bin\main started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-16 16:58:29.815 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 16:58:29.816 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 16:58:30.950 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 1.302 seconds (JVM running for 1.924)
+[INFO ] 2020-07-16 16:58:36.419 [http-nio-8080-exec-1] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-16 16:58:36.419 [http-nio-8080-exec-1] ConnectionManager - User name of database:CSCI5308_4_DEVINT_USER
+[DEBUG] 2020-07-16 16:58:43.050 [http-nio-8080-exec-7] UserDB - Loaded user with user ID19
+[DEBUG] 2020-07-16 16:58:45.767 [http-nio-8080-exec-1] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-16 16:58:45.768 [http-nio-8080-exec-1] CurrentUser - Valid User
+[INFO ] 2020-07-16 16:58:46.853 [http-nio-8080-exec-1] SurveyStudentDB - Successfully created question options
+[DEBUG] 2020-07-16 16:58:58.676 [http-nio-8080-exec-2] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-16 16:58:58.676 [http-nio-8080-exec-2] CurrentUser - Valid User
+[INFO ] 2020-07-16 16:58:59.356 [http-nio-8080-exec-2] SurveyStudentDB - Successfully created question options
+[DEBUG] 2020-07-16 16:59:42.758 [http-nio-8080-exec-8] UserDB - Loaded user with user ID19
+[DEBUG] 2020-07-16 16:59:45.336 [http-nio-8080-exec-3] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-16 16:59:45.336 [http-nio-8080-exec-3] CurrentUser - Valid User
+[INFO ] 2020-07-16 16:59:45.987 [http-nio-8080-exec-3] SurveyStudentDB - Successfully created question options
+[INFO ] 2020-07-16 16:59:53.756 [http-nio-8080-exec-5] QuestionListManager - Sorting questions by Date
+[INFO ] 2020-07-16 16:59:53.894 [http-nio-8080-exec-5] QuestionDB - Successfully sorted by date
+[INFO ] 2020-07-16 17:00:04.495 [http-nio-8080-exec-6] QuestionListManager - Sorting questions by Title
+[INFO ] 2020-07-16 17:00:04.721 [http-nio-8080-exec-6] QuestionDB - Successfully sorted by title
+[INFO ] 2020-07-16 17:00:10.773 [http-nio-8080-exec-7] QuestionListManager - Sorting questions by Date
+[INFO ] 2020-07-16 17:00:10.948 [http-nio-8080-exec-7] QuestionDB - Successfully sorted by date
+[INFO ] 2020-07-16 17:27:07.824 [main] User - Successfully created user and sent credentials
+[INFO ] 2020-07-16 17:27:07.831 [main] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-16 17:27:07.832 [main] ConnectionManager - User name of database:CSCI5308_4_DEVINT_USER
+[ERROR] 2020-07-16 17:27:08.248 [main] CourseUserRelationshipDB - spEnrollUser(?, ?, ?) throws SQLException:Cannot add or update a child row: a foreign key constraint fails (`CSCI5308_4_DEVINT`.`CourseRole`, CONSTRAINT `CourseRole_ibfk_1` FOREIGN KEY (`courseID`) REFERENCES `Course` (`id`))
+[INFO ] 2020-07-16 17:27:08.267 [main] User - Valid password history
+[INFO ] 2020-07-16 17:27:08.268 [main] User - Invalid password history
+[INFO ] 2020-07-16 17:27:08.269 [main] User - Valid password
+[INFO ] 2020-07-16 17:27:08.269 [main] User - Invalid password upper char
+[DEBUG] 2020-07-16 17:27:08.279 [main] GroupingService - groups created: 1
+[DEBUG] 2020-07-16 17:27:08.475 [main] UserDB - Loaded user with user ID1
+[INFO ] 2020-07-16 17:27:09.298 [main] GroupFormationToolApplicationTests - Starting GroupFormationToolApplicationTests on LAPTOP-USJ57PKN with PID 135176 (started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-16 17:27:09.303 [main] GroupFormationToolApplicationTests - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 17:27:09.304 [main] GroupFormationToolApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 17:27:11.276 [main] GroupFormationToolApplicationTests - Started GroupFormationToolApplicationTests in 2.169 seconds (JVM running for 5.158)
