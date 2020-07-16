@@ -16,7 +16,7 @@ class CourseTest {
 		assertTrue(course.getId() == -1);
 		assertTrue(course.getTitle().isEmpty());
 
-		ICoursePersistence courseDB = new CourseDBMock();
+		ICoursePersistence courseDB = CourseTestSystemConfig.instance().getCourseDBMock();
 		course = CourseAbstractFactory.instance().makeCourseWithID(0, courseDB);
 		assertTrue(course.getId() == 0);
 		assertTrue(course.getTitle().equals("Software Engineering"));
@@ -52,14 +52,14 @@ class CourseTest {
 
 	@Test
 	public void deleteCourseTest() {
-		ICoursePersistence courseDB = new CourseDBMock();
+		ICoursePersistence courseDB = CourseTestSystemConfig.instance().getCourseDBMock();
 		boolean status = courseDB.deleteCourse(0);
 		assertTrue(status);
 	}
 
 	@Test
 	public void createCourseTest() {
-		ICoursePersistence courseDB = new CourseDBMock();
+		ICoursePersistence courseDB = CourseTestSystemConfig.instance().getCourseDBMock();
 		ICourse course = CourseAbstractFactory.instance().makeCourse();
 		course.setId(0);
 		course.setTitle("Software Engineering");

@@ -20,7 +20,7 @@ class CourseUserRelationshipTest {
 	private ICourseUserRelationshipPersistence courseUserRelationshipDB;
 
 	public CourseUserRelationshipTest() {
-		courseUserRelationshipDB = new CourseUserRelationshipDBMock();
+		courseUserRelationshipDB = CourseTestSystemConfig.instance().getCourseUserRelationshipDBMock();
 	}
 
 	@Test
