@@ -10,7 +10,6 @@ public class Question implements IQuestion {
 	private String questionType;
 	private String questionDateTime;
 
-	// for thymleaf
 	private String type;
 	private int value;
 

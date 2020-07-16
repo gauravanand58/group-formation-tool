@@ -18,7 +18,7 @@ public class SurveyTestSystemConfig {
 	}
 
 	public static SurveyTestSystemConfig instance() {
-		if (uniqueInstance == null) {
+		if (null == uniqueInstance) {
 			uniqueInstance = new SurveyTestSystemConfig();
 		}
 		return uniqueInstance;

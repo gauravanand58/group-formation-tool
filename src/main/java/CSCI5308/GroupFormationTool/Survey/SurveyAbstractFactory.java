@@ -7,7 +7,7 @@ public abstract class SurveyAbstractFactory {
 	}
 
 	public static SurveyAbstractFactory instance() {
-		if (uniqueInstance == null) {
+		if (null == uniqueInstance) {
 			uniqueInstance = new SurveyFactory();
 		}
 		return uniqueInstance;
