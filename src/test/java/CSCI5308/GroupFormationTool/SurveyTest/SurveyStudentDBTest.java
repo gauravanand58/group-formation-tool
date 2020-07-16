@@ -14,42 +14,40 @@ import org.junit.jupiter.api.Test;
 
 import CSCI5308.GroupFormationTool.Questions.IQuestion;
 import CSCI5308.GroupFormationTool.Questions.QuestionsSystemConfig;
-import CSCI5308.GroupFormationTool.Survey.IStudentSurveyPersistence;
-import CSCI5308.GroupFormationTool.Survey.StudentSurveyDB;
+import CSCI5308.GroupFormationTool.Survey.ISurveyStudentPersistence;
+import CSCI5308.GroupFormationTool.Survey.SurveyStudentDB;
 
-public class StudentSurveyDBMock {
+public class SurveyStudentDBTest {
 	List<IQuestion> surveyQuestions;
-	String[] responseArray = {"2-none","3-none"};
-	IStudentSurveyPersistence studentSurveyMock = mock(StudentSurveyDB.class);
+	String[] responseArray = {"2-none", "3-none"};
+	ISurveyStudentPersistence studentSurveyMock = mock(SurveyStudentDB.class);
 
-	StudentSurveyDBMock() {
+	SurveyStudentDBTest() {
 		IQuestion question = QuestionsSystemConfig.instance().getQuestion();
 		surveyQuestions = new ArrayList<IQuestion>();
 		question.setQuestionID(1);
 		question.setQuestionText("Favourite Course");
 		question.setQuestionType("numeric");
 		surveyQuestions.add(question);
-		
 	}
 
 	@Test
-	public void viewSurveyQuestions() {
+	public void viewSurveyQuestionsTest() {
 		when(studentSurveyMock.viewSurveyQuestions(1)).thenReturn(surveyQuestions);
 		assertEquals(studentSurveyMock.viewSurveyQuestions(1), surveyQuestions);
 		verify(studentSurveyMock).viewSurveyQuestions(1);
 	}
 
 	@Test
-	public void checkSurveySubmission() {
+	public void checkSurveySubmissionTest() {
 		when(studentSurveyMock.checkSurveySubmission("B000000",3)).thenReturn(1L);
 		assertEquals(studentSurveyMock.checkSurveySubmission("B000000",3), 1L);
 		verify(studentSurveyMock).checkSurveySubmission("B000000",3);
 	}
 
 	@Test
-	public void createStudentResponse() throws SQLException {
+	public void createStudentResponseTest() throws SQLException {
 		when(studentSurveyMock.createStudentResponse("B000000",3,responseArray)).thenReturn(true);
 		assertTrue(studentSurveyMock.createStudentResponse("B000000",3, responseArray));
 	}
-
 }

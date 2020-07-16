@@ -42,7 +42,6 @@ public class User implements IUser{
 		firstName = "";
 		lastName = "";
 		email = "";
-
 	}
 
 	public void setID(long id) {
@@ -148,5 +147,4 @@ public class User implements IUser{
 		logger.info("Valid password history");
 		return true;
 	}
-
 }

@@ -13,7 +13,7 @@ import CSCI5308.GroupFormationTool.Questions.IQuestion;
 import CSCI5308.GroupFormationTool.Questions.QuestionOption;
 import CSCI5308.GroupFormationTool.Questions.QuestionsSystemConfig;
 
-public class StudentSurveyDB implements IStudentSurveyPersistence{
+public class SurveyStudentDB implements ISurveyStudentPersistence{
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	public List<IQuestion> viewSurveyQuestions(long courseID) {
@@ -86,21 +86,18 @@ public class StudentSurveyDB implements IStudentSurveyPersistence{
 		return studentSubmission;
 	}
 	
-	public boolean createStudentResponse(String BannerID, long CourseID, String ResponseArray[]) throws SQLException{
+	public boolean createStudentResponse(String bannerId, long courseId, String response[]) throws SQLException{
 		CallStoredProcedure proc = null;
-		
 		try {
-			for(int i=0; i<ResponseArray.length;i++) {
-				String responseArray[]= ResponseArray[i].split("-");
+			for(int i=0; i< response.length;i++) {
+				String responseArray[] = response[i].split("-");
 				proc = new CallStoredProcedure("spCreateSurveyResponse(?, ?, ?, ?)");
-				proc.setParameter(1, BannerID);
-				proc.setParameter(2, CourseID);
+				proc.setParameter(1, bannerId);
+				proc.setParameter(2, courseId);
 				proc.setParameter(3, responseArray[0]);
 				proc.setParameter(4, responseArray[1]);
 				proc.execute();
 			}
-			
-
 		} finally {
 			if (null != proc) {
 				proc.cleanup();

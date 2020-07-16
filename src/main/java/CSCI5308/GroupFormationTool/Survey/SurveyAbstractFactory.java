@@ -18,6 +18,7 @@ public abstract class SurveyAbstractFactory {
 	}
 	
 	public abstract ISurvey makeSurvey();
+	public abstract ISurvey makeSurveyWithCourseID(ISurveyPersistence surveyDB, long courseID);
 	public abstract ISurveyPersistence makeSurveyDB();
-	public abstract IStudentSurveyPersistence makeStudentSurveyDB();
+	public abstract ISurveyStudentPersistence makeStudentSurveyDB();
 }

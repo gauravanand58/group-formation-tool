@@ -13,9 +13,9 @@ public interface ISurvey {
 	
 	public void setInstructorId(long instructorId);
 	
-	public long getCourseid();
+	public long getCourseId();
 	
-	public void setCourseid(long courseId);
+	public void setCourseId(long courseId);
 	
 	public boolean isPublished();
 	
@@ -23,7 +23,7 @@ public interface ISurvey {
 	
 	public List<IQuestion> loadQuestionsByCourseId(ISurveyPersistence surveyDB);
 	
-	public boolean publishSurvey(long surveyID, ISurveyPersistence surveyDB );
+	public boolean publishSurvey(long surveyId, ISurveyPersistence surveyDB );
 	
-	public boolean submitResponse(IStudentSurveyPersistence surveyDB,String bannerID, long courseid,String[] arr1);
+	public boolean submitResponse(ISurveyStudentPersistence surveyDB,String bannerId, long courseid, String[] arr1);
 		}
