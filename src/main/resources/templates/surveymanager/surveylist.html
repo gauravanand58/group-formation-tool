@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+<head>
+<title>CSCI5308 - Group Formation Tool</title>
+</head>
+<body>
+<!-- I got the idea for how to do this from https://www.thymeleaf.org/doc/articles/springsecurity.html -->
+	  	<div >
+	      <!--  <h4 th:inline="text">BannerID: [[${#httpServletRequest.remoteUser}]]</h4>-->
+	       <form th:action="@{/logout}" method="post">
+	           <input type="submit" value="Sign Out"/>
+	       </form>
+	       </div>
+	       <!--  <div>
+				<a th:href="@{/course/manager(sortBy='Title',bannerID=${#httpServletRequest.remoteUser})}">Sort Ques. by Title</a>
+
+				<a th:href="@{/course/manager(sortBy='Date',bannerID=${#httpServletRequest.remoteUser})}">Sort Ques. by Date</a>
+			</div>-->
+			<div th:if="${ques!=null}">
+			<form th:action="@{/submitSurveyRules(id=${courseID})}" th:object="${form}" method="post">
+				<input type="number"  th:field="*{groupSize}">
+				<table>
+				<tr >
+							<th>ID</th>
+							<th>Title</th>
+							<th>Text</th>
+							<th>Type</th>
+							<th>Rule</th>
+							<th>Value (if Numeric)</th>
+					</tr>
+					<tr th:each="msg, itemStat : *{ques}">
+						<input type="hidden" th:field="*{ques[__${itemStat.index}__].questionID}">
+						<input type="hidden" th:field="*{ques[__${itemStat.index}__].questionText}">
+						<td><span th:text="${msg.questionID}"></span></td>
+						<td><span th:text="${msg.questionTitle}"></span></td>
+						<td><span th:text="${msg.questionText}"></span></td>
+						<td><span th:text="${msg.questionType}"></span></td>
+						<td th:if="${msg.questionType == 'mcq-2' || msg.questionType == 'mcq-1' || msg.questionType == 'free text'} ">
+							<select th:field="*{ques[__${itemStat.index}__].type}">
+								<option value="">Don't consider</option>
+								<option value="similar">similar</option>
+								<option value="dissimilar">dissimilar</option>
+							</select>
+
+						</td>
+						<td th:if="${msg.questionType == 'numeric' || msg.questionType == 'Numeric'}">
+							<select th:field="*{ques[__${itemStat.index}__].type}">
+								<option value="">Don't consider</option>
+								<option value="similar">similar</option>
+								<option value="dissimilar">dissimilar</option>
+								<option value="greater">greater</option>
+								<option value="lesser">lesser</option>
+							</select>
+
+						</td>
+						
+						<td th:if="${msg.questionType == 'numeric' || msg.questionType == 'Numeric'}">
+							<input type="number" th:field="*{ques[__${itemStat.index}__].value}"   />
+
+						</td>
+					</tr>
+					
+		  		</table>
+		  		<button type="submit">submit</button>
+		  		</form>
+			</div>
+</body>
+</html>

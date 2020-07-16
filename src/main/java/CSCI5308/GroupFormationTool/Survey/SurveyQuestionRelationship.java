@@ -7,8 +7,9 @@ import CSCI5308.GroupFormationTool.Questions.Question;
 public class SurveyQuestionRelationship implements ISurveyQuestionRelationship{
 
 	@Override
-	public List<Question> loadQuestionsBySurveyId(long surveyId,
+	public List<Question> loadQuestionsBySurveyId(long courseId,
 			IQuestionSurveyRelationshipPersistence questionSurveyRelationshipPersistence) {
-		return questionSurveyRelationshipPersistence.loadQUestionsBySurveyId(surveyId);
+		
+		return questionSurveyRelationshipPersistence.loadQUestionsByCourseId(courseId);
 	}
 }
