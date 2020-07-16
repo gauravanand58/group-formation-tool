@@ -52,7 +52,6 @@ public class CourseController {
 			model.addAttribute("surveyQuestions", surveyQuestions);
 			model.addAttribute("QuestionResponseObj", new QuestionResponse());
 		}
-
 		return "course/course";
 	}
 }
