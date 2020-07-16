@@ -45,6 +45,7 @@
 					th:value="${#httpServletRequest.remoteUser}" /> <input
 					type="hidden" name="courseid" th:value="${course.id}" />
 				<div th:each="quesMod: ${surveyQuestions}">
+					<p th:text="'ID: '+${quesMod.questionID}"></p>
 					<p th:text="${quesMod.questionText}"></p>
 					<div th:if="${quesMod.questionType.equals('mcq-1')}">
 						<div th:each="answer:${quesMod.questionOptions}">

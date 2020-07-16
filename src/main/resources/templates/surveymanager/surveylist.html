@@ -15,9 +15,13 @@
 	       </div>
 			<div th:if="${ques!=null}">
 			<form th:action="@{/submitSurveyRules(id=${courseID})}" th:object="${form}" method="post">
-				<input type="number"  th:field="*{groupSize}">
+				<div>
+					<h3>Enter Group Size</h3>
+					<input type="number"  th:field="*{groupSize}">
+				</div>
 				<table>
 				<tr >
+				
 							<th>ID</th>
 							<th>Title</th>
 							<th>Text</th>

@@ -13,7 +13,6 @@ public class SurveyStudentController {
 	@RequestMapping("/studentResponse")
 	public String displaysurveyQuestions(@ModelAttribute QuestionResponse question, Model model,
 			@RequestParam(name = "BannerID") String BannerID, @RequestParam(name = "courseid") long courseId) {
-
 		String bannerID = BannerID;
 		long courseid = courseId;
 		QuestionResponse surveyResponseList = question;
