@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import CSCI5308.GroupFormationTool.AccessControl.IUser;
+import CSCI5308.GroupFormationTool.Courses.CourseAbstractFactory;
 import CSCI5308.GroupFormationTool.Courses.CourseUserRelationship;
 import CSCI5308.GroupFormationTool.Courses.ICourseUserRelationship;
 import CSCI5308.GroupFormationTool.Questions.IQuestion;
@@ -27,7 +28,7 @@ public class SurveyController {
 		ISurvey survey = new Survey(surveyDB, courseID);
 		List<IQuestion> availableQuestionsList = new ArrayList<>();
 		List<IQuestion> addedQuestionsList = new ArrayList<>();
-		ICourseUserRelationship courseUserRelationship = new CourseUserRelationship();
+		ICourseUserRelationship courseUserRelationship = CourseAbstractFactory.instance().makeCourseUserRelationship();
 		IUser instructor = courseUserRelationship.findInstructorWithCourse(courseID);
 		if(instructor == null) {
 			model.addAttribute("availableQuestions", availableQuestionsList);

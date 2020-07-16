@@ -7,6 +7,7 @@ import CSCI5308.GroupFormationTool.AccessControl.IUser;
 import CSCI5308.GroupFormationTool.AccessControl.User;
 import CSCI5308.GroupFormationTool.Survey.ISurvey;
 import CSCI5308.GroupFormationTool.Survey.Survey;
+import CSCI5308.GroupFormationTool.Survey.SurveyAbstractFactory;
 
 public class Course implements ICourse {
 	private long id;
@@ -26,8 +27,8 @@ public class Course implements ICourse {
 	public void setDefaults() {
 		id = -1;
 		title = "";
-		userRoleDecider = new CourseUserRelationship();
-		courseSurvey = new Survey();
+		userRoleDecider = CourseAbstractFactory.instance().makeCourseUserRelationship();
+		courseSurvey = SurveyAbstractFactory.instance().makeSurvey();
 	}
 
 	public void setId(long id) {
