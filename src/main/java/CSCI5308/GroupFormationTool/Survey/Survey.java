@@ -72,7 +72,7 @@ public class Survey implements ISurvey {
 		return surveyDB.publishSurvey(surveyId);
 	}
 
-	public boolean submitResponse(ISurveyStudentPersistence surveyDB, String bannerId, long courseId,
+	public Integer submitResponse(ISurveyStudentPersistence surveyDB, String bannerId, long courseId,
 			String[] response) {
 		try {
 			surveyDB.createStudentResponse(bannerId, courseId, response);
@@ -80,8 +80,8 @@ public class Survey implements ISurvey {
 			logger.error("spCreateSurveyResponse throws SQLException:" + e.getMessage());
 			e.printStackTrace();
 			surveyDB.deleteResponse(bannerId, courseId);
-			return false;
+			return -1;
 		}
-		return true;
+		return 0;
 	}
 }
