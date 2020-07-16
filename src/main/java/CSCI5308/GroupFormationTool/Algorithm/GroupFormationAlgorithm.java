@@ -7,11 +7,15 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import CSCI5308.GroupFormationTool.GroupFormation.IGroupFormationRules;
 
 
 class GroupFormationAlgorithm implements IGroupFormationAlgorithm {
-
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+	
 	List<IGroupFormationRules> groupFormationRules;
 	Map<Long,Map<Long,String>> userResponses;
 	Map<Long, Map<Long, List<String>>>  userMCQ2Responses;	
@@ -38,6 +42,7 @@ class GroupFormationAlgorithm implements IGroupFormationAlgorithm {
 		while(userResponses.size()+userMCQ2Responses.size()>0) {
 			calculateUserScoresForGroups();
 		}
+		logger.debug("Created Groups");
 		return groupList;
 	}
 	
@@ -72,11 +77,11 @@ class GroupFormationAlgorithm implements IGroupFormationAlgorithm {
 									score += 10.0;
 								}
 							} else if (formationRules.getType().equals("greater")) {
-								if(Integer.parseInt(nextUsersResponse) > formationRules.getValue()) {
+								if(Integer.parseInt(nextUsersResponse.trim()) > formationRules.getValue()) {
 									score += (10.0 * 2);
 								}
 							} else if (formationRules.getType().equals("lesser")) {
-								if(Integer.parseInt(nextUsersResponse) <formationRules.getValue()) {
+								if(Integer.parseInt(nextUsersResponse.trim()) < formationRules.getValue()) {
 									score += (10.0 * 2);
 								}
 							}
@@ -133,12 +138,6 @@ class GroupFormationAlgorithm implements IGroupFormationAlgorithm {
 			}
 		}
 
-		if(userScores.size()>0) {
-			for (Long userID : userScores.keySet()) {
-				System.out.println("userid:"+userID);
-				System.out.println("score"+userScores.get(userID));
-			}
-		}
 	}
 	
 	private void matchUsersToGroup(List<Long> group) 

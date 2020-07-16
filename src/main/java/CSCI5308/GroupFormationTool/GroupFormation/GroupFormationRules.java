@@ -1,25 +1,29 @@
 package CSCI5308.GroupFormationTool.GroupFormation;
 
 public class GroupFormationRules implements IGroupFormationRules {
-	private long surveyId;
+	private long courseId;
 	private long questionId;
 	private String type;
 	private int value;
 	private int groupSize;
 	
 	public GroupFormationRules(){
-		surveyId = 0l;
+		courseId = 0l;
 		questionId = 0l;
 		type="";
 		value=0;
 		groupSize =0;
 	}
-	public long getSurveyId() {
-		return surveyId;
+	
+	
+	public long getCourseId() {
+		return courseId;
 	}
-	public void setSurveyId(long surveyId) {
-		this.surveyId = surveyId;
+
+	public void setCourseId(long courseId) {
+		this.courseId = courseId;
 	}
+
 	public long getQuestionId() {
 		return questionId;
 	}
@@ -49,8 +53,8 @@ public class GroupFormationRules implements IGroupFormationRules {
 		this.groupSize = groupSize;
 	}
 	
-	GroupFormationRules(long surveyId, long questionId, String type, int value,int groupSize, IGroupFormationRulesPersistence formationRulesPersistence){
-		this.surveyId = surveyId;
+	GroupFormationRules(long courseId, long questionId, String type, int value,int groupSize, IGroupFormationRulesPersistence formationRulesPersistence){
+		this.courseId = courseId;
 		this.questionId = questionId;
 		this.type = type;
 		this.value = value;

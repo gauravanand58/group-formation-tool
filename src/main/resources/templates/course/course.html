@@ -23,7 +23,9 @@
 		<div th:if="${instructor}">
 			<br/>
 			<div><a th:href="@{/mainquestionmanager(id=${course.id},isUserInstructor=${isUserInstructor})}">Question Manager</a></div>
-		
+			<br/>
+			<div><a th:href="@{/surveymanager(id=${course.id})}">Set Group Formation Rules</a></div>
+			
 		</div>
 	</body>
 </html>

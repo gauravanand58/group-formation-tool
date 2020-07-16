@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import CSCI5308.GroupFormationTool.AccessControl.IUserPersistence;
 import CSCI5308.GroupFormationTool.AccessControl.User;
 import CSCI5308.GroupFormationTool.AccessControl.UserDB;
@@ -13,32 +16,30 @@ import CSCI5308.GroupFormationTool.Algorithm.IGroupFormationAlgorithmBuilder;
 
 public class GroupingService implements IGroupingService {
 
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Override
-	public Map<Integer, Map<User, List<String>>> createGroups(List<IGroupFormationRules> groupingRules,IUserResponsePersistence userResponsePersistence, IGroupFormationAlgorithmBuilder algorithmBuilder ) {
+	public Map<Integer, Map<User, List<String>>> createGroups(List<IGroupFormationRules> groupingRules,
+			IUserResponsePersistence userResponsePersistence, IGroupFormationAlgorithmBuilder algorithmBuilder, long courseID ) {
 	
 
 		Map<Long, Map<Long, String>> userResponses = new HashMap<Long, Map<Long, String>>();
-		// to be replaced with courseId
-		userResponses = userResponsePersistence.loadUserResponsesForQuestions(3l);
+		
+		userResponses = userResponsePersistence.loadUserResponsesForQuestions(courseID);
 
 		Map<Long, Map<Long, List<String>>> userMCQ2Responses = new HashMap<Long, Map<Long, List<String>>>();
-		userMCQ2Responses = userResponsePersistence.loadUserResponsesForMCQ2(3l);
+		userMCQ2Responses = userResponsePersistence.loadUserResponsesForMCQ2(courseID);
 
 		algorithmBuilder.setGroupFormationRules(groupingRules);
 		algorithmBuilder.setUserResponses(userResponses);
 		algorithmBuilder.setUserMCQ2Responses(userMCQ2Responses);
 
-		System.out.print(userResponses.get(1l).get(30l));
-
-		System.out.print(userMCQ2Responses.get(1l).get(27l));
-
 		IGroupFormationAlgorithm groupingAlgorithm = algorithmBuilder.build();
 		List<List<Long>> groupList = groupingAlgorithm.createGroups();
-
+		logger.debug("groups created: "+groupList.size());
 		return generateUserGroups(groupList,userResponses,userMCQ2Responses);
 	}
 	
-	Map<Integer, Map<User, List<String>>> generateUserGroups(List<List<Long>> groupList
+	private Map<Integer, Map<User, List<String>>> generateUserGroups(List<List<Long>> groupList
 			, Map<Long, Map<Long, String>> userResponses, Map<Long, Map<Long, List<String>>> userMCQ2Responses){
 
 		Map<Integer, Map<User, List<String>>> response = new HashMap<Integer, Map<User, List<String>>>();
@@ -51,15 +52,11 @@ public class GroupingService implements IGroupingService {
 			for (Long userId : group) {
 				User user = new User();
 				persistence.loadUserByID(userId, user);
-				System.out.print("group:" + groupNumber);
-				System.out.print("LastName:" + user.getLastName() + ", FirstName:" + user.getFirstName() + ", Quest:");
 				List<String> allResponses = new ArrayList<String>();
 				if (null != userResponses.get(userId)) {
 					for (Long questionId : userResponses.get(userId).keySet()) {
 						if (null != userResponses.get(userId).get(questionId)) {
 							allResponses.add(userResponses.get(userId).get(questionId));
-
-							System.out.print(userResponses.get(userId).get(questionId) + ", ");
 						}
 					}
 				}
@@ -75,12 +72,10 @@ public class GroupingService implements IGroupingService {
 							}
 							
 							allResponses.add(multiResponse);
-							System.out.print(userMCQ2Responses.get(userId).get(questionId) + ", ");
 						}
 					}
 				}
 				userAllResponses.put(user, allResponses);
-				System.out.println();
 			}
 
 			groupNumber += 1;

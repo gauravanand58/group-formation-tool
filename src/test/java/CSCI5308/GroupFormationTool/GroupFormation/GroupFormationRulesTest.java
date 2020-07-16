@@ -25,14 +25,14 @@ public class GroupFormationRulesTest {
 	@Test
 	public void getSurveyIdTest() {
 		IGroupFormationRules rules = new GroupFormationRules();
-		rules.setSurveyId(1l);
-		assertTrue(rules.getSurveyId()==1l);
+		rules.setCourseId(1l);
+		assertTrue(rules.getCourseId()==1l);
 	}
 	@Test
 	public void setSurveyIdTest() {
 		IGroupFormationRules rules = new GroupFormationRules();
-		rules.setSurveyId(1l);
-		assertTrue(rules.getSurveyId()==1l);
+		rules.setCourseId(1l);
+		assertTrue(rules.getCourseId()==1l);
 	}
 	@Test
 	public void getQuestionIdTest() {

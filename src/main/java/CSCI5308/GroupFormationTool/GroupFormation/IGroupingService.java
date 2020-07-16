@@ -9,5 +9,5 @@ import CSCI5308.GroupFormationTool.Algorithm.IGroupFormationAlgorithmBuilder;
 
 public interface IGroupingService {
 	public Map<Integer, Map<User, List<String>>> createGroups(List<IGroupFormationRules> groupingRules,
-			IUserResponsePersistence userResponsePersistence, IGroupFormationAlgorithmBuilder algorithmBuilder );
+			IUserResponsePersistence userResponsePersistence, IGroupFormationAlgorithmBuilder algorithmBuilder, long courseId );
 }

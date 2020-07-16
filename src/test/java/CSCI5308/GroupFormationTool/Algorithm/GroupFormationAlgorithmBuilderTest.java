@@ -23,7 +23,7 @@ public class GroupFormationAlgorithmBuilderTest {
 		
 		formationRules.setGroupSize(2);
 		formationRules.setQuestionId(2l);
-		formationRules.setSurveyId(1l);
+		formationRules.setCourseId(1l);
 		formationRules.setType("similar");
 		formationRules.setValue(0);
 		groupingRules.add(formationRules);
@@ -59,7 +59,7 @@ public class GroupFormationAlgorithmBuilderTest {
 		
 		formationRules.setGroupSize(2);
 		formationRules.setQuestionId(2l);
-		formationRules.setSurveyId(1l);
+		formationRules.setCourseId(1l);
 		formationRules.setType("similar");
 		formationRules.setValue(0);
 		groupingRules.add(formationRules);

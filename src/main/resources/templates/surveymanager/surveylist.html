@@ -21,7 +21,7 @@
 				<a th:href="@{/course/manager(sortBy='Date',bannerID=${#httpServletRequest.remoteUser})}">Sort Ques. by Date</a>
 			</div>-->
 			<div th:if="${ques!=null}">
-			<form th:action="@{/submitSurveyRules}" th:object="${form}" method="post">
+			<form th:action="@{/submitSurveyRules(id=${courseID})}" th:object="${form}" method="post">
 				<input type="number"  th:field="*{groupSize}">
 				<table>
 				<tr >

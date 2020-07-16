@@ -16,7 +16,7 @@ public class GroupFormationRulesDB implements IGroupFormationRulesPersistence {
 		CallStoredProcedure proc = null;
 		try {
 			proc = new CallStoredProcedure("spCreateForSurveyRules(?,?,?,?,?)");
-			proc.setParameter(1, formationRules.getSurveyId());
+			proc.setParameter(1, formationRules.getCourseId());
 			proc.setParameter(2, formationRules.getQuestionId());
 			proc.setParameter(3, formationRules.getType());
 			proc.setParameter(4, formationRules.getValue());
@@ -27,7 +27,6 @@ public class GroupFormationRulesDB implements IGroupFormationRulesPersistence {
 			
 		} catch (SQLException e) {
 			logger.error("spCreateForSurveyRules() throws SQLException:" + e.getMessage());
-			System.out.println(e);
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {

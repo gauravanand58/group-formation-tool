@@ -26,7 +26,6 @@ public class QuestionSurveyRelationshipPersistence implements IQuestionSurveyRel
 			if (null != results) {
 				while (results.next()) {
 					Question question = new Question();
-					System.out.println("1:"+results.getInt(1)+" , 2:"+results.getInt(2));
 					question.setQuestionID(results.getInt(1));
 					question.setQuestionTitle(results.getString(3));
 					question.setQuestionType(results.getString(5));

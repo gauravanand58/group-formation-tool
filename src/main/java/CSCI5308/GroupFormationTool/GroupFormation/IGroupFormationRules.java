@@ -1,9 +1,9 @@
 package CSCI5308.GroupFormationTool.GroupFormation;
 
 public interface IGroupFormationRules {
-	public long getSurveyId();
+	public long getCourseId();
 
-	public void setSurveyId(long surveyId);
+	public void setCourseId(long courseId);
 
 	public long getQuestionId();
 

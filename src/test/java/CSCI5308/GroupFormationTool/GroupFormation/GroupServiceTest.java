@@ -19,13 +19,14 @@ public class GroupServiceTest {
 		
 		formationRules.setGroupSize(2);
 		formationRules.setQuestionId(2l);
-		formationRules.setSurveyId(1l);
+		formationRules.setCourseId(1l);
 		formationRules.setType("similar");
 		formationRules.setValue(0);
 		groupingRules.add(formationRules);
 		IUserResponsePersistence userResponsePersistence= new UserResponseDBMock();
 		IGroupFormationAlgorithmBuilder groupingAlgorithmBuilder = new GroupFormationAlgorithmBuilderMock() ;
-		groupingService.createGroups(groupingRules, userResponsePersistence, groupingAlgorithmBuilder);
+		long courseID = 3l;
+		groupingService.createGroups(groupingRules, userResponsePersistence, groupingAlgorithmBuilder, courseID);
 	}
 
 }
