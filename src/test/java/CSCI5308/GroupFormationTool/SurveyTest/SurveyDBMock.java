@@ -17,17 +17,14 @@ public class SurveyDBMock implements ISurveyPersistence {
 	}
 
 	public List<IQuestion> getAvailableQuestions(long surveyId, long courseId, long instructorId) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public void addQuestionToSurvey(IQuestion question, long courseId) {
-		// TODO Auto-generated method stub
 
 	}
 
 	public void loadSurveyByCourseID(ISurvey survey, long courseId) {
-		// TODO Auto-generated method stub
 
 	}
 
