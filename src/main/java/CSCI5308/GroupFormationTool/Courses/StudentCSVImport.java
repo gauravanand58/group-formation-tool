@@ -36,7 +36,7 @@ public class StudentCSVImport {
 			String email = u.getEmail();
 			String userDetails = bannerID + " " + firstName + " " + lastName + " " + email;
 
-			IUser user = UserAbstractFactory.instance().createUserObject();
+			IUser user = UserAbstractFactory.instance().makeUser();
 			userDB.loadUserByBannerID(bannerID, user);
 			if (user.isValidUser()==false) {
 				user.setBannerID(bannerID);

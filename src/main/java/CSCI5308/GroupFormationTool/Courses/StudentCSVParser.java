@@ -41,7 +41,7 @@ public class StudentCSVParser implements IStudentCSVParser {
 				String lastName = record[2];
 				String email = record[3];
 
-				IUser u = UserAbstractFactory.instance().createUserObject();
+				IUser u = UserAbstractFactory.instance().makeUser();
 				u.setBannerID(bannerID);
 				u.setFirstName(firstName);
 				u.setLastName(lastName);

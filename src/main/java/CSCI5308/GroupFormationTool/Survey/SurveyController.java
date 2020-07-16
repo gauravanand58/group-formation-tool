@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import CSCI5308.GroupFormationTool.AccessControl.IUser;
-import CSCI5308.GroupFormationTool.AccessControl.User;
 import CSCI5308.GroupFormationTool.Courses.CourseUserRelationship;
 import CSCI5308.GroupFormationTool.Courses.ICourseUserRelationship;
 import CSCI5308.GroupFormationTool.Questions.IQuestion;

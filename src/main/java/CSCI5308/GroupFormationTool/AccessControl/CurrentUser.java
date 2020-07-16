@@ -26,7 +26,7 @@ public class CurrentUser {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		if (authentication.isAuthenticated()) {
 			String bannerID = authentication.getPrincipal().toString();
-			IUser u = UserAbstractFactory.instance().createUserObject();
+			IUser u = UserAbstractFactory.instance().makeUser();
 			userDB.loadUserByBannerID(bannerID, u);
 			if (u.isValidUser()) {
 				logger.info("Valid User");

@@ -47,7 +47,7 @@ public class UserDBMock implements IUserPersistence {
 
 	@Override
 	public long checkUserByBannerID(String bannerID) {
-		IUser user = UserAbstractFactory.instance().createUserObject();
+		IUser user = UserAbstractFactory.instance().makeUser();
 		user.setID(0);
 		user.setBannerID("B00000000");
 		user.setPassword("Pass@123");

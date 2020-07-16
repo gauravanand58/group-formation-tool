@@ -9,7 +9,6 @@ public class DefaultDatabaseConfiguration implements IDatabaseConfiguration {
 	private static final String USER = "CSCI5308_4_DEVINT_USER";
 	private static final String PASSWORD = "CSCI5308_4_DEVINT_4202";
 
-
 	public String getDatabaseUserName() {
 		return USER;
 	}

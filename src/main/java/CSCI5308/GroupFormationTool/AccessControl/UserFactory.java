@@ -1,15 +1,23 @@
 package CSCI5308.GroupFormationTool.AccessControl;
 
 public class UserFactory extends UserAbstractFactory{
-	public IUser createUserObject() {
+	public IUser makeUser() {
 		return new User();
 	}
 	
-	public IUser loadUserWithBanner(String bannerID, IUserPersistence userDB) {
+	public IUser makeUserWithBanner(String bannerID, IUserPersistence userDB) {
 		return new User(bannerID, userDB);
 	}
 	
-	public IUser loadUserWithID(long id, IUserPersistence userDB) {
+	public IUser makeUserWithID(long id, IUserPersistence userDB) {
 		return new User(id, userDB);
+	}
+
+	public IUserPersistence makeUserDB() {
+		return new UserDB();
+	}
+
+	public IUserNotifications makeUserNotifications() {
+		return new UserNotifications();
 	}
 }
