@@ -13,7 +13,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import CSCI5308.GroupFormationTool.Questions.IQuestion;
-import CSCI5308.GroupFormationTool.Questions.QuestionsSystemConfig;
+import CSCI5308.GroupFormationTool.Questions.QuestionAbstractFactory;
 import CSCI5308.GroupFormationTool.Survey.ISurveyStudentPersistence;
 import CSCI5308.GroupFormationTool.Survey.SurveyStudentDB;
 
@@ -23,7 +23,7 @@ public class SurveyStudentDBTest {
 	ISurveyStudentPersistence studentSurveyMock = mock(SurveyStudentDB.class);
 
 	SurveyStudentDBTest() {
-		IQuestion question = QuestionsSystemConfig.instance().getQuestion();
+		IQuestion question = QuestionAbstractFactory.instance().makeQuestion();
 		surveyQuestions = new ArrayList<IQuestion>();
 		question.setQuestionID(1);
 		question.setQuestionText("Favourite Course");

@@ -29,13 +29,13 @@ public interface IQuestion {
 
 	public boolean deleteQuestion(IQuestionPersistence questionDB);
 
-	public List<QuestionResponse> getAllResponses(IQuestionResponsePersistence responseDB);
+	public List<IQuestionResponse> getAllResponses(IQuestionResponsePersistence responseDB);
 
 	public boolean checkIfQuestionHasResponse();
 
 	public long createQuestion(IQuestionPersistence questionDB);
 
-	public void setQuestionOptions(List<QuestionOption> tempQuestionOptionObj);
+	public void setQuestionOptions(List<IQuestionOption> tempQuestionOptionObj);
 
-	public List<QuestionOption> getQuestionOptions();
+	public List<IQuestionOption> getQuestionOptions();
 }

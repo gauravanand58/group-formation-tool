@@ -7,9 +7,9 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import CSCI5308.GroupFormationTool.Questions.IQuestionPersistence;
+import CSCI5308.GroupFormationTool.Questions.IQuestionResponse;
 import CSCI5308.GroupFormationTool.Questions.IQuestionResponsePersistence;
 import CSCI5308.GroupFormationTool.Questions.Question;
-import CSCI5308.GroupFormationTool.Questions.QuestionResponse;
 
 public class QuestionTest {
 
@@ -108,7 +108,7 @@ public class QuestionTest {
 	public void getAllResponsesTest() {
 		IQuestionResponsePersistence responseDBMock = QuestionsSystemConfigPersistenceTest.instance()
 				.getReponseDBMock();
-		List<QuestionResponse> responseList = responseDBMock.getAllResponsesOfQuestion(-1);
+		List<IQuestionResponse> responseList = responseDBMock.getAllResponsesOfQuestion(-1);
 		assertTrue(null != responseList && responseList.size() > 0);
 	}
 
@@ -116,7 +116,7 @@ public class QuestionTest {
 	public void checkIfQuestionHasResponseTest() {
 		IQuestionResponsePersistence responseDBMock = QuestionsSystemConfigPersistenceTest.instance()
 				.getReponseDBMock();
-		List<QuestionResponse> responseList = responseDBMock.getAllResponsesOfQuestion(-1);
+		List<IQuestionResponse> responseList = responseDBMock.getAllResponsesOfQuestion(-1);
 		assertTrue(null != responseList && responseList.size() > 0);
 	}
 

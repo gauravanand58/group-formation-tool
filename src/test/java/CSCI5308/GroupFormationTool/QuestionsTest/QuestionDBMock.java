@@ -18,7 +18,7 @@ public class QuestionDBMock implements IQuestionPersistence {
 	}
 
 	@Override
-	public long createQuestion(Question question) {
+	public long createQuestion(IQuestion question) {
 		question.setInstructorID(1);
 		question.setQuestionID(1);
 		question.setQuestionTitle("Java");
@@ -61,7 +61,7 @@ public class QuestionDBMock implements IQuestionPersistence {
 	}
 
 	@Override
-	public void loadQuestionByID(Question question, long questionID) {
+	public void loadQuestionByID(IQuestion question, long questionID) {
 		// TODO Auto-generated method stub
 
 	}

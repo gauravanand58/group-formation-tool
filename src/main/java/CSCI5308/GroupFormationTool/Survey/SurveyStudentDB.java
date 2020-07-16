@@ -10,8 +10,8 @@ import org.slf4j.LoggerFactory;
 
 import CSCI5308.GroupFormationTool.Database.CallStoredProcedure;
 import CSCI5308.GroupFormationTool.Questions.IQuestion;
-import CSCI5308.GroupFormationTool.Questions.QuestionOption;
-import CSCI5308.GroupFormationTool.Questions.QuestionsSystemConfig;
+import CSCI5308.GroupFormationTool.Questions.IQuestionOption;
+import CSCI5308.GroupFormationTool.Questions.QuestionAbstractFactory;
 
 public class SurveyStudentDB implements ISurveyStudentPersistence {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -19,9 +19,9 @@ public class SurveyStudentDB implements ISurveyStudentPersistence {
 	public List<IQuestion> viewSurveyQuestions(long courseID) {
 		CallStoredProcedure proc = null;
 		List<IQuestion> surveyQuestions = new ArrayList<IQuestion>();
-		List<QuestionOption> tempQuestionOptionObj;
+		List<IQuestionOption> tempQuestionOptionObj;
 		IQuestion question;
-		QuestionOption questionOption;
+		IQuestionOption questionOption;
 		try {
 			proc = new CallStoredProcedure("spcheckIfSurveyPublished(?)");
 			proc.setParameter(1, courseID);
@@ -30,7 +30,7 @@ public class SurveyStudentDB implements ISurveyStudentPersistence {
 			if (null != results) {
 
 				while (results.next()) {
-					question = QuestionsSystemConfig.instance().getQuestion();
+					question = QuestionAbstractFactory.instance().makeQuestion();
 					question.setQuestionID(results.getInt(1));
 					question.setQuestionText(results.getString(2));
 					question.setQuestionType(results.getString(3));
@@ -39,9 +39,9 @@ public class SurveyStudentDB implements ISurveyStudentPersistence {
 					proc.setParameter(1, results.getInt(1));
 					resultOption = proc.executeWithResults();
 					if (null != resultOption) {
-						tempQuestionOptionObj = new ArrayList<QuestionOption>();
+						tempQuestionOptionObj = new ArrayList<>();
 						while (resultOption.next()) {
-							questionOption = QuestionsSystemConfig.instance().getQuestionOption();
+							questionOption = QuestionAbstractFactory.instance().makeQuestionOption();
 							questionOption.setOptionId(resultOption.getInt(1));
 							questionOption.setOptionTxt(resultOption.getString(2));
 							tempQuestionOptionObj.add(questionOption);

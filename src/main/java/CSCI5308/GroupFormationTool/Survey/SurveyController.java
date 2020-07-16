@@ -14,8 +14,8 @@ import CSCI5308.GroupFormationTool.Courses.CourseAbstractFactory;
 import CSCI5308.GroupFormationTool.Courses.ICourseUserRelationship;
 import CSCI5308.GroupFormationTool.Questions.IQuestion;
 import CSCI5308.GroupFormationTool.Questions.IQuestionPersistence;
+import CSCI5308.GroupFormationTool.Questions.QuestionAbstractFactory;
 import CSCI5308.GroupFormationTool.Questions.QuestionsSystemConfig;
-import CSCI5308.GroupFormationTool.Questions.QuestionsSystemConfigPersistence;
 
 @Controller
 public class SurveyController {
@@ -47,8 +47,8 @@ public class SurveyController {
 	@GetMapping("/survey/addIntoSurvey")
 	public ModelAndView addQuestionToSurvey(Model model, @RequestParam(name = "id") long courseID,
 			@RequestParam(name = "questionID") long questionID) {
-		IQuestionPersistence questionDB = QuestionsSystemConfigPersistence.instance().getQuestionDB();
-		IQuestion question = QuestionsSystemConfig.instance().getLoadedQuestion(questionDB, questionID);
+		IQuestionPersistence questionDB = QuestionsSystemConfig.instance().getQuestionDB();
+		IQuestion question = QuestionAbstractFactory.instance().makeLoadedQuestion(questionDB, questionID);
 		ISurveyPersistence surveyDB = new SurveyDB();
 		surveyDB.addQuestionToSurvey(question, courseID);
 		ModelAndView mav = new ModelAndView("redirect:/survey/editSurvey");
