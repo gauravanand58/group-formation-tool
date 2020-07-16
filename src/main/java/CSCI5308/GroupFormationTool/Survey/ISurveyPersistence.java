@@ -13,5 +13,5 @@ public interface ISurveyPersistence {
 
 	public void loadSurveyByCourseID(ISurvey survey, long courseId);
 
-	public boolean publishSurvey(long surveyID);
+	public boolean publishSurvey(long surveyId);
 }
