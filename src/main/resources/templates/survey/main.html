@@ -59,11 +59,9 @@
 			</tr>
 		</table>
 	</div>
-
 	<div>
 		<h2>Survey Questions</h2>
 	</div>
-
 	<div>
 		<table class="myOtherTable">
 			<tr>
@@ -84,10 +82,8 @@
 	</div>
 	<div
 		th:if="${survey.isPublished()} == false and ${instructorBannerID} == ${#httpServletRequest.remoteUser}">
-		<a
-			th:href="@{/survey/publish(surveyID=${survey.getSurveyId()},instructorUserID=${instructorUserID},courseID=${courseID},BannerID = ${#httpServletRequest.remoteUser})}"><button
+		<a th:href="@{/survey/publish(surveyID=${survey.getSurveyId()},instructorUserID=${instructorUserID},courseID=${courseID},BannerID = ${#httpServletRequest.remoteUser})}"><button
 				type="button">Publish Survey</button>
 	</div>
-
 </body>
 </html>

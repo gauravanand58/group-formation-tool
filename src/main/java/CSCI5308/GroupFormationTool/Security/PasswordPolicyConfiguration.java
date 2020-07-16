@@ -2,7 +2,8 @@ package CSCI5308.GroupFormationTool.Security;
 
 public class PasswordPolicyConfiguration {
 	private static PasswordPolicyConfiguration uniqueInstance = null;
-
+	private static String passwordPolicies;
+	
 	private int maxLength;
 	private int minLength;
 	private int minUpperChar;
@@ -10,7 +11,6 @@ public class PasswordPolicyConfiguration {
 	private int minSplChar;
 	private String notAllowedChar;
 	private int passwordHistoryCount;
-	private static String passwordPolicies;
 
 	public int getMaxLength() {
 		return maxLength;
@@ -91,9 +91,7 @@ public class PasswordPolicyConfiguration {
 
 		if (null != uniqueInstance.notAllowedChar)
 			passwordPolicies += "<li> should not contain " + uniqueInstance.notAllowedChar + " characters.</li>";
-
 		passwordPolicies += "</ul>";
-
 		return passwordPolicies;
 	}
 

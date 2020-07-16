@@ -1,7 +1,6 @@
 package CSCI5308.GroupFormationTool.Questions;
 
-public class QuestionFactory extends QuestionAbstractFactory{
-
+public class QuestionFactory extends QuestionAbstractFactory {
 	public IQuestionPersistence makeQuestionDB() {
 		return new QuestionDB();
 	}
@@ -33,5 +32,4 @@ public class QuestionFactory extends QuestionAbstractFactory{
 	public IQuestionResponse makeQuestionResponse() {
 		return new QuestionResponse();
 	}
-
 }

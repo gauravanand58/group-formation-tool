@@ -3,7 +3,7 @@ package CSCI5308.GroupFormationTool.Questions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class QuestionOption implements IQuestionOption{
+public class QuestionOption implements IQuestionOption {
 	private int optionId;
 	private String optionTxt;
 	private String optionScore;
@@ -37,5 +37,4 @@ public class QuestionOption implements IQuestionOption{
 	public void setOptionId(int optionId) {
 		this.optionId = optionId;
 	}
-
 }

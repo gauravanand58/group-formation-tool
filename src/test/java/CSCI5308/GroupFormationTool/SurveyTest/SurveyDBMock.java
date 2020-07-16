@@ -7,6 +7,7 @@ import CSCI5308.GroupFormationTool.Questions.IQuestion;
 import CSCI5308.GroupFormationTool.Questions.QuestionAbstractFactory;
 import CSCI5308.GroupFormationTool.Survey.ISurvey;
 import CSCI5308.GroupFormationTool.Survey.ISurveyPersistence;
+import CSCI5308.GroupFormationTool.Survey.SurveyAbstractFactory;
 
 public class SurveyDBMock implements ISurveyPersistence {
 
@@ -17,15 +18,18 @@ public class SurveyDBMock implements ISurveyPersistence {
 	}
 
 	public List<IQuestion> getAvailableQuestions(long surveyId, long courseId, long instructorId) {
-		return null;
+		List<IQuestion> list = new ArrayList<>();
+		list.add(QuestionAbstractFactory.instance().makeQuestion());
+		return list;
 	}
 
 	public void addQuestionToSurvey(IQuestion question, long courseId) {
-
+		List<IQuestion> list = new ArrayList<>();
+		list.add(QuestionAbstractFactory.instance().makeQuestion());
 	}
 
 	public void loadSurveyByCourseID(ISurvey survey, long courseId) {
-
+		survey = SurveyAbstractFactory.instance().makeSurvey();
 	}
 
 	public boolean publishSurvey(long surveyID) {
@@ -34,5 +38,4 @@ public class SurveyDBMock implements ISurveyPersistence {
 		}
 		return false;
 	}
-
 }

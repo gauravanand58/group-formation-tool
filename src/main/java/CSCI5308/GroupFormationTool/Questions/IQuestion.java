@@ -38,4 +38,12 @@ public interface IQuestion {
 	public void setQuestionOptions(List<IQuestionOption> tempQuestionOptionObj);
 
 	public List<IQuestionOption> getQuestionOptions();
+	
+	public String getType();
+
+	public void setType(String type);
+	
+	public int getValue();
+
+	public void setValue(int value);
 }

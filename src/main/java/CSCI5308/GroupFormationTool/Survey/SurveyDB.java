@@ -140,5 +140,4 @@ public class SurveyDB implements ISurveyPersistence {
 		logger.debug("Successfully published survey with ID:" + surveyID);
 		return true;
 	}
-
 }

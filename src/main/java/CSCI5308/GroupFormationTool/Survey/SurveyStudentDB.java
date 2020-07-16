@@ -123,5 +123,4 @@ public class SurveyStudentDB implements ISurveyStudentPersistence {
 			}
 		}
 	}
-
 }

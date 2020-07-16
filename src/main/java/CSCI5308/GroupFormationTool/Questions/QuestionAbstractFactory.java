@@ -30,11 +30,10 @@ public abstract class QuestionAbstractFactory {
 	public abstract IQuestionListManager makeQuestionListManager();
 
 	public abstract IQuestion makeQuestion();
-	
+
 	public abstract IQuestionOption makeQuestionOption();
 
 	public abstract IQuestion makeLoadedQuestion(IQuestionPersistence questionDB, long questionID);
 
 	public abstract IQuestionResponse makeQuestionResponse();
 }
-

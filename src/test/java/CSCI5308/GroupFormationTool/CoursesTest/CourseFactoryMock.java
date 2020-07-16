@@ -32,5 +32,4 @@ public class CourseFactoryMock extends CourseAbstractFactory {
 	public ICourseUserRelationshipPersistence makeCourseUserRelationshipDB() {
 		return null;
 	}
-
 }

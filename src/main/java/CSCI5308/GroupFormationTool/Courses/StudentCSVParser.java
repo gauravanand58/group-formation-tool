@@ -24,7 +24,6 @@ public class StudentCSVParser implements IStudentCSVParser {
 
 	public StudentCSVParser(MultipartFile file) {
 		this.uploadedFile = file;
-
 	}
 
 	@Override

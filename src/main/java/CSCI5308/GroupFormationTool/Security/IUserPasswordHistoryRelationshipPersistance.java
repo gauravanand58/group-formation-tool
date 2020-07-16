@@ -8,5 +8,4 @@ public interface IUserPasswordHistoryRelationshipPersistance {
 	public boolean saveUserPassword(User user);
 
 	public List<String> loadAllUserPassword(User user, int limit);
-
 }

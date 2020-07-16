@@ -64,5 +64,4 @@ public class GroupFormationRules implements IGroupFormationRules {
 		this.groupSize = groupSize;
 		formationRulesPersistence.createGroupFormationRules(this);
 	}
-
 }
