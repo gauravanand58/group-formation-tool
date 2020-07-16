@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 
 import CSCI5308.GroupFormationTool.Database.CallStoredProcedure;
 import CSCI5308.GroupFormationTool.Questions.IQuestion;
-import CSCI5308.GroupFormationTool.Questions.QuestionsSystemConfig;
+import CSCI5308.GroupFormationTool.Questions.QuestionAbstractFactory;
 
 public class SurveyDB implements ISurveyPersistence {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -26,7 +26,7 @@ public class SurveyDB implements ISurveyPersistence {
 			ResultSet results = proc.executeWithResults();
 			if (null != results) {
 				while (results.next()) {
-					IQuestion question = QuestionsSystemConfig.instance().getQuestion();
+					IQuestion question = QuestionAbstractFactory.instance().makeQuestion();
 					question.setQuestionID(results.getInt(1));
 					question.setQuestionTitle(results.getString(3));
 					question.setQuestionType(results.getString(5));
@@ -60,7 +60,7 @@ public class SurveyDB implements ISurveyPersistence {
 			ResultSet results = proc.executeWithResults();
 			if (null != results) {
 				while (results.next()) {
-					IQuestion question = QuestionsSystemConfig.instance().getQuestion();
+					IQuestion question = QuestionAbstractFactory.instance().makeQuestion();
 					question.setQuestionID(results.getInt(1));
 					question.setInstructorID(instructorId);
 					question.setQuestionTitle(results.getString(3));

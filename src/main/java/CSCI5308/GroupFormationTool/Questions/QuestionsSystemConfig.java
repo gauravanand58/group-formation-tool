@@ -3,10 +3,14 @@ package CSCI5308.GroupFormationTool.Questions;
 public class QuestionsSystemConfig {
 	private static QuestionsSystemConfig uniqueInstance = null;
 
-	private IQuestionListManager questionListManager;
+	private IQuestionPersistence questionDB;
+	private IQuestionResponsePersistence reponseDB;
+	private IQuestionOptionPersistence questionOptionDB;
 
 	private QuestionsSystemConfig() {
-		questionListManager = new QuestionListManager();
+		questionDB = QuestionAbstractFactory.instance().makeQuestionDB();
+		reponseDB = QuestionAbstractFactory.instance().makeReponseDB();
+		questionOptionDB = QuestionAbstractFactory.instance().makeQuestionOptionDB();
 	}
 
 	public static QuestionsSystemConfig instance() {
@@ -17,23 +21,15 @@ public class QuestionsSystemConfig {
 		return uniqueInstance;
 	}
 
-	public IQuestionListManager getQuestionListManager() {
-		return questionListManager;
+	public IQuestionPersistence getQuestionDB() {
+		return questionDB;
 	}
 
-	public IQuestion getQuestion() {
-		return new Question();
+	public IQuestionResponsePersistence getReponseDB() {
+		return reponseDB;
 	}
 
-	public QuestionOption getQuestionOption() {
-		return new QuestionOption();
-	}
-
-	public IQuestion getLoadedQuestion(IQuestionPersistence questionDB, long questionID) {
-		return new Question(questionDB, questionID);
-	}
-
-	public QuestionResponse getQuestionResponse() {
-		return new QuestionResponse();
+	public IQuestionOptionPersistence getQuestionOptionDB() {
+		return questionOptionDB;
 	}
 }

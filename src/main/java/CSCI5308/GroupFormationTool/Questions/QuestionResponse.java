@@ -2,14 +2,14 @@ package CSCI5308.GroupFormationTool.Questions;
 
 import java.util.List;
 
-public class QuestionResponse {
+public class QuestionResponse implements IQuestionResponse {
 	private int id;
 	private String responseText;
 	private long studentId;
 	private long courseId;
 	private long questionID;
 	private String questionType;
-	private List<QuestionOption> questionOptions;
+	private List<IQuestionOption> questionOptions;
 
 	public int getId() {
 		return id;
@@ -59,11 +59,11 @@ public class QuestionResponse {
 		this.questionID = questionID;
 	}
 
-	public List<QuestionOption> getQuestionOptions() {
+	public List<IQuestionOption> getQuestionOptions() {
 		return questionOptions;
 	}
 
-	public void setQuestionOptions(List<QuestionOption> questionOptions) {
+	public void setQuestionOptions(List<IQuestionOption> questionOptions) {
 		this.questionOptions = questionOptions;
 	}
 }
