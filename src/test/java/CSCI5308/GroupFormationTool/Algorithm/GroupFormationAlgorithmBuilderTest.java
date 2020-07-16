@@ -18,27 +18,27 @@ public class GroupFormationAlgorithmBuilderTest {
 	@Test
 	public void setGroupFormationRulesTest() {
 		GroupFormationAlgorithmBuilder algorithmBuilder = new GroupFormationAlgorithmBuilder();
-		List<IGroupFormationRules> groupingRules= new ArrayList<IGroupFormationRules>();
+		List<IGroupFormationRules> groupingRules = new ArrayList<IGroupFormationRules>();
 		IGroupFormationRules formationRules = new GroupFormationRules();
-		
+
 		formationRules.setGroupSize(2);
 		formationRules.setQuestionId(2l);
 		formationRules.setCourseId(1l);
 		formationRules.setType("similar");
 		formationRules.setValue(0);
 		groupingRules.add(formationRules);
-		
+
 		algorithmBuilder.setGroupFormationRules(groupingRules);
 		assertNotNull(algorithmBuilder.groupFormationRules);
 	}
-	
+
 	@Test
 	public void setUserResponsesTest() {
 		GroupFormationAlgorithmBuilder algorithmBuilder = new GroupFormationAlgorithmBuilder();
 		IUserResponsePersistence userMockDB = new UserResponseDBMock();
 		algorithmBuilder.userResponses = userMockDB.loadUserResponsesForQuestions(1l);
-		
-		assertTrue(algorithmBuilder.userResponses.size()>0);
+
+		assertTrue(algorithmBuilder.userResponses.size() > 0);
 	}
 
 	@Test
@@ -46,30 +46,29 @@ public class GroupFormationAlgorithmBuilderTest {
 		GroupFormationAlgorithmBuilder algorithmBuilder = new GroupFormationAlgorithmBuilder();
 		IUserResponsePersistence userMockDB = new UserResponseDBMock();
 		algorithmBuilder.userMCQ2Responses = userMockDB.loadUserResponsesForMCQ2(1l);
-		
-		
-		assertTrue(algorithmBuilder.userMCQ2Responses.size()>0);
+
+		assertTrue(algorithmBuilder.userMCQ2Responses.size() > 0);
 	}
 
 	@Test
 	public void buildTest() {
 		IGroupFormationAlgorithmBuilder algorithmBuilder = new GroupFormationAlgorithmBuilderMock();
-		List<IGroupFormationRules> groupingRules= new ArrayList<IGroupFormationRules>();
+		List<IGroupFormationRules> groupingRules = new ArrayList<IGroupFormationRules>();
 		IGroupFormationRules formationRules = new GroupFormationRules();
-		
+
 		formationRules.setGroupSize(2);
 		formationRules.setQuestionId(2l);
 		formationRules.setCourseId(1l);
 		formationRules.setType("similar");
 		formationRules.setValue(0);
 		groupingRules.add(formationRules);
-		
+
 		algorithmBuilder.setGroupFormationRules(groupingRules);
 		IUserResponsePersistence userMockDB = new UserResponseDBMock();
 		algorithmBuilder.setUserMCQ2Responses(userMockDB.loadUserResponsesForMCQ2(1l));
 		algorithmBuilder.setUserResponses(userMockDB.loadUserResponsesForQuestions(1l));
 		IGroupFormationAlgorithm algorithm = algorithmBuilder.build();
 		assertNotNull(algorithm);
-		
+
 	}
 }

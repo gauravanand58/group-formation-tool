@@ -10,6 +10,7 @@ import CSCI5308.GroupFormationTool.Database.CallStoredProcedure;
 
 public class PasswordPolicyDB implements IPasswordPolicyPersistance {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
 	@Override
 	public void loadUserPasswordPolicies(PasswordPolicyConfiguration policyConfiguration) {
 		CallStoredProcedure proc = null;
@@ -28,7 +29,7 @@ public class PasswordPolicyDB implements IPasswordPolicyPersistance {
 				}
 			}
 		} catch (SQLException e) {
-			logger.error("spLoadPasswordPolicy() throws SQLException:"+e.getMessage());
+			logger.error("spLoadPasswordPolicy() throws SQLException:" + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {

@@ -7,10 +7,7 @@ import org.junit.jupiter.api.Test;
 import CSCI5308.GroupFormationTool.Survey.ISurvey;
 import CSCI5308.GroupFormationTool.Survey.ISurveyPersistence;
 import CSCI5308.GroupFormationTool.Survey.ISurveyStudentPersistence;
-import CSCI5308.GroupFormationTool.Survey.Survey;
 import CSCI5308.GroupFormationTool.Survey.SurveyAbstractFactory;
-import CSCI5308.GroupFormationTool.Survey.SurveyDB;
-import CSCI5308.GroupFormationTool.Survey.SurveyStudentDB;
 
 public class SurveyFactoryTest {
 	@Test
@@ -18,7 +15,7 @@ public class SurveyFactoryTest {
 		ISurvey survey = SurveyAbstractFactory.instance().makeSurvey();
 		assertTrue(null != survey);
 	}
-	
+
 	@Test
 	public void makeSurveyDB() {
 		ISurveyPersistence surveyDB = SurveyAbstractFactory.instance().makeSurveyDB();

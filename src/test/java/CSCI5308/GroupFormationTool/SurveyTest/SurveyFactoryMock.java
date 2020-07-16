@@ -5,7 +5,7 @@ import CSCI5308.GroupFormationTool.Survey.ISurveyPersistence;
 import CSCI5308.GroupFormationTool.Survey.ISurveyStudentPersistence;
 import CSCI5308.GroupFormationTool.Survey.SurveyAbstractFactory;
 
-public class SurveyFactoryMock extends SurveyAbstractFactory{
+public class SurveyFactoryMock extends SurveyAbstractFactory {
 
 	@Override
 	public ISurvey makeSurvey() {

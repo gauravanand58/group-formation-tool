@@ -2,7 +2,7 @@ package CSCI5308.GroupFormationTool.Survey;
 
 public class SurveySystemConfig {
 	private static SurveySystemConfig uniqueInstance = null;
-	
+
 	private ISurveyPersistence surveyDB;
 	private ISurveyStudentPersistence studentSurveyDB;
 

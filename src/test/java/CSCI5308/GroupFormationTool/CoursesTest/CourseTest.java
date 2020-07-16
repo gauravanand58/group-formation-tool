@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import CSCI5308.GroupFormationTool.Courses.Course;
 import CSCI5308.GroupFormationTool.Courses.CourseAbstractFactory;
 import CSCI5308.GroupFormationTool.Courses.ICourse;
 import CSCI5308.GroupFormationTool.Courses.ICoursePersistence;

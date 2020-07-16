@@ -12,6 +12,7 @@ import CSCI5308.GroupFormationTool.Database.CallStoredProcedure;
 
 public class QuestionResponseDB implements IQuestionResponsePersistence {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
 	@Override
 	public List<QuestionResponse> getAllResponsesOfQuestion(int questionID) {
 		List<QuestionResponse> responseList = new LinkedList<QuestionResponse>();
@@ -31,7 +32,7 @@ public class QuestionResponseDB implements IQuestionResponsePersistence {
 				}
 			}
 		} catch (SQLException e) {
-			logger.error("spGetAllResponsesOfQuestion throws SQLException:"+e.getMessage());
+			logger.error("spGetAllResponsesOfQuestion throws SQLException:" + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import CSCI5308.GroupFormationTool.AccessControl.IUser;
-import CSCI5308.GroupFormationTool.AccessControl.User;
 import CSCI5308.GroupFormationTool.AccessControl.UserAbstractFactory;
 import CSCI5308.GroupFormationTool.Courses.ICourse;
 import CSCI5308.GroupFormationTool.Courses.ICourseUserRelationshipPersistence;
