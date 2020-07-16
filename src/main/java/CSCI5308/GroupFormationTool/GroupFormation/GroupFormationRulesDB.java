@@ -12,7 +12,6 @@ public class GroupFormationRulesDB implements IGroupFormationRulesPersistence {
 
 	@Override
 	public boolean createGroupFormationRules(GroupFormationRules formationRules) {
-
 		CallStoredProcedure proc = null;
 		try {
 			proc = new CallStoredProcedure("spCreateForSurveyRules(?,?,?,?,?)");
@@ -21,9 +20,7 @@ public class GroupFormationRulesDB implements IGroupFormationRulesPersistence {
 			proc.setParameter(3, formationRules.getType());
 			proc.setParameter(4, formationRules.getValue());
 			proc.setParameter(5, formationRules.getGroupSize());
-
 			proc.execute();
-
 		} catch (SQLException e) {
 			logger.error("spCreateForSurveyRules() throws SQLException:" + e.getMessage());
 			e.printStackTrace();
@@ -33,7 +30,5 @@ public class GroupFormationRulesDB implements IGroupFormationRulesPersistence {
 			}
 		}
 		return true;
-
 	}
-
 }

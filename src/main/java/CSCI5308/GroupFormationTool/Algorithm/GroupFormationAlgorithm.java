@@ -86,7 +86,6 @@ class GroupFormationAlgorithm implements IGroupFormationAlgorithm {
 							userScores.put(userID, score);
 						}
 					}
-
 				}
 			}
 
@@ -116,7 +115,6 @@ class GroupFormationAlgorithm implements IGroupFormationAlgorithm {
 								}
 							}
 							userScores.put(userID, score);
-
 						}
 					}
 
@@ -135,7 +133,6 @@ class GroupFormationAlgorithm implements IGroupFormationAlgorithm {
 				userMCQ2Responses.remove(userID);
 			}
 		}
-
 	}
 
 	private void matchUsersToGroup(List<Long> group) {
@@ -159,7 +156,5 @@ class GroupFormationAlgorithm implements IGroupFormationAlgorithm {
 				}
 			}
 		}
-
 	}
-
 }

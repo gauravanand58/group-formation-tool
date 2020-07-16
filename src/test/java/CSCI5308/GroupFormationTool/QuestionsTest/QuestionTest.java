@@ -107,16 +107,14 @@ public class QuestionTest {
 
 	@Test
 	public void getAllResponsesTest() {
-		IQuestionResponsePersistence responseDBMock = QuestionsSystemConfigTest.instance()
-				.getReponseDBMock();
+		IQuestionResponsePersistence responseDBMock = QuestionsSystemConfigTest.instance().getReponseDBMock();
 		List<IQuestionResponse> responseList = responseDBMock.getAllResponsesOfQuestion(-1);
 		assertTrue(null != responseList && responseList.size() > 0);
 	}
 
 	@Test
 	public void checkIfQuestionHasResponseTest() {
-		IQuestionResponsePersistence responseDBMock = QuestionsSystemConfigTest.instance()
-				.getReponseDBMock();
+		IQuestionResponsePersistence responseDBMock = QuestionsSystemConfigTest.instance().getReponseDBMock();
 		List<IQuestionResponse> responseList = responseDBMock.getAllResponsesOfQuestion(-1);
 		assertTrue(null != responseList && responseList.size() > 0);
 	}

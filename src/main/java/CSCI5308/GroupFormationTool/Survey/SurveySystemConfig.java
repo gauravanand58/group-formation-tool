@@ -34,5 +34,4 @@ public class SurveySystemConfig {
 	public void setSurveyDB(ISurveyPersistence surveyDB) {
 		this.surveyDB = surveyDB;
 	}
-
 }

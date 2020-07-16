@@ -17,7 +17,6 @@
 		
 			<div><button th:style="'visibility:'+@{${QuestionSet}}" ><a th:href="@{/createquestions(isUserInstructor=${isUserInstructor})}">Add Question</a></button></div>
 			<div><button th:style="'visibility:'+@{${QuestionSet}}" ><a th:href="@{/course/questionmanager(bannerID=${#httpServletRequest.remoteUser})}">View Questions</a></button></div>
-		
 		</div>
 	</body>
 </html>

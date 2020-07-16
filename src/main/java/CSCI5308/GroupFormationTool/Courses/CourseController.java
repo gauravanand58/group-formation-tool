@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import CSCI5308.GroupFormationTool.Questions.IQuestion;
+import CSCI5308.GroupFormationTool.Questions.QuestionAbstractFactory;
 import CSCI5308.GroupFormationTool.Questions.QuestionResponse;
 import CSCI5308.GroupFormationTool.Survey.ISurveyStudentPersistence;
 import CSCI5308.GroupFormationTool.Survey.SurveySystemConfig;
@@ -50,7 +51,7 @@ public class CourseController {
 			model.addAttribute("message", message);
 		} else {
 			model.addAttribute("surveyQuestions", surveyQuestions);
-			model.addAttribute("QuestionResponseObj", new QuestionResponse());
+			model.addAttribute("QuestionResponseObj", QuestionAbstractFactory.instance().makeQuestionResponse());
 		}
 		return "course/course";
 	}

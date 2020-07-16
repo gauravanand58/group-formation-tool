@@ -8,8 +8,10 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import CSCI5308.GroupFormationTool.AccessControl.IUser;
 import CSCI5308.GroupFormationTool.AccessControl.IUserPersistence;
 import CSCI5308.GroupFormationTool.AccessControl.User;
+import CSCI5308.GroupFormationTool.AccessControl.UserAbstractFactory;
 import CSCI5308.GroupFormationTool.AccessControl.UserDB;
 import CSCI5308.GroupFormationTool.Algorithm.IGroupFormationAlgorithm;
 import CSCI5308.GroupFormationTool.Algorithm.IGroupFormationAlgorithmBuilder;
@@ -19,14 +21,12 @@ public class GroupingService implements IGroupingService {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Override
-	public Map<Integer, Map<User, List<String>>> createGroups(List<IGroupFormationRules> groupingRules,
+	public Map<Integer, Map<IUser, List<String>>> createGroups(List<IGroupFormationRules> groupingRules,
 			IUserResponsePersistence userResponsePersistence, IGroupFormationAlgorithmBuilder algorithmBuilder,
 			long courseID) {
 
 		Map<Long, Map<Long, String>> userResponses = new HashMap<Long, Map<Long, String>>();
-
 		userResponses = userResponsePersistence.loadUserResponsesForQuestions(courseID);
-
 		Map<Long, Map<Long, List<String>>> userMCQ2Responses = new HashMap<Long, Map<Long, List<String>>>();
 		userMCQ2Responses = userResponsePersistence.loadUserResponsesForMCQ2(courseID);
 
@@ -40,18 +40,16 @@ public class GroupingService implements IGroupingService {
 		return generateUserGroups(groupList, userResponses, userMCQ2Responses);
 	}
 
-	private Map<Integer, Map<User, List<String>>> generateUserGroups(List<List<Long>> groupList,
+	private Map<Integer, Map<IUser, List<String>>> generateUserGroups(List<List<Long>> groupList,
 			Map<Long, Map<Long, String>> userResponses, Map<Long, Map<Long, List<String>>> userMCQ2Responses) {
 
-		Map<Integer, Map<User, List<String>>> response = new HashMap<Integer, Map<User, List<String>>>();
-
+		Map<Integer, Map<IUser, List<String>>> response = new HashMap<Integer, Map<IUser, List<String>>>();
 		int groupNumber = 0;
-
 		for (List<Long> group : groupList) {
-			IUserPersistence persistence = new UserDB();
-			Map<User, List<String>> userAllResponses = new HashMap<User, List<String>>();
+			IUserPersistence persistence = UserAbstractFactory.instance().makeUserDB();
+			Map<IUser, List<String>> userAllResponses = new HashMap<IUser, List<String>>();
 			for (Long userId : group) {
-				User user = new User();
+				IUser user = UserAbstractFactory.instance().makeUser();
 				persistence.loadUserByID(userId, user);
 				List<String> allResponses = new ArrayList<String>();
 				if (null != userResponses.get(userId)) {
@@ -84,5 +82,4 @@ public class GroupingService implements IGroupingService {
 		}
 		return response;
 	}
-
 }

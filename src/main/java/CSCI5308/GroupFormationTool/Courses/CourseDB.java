@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import CSCI5308.GroupFormationTool.Database.CallStoredProcedure;
 import CSCI5308.GroupFormationTool.Survey.ISurvey;
 import CSCI5308.GroupFormationTool.Survey.Survey;
+import CSCI5308.GroupFormationTool.Survey.SurveyAbstractFactory;
 
 public class CourseDB implements ICoursePersistence {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -53,7 +54,7 @@ public class CourseDB implements ICoursePersistence {
 					String title = results.getString(1);
 					course.setId(id);
 					course.setTitle(title);
-					ISurvey survey = new Survey();
+					ISurvey survey = SurveyAbstractFactory.instance().makeSurvey();
 					survey.setCourseId(id);
 					survey.setSurveyId(results.getLong(2));
 					survey.setInstructorId(results.getLong(3));

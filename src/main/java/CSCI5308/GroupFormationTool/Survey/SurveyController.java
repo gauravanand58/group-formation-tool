@@ -22,9 +22,8 @@ public class SurveyController {
 
 	@GetMapping("/survey/editSurvey")
 	public String editSurvey(Model model, @RequestParam(name = "id") long courseID) {
-
-		ISurveyPersistence surveyDB = new SurveyDB();
-		ISurvey survey = new Survey(surveyDB, courseID);
+		ISurveyPersistence surveyDB = SurveyAbstractFactory.instance().makeSurveyDB();
+		ISurvey survey = SurveyAbstractFactory.instance().makeSurveyWithCourseID(surveyDB, courseID);
 		List<IQuestion> availableQuestionsList = new ArrayList<>();
 		List<IQuestion> addedQuestionsList = new ArrayList<>();
 		ICourseUserRelationship courseUserRelationship = CourseAbstractFactory.instance().makeCourseUserRelationship();
@@ -49,7 +48,7 @@ public class SurveyController {
 			@RequestParam(name = "questionID") long questionID) {
 		IQuestionPersistence questionDB = QuestionsSystemConfig.instance().getQuestionDB();
 		IQuestion question = QuestionAbstractFactory.instance().makeLoadedQuestion(questionDB, questionID);
-		ISurveyPersistence surveyDB = new SurveyDB();
+		ISurveyPersistence surveyDB = SurveyAbstractFactory.instance().makeSurveyDB();
 		surveyDB.addQuestionToSurvey(question, courseID);
 		ModelAndView mav = new ModelAndView("redirect:/survey/editSurvey");
 		mav.addObject("id", courseID);
@@ -61,8 +60,8 @@ public class SurveyController {
 			@RequestParam(name = "instructorUserID") long instructorUserID,
 			@RequestParam(name = "courseID") long courseID, @RequestParam(name = "BannerID") String BannerID,
 			Model model) {
-		ISurveyPersistence surveyDB = new SurveyDB();
-		ISurvey survey = new Survey();
+		ISurveyPersistence surveyDB = SurveyAbstractFactory.instance().makeSurveyDB();
+		ISurvey survey = SurveyAbstractFactory.instance().makeSurvey();
 		boolean surveyPublished = survey.publishSurvey(surveyID, surveyDB);
 		model.addAttribute("surveyPublished", surveyPublished);
 		ModelAndView mav = new ModelAndView("redirect:/course/course");
@@ -70,6 +69,5 @@ public class SurveyController {
 		mav.addObject("isUserInstructor", instructorUserID);
 		mav.addObject("BannerID", BannerID);
 		return mav;
-
 	}
 }

@@ -106,8 +106,7 @@ public class Question implements IQuestion {
 	}
 
 	public boolean checkIfQuestionHasResponse() {
-		List<IQuestionResponse> responseList = getAllResponses(
-				QuestionsSystemConfig.instance().getReponseDB());
+		List<IQuestionResponse> responseList = getAllResponses(QuestionsSystemConfig.instance().getReponseDB());
 		if (null == responseList || responseList.size() == 0) {
 			return false;
 		}
@@ -125,5 +124,4 @@ public class Question implements IQuestion {
 	public void setQuestionOptions(List<IQuestionOption> questionOptions) {
 		this.questionOptions = questionOptions;
 	}
-
 }

@@ -6,5 +6,4 @@ public class GroupFormationRulesPersistenceMock implements IGroupFormationRulesP
 	public boolean createGroupFormationRules(GroupFormationRules formationRules) {
 		return true;
 	}
-
 }

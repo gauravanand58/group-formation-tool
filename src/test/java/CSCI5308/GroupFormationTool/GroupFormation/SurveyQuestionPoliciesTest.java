@@ -8,14 +8,16 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
+import CSCI5308.GroupFormationTool.Questions.IQuestion;
 import CSCI5308.GroupFormationTool.Questions.Question;
+import CSCI5308.GroupFormationTool.Questions.QuestionAbstractFactory;
 
 public class SurveyQuestionPoliciesTest {
 	@Test
 	public void getQuesTest() {
 		SurveyQuestionPolicies policies = new SurveyQuestionPolicies();
-		List<Question> questions = new ArrayList<>();
-		Question question = new Question();
+		List<IQuestion> questions = new ArrayList<>();
+		IQuestion question = QuestionAbstractFactory.instance().makeQuestion();
 		question.setInstructorID(3l);
 		questions.add(question);
 		policies.setQues(questions);
@@ -25,8 +27,8 @@ public class SurveyQuestionPoliciesTest {
 	@Test
 	public void setQuesTest() {
 		SurveyQuestionPolicies policies = new SurveyQuestionPolicies();
-		List<Question> questions = new ArrayList<>();
-		Question question = new Question();
+		List<IQuestion> questions = new ArrayList<>();
+		IQuestion question = QuestionAbstractFactory.instance().makeQuestion();
 		question.setInstructorID(3l);
 		questions.add(question);
 		policies.setQues(questions);
@@ -37,7 +39,6 @@ public class SurveyQuestionPoliciesTest {
 	public void getGroupSizeTest() {
 		SurveyQuestionPolicies policies = new SurveyQuestionPolicies();
 		policies.setGroupSize(1);
-
 		assertTrue(policies.getGroupSize() == 1);
 	}
 
@@ -45,7 +46,6 @@ public class SurveyQuestionPoliciesTest {
 	public void setGroupSizeTest() {
 		SurveyQuestionPolicies policies = new SurveyQuestionPolicies();
 		policies.setGroupSize(1);
-
 		assertTrue(policies.getGroupSize() == 1);
 	}
 

@@ -27,5 +27,4 @@ public class GroupFormationAlgorithmBuilderMock implements IGroupFormationAlgori
 	public IGroupFormationAlgorithm build() {
 		return new GroupFormationAlgorithmMock();
 	}
-
 }

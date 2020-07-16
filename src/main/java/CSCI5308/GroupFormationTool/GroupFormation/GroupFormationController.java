@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import CSCI5308.GroupFormationTool.AccessControl.User;
+import CSCI5308.GroupFormationTool.AccessControl.IUser;
 import CSCI5308.GroupFormationTool.Algorithm.IGroupFormationAlgorithmBuilder;
-import CSCI5308.GroupFormationTool.Questions.Question;
-import CSCI5308.GroupFormationTool.Survey.IQuestionSurveyRelationshipPersistence;
-import CSCI5308.GroupFormationTool.Survey.SurveySystemConfigPersistence;
+import CSCI5308.GroupFormationTool.Questions.IQuestion;
+import CSCI5308.GroupFormationTool.Survey.ISurveyPersistence;
+import CSCI5308.GroupFormationTool.Survey.SurveySystemConfig;
 
 @Controller
 public class GroupFormationController {
@@ -30,10 +30,8 @@ public class GroupFormationController {
 	public String displaySurveyList(Model model, @RequestParam(name = ID) long courseID) {
 
 		logger.debug("At 'surveymanager/surveylist'");
-		IQuestionSurveyRelationshipPersistence surveyQuestionDB = SurveySystemConfigPersistence.instance()
-				.getQuestionSurveyDB();
-
-		List<Question> displayQues = surveyQuestionDB.loadQUestionsByCourseId(courseID);
+		ISurveyPersistence surveyDB = SurveySystemConfig.instance().getSurveyDB();
+		List<IQuestion> displayQues = surveyDB.loadQuestionsByCourseId(courseID);
 		model.addAttribute("ques", displayQues);
 		SurveyQuestionPolicies surveyQuestionPolicies = new SurveyQuestionPolicies();
 		surveyQuestionPolicies.setQues(displayQues);
@@ -53,7 +51,7 @@ public class GroupFormationController {
 			IGroupFormationRulesPersistence rulesDB = GroupFormationSystemConfigPersistance.instance()
 					.getFormationRulesPersistence();
 			List<IGroupFormationRules> quesRules = new ArrayList<>();
-			for (Question question : form.getQues()) {
+			for (IQuestion question : form.getQues()) {
 				IGroupFormationRules formationRules = new GroupFormationRules(courseID, question.getQuestionID(),
 						question.getType(), question.getValue(), form.getGroupSize(), rulesDB);
 				quesRules.add(formationRules);
@@ -63,14 +61,12 @@ public class GroupFormationController {
 					.getUserResponsePersistence();
 			IGroupFormationAlgorithmBuilder groupingAlgorithmBuilder = GroupFormationSystemConfigPersistance.instance()
 					.getGroupingAlgorithmBuilder();
-			Map<Integer, Map<User, List<String>>> groups = groupingService.createGroups(quesRules,
+			Map<Integer, Map<IUser, List<String>>> groups = groupingService.createGroups(quesRules,
 					userResponsePersistence, groupingAlgorithmBuilder, courseID);
 
 			model.addAttribute("quesRules", form.getQues());
 			model.addAttribute("groups", groups);
 		}
-
 		return "surveymanager/groupResults";
 	}
-
 }
