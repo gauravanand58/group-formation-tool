@@ -1,0 +1,3 @@
+[DEBUG] 2020-07-16 13:00:50.554 [http-nio-8080-exec-6] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-16 13:00:50.555 [http-nio-8080-exec-6] CurrentUser - Valid User
+[INFO ] 2020-07-16 13:00:55.980 [http-nio-8080-exec-6] SurveyStudentDB - Successfully created question options

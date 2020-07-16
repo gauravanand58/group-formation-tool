@@ -13,7 +13,7 @@
         >
       </PatternLayout>
     </Console>
-    <File name="SpringBoot-Appender" fileName="${path}/springboot_log.log">
+    <File name="SpringBoot-Appender" fileName="${path}/logs.txt">
       <PatternLayout>
         <pattern>
           [%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
