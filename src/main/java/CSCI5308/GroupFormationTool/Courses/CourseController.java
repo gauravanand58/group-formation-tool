@@ -15,7 +15,7 @@ public class CourseController {
 	public String course(Model model, @RequestParam(name = ID) long courseID,
 			@RequestParam(name = "isUserInstructor") long userID) {
 		ICoursePersistence courseDB = CourseSystemConfig.instance().getCourseDB();
-		ICourse course = CourseObjectFactory.objFactory(new CourseFactory());
+		ICourse course = CourseAbstractFactory.instance().makeCourse();
 		courseDB.loadCourseByID(courseID, course);
 		model.addAttribute("course", course);
 		model.addAttribute("isUserInstructor", userID);

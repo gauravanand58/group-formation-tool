@@ -16,86 +16,86 @@ import org.junit.jupiter.api.Test;
 public class UserTest {
 	@Test
 	public void ConstructorTests() {
-		IUser u = UserAbstractFactory.instance().createUserObject();
+		IUser u = UserAbstractFactory.instance().makeUser();
 		assertTrue(u.getBannerID().isEmpty());
 		assertTrue(u.getFirstName().isEmpty());
 		assertTrue(u.getLastName().isEmpty());
 		assertTrue(u.getEmail().isEmpty());
 
 		IUserPersistence userDBMock = new UserDBMock();
-		u = UserAbstractFactory.instance().loadUserWithID(1, userDBMock);
+		u = UserAbstractFactory.instance().makeUserWithID(1, userDBMock);
 		assertTrue(u.getBannerID().equals("B00000000"));
 
-		u = UserAbstractFactory.instance().loadUserWithBanner("B00000000", userDBMock);
+		u = UserAbstractFactory.instance().makeUserWithBanner("B00000000", userDBMock);
 		assertTrue(u.getBannerID().equals("B00000000"));
 	}
 
 	@Test
 	public void setIDTest() {
-		IUser u = UserAbstractFactory.instance().createUserObject();
+		IUser u = UserAbstractFactory.instance().makeUser();
 		u.setID(10);
 		assertTrue(10 == u.getID());
 	}
 
 	@Test
 	public void getIDTest() {
-		IUser u = UserAbstractFactory.instance().createUserObject();
+		IUser u = UserAbstractFactory.instance().makeUser();
 		u.setID(10);
 		assertTrue(10 == u.getID());
 	}
 
 	@Test
 	public void setBannerIDTest() {
-		IUser u = UserAbstractFactory.instance().createUserObject();
+		IUser u = UserAbstractFactory.instance().makeUser();
 		u.setBannerID("B00000000");
 		assertTrue(u.getBannerID().equals("B00000000"));
 	}
 
 	@Test
 	public void getBannerIDTest() {
-		IUser u = UserAbstractFactory.instance().createUserObject();
+		IUser u = UserAbstractFactory.instance().makeUser();
 		u.setBannerID("B00000000");
 		assertTrue(u.getBannerID().equals("B00000000"));
 	}
 
 	@Test
 	public void setFirstNameTest() {
-		IUser u = UserAbstractFactory.instance().createUserObject();
+		IUser u = UserAbstractFactory.instance().makeUser();
 		u.setFirstName("Rob");
 		assertTrue(u.getFirstName().equals("Rob"));
 	}
 
 	@Test
 	public void getFirstNameTest() {
-		IUser u = UserAbstractFactory.instance().createUserObject();
+		IUser u = UserAbstractFactory.instance().makeUser();
 		u.setFirstName("Rob");
 		assertTrue(u.getFirstName().equals("Rob"));
 	}
 
 	@Test
 	public void setLastNameTest() {
-		IUser u = UserAbstractFactory.instance().createUserObject();
+		IUser u = UserAbstractFactory.instance().makeUser();
 		u.setLastName("Hawkey");
 		assertTrue(u.getLastName().equals("Hawkey"));
 	}
 
 	@Test
 	public void getLastNameTest() {
-		IUser u = UserAbstractFactory.instance().createUserObject();
+		IUser u = UserAbstractFactory.instance().makeUser();
 		u.setLastName("Hawkey");
 		assertTrue(u.getLastName().equals("Hawkey"));
 	}
 
 	@Test
 	public void setEmailTest() {
-		IUser u = UserAbstractFactory.instance().createUserObject();
+		IUser u = UserAbstractFactory.instance().makeUser();
 		u.setEmail("rhawkey@dal.ca");
 		assertTrue(u.getEmail().equals("rhawkey@dal.ca"));
 	}
 
 	@Test
 	public void getEmailTest() {
-		IUser u = UserAbstractFactory.instance().createUserObject();
+		IUser u = UserAbstractFactory.instance().makeUser();
 		u.setEmail("rhawkey@dal.ca");
 		assertTrue(u.getEmail().equals("rhawkey@dal.ca"));
 	}
@@ -103,7 +103,7 @@ public class UserTest {
 	@Test
 	public void createUser() {
 		IUserPersistence userDB = new UserDBMock();
-		IUser user = UserAbstractFactory.instance().createUserObject();
+		IUser user = UserAbstractFactory.instance().makeUser();
 		userDB.createUser(user);
 		assertTrue(user.getId() == 0);
 		assertTrue(user.getBannerID().equals("B00000000"));
@@ -149,14 +149,14 @@ public class UserTest {
 
 	@Test
 	public void saveUserPasswordHistoryTest() {
-		IUser user = UserAbstractFactory.instance().createUserObject();
+		IUser user = UserAbstractFactory.instance().makeUser();
 		IUserPasswordHistoryRelationshipPersistance userPassRelationship = new UserPasswordHistoryRelationshipDBMock();
 		user.saveUserPasswordHistory(userPassRelationship);
 	}
 
 	@Test
 	public void validatePasswordHistoryTest() {
-		IUser u = UserAbstractFactory.instance().createUserObject();
+		IUser u = UserAbstractFactory.instance().makeUser();
 		u.setID(1);
 		PasswordPolicyDBMock persistanceMock = new PasswordPolicyDBMock();
 		PasswordPolicyConfiguration configuration = PasswordPolicyConfiguration.instance(persistanceMock);

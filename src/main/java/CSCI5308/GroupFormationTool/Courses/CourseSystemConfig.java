@@ -6,9 +6,8 @@ public class CourseSystemConfig {
 	private ICourseUserRelationshipPersistence courseUserRelationshipDB;
 
 	private CourseSystemConfig() {
-		courseDB = CourseObjectFactory.objDBFactory(new CourseDbFactory());
-		courseUserRelationshipDB = CourseObjectFactory
-				.objCourseUserRelationDBFactory(new CourseUserRelationshipPersistenceFactory());
+		courseDB = CourseAbstractFactory.instance().makeCourseDB();
+		courseUserRelationshipDB = CourseAbstractFactory.instance().makeCourseUserRelationshipDB();
 	}
 
 	public static CourseSystemConfig instance() {

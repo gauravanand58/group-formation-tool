@@ -30,7 +30,7 @@ public class CourseUserRelationshipDB implements ICourseUserRelationshipPersiste
 					String bannerID = results.getString(2);
 					String firstName = results.getString(3);
 					String lastName = results.getString(4);
-					IUser u = UserAbstractFactory.instance().createUserObject();
+					IUser u = UserAbstractFactory.instance().makeUser();
 					u.setID(userID);
 					u.setBannerID(bannerID);
 					u.setFirstName(firstName);
@@ -60,7 +60,7 @@ public class CourseUserRelationshipDB implements ICourseUserRelationshipPersiste
 			if (null != results) {
 				while (results.next()) {
 					long userID = results.getLong(1);
-					IUser u = UserAbstractFactory.instance().createUserObject();
+					IUser u = UserAbstractFactory.instance().makeUser();
 					u.setID(userID);
 					users.add(u);
 				}

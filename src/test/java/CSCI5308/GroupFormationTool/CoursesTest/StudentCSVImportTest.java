@@ -22,7 +22,7 @@ class StudentCSVImportTest {
 
 	@Test
 	public void enrollStudentFromRecord() {
-		IUser user = UserAbstractFactory.instance().createUserObject();
+		IUser user = UserAbstractFactory.instance().makeUser();
 		Course course = new Course();
 		IUserPersistence userDB = new UserDBMock();
 		IPasswordEncryption passwordEncryption = new PasswordEncryptionMock();

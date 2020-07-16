@@ -34,7 +34,7 @@ public class SignupController {
 		if (IUser.isBannerIDValid(bannerID) && IUser.isEmailValid(email) && IUser.isFirstNameValid(firstName)
 				&& IUser.isLastNameValid(lastName) && password.equals(passwordConfirm)
 				&& IUser.isValidPassword(password, SystemConfig.instance().getConfiguration())) {
-			IUser u = UserAbstractFactory.instance().createUserObject();
+			IUser u = UserAbstractFactory.instance().makeUser();
 			u.setBannerID(bannerID);
 			u.setPassword(password);
 			u.setFirstName(firstName);

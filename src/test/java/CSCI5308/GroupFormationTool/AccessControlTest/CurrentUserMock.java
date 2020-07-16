@@ -9,7 +9,7 @@ public class CurrentUserMock {
 	public IUser getCurrentAuthenticatedUser() {
 		IUserPersistence userDB = new UserDBMock();
 		String bannerID = "B00000000";
-		IUser u = UserAbstractFactory.instance().createUserObject();
+		IUser u = UserAbstractFactory.instance().makeUser();
 		userDB.loadUserByBannerID(bannerID, u);
 		return u;
 	}

@@ -58,7 +58,7 @@ public class CustomAuthenticationManager implements AuthenticationManager {
 		IUserPersistence userDB = UserSystemConfig.instance().getUserDB();
 		IUser u;
 		try {
-			u = UserAbstractFactory.instance().loadUserWithBanner(bannerID, userDB);
+			u = UserAbstractFactory.instance().makeUserWithBanner(bannerID, userDB);
 		} catch (Exception e) {
 			throw new AuthenticationServiceException("1000");
 		}

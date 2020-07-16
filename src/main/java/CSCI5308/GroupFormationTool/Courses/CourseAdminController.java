@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import CSCI5308.GroupFormationTool.AccessControl.IUser;
-import CSCI5308.GroupFormationTool.AccessControl.User;
 import CSCI5308.GroupFormationTool.AccessControl.UserAbstractFactory;
 
 @Controller
@@ -32,7 +31,7 @@ public class CourseAdminController {
 	@GetMapping("/admin/assigninstructor")
 	public String assignInstructor(Model model, @RequestParam(name = ID) long courseID) {
 		ICoursePersistence courseDB = CourseSystemConfig.instance().getCourseDB();
-		ICourse c = CourseObjectFactory.objFactory(new CourseFactory());
+		ICourse c = CourseAbstractFactory.instance().makeCourse();
 		courseDB.loadCourseByID(courseID, c);
 		model.addAttribute("course", c);
 		ICourseUserRelationshipPersistence courseUserRelationshipDB = CourseSystemConfig.instance()
@@ -46,7 +45,7 @@ public class CourseAdminController {
 	@GetMapping("/admin/deletecourse")
 	public ModelAndView deleteCourse(@RequestParam(name = ID) long courseID) {
 		ICoursePersistence courseDB = CourseSystemConfig.instance().getCourseDB();
-		ICourse c = CourseObjectFactory.objFactory(new CourseFactory());
+		ICourse c = CourseAbstractFactory.instance().makeCourse();
 		c.setId(courseID);
 		c.delete(courseDB);
 		ModelAndView mav = new ModelAndView("redirect:/admin/course");
@@ -56,7 +55,7 @@ public class CourseAdminController {
 	@RequestMapping(value = "/admin/createcourse", method = RequestMethod.POST)
 	public ModelAndView createCourse(@RequestParam(name = TITLE) String title) {
 		ICoursePersistence courseDB = CourseSystemConfig.instance().getCourseDB();
-		ICourse c = CourseObjectFactory.objFactory(new CourseFactory());
+		ICourse c = CourseAbstractFactory.instance().makeCourse();
 		c.setTitle(title);
 		c.createCourse(courseDB);
 		ModelAndView mav = new ModelAndView("redirect:/admin/course");
@@ -66,13 +65,13 @@ public class CourseAdminController {
 	@RequestMapping(value = "/admin/assigninstructor", method = RequestMethod.POST)
 	public ModelAndView assignInstructorToCourse(@RequestParam(name = INSTRUCTOR) List<Integer> instructor,
 			@RequestParam(name = ID) long courseID) {
-		ICourse c = CourseObjectFactory.objFactory(new CourseFactory());
+		ICourse c = CourseAbstractFactory.instance().makeCourse();
 		c.setId(courseID);
 		Iterator<Integer> iter = instructor.iterator();
 		ICourseUserRelationshipPersistence courseUserRelationshipDB = CourseSystemConfig.instance()
 				.getCourseUserRelationshipDB();
 		while (iter.hasNext()) {
-			IUser u = UserAbstractFactory.instance().createUserObject();
+			IUser u = UserAbstractFactory.instance().makeUser();
 			u.setId(iter.next().longValue());
 			courseUserRelationshipDB.enrollUser(c, u, Role.INSTRUCTOR);
 		}

@@ -7,8 +7,8 @@ public class UserSystemConfig {
 	private IUserPersistence userDB = null;
 	
 	private UserSystemConfig() {
-		userNotifications = new UserNotifications();
-		userDB = new UserDB();
+		userNotifications = UserAbstractFactory.instance().makeUserNotifications();
+		userDB = UserAbstractFactory.instance().makeUserDB();
 	}
 	
 	public static UserSystemConfig instance() {

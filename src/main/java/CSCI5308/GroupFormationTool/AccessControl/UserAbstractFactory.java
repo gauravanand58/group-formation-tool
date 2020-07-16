@@ -17,7 +17,9 @@ public abstract class UserAbstractFactory {
 		uniqueInstance = userFactory;
 	}
 	
-	public abstract IUser createUserObject();
-	public abstract IUser loadUserWithBanner(String bannerID, IUserPersistence userDB);
-	public abstract IUser loadUserWithID(long id, IUserPersistence userDB);
+	public abstract IUser makeUser();
+	public abstract IUser makeUserWithBanner(String bannerID, IUserPersistence userDB);
+	public abstract IUser makeUserWithID(long id, IUserPersistence userDB);
+	public abstract IUserPersistence makeUserDB();
+	public abstract IUserNotifications makeUserNotifications();
 }
