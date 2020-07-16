@@ -6,7 +6,7 @@ import java.util.List;
 import CSCI5308.GroupFormationTool.Questions.IQuestionResponsePersistence;
 import CSCI5308.GroupFormationTool.Questions.QuestionResponse;
 
-public class QuestionResponseDBMock implements IQuestionResponsePersistence{
+public class QuestionResponseDBMock implements IQuestionResponsePersistence {
 
 	@Override
 	public List<QuestionResponse> getAllResponsesOfQuestion(int questionID) {

@@ -13,7 +13,7 @@ import CSCI5308.GroupFormationTool.Security.PasswordPolicyConfiguration;
 public interface IUser {
 	public static final String EMAIL_REGEX = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
 	public final static Logger logger = LoggerFactory.getLogger(User.class);
-	
+
 	public void setID(long id);
 
 	public long getID();
@@ -61,15 +61,15 @@ public interface IUser {
 	}
 
 	public static boolean isBannerIDValid(String bannerID) {
-		return isStringNullOrEmpty(bannerID)==false;
+		return isStringNullOrEmpty(bannerID) == false;
 	}
 
 	public static boolean isFirstNameValid(String name) {
-		return isStringNullOrEmpty(name)==false;
+		return isStringNullOrEmpty(name) == false;
 	}
 
 	public static boolean isLastNameValid(String name) {
-		return isStringNullOrEmpty(name)==false;
+		return isStringNullOrEmpty(name) == false;
 	}
 
 	public static boolean isEmailValid(String email) {

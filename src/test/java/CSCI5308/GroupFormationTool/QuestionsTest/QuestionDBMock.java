@@ -63,6 +63,6 @@ public class QuestionDBMock implements IQuestionPersistence {
 	@Override
 	public void loadQuestionByID(Question question, long questionID) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

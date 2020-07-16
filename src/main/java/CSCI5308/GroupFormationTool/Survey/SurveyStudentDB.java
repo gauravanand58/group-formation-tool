@@ -13,7 +13,7 @@ import CSCI5308.GroupFormationTool.Questions.IQuestion;
 import CSCI5308.GroupFormationTool.Questions.QuestionOption;
 import CSCI5308.GroupFormationTool.Questions.QuestionsSystemConfig;
 
-public class SurveyStudentDB implements ISurveyStudentPersistence{
+public class SurveyStudentDB implements ISurveyStudentPersistence {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	public List<IQuestion> viewSurveyQuestions(long courseID) {
@@ -23,37 +23,37 @@ public class SurveyStudentDB implements ISurveyStudentPersistence{
 		IQuestion question;
 		QuestionOption questionOption;
 		try {
-				proc = new CallStoredProcedure("spcheckIfSurveyPublished(?)");
-				proc.setParameter(1, courseID);
-				ResultSet results=proc.executeWithResults();
-				ResultSet resultOption;
-				if(null!=results) {
-					
-					while(results.next()) {
-						question=QuestionsSystemConfig.instance().getQuestion();
-						question.setQuestionID(results.getInt(1));
-						question.setQuestionText(results.getString(2));
-						question.setQuestionType(results.getString(3));
-						
-						proc = new CallStoredProcedure("sploadallquestionoptions(?)");
-						proc.setParameter(1, results.getInt(1));
-						resultOption=proc.executeWithResults();
-						if(null!=resultOption) {
-							tempQuestionOptionObj=new ArrayList<QuestionOption>();
-							while(resultOption.next()) {
-								questionOption=QuestionsSystemConfig.instance().getQuestionOption();
-								questionOption.setOptionId(resultOption.getInt(1));
-								questionOption.setOptionTxt(resultOption.getString(2));
-								tempQuestionOptionObj.add(questionOption);
-							}
-							question.setQuestionOptions(tempQuestionOptionObj);
+			proc = new CallStoredProcedure("spcheckIfSurveyPublished(?)");
+			proc.setParameter(1, courseID);
+			ResultSet results = proc.executeWithResults();
+			ResultSet resultOption;
+			if (null != results) {
+
+				while (results.next()) {
+					question = QuestionsSystemConfig.instance().getQuestion();
+					question.setQuestionID(results.getInt(1));
+					question.setQuestionText(results.getString(2));
+					question.setQuestionType(results.getString(3));
+
+					proc = new CallStoredProcedure("sploadallquestionoptions(?)");
+					proc.setParameter(1, results.getInt(1));
+					resultOption = proc.executeWithResults();
+					if (null != resultOption) {
+						tempQuestionOptionObj = new ArrayList<QuestionOption>();
+						while (resultOption.next()) {
+							questionOption = QuestionsSystemConfig.instance().getQuestionOption();
+							questionOption.setOptionId(resultOption.getInt(1));
+							questionOption.setOptionTxt(resultOption.getString(2));
+							tempQuestionOptionObj.add(questionOption);
 						}
-						surveyQuestions.add(question);
+						question.setQuestionOptions(tempQuestionOptionObj);
 					}
-					
+					surveyQuestions.add(question);
 				}
+
+			}
 		} catch (SQLException e) {
-			logger.error("spcheckIfSurveyPublished throws SQLException:"+e.getMessage());
+			logger.error("spcheckIfSurveyPublished throws SQLException:" + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
@@ -62,8 +62,8 @@ public class SurveyStudentDB implements ISurveyStudentPersistence{
 		}
 		logger.info("Successfully created question options");
 		return surveyQuestions;
-}
-	
+	}
+
 	public long checkSurveySubmission(String BannerID, long CourseId) {
 		CallStoredProcedure proc = null;
 		long studentSubmission = 0;
@@ -76,7 +76,7 @@ public class SurveyStudentDB implements ISurveyStudentPersistence{
 			studentSubmission = proc.getStatement().getLong(3);
 
 		} catch (SQLException e) {
-			logger.error("spCreateQuestion(spcheckIfStudentCompletedSurvey throws SQLException:"+e.getMessage());
+			logger.error("spCreateQuestion(spcheckIfStudentCompletedSurvey throws SQLException:" + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
@@ -85,11 +85,11 @@ public class SurveyStudentDB implements ISurveyStudentPersistence{
 		}
 		return studentSubmission;
 	}
-	
-	public boolean createStudentResponse(String bannerId, long courseId, String response[]) throws SQLException{
+
+	public boolean createStudentResponse(String bannerId, long courseId, String response[]) throws SQLException {
 		CallStoredProcedure proc = null;
 		try {
-			for(int i=0; i< response.length;i++) {
+			for (int i = 0; i < response.length; i++) {
 				String responseArray[] = response[i].split("-");
 				proc = new CallStoredProcedure("spCreateSurveyResponse(?, ?, ?, ?)");
 				proc.setParameter(1, bannerId);
@@ -105,6 +105,7 @@ public class SurveyStudentDB implements ISurveyStudentPersistence{
 		}
 		return true;
 	}
+
 	public void deleteResponse(String BannerID, long CourseId) {
 		CallStoredProcedure proc = null;
 		try {
@@ -114,7 +115,7 @@ public class SurveyStudentDB implements ISurveyStudentPersistence{
 			proc.execute();
 
 		} catch (SQLException e) {
-			logger.error("spDeleteSurveyResponse throws SQLException:"+e.getMessage());
+			logger.error("spDeleteSurveyResponse throws SQLException:" + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {

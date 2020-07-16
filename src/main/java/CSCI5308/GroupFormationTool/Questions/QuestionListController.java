@@ -24,9 +24,9 @@ public class QuestionListController {
 		List<IQuestion> sortedQuestions;
 		IQuestionPersistence questionDB = QuestionsSystemConfigPersistence.instance().getQuestionDB();
 		IQuestionListManager questionListManager = QuestionsSystemConfig.instance().getQuestionListManager();
-		sortedQuestions=questionListManager.sortQuestions(bannerID, sortBy,questionDB);
-		model.addAttribute("ques",sortedQuestions);
-		return "questionmanager/questionlist";	
+		sortedQuestions = questionListManager.sortQuestions(bannerID, sortBy, questionDB);
+		model.addAttribute("ques", sortedQuestions);
+		return "questionmanager/questionlist";
 	}
 
 	@RequestMapping("/mainquestionmanager")

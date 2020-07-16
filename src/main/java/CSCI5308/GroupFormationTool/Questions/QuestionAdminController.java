@@ -10,8 +10,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class QuestionAdminController {
 	private long uId;
-	private static final String mcq_1="mcq-1";
-	private static final String mcq_2="mcq-2";
+	private static final String mcq_1 = "mcq-1";
+	private static final String mcq_2 = "mcq-2";
 
 	@RequestMapping("/createquestions")
 	public String createQuestion(Model model, @RequestParam(name = "isUserInstructor") Long isUserInstrutor) {

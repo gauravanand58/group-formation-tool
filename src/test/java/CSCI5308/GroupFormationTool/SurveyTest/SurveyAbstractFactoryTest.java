@@ -8,13 +8,13 @@ import CSCI5308.GroupFormationTool.Survey.SurveyAbstractFactory;
 import CSCI5308.GroupFormationTool.Survey.SurveyFactory;
 
 public class SurveyAbstractFactoryTest {
-	
+
 	@Test
 	public void instanceTest() {
 		SurveyAbstractFactory instance = SurveyAbstractFactory.instance();
 		assertTrue(null != instance);
 	}
-	
+
 	@Test
 	public void setFactoryTest() {
 		SurveyAbstractFactory instance = SurveyAbstractFactory.instance();
