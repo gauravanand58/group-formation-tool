@@ -3,7 +3,6 @@ package CSCI5308.GroupFormationTool.CoursesTest;
 import java.util.ArrayList;
 import java.util.List;
 
-import CSCI5308.GroupFormationTool.Courses.Course;
 import CSCI5308.GroupFormationTool.Courses.CourseAbstractFactory;
 import CSCI5308.GroupFormationTool.Courses.ICourse;
 import CSCI5308.GroupFormationTool.Courses.ICoursePersistence;
