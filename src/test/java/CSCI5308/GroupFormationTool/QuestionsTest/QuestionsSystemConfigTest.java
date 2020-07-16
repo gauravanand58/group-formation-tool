@@ -3,9 +3,6 @@ package CSCI5308.GroupFormationTool.QuestionsTest;
 import CSCI5308.GroupFormationTool.Questions.IQuestionOptionPersistence;
 import CSCI5308.GroupFormationTool.Questions.IQuestionPersistence;
 import CSCI5308.GroupFormationTool.Questions.IQuestionResponsePersistence;
-import CSCI5308.GroupFormationTool.Questions.Question;
-import CSCI5308.GroupFormationTool.Questions.QuestionOption;
-import CSCI5308.GroupFormationTool.Questions.QuestionResponse;
 
 public class QuestionsSystemConfigTest {
 	private static QuestionsSystemConfigTest uniqueInstance = null;

@@ -10,7 +10,6 @@ import CSCI5308.GroupFormationTool.Questions.IQuestion;
 import CSCI5308.GroupFormationTool.Questions.IQuestionPersistence;
 import CSCI5308.GroupFormationTool.Questions.IQuestionResponse;
 import CSCI5308.GroupFormationTool.Questions.IQuestionResponsePersistence;
-import CSCI5308.GroupFormationTool.Questions.Question;
 import CSCI5308.GroupFormationTool.Questions.QuestionAbstractFactory;
 
 public class QuestionTest {

@@ -71,7 +71,7 @@ class GroupFormationAlgorithm implements IGroupFormationAlgorithm {
 								}
 
 							} else if (formationRules.getType().equals("dissimilar")) {
-								if (!indexUserQuesResponse.equalsIgnoreCase(nextUsersResponse)) {
+								if (indexUserQuesResponse.equalsIgnoreCase(nextUsersResponse) == false) {
 									score += 10.0;
 								}
 							} else if (formationRules.getType().equals("greater")) {
@@ -110,7 +110,7 @@ class GroupFormationAlgorithm implements IGroupFormationAlgorithm {
 									}
 
 								} else if (formationRules.getType().equals("dissimilar")) {
-									if (!nextUsersResponse.contains(response)) {
+									if (nextUsersResponse.contains(response) == false) {
 										score += point;
 									}
 								}

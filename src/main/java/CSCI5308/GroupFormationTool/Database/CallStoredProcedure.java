@@ -32,7 +32,7 @@ public class CallStoredProcedure {
 				statement.close();
 			}
 			if (null != connection) {
-				if (!connection.isClosed()) {
+				if (connection.isClosed() == false) {
 					connection.close();
 				}
 			}

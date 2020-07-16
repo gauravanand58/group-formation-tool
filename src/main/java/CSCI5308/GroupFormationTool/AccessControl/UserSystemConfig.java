@@ -12,7 +12,7 @@ public class UserSystemConfig {
 	}
 
 	public static UserSystemConfig instance() {
-		if (uniqueInstance == null) {
+		if (null == uniqueInstance) {
 			uniqueInstance = new UserSystemConfig();
 		}
 		return uniqueInstance;
