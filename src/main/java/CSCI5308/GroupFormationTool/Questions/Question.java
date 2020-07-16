@@ -2,24 +2,24 @@ package CSCI5308.GroupFormationTool.Questions;
 
 import java.util.List;
 
-public class Question implements IQuestion{
+public class Question implements IQuestion {
 	private int questionID;
 	private long instructorID;
 	private String questionTitle;
 	private String questionText;
 	private String questionType;
 	private String questionDateTime;
-	
-	//for thymleaf
+
+	// for thymleaf
 	private String type;
 	private int value;
-	
+
 	private List<QuestionOption> questionOptions;
 
-public Question() {
+	public Question() {
 		setDefaults();
 	}
-	
+
 	private void setDefaults() {
 		questionID = -1;
 		instructorID = -1;
@@ -27,14 +27,14 @@ public Question() {
 		questionText = "";
 		questionType = "";
 		questionDateTime = "";
-		type="";
+		type = "";
 		value = -1;
 	}
-	
+
 	public Question(IQuestionPersistence questionDB, long questionID) {
 		questionDB.loadQuestionByID(this, questionID);
 	}
-	
+
 	public long getInstructorID() {
 		return instructorID;
 	}
@@ -82,7 +82,6 @@ public Question() {
 	public void setQuestionText(String quesText) {
 		this.questionText = quesText;
 	}
-	
 
 	public String getType() {
 		return type;
@@ -109,7 +108,8 @@ public Question() {
 	}
 
 	public boolean checkIfQuestionHasResponse() {
-		List<QuestionResponse> responseList = getAllResponses(QuestionsSystemConfigPersistence.instance().getReponseDB());
+		List<QuestionResponse> responseList = getAllResponses(
+				QuestionsSystemConfigPersistence.instance().getReponseDB());
 		if (null == responseList || responseList.size() == 0) {
 			return false;
 		}
@@ -127,5 +127,5 @@ public Question() {
 	public void setQuestionOptions(List<QuestionOption> questionOptions) {
 		this.questionOptions = questionOptions;
 	}
-	
+
 }

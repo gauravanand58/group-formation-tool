@@ -5,12 +5,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
-import CSCI5308.GroupFormationTool.SystemConfig;
-
 public class CurrentUser {
 	private static CurrentUser uniqueInstance = null;
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
-	
+
 	private CurrentUser() {
 	}
 

@@ -26,7 +26,7 @@ public interface IQuestion {
 	public String getQuestionText();
 
 	public void setQuestionText(String quesText);
-	
+
 	public boolean deleteQuestion(IQuestionPersistence questionDB);
 
 	public List<QuestionResponse> getAllResponses(IQuestionResponsePersistence responseDB);
@@ -36,5 +36,6 @@ public interface IQuestion {
 	public long createQuestion(IQuestionPersistence questionDB);
 
 	public void setQuestionOptions(List<QuestionOption> tempQuestionOptionObj);
+
 	public List<QuestionOption> getQuestionOptions();
 }

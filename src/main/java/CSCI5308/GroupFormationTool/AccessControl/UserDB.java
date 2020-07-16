@@ -27,7 +27,7 @@ public class UserDB implements IUserPersistence {
 					String lastName = results.getString(5);
 					String email = results.getString(6);
 					user.setID(userID);
-					logger.debug("Loaded user with user ID"+userID);
+					logger.debug("Loaded user with user ID" + userID);
 					user.setBannerID(bannerID);
 					user.setPassword(password);
 					user.setFirstName(firstName);
@@ -36,7 +36,7 @@ public class UserDB implements IUserPersistence {
 				}
 			}
 		} catch (SQLException e) {
-			logger.error("spLoadUser throws SQLException "+e.getMessage());
+			logger.error("spLoadUser throws SQLException " + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
@@ -58,7 +58,7 @@ public class UserDB implements IUserPersistence {
 				}
 			}
 		} catch (SQLException e) {
-			logger.error("spFindUserByBannerID throws SQLException "+e.getMessage());
+			logger.error("spFindUserByBannerID throws SQLException " + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
@@ -83,7 +83,7 @@ public class UserDB implements IUserPersistence {
 			proc.registerOutputParameterLong(6);
 			proc.execute();
 		} catch (SQLException e) {
-			logger.error("spCreateUser throws SQLException "+e.getMessage());
+			logger.error("spCreateUser throws SQLException " + e.getMessage());
 			e.printStackTrace();
 			return false;
 		} finally {
@@ -91,7 +91,7 @@ public class UserDB implements IUserPersistence {
 				proc.cleanup();
 			}
 		}
-		logger.debug("Created user with bannerID"+user.getBanner());
+		logger.debug("Created user with bannerID" + user.getBanner());
 		return true;
 	}
 
@@ -108,7 +108,7 @@ public class UserDB implements IUserPersistence {
 			proc.execute();
 			userID = proc.getStatement().getLong(2);
 		} catch (SQLException e) {
-			logger.error("spcheckInstructorByBannerID throws SQLException "+e.getMessage());
+			logger.error("spcheckInstructorByBannerID throws SQLException " + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {

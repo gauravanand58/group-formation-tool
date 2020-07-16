@@ -2,17 +2,17 @@ package CSCI5308.GroupFormationTool.AccessControl;
 
 public class UserSystemConfig {
 	private static UserSystemConfig uniqueInstance = null;
-	
+
 	private IUserNotifications userNotifications = null;
 	private IUserPersistence userDB = null;
-	
+
 	private UserSystemConfig() {
 		userNotifications = UserAbstractFactory.instance().makeUserNotifications();
 		userDB = UserAbstractFactory.instance().makeUserDB();
 	}
-	
+
 	public static UserSystemConfig instance() {
-		if(uniqueInstance == null) {
+		if (uniqueInstance == null) {
 			uniqueInstance = new UserSystemConfig();
 		}
 		return uniqueInstance;

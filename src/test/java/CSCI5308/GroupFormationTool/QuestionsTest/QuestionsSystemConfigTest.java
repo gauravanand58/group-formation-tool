@@ -21,11 +21,11 @@ public class QuestionsSystemConfigTest {
 	public Question getQuestion() {
 		return new Question();
 	}
-	
+
 	public QuestionResponse getQuestionResponse() {
 		return new QuestionResponse();
 	}
-	
+
 	public QuestionOption getQuestionOption() {
 		return new QuestionOption();
 	}

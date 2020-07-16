@@ -5,12 +5,11 @@ import java.util.Map;
 
 import CSCI5308.GroupFormationTool.GroupFormation.IGroupFormationRules;
 
-
-public class GroupFormationAlgorithmBuilder implements IGroupFormationAlgorithmBuilder{
+public class GroupFormationAlgorithmBuilder implements IGroupFormationAlgorithmBuilder {
 	List<IGroupFormationRules> groupFormationRules;
-	
-	Map<Long,Map<Long,String>> userResponses;
-	Map<Long, Map<Long, List<String>>>  userMCQ2Responses;	
+
+	Map<Long, Map<Long, String>> userResponses;
+	Map<Long, Map<Long, List<String>>> userMCQ2Responses;
 
 	public void setGroupFormationRules(List<IGroupFormationRules> groupFormationRules) {
 		this.groupFormationRules = groupFormationRules;
@@ -25,8 +24,7 @@ public class GroupFormationAlgorithmBuilder implements IGroupFormationAlgorithmB
 	}
 
 	public IGroupFormationAlgorithm build() {
-		return new GroupFormationAlgorithm(this.groupFormationRules,
-				this.userResponses,this.userMCQ2Responses);
+		return new GroupFormationAlgorithm(this.groupFormationRules, this.userResponses, this.userMCQ2Responses);
 	}
-	
+
 }

@@ -50,7 +50,7 @@ public class QuestionResponse {
 	public void setCourseId(long courseId) {
 		this.courseId = courseId;
 	}
-	
+
 	public long getQuestionID() {
 		return questionID;
 	}

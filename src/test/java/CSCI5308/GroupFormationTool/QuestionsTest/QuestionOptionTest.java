@@ -38,7 +38,8 @@ public class QuestionOptionTest {
 
 	@Test
 	public void createOptionTest() {
-		IQuestionOptionPersistence questionOptionDBMock = QuestionsSystemConfigPersistenceTest.instance().getQuestionOptionDBMock();
+		IQuestionOptionPersistence questionOptionDBMock = QuestionsSystemConfigPersistenceTest.instance()
+				.getQuestionOptionDBMock();
 		QuestionOption questionOption = QuestionsSystemConfigTest.instance().getQuestionOption();
 		questionOption.setOptionTxt("intermediate");
 		questionOption.setOptionScore("5");

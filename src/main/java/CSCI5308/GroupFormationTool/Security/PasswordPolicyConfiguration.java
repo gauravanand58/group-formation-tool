@@ -91,9 +91,9 @@ public class PasswordPolicyConfiguration {
 
 		if (null != uniqueInstance.notAllowedChar)
 			passwordPolicies += "<li> should not contain " + uniqueInstance.notAllowedChar + " characters.</li>";
-		
+
 		passwordPolicies += "</ul>";
-		
+
 		return passwordPolicies;
 	}
 

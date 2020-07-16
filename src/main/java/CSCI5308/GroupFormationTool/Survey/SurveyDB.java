@@ -12,9 +12,9 @@ import CSCI5308.GroupFormationTool.Database.CallStoredProcedure;
 import CSCI5308.GroupFormationTool.Questions.IQuestion;
 import CSCI5308.GroupFormationTool.Questions.QuestionsSystemConfig;
 
-public class SurveyDB implements ISurveyPersistence{
+public class SurveyDB implements ISurveyPersistence {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
-	
+
 	@Override
 	public List<IQuestion> loadQuestionsByCourseId(long courseId) {
 		List<IQuestion> questions = new ArrayList<>();
@@ -22,7 +22,7 @@ public class SurveyDB implements ISurveyPersistence{
 		try {
 			proc = new CallStoredProcedure("spLoadQuestionsForCourseID(?)");
 			proc.setParameter(1, courseId);
-			
+
 			ResultSet results = proc.executeWithResults();
 			if (null != results) {
 				while (results.next()) {
@@ -45,17 +45,18 @@ public class SurveyDB implements ISurveyPersistence{
 		}
 		return questions;
 	}
-	
-	public List<IQuestion> getAvailableQuestions(long surveyId, long courseId, long instructorId){
+
+	public List<IQuestion> getAvailableQuestions(long surveyId, long courseId, long instructorId) {
 		List<IQuestion> questions = new ArrayList<>();
 		CallStoredProcedure proc = null;
 		try {
 			proc = new CallStoredProcedure("spGetQuestionsAvailableForSurvey(?, ?, ?)");
-			System.out.println("surveyId is: "+surveyId +"courseId is: "+ courseId +"instructorId is: "+ instructorId);
+			System.out.println(
+					"surveyId is: " + surveyId + "courseId is: " + courseId + "instructorId is: " + instructorId);
 			proc.setParameter(1, surveyId);
 			proc.setParameter(2, courseId);
 			proc.setParameter(3, instructorId);
-			
+
 			ResultSet results = proc.executeWithResults();
 			if (null != results) {
 				while (results.next()) {
@@ -79,7 +80,7 @@ public class SurveyDB implements ISurveyPersistence{
 		}
 		return questions;
 	}
-	
+
 	public void addQuestionToSurvey(IQuestion question, long courseId) {
 		CallStoredProcedure proc = null;
 		try {
@@ -88,7 +89,7 @@ public class SurveyDB implements ISurveyPersistence{
 			proc.setParameter(2, courseId);
 			proc.execute();
 		} catch (SQLException e) {
-			logger.error("spAddQuestionToSurvey(?, ?) throws SQLException:"+e.getMessage());
+			logger.error("spAddQuestionToSurvey(?, ?) throws SQLException:" + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
@@ -97,7 +98,7 @@ public class SurveyDB implements ISurveyPersistence{
 		}
 		logger.debug("Question added successfully to Survey");
 	}
-	
+
 	public void loadSurveyByCourseID(ISurvey survey, long courseId) {
 		CallStoredProcedure proc = null;
 		try {
@@ -136,8 +137,8 @@ public class SurveyDB implements ISurveyPersistence{
 				proc.cleanup();
 			}
 		}
-		logger.debug("Successfully published survey with ID:"+surveyID);
+		logger.debug("Successfully published survey with ID:" + surveyID);
 		return true;
 	}
-		
+
 }
