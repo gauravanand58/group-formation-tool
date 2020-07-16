@@ -9,11 +9,10 @@ public class Question implements IQuestion {
 	private String questionText;
 	private String questionType;
 	private String questionDateTime;
-
 	private String type;
 	private int value;
 
-	private List<QuestionOption> questionOptions;
+	private List<IQuestionOption> questionOptions;
 
 	public Question() {
 		setDefaults();
@@ -102,13 +101,13 @@ public class Question implements IQuestion {
 		return questionDB.deleteQuestion(questionID);
 	}
 
-	public List<QuestionResponse> getAllResponses(IQuestionResponsePersistence responseDB) {
+	public List<IQuestionResponse> getAllResponses(IQuestionResponsePersistence responseDB) {
 		return responseDB.getAllResponsesOfQuestion(questionID);
 	}
 
 	public boolean checkIfQuestionHasResponse() {
-		List<QuestionResponse> responseList = getAllResponses(
-				QuestionsSystemConfigPersistence.instance().getReponseDB());
+		List<IQuestionResponse> responseList = getAllResponses(
+				QuestionsSystemConfig.instance().getReponseDB());
 		if (null == responseList || responseList.size() == 0) {
 			return false;
 		}
@@ -119,11 +118,11 @@ public class Question implements IQuestion {
 		return questionDB.createQuestion(this);
 	}
 
-	public List<QuestionOption> getQuestionOptions() {
+	public List<IQuestionOption> getQuestionOptions() {
 		return questionOptions;
 	}
 
-	public void setQuestionOptions(List<QuestionOption> questionOptions) {
+	public void setQuestionOptions(List<IQuestionOption> questionOptions) {
 		this.questionOptions = questionOptions;
 	}
 

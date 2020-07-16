@@ -1,13 +1,20 @@
 package CSCI5308.GroupFormationTool.QuestionsTest;
 
-import CSCI5308.GroupFormationTool.Questions.Question;
-import CSCI5308.GroupFormationTool.Questions.QuestionOption;
-import CSCI5308.GroupFormationTool.Questions.QuestionResponse;
+import CSCI5308.GroupFormationTool.Questions.IQuestionOptionPersistence;
+import CSCI5308.GroupFormationTool.Questions.IQuestionPersistence;
+import CSCI5308.GroupFormationTool.Questions.IQuestionResponsePersistence;
 
 public class QuestionsSystemConfigTest {
 	private static QuestionsSystemConfigTest uniqueInstance = null;
 
+	private IQuestionPersistence questionDBMock;
+	private IQuestionResponsePersistence reponseDBMock;
+	private IQuestionOptionPersistence questionOptionDBMock;
+
 	private QuestionsSystemConfigTest() {
+		questionDBMock = new QuestionDBMock();
+		reponseDBMock = new QuestionResponseDBMock();
+		questionOptionDBMock = new QuestionOptionDBMock();
 	}
 
 	public static QuestionsSystemConfigTest instance() {
@@ -18,15 +25,15 @@ public class QuestionsSystemConfigTest {
 		return uniqueInstance;
 	}
 
-	public Question getQuestion() {
-		return new Question();
+	public IQuestionPersistence getQuestionDBMock() {
+		return questionDBMock;
 	}
 
-	public QuestionResponse getQuestionResponse() {
-		return new QuestionResponse();
+	public IQuestionResponsePersistence getReponseDBMock() {
+		return reponseDBMock;
 	}
 
-	public QuestionOption getQuestionOption() {
-		return new QuestionOption();
+	public IQuestionOptionPersistence getQuestionOptionDBMock() {
+		return questionOptionDBMock;
 	}
 }

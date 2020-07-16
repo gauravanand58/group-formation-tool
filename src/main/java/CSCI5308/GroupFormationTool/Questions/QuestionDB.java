@@ -34,7 +34,7 @@ public class QuestionDB implements IQuestionPersistence {
 	}
 
 	@Override
-	public long createQuestion(Question question) {
+	public long createQuestion(IQuestion question) {
 		CallStoredProcedure proc = null;
 		long lastInsertedQuestion = -1;
 		try {
@@ -73,7 +73,7 @@ public class QuestionDB implements IQuestionPersistence {
 					String questionText = results.getString(3);
 					String questionType = results.getString(4);
 					String questionDateTime = results.getString(5);
-					IQuestion q = QuestionsSystemConfig.instance().getQuestion();
+					IQuestion q = QuestionAbstractFactory.instance().makeQuestion();
 					q.setQuestionID(questionID);
 					q.setQuestionTitle(questionTitle);
 					q.setQuestionText(questionText);
@@ -110,7 +110,7 @@ public class QuestionDB implements IQuestionPersistence {
 					String questionText = results.getString(3);
 					String questionType = results.getString(4);
 					String questionDateTime = results.getString(5);
-					IQuestion q = QuestionsSystemConfig.instance().getQuestion();
+					IQuestion q = QuestionAbstractFactory.instance().makeQuestion();
 					q.setQuestionID(questionID);
 					q.setQuestionTitle(questionTitle);
 					q.setQuestionText(questionText);
@@ -146,7 +146,7 @@ public class QuestionDB implements IQuestionPersistence {
 					String questionText = results.getString(3);
 					String questionType = results.getString(4);
 					String questionDateTime = results.getString(5);
-					IQuestion q = QuestionsSystemConfig.instance().getQuestion();
+					IQuestion q = QuestionAbstractFactory.instance().makeQuestion();
 					q.setQuestionID(questionID);
 					q.setQuestionTitle(questionTitle);
 					q.setQuestionText(questionText);
@@ -166,7 +166,7 @@ public class QuestionDB implements IQuestionPersistence {
 		return displayQuestions;
 	}
 
-	public void loadQuestionByID(Question question, long questionID) {
+	public void loadQuestionByID(IQuestion question, long questionID) {
 		CallStoredProcedure proc = null;
 		try {
 			proc = new CallStoredProcedure("spLoadQuestion(?)");

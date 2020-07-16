@@ -14,8 +14,8 @@ public class QuestionResponseDB implements IQuestionResponsePersistence {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Override
-	public List<QuestionResponse> getAllResponsesOfQuestion(int questionID) {
-		List<QuestionResponse> responseList = new LinkedList<QuestionResponse>();
+	public List<IQuestionResponse> getAllResponsesOfQuestion(int questionID) {
+		List<IQuestionResponse> responseList = new LinkedList<>();
 		CallStoredProcedure proc = null;
 		try {
 			proc = new CallStoredProcedure("spGetAllResponsesOfQuestion(?)");
@@ -25,7 +25,7 @@ public class QuestionResponseDB implements IQuestionResponsePersistence {
 				while (results.next()) {
 					int responseID = results.getInt(1);
 					String responseText = results.getString(2);
-					QuestionResponse response = QuestionsSystemConfig.instance().getQuestionResponse();
+					IQuestionResponse response = QuestionAbstractFactory.instance().makeQuestionResponse();
 					response.setId(responseID);
 					response.setResponseText(responseText);
 					responseList.add(response);

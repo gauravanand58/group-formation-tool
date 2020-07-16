@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import CSCI5308.GroupFormationTool.Questions.IQuestion;
-import CSCI5308.GroupFormationTool.Questions.QuestionsSystemConfig;
+import CSCI5308.GroupFormationTool.Questions.QuestionAbstractFactory;
 import CSCI5308.GroupFormationTool.Survey.ISurvey;
 import CSCI5308.GroupFormationTool.Survey.ISurveyPersistence;
 
@@ -12,7 +12,7 @@ public class SurveyDBMock implements ISurveyPersistence {
 
 	public List<IQuestion> loadQuestionsByCourseId(long courseId) {
 		List<IQuestion> list = new ArrayList<>();
-		list.add(QuestionsSystemConfig.instance().getQuestion());
+		list.add(QuestionAbstractFactory.instance().makeQuestion());
 		return list;
 	}
 
