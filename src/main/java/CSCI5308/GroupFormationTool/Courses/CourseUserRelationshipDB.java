@@ -9,7 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import CSCI5308.GroupFormationTool.AccessControl.IUser;
-import CSCI5308.GroupFormationTool.AccessControl.User;
 import CSCI5308.GroupFormationTool.AccessControl.UserAbstractFactory;
 import CSCI5308.GroupFormationTool.Database.CallStoredProcedure;
 
@@ -39,7 +38,7 @@ public class CourseUserRelationshipDB implements ICourseUserRelationshipPersiste
 				}
 			}
 		} catch (SQLException e) {
-			logger.error("spFindUsersWithoutCourseRole throws SQLException: " + e.getMessage());
+			logger.error("spFindUsersWithoutCourseRole(?, ?) throws SQLException:" + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
@@ -86,7 +85,7 @@ public class CourseUserRelationshipDB implements ICourseUserRelationshipPersiste
 			proc.setParameter(3, role.toString());
 			proc.execute();
 		} catch (SQLException e) {
-			logger.error("spEnrollUser throws SQLException: " + e.getMessage());
+			logger.error("spEnrollUser(?, ?, ?) throws SQLException:" + e.getMessage());
 			e.printStackTrace();
 			return false;
 		} finally {

@@ -1,6 +1,5 @@
 package CSCI5308.GroupFormationTool.Questions;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Question implements IQuestion{
@@ -10,8 +9,14 @@ public class Question implements IQuestion{
 	private String questionText;
 	private String questionType;
 	private String questionDateTime;
+	
+	//for thymleaf
+	private String type;
+	private int value;
+	
 	private List<QuestionOption> questionOptions;
-	public Question() {
+
+public Question() {
 		setDefaults();
 	}
 	
@@ -22,6 +27,8 @@ public class Question implements IQuestion{
 		questionText = "";
 		questionType = "";
 		questionDateTime = "";
+		type="";
+		value = -1;
 	}
 	
 	public Question(IQuestionPersistence questionDB, long questionID) {
@@ -74,6 +81,23 @@ public class Question implements IQuestion{
 
 	public void setQuestionText(String quesText) {
 		this.questionText = quesText;
+	}
+	
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public int getValue() {
+		return value;
+	}
+
+	public void setValue(int value) {
+		this.value = value;
 	}
 
 	public boolean deleteQuestion(IQuestionPersistence questionDB) {

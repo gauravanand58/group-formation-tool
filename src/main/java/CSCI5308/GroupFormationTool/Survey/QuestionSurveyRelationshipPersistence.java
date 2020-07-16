@@ -15,12 +15,12 @@ public class QuestionSurveyRelationshipPersistence implements IQuestionSurveyRel
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Override
-	public List<Question> loadQUestionsBySurveyId(long surveyId) {
+	public List<Question> loadQUestionsByCourseId(long courseId) {
 		List<Question> questions = new ArrayList<Question>();
 		CallStoredProcedure proc = null;
 		try {
-			proc = new CallStoredProcedure("sploadQuestionsForSurveyID(?)");
-			proc.setParameter(1, surveyId);
+			proc = new CallStoredProcedure("spLoadQuestionsForCourseID(?)");
+			proc.setParameter(1, courseId);
 			
 			ResultSet results = proc.executeWithResults();
 			if (null != results) {
@@ -34,7 +34,7 @@ public class QuestionSurveyRelationshipPersistence implements IQuestionSurveyRel
 				}
 			}
 		} catch (SQLException e) {
-			logger.error("sploadQuestionsForSurveyID throws SQLException:" + e.getMessage());
+			logger.error("spLoadQuestionsForCourseID() throws SQLException:" + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
