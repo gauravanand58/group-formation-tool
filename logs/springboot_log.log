@@ -252,3 +252,36 @@
 [INFO ] 2020-07-16 01:26:43.435 [restartedMain] ContextLoader - Root WebApplicationContext: initialization completed in 1767 ms
 [INFO ] 2020-07-16 01:26:48.909 [http-nio-8080-exec-1] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 [INFO ] 2020-07-16 01:26:48.919 [http-nio-8080-exec-1] DispatcherServlet - Completed initialization in 10 ms
+[INFO ] 2020-07-16 01:58:10.424 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on DESKTOP-A59EQ9R with PID 18184 (C:\Users\sasis\Documents\ASDC\group4\bin\main started by sasis in C:\Users\sasis\Documents\ASDC\group4)
+[DEBUG] 2020-07-16 01:58:10.430 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 01:58:10.430 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 01:58:12.683 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 2.617 seconds (JVM running for 4.466)
+[INFO ] 2020-07-16 01:58:20.051 [http-nio-8080-exec-1] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-16 01:58:20.052 [http-nio-8080-exec-1] ConnectionManager - User name of database:CSCI5308_4_DEVINT_USER
+[DEBUG] 2020-07-16 01:59:42.195 [http-nio-8080-exec-9] UserDB - Loaded user with user ID19
+[DEBUG] 2020-07-16 01:59:47.934 [http-nio-8080-exec-2] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-16 01:59:47.935 [http-nio-8080-exec-2] CurrentUser - Valid User
+[INFO ] 2020-07-16 01:59:49.261 [http-nio-8080-exec-2] StudentSurveyDB - Successfully created question options
+[INFO ] 2020-07-16 02:02:19.014 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on DESKTOP-A59EQ9R with PID 2156 (C:\Users\sasis\Documents\ASDC\group4\bin\main started by sasis in C:\Users\sasis\Documents\ASDC\group4)
+[DEBUG] 2020-07-16 02:02:19.020 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 02:02:19.020 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 02:02:21.353 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 2.698 seconds (JVM running for 4.345)
+[INFO ] 2020-07-16 02:02:35.782 [http-nio-8080-exec-5] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-16 02:02:35.783 [http-nio-8080-exec-5] ConnectionManager - User name of database:CSCI5308_4_DEVINT_USER
+[DEBUG] 2020-07-16 02:02:39.446 [http-nio-8080-exec-9] UserDB - Loaded user with user ID19
+[INFO ] 2020-07-16 02:02:39.448 [http-nio-8080-exec-9] CurrentUser - Valid User
+[INFO ] 2020-07-16 02:02:40.254 [http-nio-8080-exec-9] StudentSurveyDB - Successfully created question options
+[DEBUG] 2020-07-16 02:02:45.644 [http-nio-8080-exec-8] GroupFormationController - At 'surveymanager/surveylist'
+[INFO ] 2020-07-16 02:04:15.346 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on DESKTOP-A59EQ9R with PID 9936 (C:\Users\sasis\Documents\ASDC\group4\bin\main started by sasis in C:\Users\sasis\Documents\ASDC\group4)
+[DEBUG] 2020-07-16 02:04:15.352 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 02:04:15.353 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 02:04:18.707 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 3.75 seconds (JVM running for 6.122)
+[DEBUG] 2020-07-16 02:04:18.953 [http-nio-8080-exec-1] GroupFormationController - At 'surveymanager/surveylist'
+[INFO ] 2020-07-16 02:04:18.971 [http-nio-8080-exec-1] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-16 02:04:18.971 [http-nio-8080-exec-1] ConnectionManager - User name of database:CSCI5308_4_DEVINT_USER
+[DEBUG] 2020-07-16 02:04:47.125 [http-nio-8080-exec-2] GroupFormationController - At '/submitSurveyRules'
+[DEBUG] 2020-07-16 02:04:49.089 [http-nio-8080-exec-2] GroupFormationAlgorithm - Created Groups
+[DEBUG] 2020-07-16 02:04:49.089 [http-nio-8080-exec-2] GroupingService - groups created: 2
+[DEBUG] 2020-07-16 02:04:49.286 [http-nio-8080-exec-2] UserDB - Loaded user with user ID1
+[DEBUG] 2020-07-16 02:04:49.477 [http-nio-8080-exec-2] UserDB - Loaded user with user ID6
+[DEBUG] 2020-07-16 02:04:49.667 [http-nio-8080-exec-2] UserDB - Loaded user with user ID22

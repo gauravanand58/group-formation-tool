@@ -29,7 +29,8 @@
 							<th>Title</th>
 							<th>Text</th>
 							<th>Type</th>
-							<th>DateTime</th>
+							<th>Rule</th>
+							<th>Value (if Numeric)</th>
 					</tr>
 					<tr th:each="msg, itemStat : *{ques}">
 						<input type="hidden" th:field="*{ques[__${itemStat.index}__].questionID}">

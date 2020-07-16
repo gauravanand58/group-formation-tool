@@ -12,7 +12,4 @@ public class SurveyQuestionRelationship implements ISurveyQuestionRelationship{
 		
 		return questionSurveyRelationshipPersistence.loadQUestionsByCourseId(courseId);
 	}
-
-
-	
 }

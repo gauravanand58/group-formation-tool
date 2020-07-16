@@ -21,7 +21,7 @@ public class InstructorAdminController {
 	@GetMapping("/course/instructoradmin")
 	public String instructorAdmin(Model model, @RequestParam(name = ID) long courseID) {
 		ICoursePersistence courseDB = CourseSystemConfig.instance().getCourseDB();
-		ICourse course = CourseObjectFactory.objFactory(new CourseFactory());
+		ICourse course = CourseAbstractFactory.instance().makeCourse();
 		courseDB.loadCourseByID(courseID, course);
 		model.addAttribute("course", course);
 		model.addAttribute("displayresults", false);
@@ -39,7 +39,7 @@ public class InstructorAdminController {
 			@RequestParam(name = FAILURES, required = false) List<String> failures,
 			@RequestParam(name = DISPLAY_RESULTS) boolean displayResults) {
 		ICoursePersistence courseDB = CourseSystemConfig.instance().getCourseDB();
-		ICourse course = CourseObjectFactory.objFactory(new CourseFactory());
+		ICourse course = CourseAbstractFactory.instance().makeCourse();
 		courseDB.loadCourseByID(courseID, course);
 		model.addAttribute("course", course);
 		model.addAttribute("displayresults", false);
@@ -57,7 +57,7 @@ public class InstructorAdminController {
 	@GetMapping("/course/enrollta")
 	public String enrollTA(Model model, @RequestParam(name = ID) long courseID) {
 		ICoursePersistence courseDB = CourseSystemConfig.instance().getCourseDB();
-		ICourse course = CourseObjectFactory.objFactory(new CourseFactory());
+		ICourse course = CourseAbstractFactory.instance().makeCourse();
 		courseDB.loadCourseByID(courseID, course);
 		model.addAttribute("course", course);
 		if (course.isCurrentUserEnrolledAsRoleInCourse(Role.INSTRUCTOR)
@@ -71,7 +71,7 @@ public class InstructorAdminController {
 	@RequestMapping(value = "/course/uploadcsv", consumes = { "multipart/form-data" })
 	public ModelAndView upload(@RequestParam(name = FILE) MultipartFile file, @RequestParam(name = ID) long courseID) {
 		ICoursePersistence courseDB = CourseSystemConfig.instance().getCourseDB();
-		ICourse course = CourseObjectFactory.objFactory(new CourseFactory());
+		ICourse course = CourseAbstractFactory.instance().makeCourse();
 		courseDB.loadCourseByID(courseID, course);
 		IStudentCSVParser parser = new StudentCSVParser(file);
 		StudentCSVImport importer = new StudentCSVImport(parser, course);

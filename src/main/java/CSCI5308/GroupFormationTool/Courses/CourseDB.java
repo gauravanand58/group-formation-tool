@@ -6,6 +6,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import CSCI5308.GroupFormationTool.Database.CallStoredProcedure;
+import CSCI5308.GroupFormationTool.Survey.ISurvey;
+import CSCI5308.GroupFormationTool.Survey.Survey;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,8 +16,8 @@ import java.util.ArrayList;
 public class CourseDB implements ICoursePersistence {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	public List<Course> loadAllCourses() {
-		List<Course> courses = new ArrayList<Course>();
+	public List<ICourse> loadAllCourses() {
+		List<ICourse> courses = new ArrayList<ICourse>();
 		CallStoredProcedure proc = null;
 		try {
 			proc = new CallStoredProcedure("spLoadAllCourses()");
@@ -24,14 +26,14 @@ public class CourseDB implements ICoursePersistence {
 				while (results.next()) {
 					long id = results.getLong(1);
 					String title = results.getString(2);
-					Course c = new Course();
+					ICourse c = CourseAbstractFactory.instance().makeCourse();
 					c.setId(id);
 					c.setTitle(title);
 					courses.add(c);
 				}
 			}
 		} catch (SQLException e) {
-			logger.error("spLoadAllCourses(?) throws SQLException:" + e.getMessage());
+			logger.error("spLoadAllCourses throws SQLException: " + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
@@ -49,13 +51,19 @@ public class CourseDB implements ICoursePersistence {
 			ResultSet results = proc.executeWithResults();
 			if (null != results) {
 				while (results.next()) {
-					String title = results.getString(2);
+					String title = results.getString(1);
 					course.setId(id);
 					course.setTitle(title);
+					ISurvey survey = new Survey();
+					survey.setCourseid(id);
+					survey.setSurveyId(results.getLong(2));
+					survey.setInstructorId(results.getLong(3));
+					survey.setPublished(results.getBoolean(4));
+					course.setCourseSurvey(survey);
 				}
 			}
 		} catch (SQLException e) {
-			logger.error("spFindCourseByID(?) throws SQLException:" + e.getMessage());
+			logger.error("spFindCourseByID throws SQLException: " + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
@@ -72,7 +80,7 @@ public class CourseDB implements ICoursePersistence {
 			proc.registerOutputParameterLong(2);
 			proc.execute();
 		} catch (SQLException e) {
-			logger.error("spCreateCourse(?) throws SQLException:" + e.getMessage());
+			logger.error("spCreateCourse throws SQLException: " + e.getMessage());
 			e.printStackTrace();
 			return false;
 		} finally {
@@ -80,7 +88,7 @@ public class CourseDB implements ICoursePersistence {
 				proc.cleanup();
 			}
 		}
-		logger.info("Course created successfully");
+		logger.info("Course created successfully with title:"+course.getTitle());
 		return true;
 	}
 
@@ -99,7 +107,7 @@ public class CourseDB implements ICoursePersistence {
 				proc.cleanup();
 			}
 		}
-		logger.info("Course deleted successfully");
+		logger.info("Course deleted successfully with courseID:"+id);
 		return true;
 	}
 }

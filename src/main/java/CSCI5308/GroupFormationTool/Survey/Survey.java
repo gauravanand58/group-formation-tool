@@ -1,23 +1,32 @@
 package CSCI5308.GroupFormationTool.Survey;
 
-public class Survey {
+import java.sql.SQLException;
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import CSCI5308.GroupFormationTool.Questions.IQuestion;
+
+public class Survey implements ISurvey{
 	private long surveyId;
-	private String surveyName;
 	private long instructorId;
-	private long courseid;
+	private long courseId;
 	private boolean isPublished;
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+	public Survey() {
+		
+	}
+	
+	public Survey(ISurveyPersistence surveyDB, long courseID) {
+		surveyDB.loadSurveyByCourseID(this, courseID);
+	}
 	
 	public long getSurveyId() {
 		return surveyId;
 	}
 	public void setSurveyId(long surveyId) {
 		this.surveyId = surveyId;
-	}
-	public String getSurveyName() {
-		return surveyName;
-	}
-	public void setSurveyName(String surveyName) {
-		this.surveyName = surveyName;
 	}
 	public long getInstructorId() {
 		return instructorId;
@@ -26,10 +35,10 @@ public class Survey {
 		this.instructorId = instructorId;
 	}
 	public long getCourseid() {
-		return courseid;
+		return courseId;
 	}
-	public void setCourseid(long courseid) {
-		this.courseid = courseid;
+	public void setCourseid(long courseId) {
+		this.courseId = courseId;
 	}
 	public boolean isPublished() {
 		return isPublished;
@@ -38,7 +47,26 @@ public class Survey {
 		this.isPublished = isPublished;
 	}
 	
+	public List<IQuestion> loadQuestionsByCourseId(
+			ISurveyPersistence surveyDB) {
+		return surveyDB.loadQuestionsByCourseId(courseId);
+	}
 	
+	public boolean publishSurvey(long surveyID, ISurveyPersistence surveyDB ) {
+		return surveyDB.publishSurvey(surveyID);
+	}
 	
-
+	public boolean submitResponse(IStudentSurveyPersistence surveyDB,String bannerID, long courseID,String[] arr1) {
+		try {
+			surveyDB.createStudentResponse(bannerID, courseID, arr1);
+			
+		}catch (SQLException e) {
+			logger.error("spCreateSurveyResponse throws SQLException:"+e.getMessage());
+			e.printStackTrace();
+			surveyDB.deleteResponse(bannerID, courseID);	
+			return false;
+		} 
+		
+		return true;
+	} 
 }

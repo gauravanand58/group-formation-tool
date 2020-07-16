@@ -10,12 +10,12 @@ public class QuestionListManager implements IQuestionListManager{
 	private static final String Date="Date";
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Override
-	public List<Question> displayQuestions(String bannerID, IQuestionPersistence questionDB) {
+	public List<IQuestion> displayQuestions(String bannerID, IQuestionPersistence questionDB) {
 		return questionDB.displayQuestions(bannerID);
 	}
 
 	@Override
-	public List<Question> sortQuestions(String bannerID, String sortBy,IQuestionPersistence questionDB) {
+	public List<IQuestion> sortQuestions(String bannerID, String sortBy,IQuestionPersistence questionDB) {
 		if(sortBy.equals(Title)) {
 			logger.info("Sorting questions by Title");
 			return questionDB.sortByTitle(bannerID);
@@ -23,7 +23,7 @@ public class QuestionListManager implements IQuestionListManager{
 			logger.info("Sorting questions by Date");
 			return questionDB.sortByDate(bannerID);
 		}else {
-			logger.error("String sortBy is not equal to Title/Date");
+			logger.error("String sortBy is not equal to 'Title'/'Date'");
 			return null;
 		}
 	}

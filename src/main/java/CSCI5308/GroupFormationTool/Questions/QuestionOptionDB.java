@@ -24,7 +24,7 @@ public class QuestionOptionDB implements IQuestionOptionPersistence {
 				proc.execute();
 			}
 		} catch (SQLException e) {
-			logger.error("spCreateQuestionOption(?, ?, ?) throws SQLException:"+e.getMessage());
+			logger.error("spCreateQuestionOption throws SQLException:"+e.getMessage());
 			e.printStackTrace();
 			return false;
 		} finally {

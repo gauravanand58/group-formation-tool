@@ -18,7 +18,7 @@ import CSCI5308.GroupFormationTool.AccessControl.*;
 public class CustomAuthenticationManager implements AuthenticationManager {
 	private static final String ADMIN_BANNER_ID = "B-000000";
 	
-	private Authentication checkAdmin(String password, User u, Authentication authentication) throws AuthenticationException
+	private Authentication checkAdmin(String password, IUser u, Authentication authentication) throws AuthenticationException
 	{
 		if (password.equals(u.getPassword()))
 		{
@@ -33,7 +33,7 @@ public class CustomAuthenticationManager implements AuthenticationManager {
 		}
 	}
 
-	private Authentication checkNormal(String password, User u, Authentication authentication)
+	private Authentication checkNormal(String password, IUser u, Authentication authentication)
 			throws AuthenticationException {
 		IPasswordEncryption passwordEncryption = SystemConfig.instance().getPasswordEncryption();
 		if (passwordEncryption.matches(password, u.getPassword()))
@@ -55,10 +55,10 @@ public class CustomAuthenticationManager implements AuthenticationManager {
 	{
 		String bannerID = authentication.getPrincipal().toString();
 		String password = authentication.getCredentials().toString();
-		IUserPersistence userDB = SystemConfig.instance().getUserDB();
-		User u;
+		IUserPersistence userDB = UserSystemConfig.instance().getUserDB();
+		IUser u;
 		try {
-			u = new User(bannerID, userDB);
+			u = UserAbstractFactory.instance().makeUserWithBanner(bannerID, userDB);
 		} catch (Exception e) {
 			throw new AuthenticationServiceException("1000");
 		}

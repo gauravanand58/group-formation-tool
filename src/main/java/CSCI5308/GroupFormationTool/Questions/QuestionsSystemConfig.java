@@ -21,12 +21,19 @@ public class QuestionsSystemConfig {
 		return questionListManager;
 	}
 
-	public Question getQuestion() {
+	public IQuestion getQuestion() {
 		return new Question();
+	}
+	
+	public QuestionOption getQuestionOption() {
+		return new QuestionOption();
+	}
+	
+	public IQuestion getLoadedQuestion(IQuestionPersistence questionDB, long questionID) {
+		return new Question(questionDB, questionID);
 	}
 	
 	public QuestionResponse getQuestionResponse() {
 		return new QuestionResponse();
 	}
-
 }
