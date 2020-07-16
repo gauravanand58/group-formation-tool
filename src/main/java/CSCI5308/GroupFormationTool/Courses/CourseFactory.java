@@ -6,5 +6,10 @@ public class CourseFactory implements CourseAbstractFactory {
 	public ICourse createFacCourse() {
 		return new Course();
 	}
+	
+	@Override
+	public ICourse createFacCourse(long id, ICoursePersistence courseDB) {
+		return new Course(id, courseDB);
+	}
 
 }

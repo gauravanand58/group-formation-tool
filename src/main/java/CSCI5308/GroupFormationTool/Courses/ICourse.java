@@ -3,7 +3,6 @@ package CSCI5308.GroupFormationTool.Courses;
 import java.util.List;
 
 import CSCI5308.GroupFormationTool.AccessControl.IUser;
-import CSCI5308.GroupFormationTool.AccessControl.User;
 import CSCI5308.GroupFormationTool.Survey.ISurvey;
 
 public interface ICourse {
@@ -31,4 +30,6 @@ public interface ICourse {
 	public ISurvey getCourseSurvey();
 
 	public void setCourseSurvey(ISurvey courseSurvey);
+
+	public void setDefaults();
 }

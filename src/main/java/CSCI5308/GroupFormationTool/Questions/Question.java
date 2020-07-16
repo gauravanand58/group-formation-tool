@@ -1,6 +1,5 @@
 package CSCI5308.GroupFormationTool.Questions;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Question implements IQuestion{

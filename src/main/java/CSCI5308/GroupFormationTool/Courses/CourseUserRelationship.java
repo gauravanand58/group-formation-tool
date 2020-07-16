@@ -2,8 +2,7 @@ package CSCI5308.GroupFormationTool.Courses;
 
 import java.util.List;
 
-import CSCI5308.GroupFormationTool.AccessControl.*;
-import CSCI5308.GroupFormationTool.Questions.IQuestion;
+import CSCI5308.GroupFormationTool.AccessControl.IUser;
 
 public class CourseUserRelationship implements ICourseUserRelationship {
 	public boolean userHasRoleInCourse(IUser user, Role role, ICourse course) {

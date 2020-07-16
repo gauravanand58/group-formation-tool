@@ -1,8 +1,14 @@
 package CSCI5308.GroupFormationTool;
 
-import CSCI5308.GroupFormationTool.Security.*;
-import CSCI5308.GroupFormationTool.AccessControl.*;
-import CSCI5308.GroupFormationTool.Database.*;
+import CSCI5308.GroupFormationTool.Database.DefaultDatabaseConfiguration;
+import CSCI5308.GroupFormationTool.Database.IDatabaseConfiguration;
+import CSCI5308.GroupFormationTool.Security.BCryptPasswordEncryption;
+import CSCI5308.GroupFormationTool.Security.IPasswordEncryption;
+import CSCI5308.GroupFormationTool.Security.IPasswordPolicyPersistance;
+import CSCI5308.GroupFormationTool.Security.IUserPasswordHistoryRelationshipPersistance;
+import CSCI5308.GroupFormationTool.Security.PasswordPolicyConfiguration;
+import CSCI5308.GroupFormationTool.Security.PasswordPolicyDB;
+import CSCI5308.GroupFormationTool.Security.UserPasswordHistoryRelationshipDB;
 
 
 public class SystemConfig {

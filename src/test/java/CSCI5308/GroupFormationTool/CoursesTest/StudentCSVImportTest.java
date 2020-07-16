@@ -14,6 +14,9 @@ import CSCI5308.GroupFormationTool.AccessControl.User;
 import CSCI5308.GroupFormationTool.AccessControl.UserAbstractFactory;
 import CSCI5308.GroupFormationTool.AccessControlTest.UserDBMock;
 import CSCI5308.GroupFormationTool.Courses.Course;
+import CSCI5308.GroupFormationTool.Courses.CourseFactory;
+import CSCI5308.GroupFormationTool.Courses.CourseObjectFactory;
+import CSCI5308.GroupFormationTool.Courses.ICourse;
 import CSCI5308.GroupFormationTool.Courses.Role;
 import CSCI5308.GroupFormationTool.Security.IPasswordEncryption;
 import CSCI5308.GroupFormationTool.SecurityTest.PasswordEncryptionMock;
@@ -23,7 +26,7 @@ class StudentCSVImportTest {
 	@Test
 	public void enrollStudentFromRecord() {
 		IUser user = UserAbstractFactory.instance().createUserObject();
-		Course course = new Course();
+		ICourse course = CourseObjectFactory.objFactory(new CourseFactory());
 		IUserPersistence userDB = new UserDBMock();
 		IPasswordEncryption passwordEncryption = new PasswordEncryptionMock();
 		assertTrue(user.createUser(userDB, passwordEncryption, null));

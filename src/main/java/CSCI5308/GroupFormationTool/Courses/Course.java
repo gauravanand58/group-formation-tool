@@ -4,7 +4,6 @@ import java.util.List;
 
 import CSCI5308.GroupFormationTool.AccessControl.CurrentUser;
 import CSCI5308.GroupFormationTool.AccessControl.IUser;
-import CSCI5308.GroupFormationTool.AccessControl.User;
 import CSCI5308.GroupFormationTool.Survey.ISurvey;
 import CSCI5308.GroupFormationTool.Survey.Survey;
 

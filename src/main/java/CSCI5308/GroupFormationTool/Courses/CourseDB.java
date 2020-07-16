@@ -1,5 +1,8 @@
 package CSCI5308.GroupFormationTool.Courses;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -9,15 +12,11 @@ import CSCI5308.GroupFormationTool.Database.CallStoredProcedure;
 import CSCI5308.GroupFormationTool.Survey.ISurvey;
 import CSCI5308.GroupFormationTool.Survey.Survey;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-
 public class CourseDB implements ICoursePersistence {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	public List<Course> loadAllCourses() {
-		List<Course> courses = new ArrayList<Course>();
+	public List<ICourse> loadAllCourses() {
+		List<ICourse> courses = new ArrayList<ICourse>();
 		CallStoredProcedure proc = null;
 		try {
 			proc = new CallStoredProcedure("spLoadAllCourses()");
@@ -26,7 +25,7 @@ public class CourseDB implements ICoursePersistence {
 				while (results.next()) {
 					long id = results.getLong(1);
 					String title = results.getString(2);
-					Course c = new Course();
+					ICourse c = CourseObjectFactory.objFactory(new CourseFactory());
 					c.setId(id);
 					c.setTitle(title);
 					courses.add(c);
