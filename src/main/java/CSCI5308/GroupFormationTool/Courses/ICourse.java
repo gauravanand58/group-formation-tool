@@ -7,6 +7,8 @@ import CSCI5308.GroupFormationTool.AccessControl.User;
 import CSCI5308.GroupFormationTool.Survey.ISurvey;
 
 public interface ICourse {
+	
+	public void setDefaults();
 
 	public boolean delete(ICoursePersistence courseDB);
 

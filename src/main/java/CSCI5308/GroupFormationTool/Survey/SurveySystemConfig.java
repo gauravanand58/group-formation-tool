@@ -1,13 +1,14 @@
 package CSCI5308.GroupFormationTool.Survey;
 
-
-
 public class SurveySystemConfig {
 	private static SurveySystemConfig uniqueInstance = null;
+	
+	private ISurveyPersistence surveyDB;
 	private IStudentSurveyPersistence studentSurveyDB;
 
 	private SurveySystemConfig() {
-		studentSurveyDB = SurveyObjectFactory.objDBFactory(new SurveyDbFactory());
+		setSurveyDB(SurveyAbstractFactory.instance().makeSurveyDB());
+		studentSurveyDB = SurveyAbstractFactory.instance().makeStudentSurveyDB();
 	}
 
 	public static SurveySystemConfig instance() {
@@ -24,6 +25,14 @@ public class SurveySystemConfig {
 
 	public void setStudentSurveyDB(IStudentSurveyPersistence studentSurveyDB) {
 		this.studentSurveyDB = studentSurveyDB;
+	}
+
+	public ISurveyPersistence getSurveyDB() {
+		return surveyDB;
+	}
+
+	public void setSurveyDB(ISurveyPersistence surveyDB) {
+		this.surveyDB = surveyDB;
 	}
 
 }

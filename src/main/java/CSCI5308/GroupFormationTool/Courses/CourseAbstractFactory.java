@@ -18,6 +18,7 @@ public abstract class CourseAbstractFactory {
 	}
 	
 	public abstract ICourse makeCourse();
+	public abstract ICourse makeCourseWithID(long id, ICoursePersistence courseDB);
 	public abstract ICoursePersistence makeCourseDB();
 	public abstract ICourseUserRelationship makeCourseUserRelationship();
 	public abstract ICourseUserRelationshipPersistence makeCourseUserRelationshipDB();

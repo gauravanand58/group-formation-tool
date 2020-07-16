@@ -17,4 +17,8 @@ public class CourseFactory extends CourseAbstractFactory {
 	public ICourseUserRelationshipPersistence makeCourseUserRelationshipDB() {
 		return new CourseUserRelationshipDB();
 	}
+
+	public ICourse makeCourseWithID(long id, ICoursePersistence courseDB) {
+		return new Course(id, courseDB);
+	}
 }

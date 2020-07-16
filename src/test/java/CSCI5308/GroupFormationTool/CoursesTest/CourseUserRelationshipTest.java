@@ -11,6 +11,8 @@ import CSCI5308.GroupFormationTool.AccessControl.IUser;
 import CSCI5308.GroupFormationTool.AccessControl.User;
 import CSCI5308.GroupFormationTool.AccessControlTest.CurrentUserMock;
 import CSCI5308.GroupFormationTool.Courses.Course;
+import CSCI5308.GroupFormationTool.Courses.CourseAbstractFactory;
+import CSCI5308.GroupFormationTool.Courses.ICourse;
 import CSCI5308.GroupFormationTool.Courses.ICourseUserRelationshipPersistence;
 import CSCI5308.GroupFormationTool.Courses.Role;
 
@@ -23,7 +25,7 @@ class CourseUserRelationshipTest {
 
 	@Test
 	public void userHasRoleInCourse() {
-		Course course = new Course();
+		ICourse course = CourseAbstractFactory.instance().makeCourse();
 		course.setId(0);
 		CurrentUserMock currentUser = new CurrentUserMock();
 		IUser user = currentUser.getCurrentAuthenticatedUser();
@@ -35,7 +37,7 @@ class CourseUserRelationshipTest {
 
 	@Test
 	public void loadAllRoluesForUserInCourse() {
-		Course course = new Course();
+		ICourse course = CourseAbstractFactory.instance().makeCourse();
 		course.setId(0);
 		CurrentUserMock currentUser = new CurrentUserMock();
 		IUser user = currentUser.getCurrentAuthenticatedUser();
@@ -45,7 +47,7 @@ class CourseUserRelationshipTest {
 
 	@Test
 	public void enrollUserInCourse() {
-		Course course = new Course();
+		ICourse course = CourseAbstractFactory.instance().makeCourse();
 		CurrentUserMock currentUser = new CurrentUserMock();
 		IUser user = currentUser.getCurrentAuthenticatedUser();
 		boolean result = courseUserRelationshipDB.enrollUser(course, user, Role.STUDENT);

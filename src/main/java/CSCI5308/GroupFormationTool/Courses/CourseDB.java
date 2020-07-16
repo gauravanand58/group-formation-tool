@@ -16,8 +16,8 @@ import java.util.ArrayList;
 public class CourseDB implements ICoursePersistence {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	public List<Course> loadAllCourses() {
-		List<Course> courses = new ArrayList<Course>();
+	public List<ICourse> loadAllCourses() {
+		List<ICourse> courses = new ArrayList<ICourse>();
 		CallStoredProcedure proc = null;
 		try {
 			proc = new CallStoredProcedure("spLoadAllCourses()");
@@ -26,7 +26,7 @@ public class CourseDB implements ICoursePersistence {
 				while (results.next()) {
 					long id = results.getLong(1);
 					String title = results.getString(2);
-					Course c = new Course();
+					ICourse c = CourseAbstractFactory.instance().makeCourse();
 					c.setId(id);
 					c.setTitle(title);
 					courses.add(c);

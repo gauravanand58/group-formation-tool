@@ -23,7 +23,7 @@ public class CourseAdminController {
 	@GetMapping("/admin/course")
 	public String course(Model model) {
 		ICoursePersistence courseDB = CourseSystemConfig.instance().getCourseDB();
-		List<Course> allCourses = courseDB.loadAllCourses();
+		List<ICourse> allCourses = courseDB.loadAllCourses();
 		model.addAttribute("courses", allCourses);
 		return "admin/course";
 	}
