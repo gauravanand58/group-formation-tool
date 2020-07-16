@@ -17,6 +17,10 @@ public abstract class SurveyAbstractFactory {
 		uniqueInstance = factory;
 	}
 	
+	public SurveyAbstractFactory getFactory() {
+		return uniqueInstance;
+	}
+	
 	public abstract ISurvey makeSurvey();
 	public abstract ISurvey makeSurveyWithCourseID(ISurveyPersistence surveyDB, long courseID);
 	public abstract ISurveyPersistence makeSurveyDB();

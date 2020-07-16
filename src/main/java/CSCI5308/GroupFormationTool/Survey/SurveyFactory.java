@@ -16,5 +16,5 @@ public class SurveyFactory extends SurveyAbstractFactory{
 
 	public ISurvey makeSurveyWithCourseID(ISurveyPersistence surveyDB, long courseID) {
 		return new Survey(surveyDB, courseID);
-	}	
+	}
 }
