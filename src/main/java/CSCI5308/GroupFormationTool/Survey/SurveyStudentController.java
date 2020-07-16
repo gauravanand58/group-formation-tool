@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import CSCI5308.GroupFormationTool.Questions.QuestionResponse;
 
 @Controller
-public class StudentSurveyController {
+public class SurveyStudentController {
 	@RequestMapping("/studentResponse")
 	public String displaysurveyQuestions(@ModelAttribute QuestionResponse question, Model model,
 			@RequestParam(name = "BannerID") String BannerID, @RequestParam(name = "courseid") long courseId) {
@@ -17,10 +17,10 @@ public class StudentSurveyController {
 		String bannerID = BannerID;
 		long courseid = courseId;
 		QuestionResponse surveyResponseList = question;
-		String arr1[] = surveyResponseList.getQuestionType().split(",");
+		String studentResponse[] = surveyResponseList.getQuestionType().split(",");
 		ISurvey survey=new Survey();
-		IStudentSurveyPersistence surveyDB = SurveySystemConfig.instance().getStudentSurveyDB();
-		boolean responsesaved = survey.submitResponse(surveyDB, bannerID, courseid, arr1);
+		ISurveyStudentPersistence surveyDB = SurveySystemConfig.instance().getStudentSurveyDB();
+		boolean responsesaved = survey.submitResponse(surveyDB, bannerID, courseid, studentResponse);
 		int  isUserInstructor = (responsesaved)?0:1;
 		return "redirect:/course/course?id="+courseId+"&isUserInstructor="+isUserInstructor+"&BannerID="+BannerID;		
 	}

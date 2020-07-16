@@ -10,7 +10,11 @@ public class SurveyFactory extends SurveyAbstractFactory{
 		return new SurveyDB();
 	}
 
-	public IStudentSurveyPersistence makeStudentSurveyDB() {
-		return new StudentSurveyDB();
+	public ISurveyStudentPersistence makeStudentSurveyDB() {
+		return new SurveyStudentDB();
+	}
+
+	public ISurvey makeSurveyWithCourseID(ISurveyPersistence surveyDB, long courseID) {
+		return new Survey(surveyDB, courseID);
 	}	
 }

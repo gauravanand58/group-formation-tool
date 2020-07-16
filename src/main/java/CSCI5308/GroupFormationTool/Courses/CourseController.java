@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import CSCI5308.GroupFormationTool.Questions.IQuestion;
 import CSCI5308.GroupFormationTool.Questions.QuestionResponse;
-import CSCI5308.GroupFormationTool.Survey.IStudentSurveyPersistence;
+import CSCI5308.GroupFormationTool.Survey.ISurveyStudentPersistence;
 import CSCI5308.GroupFormationTool.Survey.SurveySystemConfig;
 
 @Controller
@@ -39,7 +39,7 @@ public class CourseController {
 			model.addAttribute("student", userRoles.contains(Role.STUDENT));
 			model.addAttribute("guest", userRoles.isEmpty());
 		}
-		IStudentSurveyPersistence surveyDB = SurveySystemConfig.instance().getStudentSurveyDB();
+		ISurveyStudentPersistence surveyDB = SurveySystemConfig.instance().getStudentSurveyDB();
 		List<IQuestion> surveyQuestions = surveyDB.viewSurveyQuestions(courseID);
 		if(surveyQuestions.isEmpty()) {
 			message = "Survey not yet published, please check again later";

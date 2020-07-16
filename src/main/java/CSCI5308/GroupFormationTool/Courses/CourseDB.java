@@ -55,7 +55,7 @@ public class CourseDB implements ICoursePersistence {
 					course.setId(id);
 					course.setTitle(title);
 					ISurvey survey = new Survey();
-					survey.setCourseid(id);
+					survey.setCourseId(id);
 					survey.setSurveyId(results.getLong(2));
 					survey.setInstructorId(results.getLong(3));
 					survey.setPublished(results.getBoolean(4));

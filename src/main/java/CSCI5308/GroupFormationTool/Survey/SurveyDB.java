@@ -107,7 +107,7 @@ public class SurveyDB implements ISurveyPersistence{
 			if (null != results && results.next()) {
 				survey.setSurveyId(results.getInt(1));
 				survey.setInstructorId(results.getLong(2));
-				survey.setCourseid(results.getLong(3));
+				survey.setCourseId(results.getLong(3));
 				survey.setPublished(results.getBoolean(4));
 			}
 		} catch (SQLException e) {

@@ -4,7 +4,7 @@ public class SurveySystemConfig {
 	private static SurveySystemConfig uniqueInstance = null;
 	
 	private ISurveyPersistence surveyDB;
-	private IStudentSurveyPersistence studentSurveyDB;
+	private ISurveyStudentPersistence studentSurveyDB;
 
 	private SurveySystemConfig() {
 		setSurveyDB(SurveyAbstractFactory.instance().makeSurveyDB());
@@ -19,11 +19,11 @@ public class SurveySystemConfig {
 		return uniqueInstance;
 	}
 
-	public IStudentSurveyPersistence getStudentSurveyDB() {
+	public ISurveyStudentPersistence getStudentSurveyDB() {
 		return studentSurveyDB;
 	}
 
-	public void setStudentSurveyDB(IStudentSurveyPersistence studentSurveyDB) {
+	public void setStudentSurveyDB(ISurveyStudentPersistence studentSurveyDB) {
 		this.studentSurveyDB = studentSurveyDB;
 	}
 
