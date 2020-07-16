@@ -5,7 +5,6 @@ import java.util.List;
 
 import CSCI5308.GroupFormationTool.Questions.IQuestion;
 import CSCI5308.GroupFormationTool.Questions.IQuestionPersistence;
-import CSCI5308.GroupFormationTool.Questions.Question;
 import CSCI5308.GroupFormationTool.Questions.QuestionAbstractFactory;
 
 public class QuestionDBMock implements IQuestionPersistence {
@@ -63,7 +62,5 @@ public class QuestionDBMock implements IQuestionPersistence {
 
 	@Override
 	public void loadQuestionByID(IQuestion question, long questionID) {
-		// TODO Auto-generated method stub
-
 	}
 }

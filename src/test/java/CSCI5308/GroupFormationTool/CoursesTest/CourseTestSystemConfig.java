@@ -17,7 +17,7 @@ public class CourseTestSystemConfig {
 	}
 
 	public static CourseTestSystemConfig instance() {
-		if (uniqueInstance == null) {
+		if (null == uniqueInstance) {
 			uniqueInstance = new CourseTestSystemConfig();
 		}
 		return uniqueInstance;

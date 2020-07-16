@@ -7,7 +7,6 @@ public class GroupFormationAlgorithmMock implements IGroupFormationAlgorithm {
 
 	@Override
 	public List<List<Long>> createGroups() {
-		// TODO Auto-generated method stub
 		List<List<Long>> userGroups = new ArrayList<List<Long>>();
 		List<Long> groups = new ArrayList<Long>();
 		groups.add(1l);

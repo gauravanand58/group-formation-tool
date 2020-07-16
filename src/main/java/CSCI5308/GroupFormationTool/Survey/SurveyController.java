@@ -29,7 +29,7 @@ public class SurveyController {
 		List<IQuestion> addedQuestionsList = new ArrayList<>();
 		ICourseUserRelationship courseUserRelationship = CourseAbstractFactory.instance().makeCourseUserRelationship();
 		IUser instructor = courseUserRelationship.findInstructorWithCourse(courseID);
-		if (instructor == null) {
+		if (null == instructor) {
 			model.addAttribute("availableQuestions", availableQuestionsList);
 			return "survey/main";
 		}
