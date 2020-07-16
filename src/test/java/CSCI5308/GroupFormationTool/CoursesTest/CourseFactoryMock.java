@@ -1,6 +1,8 @@
 package CSCI5308.GroupFormationTool.CoursesTest;
 
+import CSCI5308.GroupFormationTool.Courses.Course;
 import CSCI5308.GroupFormationTool.Courses.CourseAbstractFactory;
+import CSCI5308.GroupFormationTool.Courses.CourseUserRelationship;
 import CSCI5308.GroupFormationTool.Courses.ICourse;
 import CSCI5308.GroupFormationTool.Courses.ICoursePersistence;
 import CSCI5308.GroupFormationTool.Courses.ICourseUserRelationship;
@@ -10,27 +12,27 @@ public class CourseFactoryMock extends CourseAbstractFactory {
 
 	@Override
 	public ICourse makeCourse() {
-		return null;
+		return new Course();
 	}
 
 	@Override
 	public ICourse makeCourseWithID(long id, ICoursePersistence courseDB) {
-		return null;
+		return new Course(id,courseDB);
 	}
 
 	@Override
 	public ICoursePersistence makeCourseDB() {
-		return null;
+		return new CourseDBMock();
 	}
 
 	@Override
 	public ICourseUserRelationship makeCourseUserRelationship() {
-		return null;
+		return new CourseUserRelationship();
 	}
 
 	@Override
 	public ICourseUserRelationshipPersistence makeCourseUserRelationshipDB() {
-		return null;
+		return new CourseUserRelationshipDBMock();
 	}
 
 }
