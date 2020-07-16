@@ -283,3 +283,17 @@
 [DEBUG] 2020-07-16 17:27:09.303 [main] GroupFormationToolApplicationTests - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
 [INFO ] 2020-07-16 17:27:09.304 [main] GroupFormationToolApplicationTests - No active profile set, falling back to default profiles: default
 [INFO ] 2020-07-16 17:27:11.276 [main] GroupFormationToolApplicationTests - Started GroupFormationToolApplicationTests in 2.169 seconds (JVM running for 5.158)
+[INFO ] 2020-07-16 18:44:36.436 [main] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-16 18:44:36.443 [main] ConnectionManager - User name of database:CSCI5308_4_DEVINT_USER
+[INFO ] 2020-07-16 18:44:37.041 [main] User - Successfully created user and sent credentials
+[ERROR] 2020-07-16 18:44:37.255 [main] CourseUserRelationshipDB - spEnrollUser(?, ?, ?) throws SQLException:Cannot add or update a child row: a foreign key constraint fails (`CSCI5308_4_DEVINT`.`CourseRole`, CONSTRAINT `CourseRole_ibfk_1` FOREIGN KEY (`courseID`) REFERENCES `Course` (`id`))
+[INFO ] 2020-07-16 18:44:37.270 [main] User - Valid password history
+[INFO ] 2020-07-16 18:44:37.270 [main] User - Invalid password history
+[INFO ] 2020-07-16 18:44:37.272 [main] User - Valid password
+[INFO ] 2020-07-16 18:44:37.272 [main] User - Invalid password upper char
+[DEBUG] 2020-07-16 18:44:37.284 [main] GroupingService - groups created: 1
+[DEBUG] 2020-07-16 18:44:37.557 [main] UserDB - Loaded user with user ID1
+[INFO ] 2020-07-16 18:44:38.508 [main] GroupFormationToolApplicationTests - Starting GroupFormationToolApplicationTests on LAPTOP-USJ57PKN with PID 134092 (started by shrey in H:\Study\Dalhousie\ASDC\test\group4)
+[DEBUG] 2020-07-16 18:44:38.511 [main] GroupFormationToolApplicationTests - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 18:44:38.512 [main] GroupFormationToolApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 18:44:40.586 [main] GroupFormationToolApplicationTests - Started GroupFormationToolApplicationTests in 2.297 seconds (JVM running for 5.728)
