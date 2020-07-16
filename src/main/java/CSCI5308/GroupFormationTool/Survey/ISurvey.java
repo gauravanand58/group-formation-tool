@@ -25,5 +25,5 @@ public interface ISurvey {
 
 	public boolean publishSurvey(long surveyId, ISurveyPersistence surveyDB);
 
-	public Integer submitResponse(ISurveyStudentPersistence surveyDB, String bannerId, long courseid, String[] arr1);
+	public Integer submitResponse(ISurveyStudentPersistence surveyDB, String bannerId, long courseId, String[] arr1);
 }
