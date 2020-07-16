@@ -11,9 +11,9 @@ import CSCI5308.GroupFormationTool.Security.IPasswordEncryption;
 import CSCI5308.GroupFormationTool.Security.IUserPasswordHistoryRelationshipPersistance;
 import CSCI5308.GroupFormationTool.Security.PasswordPolicyConfiguration;
 
-public class User implements IUser{
+public class User implements IUser {
 	private final static Logger logger = LoggerFactory.getLogger(User.class);
-	
+
 	private long id;
 	private String password;
 	private String bannerID;
@@ -117,7 +117,7 @@ public class User implements IUser{
 			try {
 				notification.sendUserLoginCredentials(this, rawPassword);
 			} catch (MessagingException e) {
-				logger.error("Failed to send login credentials to users"+e.getMessage());
+				logger.error("Failed to send login credentials to users" + e.getMessage());
 				e.printStackTrace();
 			}
 		}

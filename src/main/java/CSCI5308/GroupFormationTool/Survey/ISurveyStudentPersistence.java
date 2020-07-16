@@ -11,7 +11,7 @@ public interface ISurveyStudentPersistence {
 	public long checkSurveySubmission(String bannerId, long courseId);
 
 	public boolean createStudentResponse(String bannerId, long courseId, String responseArray[]) throws SQLException;
-	
+
 	public void deleteResponse(String bannerId, long courseId);
 
 }

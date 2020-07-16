@@ -1,17 +1,19 @@
 package CSCI5308.GroupFormationTool.AccessControlTest;
 
-import CSCI5308.GroupFormationTool.AccessControl.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.Test;
+
+import CSCI5308.GroupFormationTool.AccessControl.IUser;
+import CSCI5308.GroupFormationTool.AccessControl.IUserPersistence;
+import CSCI5308.GroupFormationTool.AccessControl.UserAbstractFactory;
 import CSCI5308.GroupFormationTool.Security.IPasswordEncryption;
 import CSCI5308.GroupFormationTool.Security.IUserPasswordHistoryRelationshipPersistance;
 import CSCI5308.GroupFormationTool.Security.PasswordPolicyConfiguration;
 import CSCI5308.GroupFormationTool.SecurityTest.PasswordEncryptionMock;
 import CSCI5308.GroupFormationTool.SecurityTest.PasswordPolicyDBMock;
 import CSCI5308.GroupFormationTool.SecurityTest.UserPasswordHistoryRelationshipDBMock;
-
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import org.junit.jupiter.api.Test;
 
 public class UserTest {
 	@Test

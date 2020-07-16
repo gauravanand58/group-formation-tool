@@ -15,14 +15,15 @@ import CSCI5308.GroupFormationTool.Database.CallStoredProcedure;
 public class UserResponseDB implements IUserResponsePersistence {
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
 	@Override
 	public Map<Long, Map<Long, String>> loadUserResponsesForQuestions(long courseId) {
-		Map<Long, Map<Long, String>> userResponses = new HashMap<Long, Map<Long,String>>();
+		Map<Long, Map<Long, String>> userResponses = new HashMap<Long, Map<Long, String>>();
 		CallStoredProcedure proc = null;
 		try {
 			proc = new CallStoredProcedure("spLoadUserResponses(?)");
 			proc.setParameter(1, courseId);
-			
+
 			ResultSet results = proc.executeWithResults();
 			if (null != results) {
 				while (results.next()) {
@@ -48,40 +49,39 @@ public class UserResponseDB implements IUserResponsePersistence {
 		}
 		return userResponses;
 	}
-	
 
 	@Override
 	public Map<Long, Map<Long, List<String>>> loadUserResponsesForMCQ2(long courseId) {
-		Map<Long, Map<Long, List<String>>> userResponses = new HashMap<Long, Map<Long,List<String>>>();
+		Map<Long, Map<Long, List<String>>> userResponses = new HashMap<Long, Map<Long, List<String>>>();
 		CallStoredProcedure proc = null;
 		try {
 			proc = new CallStoredProcedure("spLoadUserResponsesMCQ2(?)");
 			proc.setParameter(1, courseId);
-			
+
 			ResultSet results = proc.executeWithResults();
 			if (null != results) {
-				while (results.next()) {	
-				long userId = results.getLong(1);
-				long questionId = results.getLong(2);
-				String response = results.getString(3);
-				if (null != userResponses.get(userId)) {
-					if (null != userResponses.get(userId).get(questionId)) {
-						userResponses.get(userId).get(questionId).add(response);
+				while (results.next()) {
+					long userId = results.getLong(1);
+					long questionId = results.getLong(2);
+					String response = results.getString(3);
+					if (null != userResponses.get(userId)) {
+						if (null != userResponses.get(userId).get(questionId)) {
+							userResponses.get(userId).get(questionId).add(response);
+						} else {
+							List<String> responses = new ArrayList<>();
+							responses.add(response);
+							userResponses.get(userId).put(questionId, responses);
+						}
 					} else {
 						List<String> responses = new ArrayList<>();
 						responses.add(response);
-						userResponses.get(userId).put(questionId, responses);
+						Map<Long, List<String>> question = new HashMap<>();
+						question.put(questionId, responses);
+						userResponses.put(userId, question);
 					}
-				} else {
-					List<String> responses = new ArrayList<>();
-					responses.add(response);
-					Map<Long, List<String>> question = new HashMap<>();
-					question.put(questionId, responses);
-					userResponses.put(userId, question);
-				}
 				}
 			}
-			
+
 		} catch (SQLException e) {
 			logger.error("spLoadUserResponsesMCQ2() throws SQLException:" + e.getMessage());
 			e.printStackTrace();
@@ -92,7 +92,5 @@ public class UserResponseDB implements IUserResponsePersistence {
 		}
 		return userResponses;
 	}
-	
-	
 
 }

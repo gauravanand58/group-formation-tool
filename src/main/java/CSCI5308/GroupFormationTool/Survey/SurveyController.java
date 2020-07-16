@@ -11,7 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import CSCI5308.GroupFormationTool.AccessControl.IUser;
 import CSCI5308.GroupFormationTool.Courses.CourseAbstractFactory;
-import CSCI5308.GroupFormationTool.Courses.CourseUserRelationship;
 import CSCI5308.GroupFormationTool.Courses.ICourseUserRelationship;
 import CSCI5308.GroupFormationTool.Questions.IQuestion;
 import CSCI5308.GroupFormationTool.Questions.IQuestionPersistence;
@@ -20,22 +19,21 @@ import CSCI5308.GroupFormationTool.Questions.QuestionsSystemConfigPersistence;
 
 @Controller
 public class SurveyController {
-	
+
 	@GetMapping("/survey/editSurvey")
 	public String editSurvey(Model model, @RequestParam(name = "id") long courseID) {
-		
+
 		ISurveyPersistence surveyDB = new SurveyDB();
 		ISurvey survey = new Survey(surveyDB, courseID);
 		List<IQuestion> availableQuestionsList = new ArrayList<>();
 		List<IQuestion> addedQuestionsList = new ArrayList<>();
 		ICourseUserRelationship courseUserRelationship = CourseAbstractFactory.instance().makeCourseUserRelationship();
 		IUser instructor = courseUserRelationship.findInstructorWithCourse(courseID);
-		if(instructor == null) {
+		if (instructor == null) {
 			model.addAttribute("availableQuestions", availableQuestionsList);
 			return "survey/main";
 		}
-		availableQuestionsList = surveyDB.getAvailableQuestions(
-				survey.getSurveyId(), courseID, instructor.getId());
+		availableQuestionsList = surveyDB.getAvailableQuestions(survey.getSurveyId(), courseID, instructor.getId());
 		model.addAttribute("availableQuestions", availableQuestionsList);
 		model.addAttribute("courseID", courseID);
 		model.addAttribute("survey", survey);
@@ -45,7 +43,7 @@ public class SurveyController {
 		model.addAttribute("addedQuestions", addedQuestionsList);
 		return "survey/main";
 	}
-	
+
 	@GetMapping("/survey/addIntoSurvey")
 	public ModelAndView addQuestionToSurvey(Model model, @RequestParam(name = "id") long courseID,
 			@RequestParam(name = "questionID") long questionID) {
@@ -57,19 +55,21 @@ public class SurveyController {
 		mav.addObject("id", courseID);
 		return mav;
 	}
-	
+
 	@GetMapping("/survey/publish")
-	public ModelAndView publishSurvey(@RequestParam(name="surveyID") long surveyID,@RequestParam(name="instructorUserID") long instructorUserID, 
-			@RequestParam(name="courseID") long courseID,@RequestParam(name="BannerID") String BannerID, Model model) {
+	public ModelAndView publishSurvey(@RequestParam(name = "surveyID") long surveyID,
+			@RequestParam(name = "instructorUserID") long instructorUserID,
+			@RequestParam(name = "courseID") long courseID, @RequestParam(name = "BannerID") String BannerID,
+			Model model) {
 		ISurveyPersistence surveyDB = new SurveyDB();
 		ISurvey survey = new Survey();
-		boolean surveyPublished=survey.publishSurvey(surveyID, surveyDB);
-		model.addAttribute("surveyPublished",surveyPublished);
+		boolean surveyPublished = survey.publishSurvey(surveyID, surveyDB);
+		model.addAttribute("surveyPublished", surveyPublished);
 		ModelAndView mav = new ModelAndView("redirect:/course/course");
 		mav.addObject("id", courseID);
 		mav.addObject("isUserInstructor", instructorUserID);
 		mav.addObject("BannerID", BannerID);
 		return mav;
-		
+
 	}
 }

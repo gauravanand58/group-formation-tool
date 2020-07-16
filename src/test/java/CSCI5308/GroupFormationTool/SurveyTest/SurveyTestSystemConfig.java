@@ -6,19 +6,19 @@ import CSCI5308.GroupFormationTool.Survey.SurveyAbstractFactory;
 
 public class SurveyTestSystemConfig {
 	private static SurveyTestSystemConfig uniqueInstance = null;
-	
+
 	private ISurveyPersistence surveyDBMock;
 	private ISurveyStudentPersistence surveyStudentDBMock;
 	private SurveyAbstractFactory surveyFactoryMock;
-	
+
 	private SurveyTestSystemConfig() {
 		surveyDBMock = new SurveyDBMock();
 		surveyStudentDBMock = new SurveyStudentDBMock();
 		surveyFactoryMock = new SurveyFactoryMock();
 	}
-	
+
 	public static SurveyTestSystemConfig instance() {
-		if(uniqueInstance == null) {
+		if (uniqueInstance == null) {
 			uniqueInstance = new SurveyTestSystemConfig();
 		}
 		return uniqueInstance;

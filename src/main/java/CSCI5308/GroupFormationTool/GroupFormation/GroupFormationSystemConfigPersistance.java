@@ -5,19 +5,19 @@ import CSCI5308.GroupFormationTool.Algorithm.IGroupFormationAlgorithmBuilder;
 
 public class GroupFormationSystemConfigPersistance {
 	private static GroupFormationSystemConfigPersistance uniqueInstance = null;
-	
+
 	IGroupFormationRulesPersistence formationRulesPersistence;
 	IUserResponsePersistence userResponsePersistence;
 	IGroupingService groupingService;
 	IGroupFormationAlgorithmBuilder groupingAlgorithmBuilder;
-	
+
 	private GroupFormationSystemConfigPersistance() {
 		formationRulesPersistence = new GroupFormationRulesDB();
 		userResponsePersistence = new UserResponseDB();
 		groupingService = new GroupingService();
 		groupingAlgorithmBuilder = new GroupFormationAlgorithmBuilder();
 	}
-	
+
 	public static GroupFormationSystemConfigPersistance instance() {
 		if (null == uniqueInstance) {
 			uniqueInstance = new GroupFormationSystemConfigPersistance();
@@ -40,6 +40,5 @@ public class GroupFormationSystemConfigPersistance {
 	public IGroupFormationAlgorithmBuilder getGroupingAlgorithmBuilder() {
 		return groupingAlgorithmBuilder;
 	}
-
 
 }

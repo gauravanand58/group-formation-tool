@@ -15,13 +15,13 @@ import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 
 import CSCI5308.GroupFormationTool.AccessControl.IUser;
-import CSCI5308.GroupFormationTool.AccessControl.User;
 import CSCI5308.GroupFormationTool.AccessControl.UserAbstractFactory;
 
 public class StudentCSVParser implements IStudentCSVParser {
 	private MultipartFile uploadedFile;
 	private List<IUser> studentList = new ArrayList<>();
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
 	public StudentCSVParser(MultipartFile file) {
 		this.uploadedFile = file;
 
@@ -49,13 +49,13 @@ public class StudentCSVParser implements IStudentCSVParser {
 				studentList.add(u);
 			}
 		} catch (IOException e) {
-			logger.error("IOException while reading csv file: "+e.getMessage());
+			logger.error("IOException while reading csv file: " + e.getMessage());
 			failureResults.add("Failure reading uploaded file: " + e.getMessage());
 		} catch (Exception e) {
-			logger.error("Exception while parsing the csv file: "+e.getMessage());
+			logger.error("Exception while parsing the csv file: " + e.getMessage());
 			failureResults.add("Failure parsing CSV file: " + e.getMessage());
 		}
-		logger.debug("Parsed csv file with first student as "+studentList.get(0).getBannerID());
+		logger.debug("Parsed csv file with first student as " + studentList.get(0).getBannerID());
 		return studentList;
 	}
 }

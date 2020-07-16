@@ -1,5 +1,8 @@
 package CSCI5308.GroupFormationTool.Courses;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -8,10 +11,6 @@ import org.slf4j.LoggerFactory;
 import CSCI5308.GroupFormationTool.Database.CallStoredProcedure;
 import CSCI5308.GroupFormationTool.Survey.ISurvey;
 import CSCI5308.GroupFormationTool.Survey.Survey;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class CourseDB implements ICoursePersistence {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -88,7 +87,7 @@ public class CourseDB implements ICoursePersistence {
 				proc.cleanup();
 			}
 		}
-		logger.info("Course created successfully with title:"+course.getTitle());
+		logger.info("Course created successfully with title:" + course.getTitle());
 		return true;
 	}
 
@@ -107,7 +106,7 @@ public class CourseDB implements ICoursePersistence {
 				proc.cleanup();
 			}
 		}
-		logger.info("Course deleted successfully with courseID:"+id);
+		logger.info("Course deleted successfully with courseID:" + id);
 		return true;
 	}
 }

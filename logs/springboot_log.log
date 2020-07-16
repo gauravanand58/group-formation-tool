@@ -285,3 +285,134 @@
 [DEBUG] 2020-07-16 02:04:49.286 [http-nio-8080-exec-2] UserDB - Loaded user with user ID1
 [DEBUG] 2020-07-16 02:04:49.477 [http-nio-8080-exec-2] UserDB - Loaded user with user ID6
 [DEBUG] 2020-07-16 02:04:49.667 [http-nio-8080-exec-2] UserDB - Loaded user with user ID22
+[INFO ] 2020-07-16 13:36:56.645 [main] User - Valid password history
+[INFO ] 2020-07-16 13:36:56.673 [main] User - Invalid password history
+[INFO ] 2020-07-16 13:36:56.677 [main] User - Valid password
+[INFO ] 2020-07-16 13:36:56.677 [main] User - Invalid password upper char
+[DEBUG] 2020-07-16 13:36:56.697 [main] GroupingService - groups created: 1
+[INFO ] 2020-07-16 13:36:56.708 [main] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-16 13:36:56.708 [main] ConnectionManager - User name of database:CSCI5308_4_DEVINT_USER
+[DEBUG] 2020-07-16 13:36:57.160 [main] UserDB - Loaded user with user ID1
+[INFO ] 2020-07-16 13:36:58.009 [main] GroupFormationToolApplicationTests - Starting GroupFormationToolApplicationTests on LAPTOP-2TG4BGFK with PID 2156 (started by Bharat in D:\AdvancedSDC\Milestone2\group4)
+[DEBUG] 2020-07-16 13:36:58.012 [main] GroupFormationToolApplicationTests - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 13:36:58.012 [main] GroupFormationToolApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 13:37:00.120 [main] GroupFormationToolApplicationTests - Started GroupFormationToolApplicationTests in 2.312 seconds (JVM running for 7.002)
+[INFO ] 2020-07-16 13:37:00.294 [main] User - Successfully created user and sent credentials
+[ERROR] 2020-07-16 13:37:00.459 [main] CourseUserRelationshipDB - spEnrollUser(?, ?, ?) throws SQLException:Cannot add or update a child row: a foreign key constraint fails (`CSCI5308_4_DEVINT`.`CourseRole`, CONSTRAINT `CourseRole_ibfk_1` FOREIGN KEY (`courseID`) REFERENCES `Course` (`id`))
+[INFO ] 2020-07-16 13:37:33.729 [main] User - Valid password history
+[INFO ] 2020-07-16 13:37:33.736 [main] User - Invalid password history
+[INFO ] 2020-07-16 13:37:33.739 [main] User - Valid password
+[INFO ] 2020-07-16 13:37:33.740 [main] User - Invalid password upper char
+[DEBUG] 2020-07-16 13:37:33.761 [main] GroupingService - groups created: 1
+[INFO ] 2020-07-16 13:37:33.777 [main] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-16 13:37:33.777 [main] ConnectionManager - User name of database:CSCI5308_4_DEVINT_USER
+[DEBUG] 2020-07-16 13:37:34.213 [main] UserDB - Loaded user with user ID1
+[INFO ] 2020-07-16 13:37:35.049 [main] GroupFormationToolApplicationTests - Starting GroupFormationToolApplicationTests on LAPTOP-2TG4BGFK with PID 11056 (started by Bharat in D:\AdvancedSDC\Milestone2\group4)
+[DEBUG] 2020-07-16 13:37:35.052 [main] GroupFormationToolApplicationTests - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 13:37:35.053 [main] GroupFormationToolApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 13:37:36.991 [main] GroupFormationToolApplicationTests - Started GroupFormationToolApplicationTests in 2.164 seconds (JVM running for 4.905)
+[INFO ] 2020-07-16 13:37:37.139 [main] User - Successfully created user and sent credentials
+[ERROR] 2020-07-16 13:37:37.275 [main] CourseUserRelationshipDB - spEnrollUser(?, ?, ?) throws SQLException:Cannot add or update a child row: a foreign key constraint fails (`CSCI5308_4_DEVINT`.`CourseRole`, CONSTRAINT `CourseRole_ibfk_1` FOREIGN KEY (`courseID`) REFERENCES `Course` (`id`))
+[INFO ] 2020-07-16 13:38:23.065 [main] User - Valid password history
+[INFO ] 2020-07-16 13:38:23.072 [main] User - Invalid password history
+[INFO ] 2020-07-16 13:38:23.075 [main] User - Valid password
+[INFO ] 2020-07-16 13:38:23.075 [main] User - Invalid password upper char
+[DEBUG] 2020-07-16 13:38:23.096 [main] GroupingService - groups created: 1
+[INFO ] 2020-07-16 13:38:23.115 [main] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-16 13:38:23.115 [main] ConnectionManager - User name of database:CSCI5308_4_DEVINT_USER
+[DEBUG] 2020-07-16 13:38:23.642 [main] UserDB - Loaded user with user ID1
+[INFO ] 2020-07-16 13:38:24.922 [main] GroupFormationToolApplicationTests - Starting GroupFormationToolApplicationTests on LAPTOP-2TG4BGFK with PID 20644 (started by Bharat in D:\AdvancedSDC\Milestone2\group4)
+[DEBUG] 2020-07-16 13:38:24.925 [main] GroupFormationToolApplicationTests - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 13:38:24.926 [main] GroupFormationToolApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 13:38:27.056 [main] GroupFormationToolApplicationTests - Started GroupFormationToolApplicationTests in 2.423 seconds (JVM running for 5.848)
+[INFO ] 2020-07-16 13:38:27.203 [main] User - Successfully created user and sent credentials
+[ERROR] 2020-07-16 13:38:27.430 [main] CourseUserRelationshipDB - spEnrollUser(?, ?, ?) throws SQLException:Cannot add or update a child row: a foreign key constraint fails (`CSCI5308_4_DEVINT`.`CourseRole`, CONSTRAINT `CourseRole_ibfk_1` FOREIGN KEY (`courseID`) REFERENCES `Course` (`id`))
+[INFO ] 2020-07-16 13:40:11.580 [main] User - Valid password history
+[INFO ] 2020-07-16 13:40:11.587 [main] User - Invalid password history
+[INFO ] 2020-07-16 13:40:11.590 [main] User - Valid password
+[INFO ] 2020-07-16 13:40:11.591 [main] User - Invalid password upper char
+[DEBUG] 2020-07-16 13:40:11.614 [main] GroupingService - groups created: 1
+[INFO ] 2020-07-16 13:40:11.626 [main] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-16 13:40:11.626 [main] ConnectionManager - User name of database:CSCI5308_4_DEVINT_USER
+[DEBUG] 2020-07-16 13:40:12.040 [main] UserDB - Loaded user with user ID1
+[INFO ] 2020-07-16 13:40:12.874 [main] GroupFormationToolApplicationTests - Starting GroupFormationToolApplicationTests on LAPTOP-2TG4BGFK with PID 3828 (started by Bharat in D:\AdvancedSDC\Milestone2\group4)
+[DEBUG] 2020-07-16 13:40:12.878 [main] GroupFormationToolApplicationTests - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 13:40:12.879 [main] GroupFormationToolApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 13:40:14.835 [main] GroupFormationToolApplicationTests - Started GroupFormationToolApplicationTests in 2.165 seconds (JVM running for 5.397)
+[INFO ] 2020-07-16 13:40:14.977 [main] User - Successfully created user and sent credentials
+[ERROR] 2020-07-16 13:40:15.132 [main] CourseUserRelationshipDB - spEnrollUser(?, ?, ?) throws SQLException:Cannot add or update a child row: a foreign key constraint fails (`CSCI5308_4_DEVINT`.`CourseRole`, CONSTRAINT `CourseRole_ibfk_1` FOREIGN KEY (`courseID`) REFERENCES `Course` (`id`))
+[INFO ] 2020-07-16 13:43:21.794 [main] User - Valid password history
+[INFO ] 2020-07-16 13:43:21.800 [main] User - Invalid password history
+[INFO ] 2020-07-16 13:43:21.806 [main] User - Valid password
+[INFO ] 2020-07-16 13:43:21.806 [main] User - Invalid password upper char
+[DEBUG] 2020-07-16 13:43:21.836 [main] GroupingService - groups created: 1
+[INFO ] 2020-07-16 13:43:21.849 [main] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-16 13:43:21.850 [main] ConnectionManager - User name of database:CSCI5308_4_DEVINT_USER
+[DEBUG] 2020-07-16 13:43:22.212 [main] UserDB - Loaded user with user ID1
+[INFO ] 2020-07-16 13:43:23.295 [main] GroupFormationToolApplicationTests - Starting GroupFormationToolApplicationTests on LAPTOP-2TG4BGFK with PID 10856 (started by Bharat in D:\AdvancedSDC\Milestone2\group4)
+[DEBUG] 2020-07-16 13:43:23.299 [main] GroupFormationToolApplicationTests - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 13:43:23.300 [main] GroupFormationToolApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 13:43:25.252 [main] GroupFormationToolApplicationTests - Started GroupFormationToolApplicationTests in 2.156 seconds (JVM running for 5.217)
+[INFO ] 2020-07-16 13:43:25.387 [main] User - Successfully created user and sent credentials
+[ERROR] 2020-07-16 13:43:25.647 [main] CourseUserRelationshipDB - spEnrollUser(?, ?, ?) throws SQLException:Cannot add or update a child row: a foreign key constraint fails (`CSCI5308_4_DEVINT`.`CourseRole`, CONSTRAINT `CourseRole_ibfk_1` FOREIGN KEY (`courseID`) REFERENCES `Course` (`id`))
+[INFO ] 2020-07-16 13:51:39.812 [main] User - Valid password history
+[INFO ] 2020-07-16 13:51:39.819 [main] User - Invalid password history
+[INFO ] 2020-07-16 13:51:39.823 [main] User - Valid password
+[INFO ] 2020-07-16 13:51:39.823 [main] User - Invalid password upper char
+[DEBUG] 2020-07-16 13:51:39.846 [main] GroupingService - groups created: 1
+[INFO ] 2020-07-16 13:51:39.860 [main] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-16 13:51:39.860 [main] ConnectionManager - User name of database:CSCI5308_4_DEVINT_USER
+[DEBUG] 2020-07-16 13:51:41.834 [main] UserDB - Loaded user with user ID1
+[INFO ] 2020-07-16 13:51:43.240 [main] GroupFormationToolApplicationTests - Starting GroupFormationToolApplicationTests on LAPTOP-2TG4BGFK with PID 5160 (started by Bharat in D:\AdvancedSDC\Milestone2\group4)
+[DEBUG] 2020-07-16 13:51:43.243 [main] GroupFormationToolApplicationTests - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 13:51:43.244 [main] GroupFormationToolApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 13:51:46.472 [main] GroupFormationToolApplicationTests - Started GroupFormationToolApplicationTests in 3.513 seconds (JVM running for 9.436)
+[INFO ] 2020-07-16 13:51:46.613 [main] User - Successfully created user and sent credentials
+[ERROR] 2020-07-16 13:51:47.122 [main] CourseUserRelationshipDB - spEnrollUser(?, ?, ?) throws SQLException:Cannot add or update a child row: a foreign key constraint fails (`CSCI5308_4_DEVINT`.`CourseRole`, CONSTRAINT `CourseRole_ibfk_1` FOREIGN KEY (`courseID`) REFERENCES `Course` (`id`))
+[INFO ] 2020-07-16 13:52:42.029 [main] User - Valid password history
+[INFO ] 2020-07-16 13:52:42.035 [main] User - Invalid password history
+[INFO ] 2020-07-16 13:52:42.039 [main] User - Valid password
+[INFO ] 2020-07-16 13:52:42.039 [main] User - Invalid password upper char
+[DEBUG] 2020-07-16 13:52:42.063 [main] GroupingService - groups created: 1
+[INFO ] 2020-07-16 13:52:42.078 [main] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-16 13:52:42.079 [main] ConnectionManager - User name of database:CSCI5308_4_DEVINT_USER
+[DEBUG] 2020-07-16 13:52:43.362 [main] UserDB - Loaded user with user ID1
+[INFO ] 2020-07-16 13:52:44.382 [main] GroupFormationToolApplicationTests - Starting GroupFormationToolApplicationTests on LAPTOP-2TG4BGFK with PID 22420 (started by Bharat in D:\AdvancedSDC\Milestone2\group4)
+[DEBUG] 2020-07-16 13:52:44.385 [main] GroupFormationToolApplicationTests - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 13:52:44.389 [main] GroupFormationToolApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 13:52:47.447 [main] GroupFormationToolApplicationTests - Started GroupFormationToolApplicationTests in 3.335 seconds (JVM running for 8.184)
+[INFO ] 2020-07-16 13:52:47.608 [main] User - Successfully created user and sent credentials
+[ERROR] 2020-07-16 13:52:48.081 [main] CourseUserRelationshipDB - spEnrollUser(?, ?, ?) throws SQLException:Cannot add or update a child row: a foreign key constraint fails (`CSCI5308_4_DEVINT`.`CourseRole`, CONSTRAINT `CourseRole_ibfk_1` FOREIGN KEY (`courseID`) REFERENCES `Course` (`id`))
+[INFO ] 2020-07-16 13:53:22.381 [main] User - Valid password history
+[INFO ] 2020-07-16 13:53:22.388 [main] User - Invalid password history
+[INFO ] 2020-07-16 13:53:22.391 [main] User - Valid password
+[INFO ] 2020-07-16 13:53:22.392 [main] User - Invalid password upper char
+[DEBUG] 2020-07-16 13:53:22.414 [main] GroupingService - groups created: 1
+[INFO ] 2020-07-16 13:53:22.427 [main] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-16 13:53:22.428 [main] ConnectionManager - User name of database:CSCI5308_4_DEVINT_USER
+[DEBUG] 2020-07-16 13:53:23.070 [main] UserDB - Loaded user with user ID1
+[INFO ] 2020-07-16 13:53:24.076 [main] GroupFormationToolApplicationTests - Starting GroupFormationToolApplicationTests on LAPTOP-2TG4BGFK with PID 14396 (started by Bharat in D:\AdvancedSDC\Milestone2\group4)
+[DEBUG] 2020-07-16 13:53:24.080 [main] GroupFormationToolApplicationTests - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 13:53:24.081 [main] GroupFormationToolApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 13:53:27.024 [main] GroupFormationToolApplicationTests - Started GroupFormationToolApplicationTests in 3.237 seconds (JVM running for 7.273)
+[INFO ] 2020-07-16 13:53:27.219 [main] User - Successfully created user and sent credentials
+[ERROR] 2020-07-16 13:53:27.364 [main] CourseUserRelationshipDB - spEnrollUser(?, ?, ?) throws SQLException:Cannot add or update a child row: a foreign key constraint fails (`CSCI5308_4_DEVINT`.`CourseRole`, CONSTRAINT `CourseRole_ibfk_1` FOREIGN KEY (`courseID`) REFERENCES `Course` (`id`))
+[INFO ] 2020-07-16 13:54:29.705 [restartedMain] GroupFormationToolApplication - Starting GroupFormationToolApplication on LAPTOP-2TG4BGFK with PID 16112 (D:\AdvancedSDC\Milestone2\group4\bin\main started by Bharat in D:\AdvancedSDC\Milestone2\group4)
+[DEBUG] 2020-07-16 13:54:29.708 [restartedMain] GroupFormationToolApplication - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 13:54:29.708 [restartedMain] GroupFormationToolApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 13:54:31.102 [restartedMain] GroupFormationToolApplication - Started GroupFormationToolApplication in 1.639 seconds (JVM running for 2.467)
+[INFO ] 2020-07-16 13:54:43.808 [http-nio-8080-exec-1] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-16 13:54:43.809 [http-nio-8080-exec-1] ConnectionManager - User name of database:CSCI5308_4_DEVINT_USER
+[DEBUG] 2020-07-16 13:54:58.573 [http-nio-8080-exec-8] UserDB - Loaded user with user ID22
+[DEBUG] 2020-07-16 13:55:01.478 [http-nio-8080-exec-3] UserDB - Loaded user with user ID22
+[INFO ] 2020-07-16 13:55:01.480 [http-nio-8080-exec-3] CurrentUser - Valid User
+[INFO ] 2020-07-16 13:55:03.478 [http-nio-8080-exec-3] SurveyStudentDB - Successfully created question options
+[DEBUG] 2020-07-16 13:55:09.729 [http-nio-8080-exec-6] UserDB - Loaded user with user ID22
+[INFO ] 2020-07-16 13:55:09.730 [http-nio-8080-exec-6] CurrentUser - Valid User
+[INFO ] 2020-07-16 13:55:10.291 [http-nio-8080-exec-6] SurveyStudentDB - Successfully created question options
+[DEBUG] 2020-07-16 13:55:15.430 [http-nio-8080-exec-1] UserDB - Loaded user with user ID22
+[INFO ] 2020-07-16 13:55:15.432 [http-nio-8080-exec-1] CurrentUser - Valid User
+[INFO ] 2020-07-16 13:55:16.720 [http-nio-8080-exec-1] SurveyStudentDB - Successfully created question options
+[DEBUG] 2020-07-16 13:55:21.762 [http-nio-8080-exec-4] UserDB - Loaded user with user ID22
+[INFO ] 2020-07-16 13:55:21.764 [http-nio-8080-exec-4] CurrentUser - Valid User
+[INFO ] 2020-07-16 13:55:22.043 [http-nio-8080-exec-4] SurveyStudentDB - Successfully created question options

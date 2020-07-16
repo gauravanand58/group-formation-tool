@@ -8,6 +8,7 @@ public class QuestionOption {
 	private String optionTxt;
 	private String optionScore;
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
 	public String getOptionTxt() {
 		return optionTxt;
 	}
@@ -25,7 +26,7 @@ public class QuestionOption {
 	}
 
 	public boolean createOption(IQuestionOptionPersistence questionOptionDB, long questionID) {
-		logger.info("Calling createOption with quesID:"+questionID);
+		logger.info("Calling createOption with quesID:" + questionID);
 		return questionOptionDB.createOption(this, questionID);
 	}
 
@@ -36,6 +37,5 @@ public class QuestionOption {
 	public void setOptionId(int optionId) {
 		this.optionId = optionId;
 	}
-	
-	
+
 }

@@ -12,6 +12,6 @@ public interface IQuestionPersistence {
 	public List<IQuestion> sortByDate(String bannerID);
 
 	public List<IQuestion> displayQuestions(String bannerID);
-	
+
 	public void loadQuestionByID(Question question, long questionID);
 }
