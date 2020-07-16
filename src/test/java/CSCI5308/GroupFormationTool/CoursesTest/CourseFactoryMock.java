@@ -1,6 +1,8 @@
 package CSCI5308.GroupFormationTool.CoursesTest;
 
+import CSCI5308.GroupFormationTool.Courses.Course;
 import CSCI5308.GroupFormationTool.Courses.CourseAbstractFactory;
+import CSCI5308.GroupFormationTool.Courses.CourseUserRelationship;
 import CSCI5308.GroupFormationTool.Courses.ICourse;
 import CSCI5308.GroupFormationTool.Courses.ICoursePersistence;
 import CSCI5308.GroupFormationTool.Courses.ICourseUserRelationship;
@@ -10,32 +12,27 @@ public class CourseFactoryMock extends CourseAbstractFactory {
 
 	@Override
 	public ICourse makeCourse() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Course();
 	}
 
 	@Override
 	public ICourse makeCourseWithID(long id, ICoursePersistence courseDB) {
-		// TODO Auto-generated method stub
-		return null;
+		return new Course(id,courseDB);
 	}
 
 	@Override
 	public ICoursePersistence makeCourseDB() {
-		// TODO Auto-generated method stub
-		return null;
+		return new CourseDBMock();
 	}
 
 	@Override
 	public ICourseUserRelationship makeCourseUserRelationship() {
-		// TODO Auto-generated method stub
-		return null;
+		return new CourseUserRelationship();
 	}
 
 	@Override
 	public ICourseUserRelationshipPersistence makeCourseUserRelationshipDB() {
-		// TODO Auto-generated method stub
-		return null;
+		return new CourseUserRelationshipDBMock();
 	}
 
 }

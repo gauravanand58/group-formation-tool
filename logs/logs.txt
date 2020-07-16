@@ -283,3 +283,58 @@
 [DEBUG] 2020-07-16 17:27:09.303 [main] GroupFormationToolApplicationTests - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
 [INFO ] 2020-07-16 17:27:09.304 [main] GroupFormationToolApplicationTests - No active profile set, falling back to default profiles: default
 [INFO ] 2020-07-16 17:27:11.276 [main] GroupFormationToolApplicationTests - Started GroupFormationToolApplicationTests in 2.169 seconds (JVM running for 5.158)
+[INFO ] 2020-07-16 18:44:23.122 [main] User - Successfully created user and sent credentials
+[INFO ] 2020-07-16 18:44:23.135 [main] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-16 18:44:23.136 [main] ConnectionManager - User name of database:CSCI5308_4_DEVINT_USER
+[ERROR] 2020-07-16 18:44:23.717 [main] CourseUserRelationshipDB - spEnrollUser(?, ?, ?) throws SQLException:Cannot add or update a child row: a foreign key constraint fails (`CSCI5308_4_DEVINT`.`CourseRole`, CONSTRAINT `CourseRole_ibfk_1` FOREIGN KEY (`courseID`) REFERENCES `Course` (`id`))
+[INFO ] 2020-07-16 18:44:23.787 [main] User - Valid password history
+[INFO ] 2020-07-16 18:44:23.788 [main] User - Invalid password history
+[INFO ] 2020-07-16 18:44:23.800 [main] User - Valid password
+[INFO ] 2020-07-16 18:44:23.801 [main] User - Invalid password upper char
+[DEBUG] 2020-07-16 18:44:23.833 [main] GroupingService - groups created: 1
+[DEBUG] 2020-07-16 18:44:24.019 [main] UserDB - Loaded user with user ID1
+[INFO ] 2020-07-16 18:44:25.438 [main] GroupFormationToolApplicationTests - Starting GroupFormationToolApplicationTests on DESKTOP-A59EQ9R with PID 12468 (started by sasis in C:\Users\sasis\Documents\ASDC\group4)
+[DEBUG] 2020-07-16 18:44:25.442 [main] GroupFormationToolApplicationTests - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 18:44:25.443 [main] GroupFormationToolApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 18:44:28.970 [main] GroupFormationToolApplicationTests - Started GroupFormationToolApplicationTests in 3.981 seconds (JVM running for 9.756)
+[INFO ] 2020-07-16 18:44:59.004 [main] User - Successfully created user and sent credentials
+[INFO ] 2020-07-16 18:44:59.024 [main] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-16 18:44:59.025 [main] ConnectionManager - User name of database:CSCI5308_4_DEVINT_USER
+[ERROR] 2020-07-16 18:44:59.559 [main] CourseUserRelationshipDB - spEnrollUser(?, ?, ?) throws SQLException:Cannot add or update a child row: a foreign key constraint fails (`CSCI5308_4_DEVINT`.`CourseRole`, CONSTRAINT `CourseRole_ibfk_1` FOREIGN KEY (`courseID`) REFERENCES `Course` (`id`))
+[INFO ] 2020-07-16 18:44:59.604 [main] User - Valid password history
+[INFO ] 2020-07-16 18:44:59.605 [main] User - Invalid password history
+[INFO ] 2020-07-16 18:44:59.607 [main] User - Valid password
+[INFO ] 2020-07-16 18:44:59.607 [main] User - Invalid password upper char
+[DEBUG] 2020-07-16 18:44:59.628 [main] GroupingService - groups created: 1
+[DEBUG] 2020-07-16 18:44:59.806 [main] UserDB - Loaded user with user ID1
+[INFO ] 2020-07-16 18:45:01.161 [main] GroupFormationToolApplicationTests - Starting GroupFormationToolApplicationTests on DESKTOP-A59EQ9R with PID 15184 (started by sasis in C:\Users\sasis\Documents\ASDC\group4)
+[DEBUG] 2020-07-16 18:45:01.165 [main] GroupFormationToolApplicationTests - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 18:45:01.166 [main] GroupFormationToolApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 18:45:05.015 [main] GroupFormationToolApplicationTests - Started GroupFormationToolApplicationTests in 4.336 seconds (JVM running for 9.645)
+[INFO ] 2020-07-16 18:47:13.577 [main] User - Successfully created user and sent credentials
+[INFO ] 2020-07-16 18:47:13.615 [main] User - Valid password history
+[INFO ] 2020-07-16 18:47:13.616 [main] User - Invalid password history
+[INFO ] 2020-07-16 18:47:13.621 [main] User - Valid password
+[INFO ] 2020-07-16 18:47:13.622 [main] User - Invalid password upper char
+[DEBUG] 2020-07-16 18:47:13.646 [main] GroupingService - groups created: 1
+[INFO ] 2020-07-16 18:47:13.662 [main] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-16 18:47:13.663 [main] ConnectionManager - User name of database:CSCI5308_4_DEVINT_USER
+[DEBUG] 2020-07-16 18:47:14.275 [main] UserDB - Loaded user with user ID1
+[INFO ] 2020-07-16 18:47:16.649 [main] GroupFormationToolApplicationTests - Starting GroupFormationToolApplicationTests on DESKTOP-A59EQ9R with PID 6456 (started by sasis in C:\Users\sasis\Documents\ASDC\group4)
+[DEBUG] 2020-07-16 18:47:16.656 [main] GroupFormationToolApplicationTests - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 18:47:16.657 [main] GroupFormationToolApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 18:47:20.180 [main] GroupFormationToolApplicationTests - Started GroupFormationToolApplicationTests in 3.938 seconds (JVM running for 10.39)
+[INFO ] 2020-07-16 18:49:14.406 [main] User - Successfully created user and sent credentials
+[INFO ] 2020-07-16 18:49:14.421 [main] ConnectionManager - URL of database:jdbc:mysql://(host=db-5308.cs.dal.ca,port=3306)/CSCI5308_4_DEVINT?serverTimezone=AST
+[INFO ] 2020-07-16 18:49:14.422 [main] ConnectionManager - User name of database:CSCI5308_4_DEVINT_USER
+[ERROR] 2020-07-16 18:49:15.037 [main] CourseUserRelationshipDB - spEnrollUser(?, ?, ?) throws SQLException:Cannot add or update a child row: a foreign key constraint fails (`CSCI5308_4_DEVINT`.`CourseRole`, CONSTRAINT `CourseRole_ibfk_1` FOREIGN KEY (`courseID`) REFERENCES `Course` (`id`))
+[INFO ] 2020-07-16 18:49:15.098 [main] User - Valid password history
+[INFO ] 2020-07-16 18:49:15.099 [main] User - Invalid password history
+[INFO ] 2020-07-16 18:49:15.110 [main] User - Valid password
+[INFO ] 2020-07-16 18:49:15.110 [main] User - Invalid password upper char
+[DEBUG] 2020-07-16 18:49:15.130 [main] GroupingService - groups created: 1
+[DEBUG] 2020-07-16 18:49:15.323 [main] UserDB - Loaded user with user ID1
+[INFO ] 2020-07-16 18:49:16.702 [main] GroupFormationToolApplicationTests - Starting GroupFormationToolApplicationTests on DESKTOP-A59EQ9R with PID 14876 (started by sasis in C:\Users\sasis\Documents\ASDC\group4)
+[DEBUG] 2020-07-16 18:49:16.711 [main] GroupFormationToolApplicationTests - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+[INFO ] 2020-07-16 18:49:16.712 [main] GroupFormationToolApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2020-07-16 18:49:20.582 [main] GroupFormationToolApplicationTests - Started GroupFormationToolApplicationTests in 4.314 seconds (JVM running for 9.654)
