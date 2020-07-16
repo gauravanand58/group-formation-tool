@@ -57,7 +57,6 @@
 </script>
 </head>
 <body>
-	<!-- I got the idea for how to do this from https://www.thymeleaf.org/doc/articles/springsecurity.html -->
 	<div sec:authorize="isAuthenticated()">
 		<h4 th:inline="text">BannerID:
 			[[${#httpServletRequest.remoteUser}]]</h4>

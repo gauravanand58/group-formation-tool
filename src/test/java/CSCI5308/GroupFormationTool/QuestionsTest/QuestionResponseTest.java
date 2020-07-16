@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 
 import CSCI5308.GroupFormationTool.Questions.IQuestionResponse;
 import CSCI5308.GroupFormationTool.Questions.QuestionAbstractFactory;
-import CSCI5308.GroupFormationTool.Questions.QuestionResponse;
 
 public class QuestionResponseTest {
 

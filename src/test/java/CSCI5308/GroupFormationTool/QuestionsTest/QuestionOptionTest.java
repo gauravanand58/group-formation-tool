@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import CSCI5308.GroupFormationTool.Questions.IQuestionOption;
 import CSCI5308.GroupFormationTool.Questions.IQuestionOptionPersistence;
 import CSCI5308.GroupFormationTool.Questions.QuestionAbstractFactory;
-import CSCI5308.GroupFormationTool.Questions.QuestionOption;
 
 public class QuestionOptionTest {
 	@Test

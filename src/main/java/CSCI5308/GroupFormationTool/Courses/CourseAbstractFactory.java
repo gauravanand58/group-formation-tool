@@ -7,7 +7,7 @@ public abstract class CourseAbstractFactory {
 	}
 
 	public static CourseAbstractFactory instance() {
-		if (uniqueInstance == null) {
+		if (null == uniqueInstance) {
 			uniqueInstance = new CourseFactory();
 		}
 		return uniqueInstance;
