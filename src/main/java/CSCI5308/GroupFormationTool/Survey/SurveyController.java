@@ -38,7 +38,8 @@ public class SurveyController {
 		model.addAttribute("availableQuestions", availableQuestionsList);
 		model.addAttribute("courseID", courseID);
 		model.addAttribute("survey", survey);
-		
+		model.addAttribute("instructorBannerID", instructor.getBannerID());
+		model.addAttribute("instructorUserID", instructor.getId());
 		addedQuestionsList = surveyDB.loadQuestionsByCourseId(courseID);
 		model.addAttribute("addedQuestions", addedQuestionsList);
 		return "survey/main";
@@ -54,5 +55,20 @@ public class SurveyController {
 		ModelAndView mav = new ModelAndView("redirect:/survey/editSurvey");
 		mav.addObject("id", courseID);
 		return mav;
+	}
+	
+	@GetMapping("/survey/publish")
+	public ModelAndView publishSurvey(@RequestParam(name="surveyID") long surveyID,@RequestParam(name="instructorUserID") long instructorUserID, 
+			@RequestParam(name="courseID") long courseID,@RequestParam(name="BannerID") String BannerID, Model model) {
+		ISurveyPersistence surveyDB = new SurveyDB();
+		ISurvey survey = new Survey();
+		boolean surveyPublished=survey.publishSurvey(surveyID, surveyDB);
+		model.addAttribute("surveyPublished",surveyPublished);
+		ModelAndView mav = new ModelAndView("redirect:/course/course");
+		mav.addObject("id", courseID);
+		mav.addObject("isUserInstructor", instructorUserID);
+		mav.addObject("BannerID", BannerID);
+		return mav;
+		
 	}
 }

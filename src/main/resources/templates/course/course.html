@@ -1,32 +1,106 @@
 <!DOCTYPE html>
-<html
-	xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="https://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
->
-	<head>
-		<title>CSCI5308 - Group Formation Tool</title>
-	</head>
-	<body>
-		<!-- I got the idea for how to do this from https://www.thymeleaf.org/doc/articles/springsecurity.html -->
-	  	<div sec:authorize="isAuthenticated()">
-	       <h4 th:inline="text">BannerID: [[${#httpServletRequest.remoteUser}]]</h4>
-	       <form th:action="@{/logout}" method="post">
-	           <input type="submit" value="Sign Out"/>
-	       </form>
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+<script type="text/javascript">
+	function freetextQuestion(id) {
+		var ele = document.getElementById("textId" + id);
+		ele.value = id + " - " + document.getElementById("textVal" + id).value;
+	}
+	function numericQuestion(id) {
+		var ele = document.getElementById("numId" + id);
+		ele.value = id + " - " + document.getElementById("numVal" + id).value;
+	}
+</script>
+<title>CSCI5308 - Group Formation Tool</title>
+</head>
+<body>
+	<!-- I got the idea for how to do this from https://www.thymeleaf.org/doc/articles/springsecurity.html -->
+	<div sec:authorize="isAuthenticated()">
+		<h4 th:inline="text">BannerID:
+			[[${#httpServletRequest.remoteUser}]]</h4>
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" />
+		</form>
+	</div>
+	<h1 th:text="'Course: ' + ${course.title}">Course: Title Not Found</h1>
+	<div th:if="${instructor} or ${ta}">
+		<br /> <a th:href="@{/course/instructoradmin(id=${course.id})}">Course
+			Administration</a>
+	</div>
+	<div th:if="${student}">
+		<br />
+		<div th:if="${isUserInstructor==1}">
+			<p>Failed to submit the response. Please try again later!!!</p>
 		</div>
-		<h1 th:text="'Course: ' + ${course.title}">Course: Title Not Found</h1>
-		<div th:if="${instructor} or ${ta}">
-			<br/>
-			<a th:href="@{/course/instructoradmin(id=${course.id})}">Course Administration</a>
+		<div th:if="${message.length() > 0}">
+			<p th:text="${message}"></p>
 		</div>
-		<div th:if="${instructor}">
-			<br/>
-			<div><a th:href="@{/mainquestionmanager(id=${course.id},isUserInstructor=${isUserInstructor})}">Question Manager</a></div>
+		<div th:if="${message.length() == 0}">
+			<h3>Course Survey</h3>
+			<form th:action="@{/studentResponse}" method="POST"
+				th:object="${QuestionResponseObj}">
+				<input type="hidden" name="BannerID"
+					th:value="${#httpServletRequest.remoteUser}" /> <input
+					type="hidden" name="courseid" th:value="${course.id}" />
+				<div th:each="quesMod: ${surveyQuestions}">
+					<p th:text="${quesMod.questionText}"></p>
+					<div th:if="${quesMod.questionType.equals('mcq-1')}">
+						<div th:each="answer:${quesMod.questionOptions}">
+							<input type="radio" th:name="${quesMod.questionID}"
+								th:value="${quesMod.questionID}+' - '+${answer.optionTxt}"
+								th:field="*{questionType}" required><label
+								th:text="${answer.optionTxt}"></label>
+						</div>
+					</div>
+					<div th:if="${quesMod.questionType.equals('mcq-2')}">
+						<div th:each="answer:${quesMod.questionOptions}">
+							<input type="checkbox" th:name="${quesMod.questionID}"
+								th:value="${quesMod.questionID}+' - '+${answer.optionTxt}"
+								th:field="*{questionType}"> <label
+								th:text="${answer.optionTxt}"></label>
+						</div>
+					</div>
+
+					<div th:if="${quesMod.questionType.equals('numeric')}">
+						<input type="number" th:id="'numVal'+${quesMod.questionID}"
+							th:name="${quesMod.questionID}"
+							th:onblur="|numericQuestion('${quesMod.questionID}')|" required>
+						<input type="hidden" th:id="'numId'+${quesMod.questionID}"
+							th:name="${quesMod.questionID}" th:field="*{questionType}">
+					</div>
+
+					<div th:if="${quesMod.questionType.equals('free text')}">
+						<textarea th:id="'textVal'+${quesMod.questionID}"
+							th:name="${quesMod.questionID}" rows="3" cols="60"
+							th:onblur="|freetextQuestion('${quesMod.questionID}')| " required></textarea>
+						<input type="hidden" th:id="'textId'+${quesMod.questionID}"
+							th:name="${quesMod.questionID}" th:field="*{questionType}">
+					</div>
+				</div>
+				<button class="btn btn-primary">Submit</button>
+			</form>
 		</div>
-		<div th:if="${instructor} or ${ta}">
-			<br/>
-			<a th:href="@{/survey/editSurvey(id=${course.id})}">Create/Publish Survey</a>
+	</div>
+	<div th:if="${instructor}">
+		<br />
+		<div>
+			<a
+				th:href="@{/mainquestionmanager(id=${course.id},isUserInstructor=${isUserInstructor})}">Question
+				Manager</a>
 		</div>
-	</body>
+	</div>
+	<div th:if="${instructor} or ${ta}">
+		<br /> <a th:href="@{/survey/editSurvey(id=${course.id})}">Create/Publish
+			Survey</a>
+	</div>
+
+
+
+
+
+
+</body>
 </html>

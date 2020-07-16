@@ -1,5 +1,6 @@
 package CSCI5308.GroupFormationTool.Questions;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Question implements IQuestion{
@@ -9,6 +10,7 @@ public class Question implements IQuestion{
 	private String questionText;
 	private String questionType;
 	private String questionDateTime;
+	private List<QuestionOption> questionOptions;
 	public Question() {
 		setDefaults();
 	}
@@ -93,4 +95,13 @@ public class Question implements IQuestion{
 	public long createQuestion(IQuestionPersistence questionDB) {
 		return questionDB.createQuestion(this);
 	}
+
+	public List<QuestionOption> getQuestionOptions() {
+		return questionOptions;
+	}
+
+	public void setQuestionOptions(List<QuestionOption> questionOptions) {
+		this.questionOptions = questionOptions;
+	}
+	
 }

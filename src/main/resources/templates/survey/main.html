@@ -66,8 +66,8 @@
 					</tr>
 		  		</table>
 			</div>
-			<div th:if="${survey.isPublished()} == false">
-				<button type="button" onClick="">Publish Survey</button>
+			<div th:if="${survey.isPublished()} == false and ${instructorBannerID} == ${#httpServletRequest.remoteUser}">
+				<a th:href="@{/survey/publish(surveyID=${survey.getSurveyId()},instructorUserID=${instructorUserID},courseID=${courseID},BannerID = ${#httpServletRequest.remoteUser})}"><button type="button">Publish Survey</button>
 			</div>
 			
 </body>

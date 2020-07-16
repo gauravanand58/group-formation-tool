@@ -25,6 +25,10 @@ public class QuestionsSystemConfig {
 		return new Question();
 	}
 	
+	public QuestionOption getQuestionOption() {
+		return new QuestionOption();
+	}
+	
 	public IQuestion getLoadedQuestion(IQuestionPersistence questionDB, long questionID) {
 		return new Question(questionDB, questionID);
 	}
