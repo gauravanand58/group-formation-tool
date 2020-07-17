@@ -22,16 +22,16 @@ public class UserNotifications implements IUserNotifications {
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.starttls.enable", "true");
-		props.put("mail.smtp.host", "smtp.gmail.com");
-		props.put("mail.smtp.port", "587");
+		props.put("mail.smtp.host", System.getenv("HOST"));
+		props.put("mail.smtp.port", System.getenv("PORT"));
 
 		Session session = Session.getInstance(props, new javax.mail.Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication("csci.5308.project@gmail.com", "csci.5308.project1234");
+				return new PasswordAuthentication(System.getenv("EMAIL"), System.getenv("EMAIL_PASSWORD"));
 			}
 		});
 		Message msg = new MimeMessage(session);
-		msg.setFrom(new InternetAddress("csci.5308.project@gmail.com", false));
+		msg.setFrom(new InternetAddress(System.getenv("EMAIL"), false));
 		msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(user.getEmail()));
 		msg.setSubject("Credentials for your newly created account");
 		commonMessage += "Username:" + user.getBannerID() + "\nPassword:" + rawPassword;
