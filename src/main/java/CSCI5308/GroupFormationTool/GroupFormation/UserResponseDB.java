@@ -13,7 +13,6 @@ import org.slf4j.LoggerFactory;
 import CSCI5308.GroupFormationTool.Database.CallStoredProcedure;
 
 public class UserResponseDB implements IUserResponsePersistence {
-
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Override
@@ -92,5 +91,4 @@ public class UserResponseDB implements IUserResponsePersistence {
 		}
 		return userResponses;
 	}
-
 }

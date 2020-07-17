@@ -37,7 +37,6 @@ public class SurveyQuestionPoliciesTest {
 	public void getGroupSizeTest() {
 		SurveyQuestionPolicies policies = new SurveyQuestionPolicies();
 		policies.setGroupSize(1);
-
 		assertTrue(policies.getGroupSize() == 1);
 	}
 
@@ -45,7 +44,6 @@ public class SurveyQuestionPoliciesTest {
 	public void setGroupSizeTest() {
 		SurveyQuestionPolicies policies = new SurveyQuestionPolicies();
 		policies.setGroupSize(1);
-
 		assertTrue(policies.getGroupSize() == 1);
 	}
 

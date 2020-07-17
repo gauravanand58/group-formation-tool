@@ -40,5 +40,4 @@ public class GroupFormationSystemConfigPersistance {
 	public IGroupFormationAlgorithmBuilder getGroupingAlgorithmBuilder() {
 		return groupingAlgorithmBuilder;
 	}
-
 }

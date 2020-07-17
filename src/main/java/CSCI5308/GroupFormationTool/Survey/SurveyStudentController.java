@@ -18,13 +18,10 @@ public class SurveyStudentController {
 		long courseID = courseId;
 		QuestionResponse surveyResponseList = question;
 		String studentResponse[] = surveyResponseList.getQuestionType().split(",");
-		ISurvey survey = new Survey();
+		ISurvey survey = SurveyAbstractFactory.instance().makeSurvey();
 		ISurveyStudentPersistence surveyDB = SurveySystemConfig.instance().getStudentSurveyDB();
-		int  isUserInstructor = survey.submitResponse(surveyDB, bannerID, courseID, studentResponse);
-		ModelAndView mav = new ModelAndView("redirect:/course/course");
-		mav.addObject("id", courseId);
-		mav.addObject("isUserInstructor", isUserInstructor);
-		mav.addObject("BannerID", BannerID);
-		return mav;	
+		int isUserInstructor = survey.submitResponse(surveyDB, bannerID, courseID, studentResponse);
+		return "redirect:/course/course?id=" + courseId + "&isUserInstructor=" + isUserInstructor + "&BannerID="
+				+ BannerID;
 	}
 }

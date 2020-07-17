@@ -11,8 +11,8 @@ import CSCI5308.GroupFormationTool.Security.IUserPasswordHistoryRelationshipPers
 import CSCI5308.GroupFormationTool.Security.PasswordPolicyConfiguration;
 
 public interface IUser {
-	public static final String EMAIL_REGEX = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
-	public final static Logger logger = LoggerFactory.getLogger(User.class);
+	public final static String EMAIL_REGEX = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
+	public final Logger logger = LoggerFactory.getLogger(User.class);
 
 	public void setID(long id);
 

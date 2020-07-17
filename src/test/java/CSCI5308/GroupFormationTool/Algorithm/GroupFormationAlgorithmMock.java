@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GroupFormationAlgorithmMock implements IGroupFormationAlgorithm {
-
-	@Override
 	public List<List<Long>> createGroups() {
 		List<List<Long>> userGroups = new ArrayList<List<Long>>();
 		List<Long> groups = new ArrayList<Long>();
@@ -15,5 +13,4 @@ public class GroupFormationAlgorithmMock implements IGroupFormationAlgorithm {
 		userGroups.add(groups);
 		return userGroups;
 	}
-
 }

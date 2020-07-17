@@ -7,24 +7,19 @@ import CSCI5308.GroupFormationTool.Survey.SurveyAbstractFactory;
 
 public class SurveyFactoryMock extends SurveyAbstractFactory {
 
-	@Override
 	public ISurvey makeSurvey() {
-		return null;
+		return SurveyAbstractFactory.instance().makeSurvey();
 	}
 
-	@Override
 	public ISurvey makeSurveyWithCourseID(ISurveyPersistence surveyDB, long courseID) {
-		return null;
+		return SurveyAbstractFactory.instance().makeSurveyWithCourseID(surveyDB, courseID);
 	}
 
-	@Override
 	public ISurveyPersistence makeSurveyDB() {
-		return null;
+		return SurveyTestSystemConfig.instance().getSurveyDBMock();
 	}
 
-	@Override
 	public ISurveyStudentPersistence makeStudentSurveyDB() {
-		return null;
+		return SurveyTestSystemConfig.instance().getSurveyStudentDBMock();
 	}
-
 }

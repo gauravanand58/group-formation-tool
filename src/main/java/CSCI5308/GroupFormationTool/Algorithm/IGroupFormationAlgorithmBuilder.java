@@ -13,5 +13,4 @@ public interface IGroupFormationAlgorithmBuilder {
 	public void setUserMCQ2Responses(Map<Long, Map<Long, List<String>>> userMCQ2Responses);
 
 	public IGroupFormationAlgorithm build();
-
 }

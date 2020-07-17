@@ -27,5 +27,4 @@ public class GroupServiceTest {
 		long courseID = 3l;
 		groupingService.createGroups(groupingRules, userResponsePersistence, groupingAlgorithmBuilder, courseID);
 	}
-
 }

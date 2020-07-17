@@ -2,7 +2,7 @@ package CSCI5308.GroupFormationTool.Questions;
 
 public interface IQuestionOption {
 	public String getOptionTxt();
-	
+
 	public void setOptionTxt(String optionTxt);
 
 	public String getOptionScore();

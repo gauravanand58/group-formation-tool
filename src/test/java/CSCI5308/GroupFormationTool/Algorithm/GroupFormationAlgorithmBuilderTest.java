@@ -69,6 +69,5 @@ public class GroupFormationAlgorithmBuilderTest {
 		algorithmBuilder.setUserResponses(userMockDB.loadUserResponsesForQuestions(1l));
 		IGroupFormationAlgorithm algorithm = algorithmBuilder.build();
 		assertNotNull(algorithm);
-
 	}
 }

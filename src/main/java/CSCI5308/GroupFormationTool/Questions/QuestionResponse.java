@@ -7,7 +7,7 @@ public class QuestionResponse implements IQuestionResponse {
 	private String responseText;
 	private long studentId;
 	private long courseId;
-	private long questionID;
+	private long questionId;
 	private String questionType;
 	private List<IQuestionOption> questionOptions;
 
@@ -51,12 +51,12 @@ public class QuestionResponse implements IQuestionResponse {
 		this.courseId = courseId;
 	}
 
-	public long getQuestionID() {
-		return questionID;
+	public long getQuestionId() {
+		return questionId;
 	}
 
-	public void setQuestionID(long questionID) {
-		this.questionID = questionID;
+	public void setQuestionId(long questionID) {
+		this.questionId = questionID;
 	}
 
 	public List<IQuestionOption> getQuestionOptions() {

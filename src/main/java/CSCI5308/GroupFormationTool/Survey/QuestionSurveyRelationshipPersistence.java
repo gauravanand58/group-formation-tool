@@ -16,7 +16,8 @@ public class QuestionSurveyRelationshipPersistence implements IQuestionSurveyRel
 
 	@Override
 	public List<Question> loadQUestionsByCourseId(long courseId) {
-		List<Question> questions = new ArrayList<>();
+		List<Question> questions = new ArrayList<Question>();
+
 		CallStoredProcedure proc = null;
 		try {
 			proc = new CallStoredProcedure("spLoadQuestionsForCourseID(?)");
