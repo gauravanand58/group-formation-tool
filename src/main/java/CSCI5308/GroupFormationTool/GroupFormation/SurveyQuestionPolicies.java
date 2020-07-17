@@ -2,17 +2,18 @@ package CSCI5308.GroupFormationTool.GroupFormation;
 
 import java.util.List;
 
-import CSCI5308.GroupFormationTool.Questions.IQuestion;
+import CSCI5308.GroupFormationTool.Questions.Question;
 
 public class SurveyQuestionPolicies {
-	private List<IQuestion> ques;
+
+	private List<Question> ques;
 	private int groupSize;
 
-	public List<IQuestion> getQues() {
+	public List<Question> getQues() {
 		return ques;
 	}
 
-	public void setQues(List<IQuestion> ques) {
+	public void setQues(List<Question> ques) {
 		this.ques = ques;
 	}
 
@@ -23,4 +24,5 @@ public class SurveyQuestionPolicies {
 	public void setGroupSize(int groupSize) {
 		this.groupSize = groupSize;
 	}
+
 }
