@@ -6,6 +6,7 @@ public class DefaultDatabaseConfiguration implements IDatabaseConfiguration {
 	private static final String USER = System.getenv("USER");
 	private static final String PASSWORD = System.getenv("PASSWORD");
 
+
 	public String getDatabaseUserName() {
 		return USER;
 	}
