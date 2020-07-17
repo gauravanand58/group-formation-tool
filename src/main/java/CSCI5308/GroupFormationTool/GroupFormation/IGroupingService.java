@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Map;
 
 import CSCI5308.GroupFormationTool.AccessControl.IUser;
-import CSCI5308.GroupFormationTool.AccessControl.User;
 import CSCI5308.GroupFormationTool.Algorithm.IGroupFormationAlgorithmBuilder;
 
 public interface IGroupingService {
