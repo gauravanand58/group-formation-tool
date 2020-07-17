@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h5>Survey Questions</h5>
+
+	<table style="border-collapse: collapse; border: 1px solid black;">
+		<span th:each="question : ${quesRules}">
+			<tr>
+				<td style="border: 1px solid black;"
+					th:text="${question.questionText}"></td>
+				<td style="border: 1px solid black;" th:text="${question.type}"></td>
+			<tr>
+		</span>
+	</table>
+
+	<h5>Groups Formed</h5>
+	<table style="border-collapse: collapse; border: 1px solid black;">
+		<span th:each="group : ${groups}" style="display: none">
+			<tr>
+				<td style="border: 1px solid black;"
+					th:text="'Group: '+${group.key}"></td>
+			</tr> <span th:each="user,iterstat:${group.value}" style="display: none">
+				<tr>
+					<td style="border: 1px solid black;" th:text="${user.key.bannerID}"></td>
+					<td style="border: 1px solid black;" th:text="${user.key.lastName}"></td>
+					<td style="border: 1px solid black;"
+						th:text="${user.key.firstName}"></td>
+					<span th:each="response,iterstat:${user.value}"
+						style="display: none">
+						<td style="border: 1px solid black;" th:text="${response}"+ "|">
+					<td>
+					</span>
+				<tr>
+		</span>
+		</span>
+	<table>
+</body>
+</html>

@@ -5,9 +5,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import CSCI5308.GroupFormationTool.Database.CallStoredProcedure;
 
 public class QuestionDB implements IQuestionPersistence {
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Override
 	public boolean deleteQuestion(int questionID) {
@@ -17,6 +21,7 @@ public class QuestionDB implements IQuestionPersistence {
 			proc.setParameter(1, questionID);
 			proc.execute();
 		} catch (SQLException e) {
+			logger.error("spDeleteQuestion throws SQLException:" + e.getMessage());
 			e.printStackTrace();
 			return false;
 		} finally {
@@ -24,11 +29,12 @@ public class QuestionDB implements IQuestionPersistence {
 				proc.cleanup();
 			}
 		}
+		logger.info("Successfully deleted question of ID:" + questionID);
 		return true;
 	}
 
 	@Override
-	public long createQuestion(Question question) {
+	public long createQuestion(IQuestion question) {
 		CallStoredProcedure proc = null;
 		long lastInsertedQuestion = -1;
 		try {
@@ -42,6 +48,7 @@ public class QuestionDB implements IQuestionPersistence {
 			lastInsertedQuestion = proc.getStatement().getLong(5);
 
 		} catch (SQLException e) {
+			logger.error("spCreateQuestion throws SQLException:" + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
@@ -52,8 +59,8 @@ public class QuestionDB implements IQuestionPersistence {
 	}
 
 	@Override
-	public List<Question> sortByTitle(String bannerID) {
-		List<Question> sortedQuestions = new ArrayList<Question>();
+	public List<IQuestion> sortByTitle(String bannerID) {
+		List<IQuestion> sortedQuestions = new ArrayList<>();
 		CallStoredProcedure proc = null;
 		try {
 			proc = new CallStoredProcedure("spSortByTitle(?)");
@@ -66,7 +73,7 @@ public class QuestionDB implements IQuestionPersistence {
 					String questionText = results.getString(3);
 					String questionType = results.getString(4);
 					String questionDateTime = results.getString(5);
-					Question q = new Question();
+					IQuestion q = QuestionAbstractFactory.instance().makeQuestion();
 					q.setQuestionID(questionID);
 					q.setQuestionTitle(questionTitle);
 					q.setQuestionText(questionText);
@@ -76,19 +83,21 @@ public class QuestionDB implements IQuestionPersistence {
 				}
 			}
 		} catch (Exception e) {
+			logger.error("spSortByTitle thows SQLExcpetion:" + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
 				proc.cleanup();
 			}
 		}
+		logger.info("Successfully sorted by title");
 		return sortedQuestions;
 	}
 
 	@Override
-	public List<Question> sortByDate(String bannerID) {
+	public List<IQuestion> sortByDate(String bannerID) {
 
-		List<Question> sortedQuestions = new ArrayList<Question>();
+		List<IQuestion> sortedQuestions = new ArrayList<>();
 		CallStoredProcedure proc = null;
 		try {
 			proc = new CallStoredProcedure("spSortByDate(?)");
@@ -101,7 +110,7 @@ public class QuestionDB implements IQuestionPersistence {
 					String questionText = results.getString(3);
 					String questionType = results.getString(4);
 					String questionDateTime = results.getString(5);
-					Question q = new Question();
+					IQuestion q = QuestionAbstractFactory.instance().makeQuestion();
 					q.setQuestionID(questionID);
 					q.setQuestionTitle(questionTitle);
 					q.setQuestionText(questionText);
@@ -111,18 +120,20 @@ public class QuestionDB implements IQuestionPersistence {
 				}
 			}
 		} catch (Exception e) {
+			logger.error("spSortByDate throws SQLException:" + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
 				proc.cleanup();
 			}
 		}
+		logger.info("Successfully sorted by date");
 		return sortedQuestions;
 	}
 
 	@Override
-	public List<Question> displayQuestions(String bannerID) {
-		List<Question> displayQuestions = new ArrayList<Question>();
+	public List<IQuestion> displayQuestions(String bannerID) {
+		List<IQuestion> displayQuestions = new ArrayList<>();
 		CallStoredProcedure proc = null;
 		try {
 			proc = new CallStoredProcedure("spDisplayQuestions(?)");
@@ -135,7 +146,7 @@ public class QuestionDB implements IQuestionPersistence {
 					String questionText = results.getString(3);
 					String questionType = results.getString(4);
 					String questionDateTime = results.getString(5);
-					Question q = new Question();
+					IQuestion q = QuestionAbstractFactory.instance().makeQuestion();
 					q.setQuestionID(questionID);
 					q.setQuestionTitle(questionTitle);
 					q.setQuestionText(questionText);
@@ -145,6 +156,7 @@ public class QuestionDB implements IQuestionPersistence {
 				}
 			}
 		} catch (Exception e) {
+			logger.error("spDisplayQuestions throws SQLException:" + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
@@ -152,5 +164,28 @@ public class QuestionDB implements IQuestionPersistence {
 			}
 		}
 		return displayQuestions;
+	}
+
+	public void loadQuestionByID(IQuestion question, long questionID) {
+		CallStoredProcedure proc = null;
+		try {
+			proc = new CallStoredProcedure("spLoadQuestion(?)");
+			proc.setParameter(1, questionID);
+			ResultSet results = proc.executeWithResults();
+			if (null != results && results.next()) {
+				question.setQuestionID(results.getInt(1));
+				question.setInstructorID(results.getLong(2));
+				question.setQuestionTitle(results.getString(3));
+				question.setQuestionText(results.getString(4));
+				question.setQuestionType(results.getString(5));
+				question.setQuestionDateTime(results.getString(6));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (null != proc) {
+				proc.cleanup();
+			}
+		}
 	}
 }

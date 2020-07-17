@@ -25,7 +25,6 @@
 			}
 			button.disabled = true;
 		}
-
 	}
 
 	function addOptions() {
@@ -57,7 +56,6 @@
 </script>
 </head>
 <body>
-	<!-- I got the idea for how to do this from https://www.thymeleaf.org/doc/articles/springsecurity.html -->
 	<div sec:authorize="isAuthenticated()">
 		<h4 th:inline="text">BannerID:
 			[[${#httpServletRequest.remoteUser}]]</h4>
@@ -74,7 +72,6 @@
 				<option value="numeric">numeric</option>
 				<option value="mcq-1">multiple choice choose one</option>
 				<option value="mcq-2">multiple choice choose many</option>
-
 				<option value="free text">free text</option>
 			</select>
 

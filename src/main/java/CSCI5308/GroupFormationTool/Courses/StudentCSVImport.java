@@ -4,41 +4,45 @@ import java.util.ArrayList;
 import java.util.List;
 
 import CSCI5308.GroupFormationTool.SystemConfig;
-import CSCI5308.GroupFormationTool.AccessControl.*;
+import CSCI5308.GroupFormationTool.AccessControl.IUser;
+import CSCI5308.GroupFormationTool.AccessControl.IUserNotifications;
+import CSCI5308.GroupFormationTool.AccessControl.IUserPersistence;
+import CSCI5308.GroupFormationTool.AccessControl.UserAbstractFactory;
+import CSCI5308.GroupFormationTool.AccessControl.UserSystemConfig;
 import CSCI5308.GroupFormationTool.Security.IPasswordEncryption;
 
 public class StudentCSVImport {
 	private List<String> successResults;
 	private List<String> failureResults;
-	private Course course;
+	private ICourse course;
 	private IUserPersistence userDB;
 	private IPasswordEncryption passwordEncryption;
 	private IUserNotifications userNotification;
 	private IStudentCSVParser parser;
 
-	public StudentCSVImport(IStudentCSVParser parser, Course course) {
-		userNotification = new UserNotifications();
-		this.course = course;
+	public StudentCSVImport(IStudentCSVParser parser, ICourse course2) {
+		userNotification = UserSystemConfig.instance().getUserNotifications();
+		this.course = course2;
 		successResults = new ArrayList<String>();
 		failureResults = new ArrayList<String>();
-		userDB = SystemConfig.instance().getUserDB();
+		userDB = UserSystemConfig.instance().getUserDB();
 		passwordEncryption = SystemConfig.instance().getPasswordEncryption();
 		this.parser = parser;
 		enrollStudentFromRecord();
 	}
 
 	private void enrollStudentFromRecord() {
-		List<User> studentList = parser.parseCSVFile(failureResults);
-		for (User u : studentList) {
+		List<IUser> studentList = parser.parseCSVFile(failureResults);
+		for (IUser u : studentList) {
 			String bannerID = u.getBanner();
 			String firstName = u.getFirstName();
 			String lastName = u.getLastName();
 			String email = u.getEmail();
 			String userDetails = bannerID + " " + firstName + " " + lastName + " " + email;
 
-			User user = new User();
+			IUser user = UserAbstractFactory.instance().makeUser();
 			userDB.loadUserByBannerID(bannerID, user);
-			if (!user.isValidUser()) {
+			if (user.isValidUser() == false) {
 				user.setBannerID(bannerID);
 				user.setFirstName(firstName);
 				user.setLastName(lastName);

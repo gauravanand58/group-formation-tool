@@ -5,10 +5,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import CSCI5308.GroupFormationTool.AccessControl.User;
 import CSCI5308.GroupFormationTool.Database.CallStoredProcedure;
 
 public class UserPasswordHistoryRelationshipDB implements IUserPasswordHistoryRelationshipPersistance {
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Override
 	public boolean saveUserPassword(User user) {
@@ -19,6 +23,7 @@ public class UserPasswordHistoryRelationshipDB implements IUserPasswordHistoryRe
 			proc.execute();
 
 		} catch (SQLException e) {
+			logger.error("spSaveUserPasswordHistory throws SQLException:" + e.getMessage());
 			e.printStackTrace();
 			return false;
 		} finally {
@@ -44,6 +49,7 @@ public class UserPasswordHistoryRelationshipDB implements IUserPasswordHistoryRe
 				}
 			}
 		} catch (SQLException e) {
+			logger.error("spLoadUserPasswordHistory throws SQLException:" + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
