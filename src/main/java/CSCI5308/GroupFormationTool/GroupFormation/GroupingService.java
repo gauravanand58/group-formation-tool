@@ -10,9 +10,7 @@ import org.slf4j.LoggerFactory;
 
 import CSCI5308.GroupFormationTool.AccessControl.IUser;
 import CSCI5308.GroupFormationTool.AccessControl.IUserPersistence;
-import CSCI5308.GroupFormationTool.AccessControl.User;
 import CSCI5308.GroupFormationTool.AccessControl.UserAbstractFactory;
-import CSCI5308.GroupFormationTool.AccessControl.UserDB;
 import CSCI5308.GroupFormationTool.Algorithm.IGroupFormationAlgorithm;
 import CSCI5308.GroupFormationTool.Algorithm.IGroupFormationAlgorithmBuilder;
 
