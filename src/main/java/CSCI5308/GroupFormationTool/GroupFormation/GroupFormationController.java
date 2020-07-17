@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import CSCI5308.GroupFormationTool.AccessControl.IUser;
-import CSCI5308.GroupFormationTool.AccessControl.User;
 import CSCI5308.GroupFormationTool.Algorithm.IGroupFormationAlgorithmBuilder;
 import CSCI5308.GroupFormationTool.Questions.Question;
 import CSCI5308.GroupFormationTool.Survey.IQuestionSurveyRelationshipPersistence;
@@ -32,7 +31,6 @@ public class GroupFormationController {
 		logger.debug("At 'surveymanager/surveylist'");
 		IQuestionSurveyRelationshipPersistence surveyQuestionDB = SurveySystemConfigPersistence.instance()
 				.getQuestionSurveyDB();
-
 		List<Question> displayQues = surveyQuestionDB.loadQUestionsByCourseId(courseID);
 		model.addAttribute("ques", displayQues);
 		SurveyQuestionPolicies surveyQuestionPolicies = new SurveyQuestionPolicies();

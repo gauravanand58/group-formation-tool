@@ -13,8 +13,8 @@ public class SurveyQuestionPolicies {
 		return ques;
 	}
 
-	public void setQues(List<Question> ques) {
-		this.ques = ques;
+	public void setQues(List<Question> displayQues) {
+		this.ques = displayQues;
 	}
 
 	public int getGroupSize() {

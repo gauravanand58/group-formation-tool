@@ -14,12 +14,12 @@ public class SurveyStudentController {
 	public String displaysurveyQuestions(@ModelAttribute QuestionResponse question, Model model,
 			@RequestParam(name = "BannerID") String BannerID, @RequestParam(name = "courseid") long courseId) {
 		String bannerID = BannerID;
-		long courseid = courseId;
+		long courseID = courseId;
 		QuestionResponse surveyResponseList = question;
 		String studentResponse[] = surveyResponseList.getQuestionType().split(",");
 		ISurvey survey = SurveyAbstractFactory.instance().makeSurvey();
 		ISurveyStudentPersistence surveyDB = SurveySystemConfig.instance().getStudentSurveyDB();
-		int isUserInstructor = survey.submitResponse(surveyDB, bannerID, courseid, studentResponse);
+		int isUserInstructor = survey.submitResponse(surveyDB, bannerID, courseID, studentResponse);
 		return "redirect:/course/course?id=" + courseId + "&isUserInstructor=" + isUserInstructor + "&BannerID="
 				+ BannerID;
 	}

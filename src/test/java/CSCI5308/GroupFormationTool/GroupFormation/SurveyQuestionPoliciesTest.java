@@ -8,9 +8,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import CSCI5308.GroupFormationTool.Questions.IQuestion;
 import CSCI5308.GroupFormationTool.Questions.Question;
-import CSCI5308.GroupFormationTool.Questions.QuestionAbstractFactory;
 
 public class SurveyQuestionPoliciesTest {
 	@Test
