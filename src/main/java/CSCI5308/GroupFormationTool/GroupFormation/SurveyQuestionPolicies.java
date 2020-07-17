@@ -5,6 +5,7 @@ import java.util.List;
 import CSCI5308.GroupFormationTool.Questions.Question;
 
 public class SurveyQuestionPolicies {
+
 	private List<Question> ques;
 	private int groupSize;
 
@@ -23,4 +24,5 @@ public class SurveyQuestionPolicies {
 	public void setGroupSize(int groupSize) {
 		this.groupSize = groupSize;
 	}
+
 }

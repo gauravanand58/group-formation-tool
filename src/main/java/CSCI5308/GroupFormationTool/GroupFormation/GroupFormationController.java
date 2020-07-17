@@ -1,4 +1,3 @@
-
 package CSCI5308.GroupFormationTool.GroupFormation;
 
 import java.util.ArrayList;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import CSCI5308.GroupFormationTool.AccessControl.IUser;
 import CSCI5308.GroupFormationTool.Algorithm.IGroupFormationAlgorithmBuilder;
-import CSCI5308.GroupFormationTool.Questions.IQuestion;
 import CSCI5308.GroupFormationTool.Questions.Question;
 import CSCI5308.GroupFormationTool.Survey.IQuestionSurveyRelationshipPersistence;
 import CSCI5308.GroupFormationTool.Survey.SurveySystemConfigPersistence;
@@ -53,7 +51,7 @@ public class GroupFormationController {
 			IGroupFormationRulesPersistence rulesDB = GroupFormationSystemConfigPersistance.instance()
 					.getFormationRulesPersistence();
 			List<IGroupFormationRules> quesRules = new ArrayList<>();
-			for (IQuestion question : form.getQues()) {
+			for (Question question : form.getQues()) {
 				IGroupFormationRules formationRules = new GroupFormationRules(courseID, question.getQuestionID(),
 						question.getType(), question.getValue(), form.getGroupSize(), rulesDB);
 				quesRules.add(formationRules);
@@ -69,6 +67,8 @@ public class GroupFormationController {
 			model.addAttribute("quesRules", form.getQues());
 			model.addAttribute("groups", groups);
 		}
+
 		return "surveymanager/groupResults";
 	}
+
 }

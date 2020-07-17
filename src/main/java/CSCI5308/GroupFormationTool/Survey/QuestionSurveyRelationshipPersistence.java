@@ -9,7 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import CSCI5308.GroupFormationTool.Database.CallStoredProcedure;
-import CSCI5308.GroupFormationTool.Questions.IQuestion;
 import CSCI5308.GroupFormationTool.Questions.Question;
 
 public class QuestionSurveyRelationshipPersistence implements IQuestionSurveyRelationshipPersistence {
@@ -17,7 +16,8 @@ public class QuestionSurveyRelationshipPersistence implements IQuestionSurveyRel
 
 	@Override
 	public List<Question> loadQUestionsByCourseId(long courseId) {
-		List<Question> questions = new ArrayList<>();
+		List<Question> questions = new ArrayList<Question>();
+
 		CallStoredProcedure proc = null;
 		try {
 			proc = new CallStoredProcedure("spLoadQuestionsForCourseID(?)");
