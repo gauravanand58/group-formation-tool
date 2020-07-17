@@ -7,16 +7,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import CSCI5308.GroupFormationTool.SystemConfig;
-
 @Controller
 public class QuestionListController {
-
 	@RequestMapping("/course/questionmanager")
 	public String displayQuestionsList(@RequestParam("bannerID") String bannerID, Model model) {
-		IQuestionPersistence questionDB = SystemConfig.instance().getQuestionDB();
-		IQuestionListManager questionListManager = new QuestionListManager();
-		List<Question> displayQues = questionListManager.displayQuestions(bannerID, questionDB);
+		IQuestionPersistence questionDB = QuestionsSystemConfig.instance().getQuestionDB();
+		IQuestionListManager questionListManager = QuestionAbstractFactory.instance().makeQuestionListManager();
+		List<IQuestion> displayQues = questionListManager.displayQuestions(bannerID, questionDB);
 		model.addAttribute("ques", displayQues);
 		return "questionmanager/questionlist";
 	}
@@ -24,12 +21,12 @@ public class QuestionListController {
 	@RequestMapping("/course/manager")
 	public String sortList(@RequestParam("bannerID") String bannerID, @RequestParam("sortBy") String sortBy,
 			Model model) {
-		List<Question> sortedQuestions;
-		IQuestionPersistence questionDB = SystemConfig.instance().getQuestionDB();
-		IQuestionListManager questionListManager = new QuestionListManager();
-		sortedQuestions=questionListManager.sortQuestions(bannerID, sortBy,questionDB);
-		model.addAttribute("ques",sortedQuestions);
-		return "questionmanager/questionlist";	
+		List<IQuestion> sortedQuestions;
+		IQuestionPersistence questionDB = QuestionsSystemConfig.instance().getQuestionDB();
+		IQuestionListManager questionListManager = QuestionAbstractFactory.instance().makeQuestionListManager();
+		sortedQuestions = questionListManager.sortQuestions(bannerID, sortBy, questionDB);
+		model.addAttribute("ques", sortedQuestions);
+		return "questionmanager/questionlist";
 	}
 
 	@RequestMapping("/mainquestionmanager")

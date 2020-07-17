@@ -3,12 +3,16 @@ package CSCI5308.GroupFormationTool.AccessControl;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import CSCI5308.GroupFormationTool.Database.CallStoredProcedure;
 
 public class UserDB implements IUserPersistence {
 	private long userID;
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	public void loadUserByID(long id, User user) {
+	public void loadUserByID(long id, IUser user) {
 		CallStoredProcedure proc = null;
 		try {
 			proc = new CallStoredProcedure("spLoadUser(?)");
@@ -23,6 +27,7 @@ public class UserDB implements IUserPersistence {
 					String lastName = results.getString(5);
 					String email = results.getString(6);
 					user.setID(userID);
+					logger.debug("Loaded user with user ID" + userID);
 					user.setBannerID(bannerID);
 					user.setPassword(password);
 					user.setFirstName(firstName);
@@ -31,6 +36,7 @@ public class UserDB implements IUserPersistence {
 				}
 			}
 		} catch (SQLException e) {
+			logger.error("spLoadUser throws SQLException " + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
@@ -39,7 +45,7 @@ public class UserDB implements IUserPersistence {
 		}
 	}
 
-	public void loadUserByBannerID(String bannerID, User user) {
+	public void loadUserByBannerID(String bannerID, IUser user) {
 		CallStoredProcedure proc = null;
 		long userID = -1;
 		try {
@@ -52,6 +58,7 @@ public class UserDB implements IUserPersistence {
 				}
 			}
 		} catch (SQLException e) {
+			logger.error("spFindUserByBannerID throws SQLException " + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {
@@ -64,7 +71,7 @@ public class UserDB implements IUserPersistence {
 		}
 	}
 
-	public boolean createUser(User user) {
+	public boolean createUser(IUser user) {
 		CallStoredProcedure proc = null;
 		try {
 			proc = new CallStoredProcedure("spCreateUser(?, ?, ?, ?, ?, ?)");
@@ -76,6 +83,7 @@ public class UserDB implements IUserPersistence {
 			proc.registerOutputParameterLong(6);
 			proc.execute();
 		} catch (SQLException e) {
+			logger.error("spCreateUser throws SQLException " + e.getMessage());
 			e.printStackTrace();
 			return false;
 		} finally {
@@ -83,10 +91,11 @@ public class UserDB implements IUserPersistence {
 				proc.cleanup();
 			}
 		}
+		logger.debug("Created user with bannerID" + user.getBanner());
 		return true;
 	}
 
-	public boolean updateUser(User user) {
+	public boolean updateUser(IUser user) {
 		return false;
 	}
 
@@ -99,6 +108,7 @@ public class UserDB implements IUserPersistence {
 			proc.execute();
 			userID = proc.getStatement().getLong(2);
 		} catch (SQLException e) {
+			logger.error("spcheckInstructorByBannerID throws SQLException " + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {

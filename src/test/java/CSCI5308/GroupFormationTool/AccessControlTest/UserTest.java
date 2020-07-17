@@ -1,6 +1,13 @@
 package CSCI5308.GroupFormationTool.AccessControlTest;
 
-import CSCI5308.GroupFormationTool.AccessControl.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.Test;
+
+import CSCI5308.GroupFormationTool.AccessControl.IUser;
+import CSCI5308.GroupFormationTool.AccessControl.IUserPersistence;
+import CSCI5308.GroupFormationTool.AccessControl.UserAbstractFactory;
 import CSCI5308.GroupFormationTool.Security.IPasswordEncryption;
 import CSCI5308.GroupFormationTool.Security.IUserPasswordHistoryRelationshipPersistance;
 import CSCI5308.GroupFormationTool.Security.PasswordPolicyConfiguration;
@@ -8,94 +15,89 @@ import CSCI5308.GroupFormationTool.SecurityTest.PasswordEncryptionMock;
 import CSCI5308.GroupFormationTool.SecurityTest.PasswordPolicyDBMock;
 import CSCI5308.GroupFormationTool.SecurityTest.UserPasswordHistoryRelationshipDBMock;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import org.junit.jupiter.api.Test;
-
 public class UserTest {
 	@Test
 	public void ConstructorTests() {
-		User u = new User();
+		IUser u = UserAbstractFactory.instance().makeUser();
 		assertTrue(u.getBannerID().isEmpty());
 		assertTrue(u.getFirstName().isEmpty());
 		assertTrue(u.getLastName().isEmpty());
 		assertTrue(u.getEmail().isEmpty());
 
 		IUserPersistence userDBMock = new UserDBMock();
-		u = new User(1, userDBMock);
+		u = UserAbstractFactory.instance().makeUserWithID(1, userDBMock);
 		assertTrue(u.getBannerID().equals("B00000000"));
 
-		u = new User("B00000000", userDBMock);
+		u = UserAbstractFactory.instance().makeUserWithBanner("B00000000", userDBMock);
 		assertTrue(u.getBannerID().equals("B00000000"));
 	}
 
 	@Test
 	public void setIDTest() {
-		User u = new User();
+		IUser u = UserAbstractFactory.instance().makeUser();
 		u.setID(10);
 		assertTrue(10 == u.getID());
 	}
 
 	@Test
 	public void getIDTest() {
-		User u = new User();
+		IUser u = UserAbstractFactory.instance().makeUser();
 		u.setID(10);
 		assertTrue(10 == u.getID());
 	}
 
 	@Test
 	public void setBannerIDTest() {
-		User u = new User();
+		IUser u = UserAbstractFactory.instance().makeUser();
 		u.setBannerID("B00000000");
 		assertTrue(u.getBannerID().equals("B00000000"));
 	}
 
 	@Test
 	public void getBannerIDTest() {
-		User u = new User();
+		IUser u = UserAbstractFactory.instance().makeUser();
 		u.setBannerID("B00000000");
 		assertTrue(u.getBannerID().equals("B00000000"));
 	}
 
 	@Test
 	public void setFirstNameTest() {
-		User u = new User();
+		IUser u = UserAbstractFactory.instance().makeUser();
 		u.setFirstName("Rob");
 		assertTrue(u.getFirstName().equals("Rob"));
 	}
 
 	@Test
 	public void getFirstNameTest() {
-		User u = new User();
+		IUser u = UserAbstractFactory.instance().makeUser();
 		u.setFirstName("Rob");
 		assertTrue(u.getFirstName().equals("Rob"));
 	}
 
 	@Test
 	public void setLastNameTest() {
-		User u = new User();
+		IUser u = UserAbstractFactory.instance().makeUser();
 		u.setLastName("Hawkey");
 		assertTrue(u.getLastName().equals("Hawkey"));
 	}
 
 	@Test
 	public void getLastNameTest() {
-		User u = new User();
+		IUser u = UserAbstractFactory.instance().makeUser();
 		u.setLastName("Hawkey");
 		assertTrue(u.getLastName().equals("Hawkey"));
 	}
 
 	@Test
 	public void setEmailTest() {
-		User u = new User();
+		IUser u = UserAbstractFactory.instance().makeUser();
 		u.setEmail("rhawkey@dal.ca");
 		assertTrue(u.getEmail().equals("rhawkey@dal.ca"));
 	}
 
 	@Test
 	public void getEmailTest() {
-		User u = new User();
+		IUser u = UserAbstractFactory.instance().makeUser();
 		u.setEmail("rhawkey@dal.ca");
 		assertTrue(u.getEmail().equals("rhawkey@dal.ca"));
 	}
@@ -103,7 +105,7 @@ public class UserTest {
 	@Test
 	public void createUser() {
 		IUserPersistence userDB = new UserDBMock();
-		User user = new User();
+		IUser user = UserAbstractFactory.instance().makeUser();
 		userDB.createUser(user);
 		assertTrue(user.getId() == 0);
 		assertTrue(user.getBannerID().equals("B00000000"));
@@ -111,52 +113,52 @@ public class UserTest {
 
 	@Test
 	public void isBannerIDValidTest() {
-		assertTrue(User.isBannerIDValid("B000000000"));
-		assertTrue(!User.isBannerIDValid(null));
-		assertTrue(!User.isBannerIDValid(""));
+		assertTrue(IUser.isBannerIDValid("B000000000"));
+		assertTrue(!IUser.isBannerIDValid(null));
+		assertTrue(!IUser.isBannerIDValid(""));
 	}
 
 	@Test
 	public void isFirstNameValidTest() {
-		assertTrue(User.isFirstNameValid("rob"));
-		assertTrue(!User.isFirstNameValid(null));
-		assertTrue(!User.isFirstNameValid(""));
+		assertTrue(IUser.isFirstNameValid("rob"));
+		assertTrue(!IUser.isFirstNameValid(null));
+		assertTrue(!IUser.isFirstNameValid(""));
 	}
 
 	@Test
 	public void isLastNameValidTest() {
-		assertTrue(User.isLastNameValid("hawkey"));
-		assertTrue(!User.isLastNameValid(null));
-		assertTrue(!User.isLastNameValid(""));
+		assertTrue(IUser.isLastNameValid("hawkey"));
+		assertTrue(!IUser.isLastNameValid(null));
+		assertTrue(!IUser.isLastNameValid(""));
 	}
 
 	@Test
 	public void isEmailValidTest() {
-		assertTrue(User.isEmailValid("rhawkey@dal.ca"));
-		assertTrue(!User.isEmailValid(null));
-		assertTrue(!User.isEmailValid(""));
-		assertTrue(!User.isEmailValid("@dal.ca"));
-		assertTrue(!User.isEmailValid("rhawkey@"));
+		assertTrue(IUser.isEmailValid("rhawkey@dal.ca"));
+		assertTrue(!IUser.isEmailValid(null));
+		assertTrue(!IUser.isEmailValid(""));
+		assertTrue(!IUser.isEmailValid("@dal.ca"));
+		assertTrue(!IUser.isEmailValid("rhawkey@"));
 	}
 
 	@Test
 	public void isValidPasswordTest() {
 		PasswordPolicyDBMock persistanceMock = new PasswordPolicyDBMock();
 		PasswordPolicyConfiguration configuration = PasswordPolicyConfiguration.instance(persistanceMock);
-		assertTrue(User.isValidPassword("srIK2*", configuration));
-		assertFalse(User.isValidPassword("sriK2*", configuration));
+		assertTrue(IUser.isValidPassword("srIK2*", configuration));
+		assertFalse(IUser.isValidPassword("sriK2*", configuration));
 	}
 
 	@Test
 	public void saveUserPasswordHistoryTest() {
-		User user = new User();
+		IUser user = UserAbstractFactory.instance().makeUser();
 		IUserPasswordHistoryRelationshipPersistance userPassRelationship = new UserPasswordHistoryRelationshipDBMock();
 		user.saveUserPasswordHistory(userPassRelationship);
 	}
 
 	@Test
 	public void validatePasswordHistoryTest() {
-		User u = new User();
+		IUser u = UserAbstractFactory.instance().makeUser();
 		u.setID(1);
 		PasswordPolicyDBMock persistanceMock = new PasswordPolicyDBMock();
 		PasswordPolicyConfiguration configuration = PasswordPolicyConfiguration.instance(persistanceMock);
@@ -166,6 +168,5 @@ public class UserTest {
 
 		u.setID(2);
 		assertFalse(u.validatePasswordHistory("encrypted", userPassRelationship, configuration, passwordEncryption));
-
 	}
 }

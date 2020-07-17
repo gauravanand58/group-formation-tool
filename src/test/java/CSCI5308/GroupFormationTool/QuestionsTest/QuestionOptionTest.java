@@ -4,42 +4,44 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
+import CSCI5308.GroupFormationTool.Questions.IQuestionOption;
 import CSCI5308.GroupFormationTool.Questions.IQuestionOptionPersistence;
-import CSCI5308.GroupFormationTool.Questions.QuestionOption;
+import CSCI5308.GroupFormationTool.Questions.QuestionAbstractFactory;
 
 public class QuestionOptionTest {
 	@Test
 	void getOptionTxt() {
-		QuestionOption questionOption = new QuestionOption();
+		IQuestionOption questionOption = QuestionAbstractFactory.instance().makeQuestionOption();
 		questionOption.setOptionTxt("a");
 		assertTrue(questionOption.getOptionTxt().equals("a"));
 	}
 
 	@Test
 	void setOptionTxt() {
-		QuestionOption questionOption = new QuestionOption();
+		IQuestionOption questionOption = QuestionAbstractFactory.instance().makeQuestionOption();
 		questionOption.setOptionTxt("a");
 		assertTrue(questionOption.getOptionTxt().equals("a"));
 	}
 
 	@Test
 	void getOptionScore() {
-		QuestionOption questionOption = new QuestionOption();
+		IQuestionOption questionOption = QuestionAbstractFactory.instance().makeQuestionOption();
 		questionOption.setOptionScore("1");
 		assertTrue(questionOption.getOptionScore().equals("1"));
 	}
 
 	@Test
 	void setOptionScore() {
-		QuestionOption questionOption = new QuestionOption();
+		IQuestionOption questionOption = QuestionAbstractFactory.instance().makeQuestionOption();
 		questionOption.setOptionScore("1");
 		assertTrue(questionOption.getOptionScore().equals("1"));
 	}
 
 	@Test
 	public void createOptionTest() {
-		IQuestionOptionPersistence questionOptionDBMock = new QuestionOptionDBMock();
-		QuestionOption questionOption = new QuestionOption();
+		IQuestionOptionPersistence questionOptionDBMock = QuestionsSystemConfigTest.instance()
+				.getQuestionOptionDBMock();
+		IQuestionOption questionOption = QuestionAbstractFactory.instance().makeQuestionOption();
 		questionOption.setOptionTxt("intermediate");
 		questionOption.setOptionScore("5");
 		questionOptionDBMock.createOption(questionOption, 0);

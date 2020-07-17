@@ -3,9 +3,13 @@ package CSCI5308.GroupFormationTool.Security;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import CSCI5308.GroupFormationTool.Database.CallStoredProcedure;
 
 public class PasswordPolicyDB implements IPasswordPolicyPersistance {
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Override
 	public void loadUserPasswordPolicies(PasswordPolicyConfiguration policyConfiguration) {
@@ -25,6 +29,7 @@ public class PasswordPolicyDB implements IPasswordPolicyPersistance {
 				}
 			}
 		} catch (SQLException e) {
+			logger.error("spLoadPasswordPolicy() throws SQLException:" + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			if (null != proc) {

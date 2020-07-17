@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="60">
+  <Properties>
+    <Property name="path">logs</Property>
+  </Properties>
+  <Appenders>
+
+    <Console name="Console-Appender" target="SYSTEM_OUT">
+      <PatternLayout>
+        <pattern>
+          [%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+        </pattern>
+        >
+      </PatternLayout>
+    </Console>
+    <File name="SpringBoot-Appender" fileName="${path}/logs.txt">
+      <PatternLayout>
+        <pattern>
+          [%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+        </pattern>
+      </PatternLayout>
+    </File>
+  </Appenders>  
+  <Loggers>
+ 
+        <Logger name="CSCI5308.GroupFormationTool" additivity="false">
+            <AppenderRef ref="Console-Appender" />
+            <AppenderRef ref="SpringBoot-Appender" />
+        </Logger>
+ 
+        <Root level="debug">
+            <AppenderRef ref="Console" />
+        </Root>
+    </Loggers>
+</Configuration>

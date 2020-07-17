@@ -2,20 +2,22 @@ package CSCI5308.GroupFormationTool.Questions;
 
 import java.util.List;
 
-import CSCI5308.GroupFormationTool.SystemConfig;
-
-public class Question {
+public class Question implements IQuestion {
 	private int questionID;
 	private long instructorID;
 	private String questionTitle;
 	private String questionText;
 	private String questionType;
 	private String questionDateTime;
+	private String type;
+	private int value;
+
+	private List<IQuestionOption> questionOptions;
 
 	public Question() {
 		setDefaults();
 	}
-	
+
 	private void setDefaults() {
 		questionID = -1;
 		instructorID = -1;
@@ -23,6 +25,12 @@ public class Question {
 		questionText = "";
 		questionType = "";
 		questionDateTime = "";
+		type = "";
+		value = -1;
+	}
+
+	public Question(IQuestionPersistence questionDB, long questionID) {
+		questionDB.loadQuestionByID(this, questionID);
 	}
 
 	public long getInstructorID() {
@@ -73,16 +81,32 @@ public class Question {
 		this.questionText = quesText;
 	}
 
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public int getValue() {
+		return value;
+	}
+
+	public void setValue(int value) {
+		this.value = value;
+	}
+
 	public boolean deleteQuestion(IQuestionPersistence questionDB) {
 		return questionDB.deleteQuestion(questionID);
 	}
 
-	public List<QuestionResponse> getAllResponses(IQuestionResponsePersistence responseDB) {
+	public List<IQuestionResponse> getAllResponses(IQuestionResponsePersistence responseDB) {
 		return responseDB.getAllResponsesOfQuestion(questionID);
 	}
 
 	public boolean checkIfQuestionHasResponse() {
-		List<QuestionResponse> responseList = getAllResponses(SystemConfig.instance().getReponseDB());
+		List<IQuestionResponse> responseList = getAllResponses(QuestionsSystemConfig.instance().getReponseDB());
 		if (null == responseList || responseList.size() == 0) {
 			return false;
 		}
@@ -91,5 +115,13 @@ public class Question {
 
 	public long createQuestion(IQuestionPersistence questionDB) {
 		return questionDB.createQuestion(this);
+	}
+
+	public List<IQuestionOption> getQuestionOptions() {
+		return questionOptions;
+	}
+
+	public void setQuestionOptions(List<IQuestionOption> questionOptions) {
+		this.questionOptions = questionOptions;
 	}
 }

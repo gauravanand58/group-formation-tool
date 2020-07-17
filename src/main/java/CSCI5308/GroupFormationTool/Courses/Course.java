@@ -3,12 +3,15 @@ package CSCI5308.GroupFormationTool.Courses;
 import java.util.List;
 
 import CSCI5308.GroupFormationTool.AccessControl.CurrentUser;
-import CSCI5308.GroupFormationTool.AccessControl.User;
+import CSCI5308.GroupFormationTool.AccessControl.IUser;
+import CSCI5308.GroupFormationTool.Survey.ISurvey;
+import CSCI5308.GroupFormationTool.Survey.SurveyAbstractFactory;
 
-public class Course {
+public class Course implements ICourse {
 	private long id;
 	private String title;
 	private ICourseUserRelationship userRoleDecider;
+	private ISurvey courseSurvey;
 
 	public Course() {
 		setDefaults();
@@ -22,7 +25,8 @@ public class Course {
 	public void setDefaults() {
 		id = -1;
 		title = "";
-		userRoleDecider = new CourseUserRelationship();
+		userRoleDecider = CourseAbstractFactory.instance().makeCourseUserRelationship();
+		courseSurvey = SurveyAbstractFactory.instance().makeSurvey();
 	}
 
 	public void setId(long id) {
@@ -49,7 +53,7 @@ public class Course {
 		return courseDB.createCourse(this);
 	}
 
-	public boolean enrollUserInCourse(Role role, User user) {
+	public boolean enrollUserInCourse(Role role, IUser user) {
 		return userRoleDecider.enrollUserInCourse(user, this, role);
 	}
 
@@ -64,5 +68,13 @@ public class Course {
 
 	public List<Role> getAllRolesForCurrentUserInCourse() {
 		return userRoleDecider.loadAllRoluesForUserInCourse(CurrentUser.instance().getCurrentAuthenticatedUser(), this);
+	}
+
+	public ISurvey getCourseSurvey() {
+		return courseSurvey;
+	}
+
+	public void setCourseSurvey(ISurvey courseSurvey) {
+		this.courseSurvey = courseSurvey;
 	}
 }

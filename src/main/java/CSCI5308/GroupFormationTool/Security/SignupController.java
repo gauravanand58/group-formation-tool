@@ -2,11 +2,17 @@ package CSCI5308.GroupFormationTool.Security;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import CSCI5308.GroupFormationTool.SystemConfig;
-import CSCI5308.GroupFormationTool.AccessControl.*;
+import CSCI5308.GroupFormationTool.AccessControl.IUser;
+import CSCI5308.GroupFormationTool.AccessControl.IUserPersistence;
+import CSCI5308.GroupFormationTool.AccessControl.UserAbstractFactory;
+import CSCI5308.GroupFormationTool.AccessControl.UserSystemConfig;
 
 @Controller
 public class SignupController {
@@ -31,16 +37,16 @@ public class SignupController {
 			@RequestParam(name = EMAIL) String email) {
 
 		boolean success = false;
-		if (User.isBannerIDValid(bannerID) && User.isEmailValid(email) && User.isFirstNameValid(firstName)
-				&& User.isLastNameValid(lastName) && password.equals(passwordConfirm)
-				&& User.isValidPassword(password, SystemConfig.instance().getConfiguration())) {
-			User u = new User();
+		if (IUser.isBannerIDValid(bannerID) && IUser.isEmailValid(email) && IUser.isFirstNameValid(firstName)
+				&& IUser.isLastNameValid(lastName) && password.equals(passwordConfirm)
+				&& IUser.isValidPassword(password, SystemConfig.instance().getConfiguration())) {
+			IUser u = UserAbstractFactory.instance().makeUser();
 			u.setBannerID(bannerID);
 			u.setPassword(password);
 			u.setFirstName(firstName);
 			u.setLastName(lastName);
 			u.setEmail(email);
-			IUserPersistence userDB = SystemConfig.instance().getUserDB();
+			IUserPersistence userDB = UserSystemConfig.instance().getUserDB();
 			IPasswordEncryption passwordEncryption = SystemConfig.instance().getPasswordEncryption();
 			if (u.createUser(userDB, passwordEncryption, null)) {
 				success = u.saveUserPasswordHistory(SystemConfig.instance().getUserPasswordRelationshipDB());

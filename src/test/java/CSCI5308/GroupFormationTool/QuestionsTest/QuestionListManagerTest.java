@@ -6,25 +6,25 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
+import CSCI5308.GroupFormationTool.Questions.IQuestion;
 import CSCI5308.GroupFormationTool.Questions.IQuestionPersistence;
-import CSCI5308.GroupFormationTool.Questions.Question;
 
 public class QuestionListManagerTest {
 
 	@Test
 	public void sortQuesTest() {
-		List<Question> questionList;
-		IQuestionPersistence questionDBMock = new QuestionDBMock();
+		List<IQuestion> questionList;
+		IQuestionPersistence questionDBMock = QuestionsSystemConfigTest.instance().getQuestionDBMock();
 		questionList = questionDBMock.sortByDate("B000000");
-		assertTrue(questionList != null && questionList.size()>0);
+		assertTrue(questionList != null && questionList.size() > 0);
 		questionList = questionDBMock.sortByTitle("B000000");
-		assertTrue(questionList != null && questionList.size()>0);
+		assertTrue(questionList != null && questionList.size() > 0);
 	}
 
 	@Test
 	public void displayQuestions() {
-		IQuestionPersistence questionDBMock = new QuestionDBMock();
-		List<Question> questionList = questionDBMock.displayQuestions("B000000");
+		IQuestionPersistence questionDBMock = QuestionsSystemConfigTest.instance().getQuestionDBMock();
+		List<IQuestion> questionList = questionDBMock.displayQuestions("B000000");
 		assertTrue(null != questionList && questionList.size() > 0);
 	}
 }

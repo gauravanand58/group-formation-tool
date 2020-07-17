@@ -3,8 +3,9 @@ package CSCI5308.GroupFormationTool.QuestionsTest;
 import java.util.LinkedList;
 import java.util.List;
 
+import CSCI5308.GroupFormationTool.Questions.IQuestion;
 import CSCI5308.GroupFormationTool.Questions.IQuestionPersistence;
-import CSCI5308.GroupFormationTool.Questions.Question;
+import CSCI5308.GroupFormationTool.Questions.QuestionAbstractFactory;
 
 public class QuestionDBMock implements IQuestionPersistence {
 
@@ -17,7 +18,7 @@ public class QuestionDBMock implements IQuestionPersistence {
 	}
 
 	@Override
-	public long createQuestion(Question question) {
+	public long createQuestion(IQuestion question) {
 		question.setInstructorID(1);
 		question.setQuestionID(1);
 		question.setQuestionTitle("Java");
@@ -27,9 +28,9 @@ public class QuestionDBMock implements IQuestionPersistence {
 	}
 
 	@Override
-	public List<Question> sortByTitle(String bannerID) {
-		List<Question> questionList = new LinkedList<Question>();
-		Question question = new Question();
+	public List<IQuestion> sortByTitle(String bannerID) {
+		List<IQuestion> questionList = new LinkedList<>();
+		IQuestion question = QuestionAbstractFactory.instance().makeQuestion();
 		if (bannerID == "B000000") {
 			questionList.add(question);
 			return questionList;
@@ -38,9 +39,9 @@ public class QuestionDBMock implements IQuestionPersistence {
 	}
 
 	@Override
-	public List<Question> sortByDate(String bannerID) {
-		List<Question> questionList = new LinkedList<Question>();
-		Question question = new Question();
+	public List<IQuestion> sortByDate(String bannerID) {
+		List<IQuestion> questionList = new LinkedList<>();
+		IQuestion question = QuestionAbstractFactory.instance().makeQuestion();
 		if (bannerID == "B000000") {
 			questionList.add(question);
 			return questionList;
@@ -49,13 +50,17 @@ public class QuestionDBMock implements IQuestionPersistence {
 	}
 
 	@Override
-	public List<Question> displayQuestions(String bannerID) {
-		List<Question> questionList = new LinkedList<Question>();
-		Question question = new Question();
+	public List<IQuestion> displayQuestions(String bannerID) {
+		List<IQuestion> questionList = new LinkedList<>();
+		IQuestion question = QuestionAbstractFactory.instance().makeQuestion();
 		if (bannerID == "B000000") {
 			questionList.add(question);
 			return questionList;
 		}
 		return null;
+	}
+
+	@Override
+	public void loadQuestionByID(IQuestion question, long questionID) {
 	}
 }

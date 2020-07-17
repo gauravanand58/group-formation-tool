@@ -8,7 +8,6 @@
 		<title>CSCI5308 - Group Formation Tool</title>
 	</head>
 	<body>
-		<!-- I got the idea for how to do this from https://www.thymeleaf.org/doc/articles/springsecurity.html -->
 	  	<div sec:authorize="isAuthenticated()">
 	       <h4 th:inline="text">BannerID: [[${#httpServletRequest.remoteUser}]]</h4>
 	       <form th:action="@{/logout}" method="post">
@@ -18,7 +17,6 @@
 		
 			<div><button th:style="'visibility:'+@{${QuestionSet}}" ><a th:href="@{/createquestions(isUserInstructor=${isUserInstructor})}">Add Question</a></button></div>
 			<div><button th:style="'visibility:'+@{${QuestionSet}}" ><a th:href="@{/course/questionmanager(bannerID=${#httpServletRequest.remoteUser})}">View Questions</a></button></div>
-		
 		</div>
 	</body>
 </html>
